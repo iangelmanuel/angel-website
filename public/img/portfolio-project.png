@@ -1,0 +1,19 @@
+<!-- Placeholder for portfolio project image -->
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#1f2937"/>
+  <rect x="20" y="20" width="360" height="40" fill="#374151" rx="4"/>
+  <rect x="40" y="35" width="80" height="10" fill="#6b7280" rx="2"/>
+  <rect x="320" y="35" width="40" height="10" fill="#6b7280" rx="2"/>
+  
+  <rect x="20" y="80" width="360" height="200" fill="#111827" rx="8"/>
+  <rect x="40" y="100" width="320" height="20" fill="#3b82f6" rx="4"/>
+  <rect x="40" y="140" width="200" height="12" fill="#6b7280" rx="2"/>
+  <rect x="40" y="160" width="280" height="12" fill="#6b7280" rx="2"/>
+  <rect x="40" y="180" width="160" height="12" fill="#6b7280" rx="2"/>
+  
+  <rect x="40" y="220" width="60" height="30" fill="#3b82f6" rx="4"/>
+  <rect x="120" y="220" width="60" height="30" fill="#10b981" rx="4"/>
+  <rect x="200" y="220" width="60" height="30" fill="#f59e0b" rx="4"/>
+  
+  <text x="200" y="270" text-anchor="middle" fill="#9ca3af" font-family="Arial" font-size="12">Portfolio Project</text>
+</svg>

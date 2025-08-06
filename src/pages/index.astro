@@ -1,0 +1,34 @@
+---
+import type { GetStaticPaths } from "astro"
+
+import Layout from "@/layouts/Layout.astro"
+import About from "@/sections/About.astro"
+import Hero from "@/sections/Hero.astro"
+import Projects from "@/sections/Projects.astro"
+// import Experiencie from "@/sections/Experiencie.astro"
+import Contact from "@/sections/Contact.astro"
+
+import { es } from "@/i18n/es"
+import { en } from "@/i18n/en"
+import type { Language } from "@/types/language"
+
+export const getStaticPaths = (() => {
+  const languages = ["en", "es"]
+
+  return languages.map((lang) => ({
+    params: { lang }
+  }))
+}) satisfies GetStaticPaths
+
+const currentLang = Astro.currentLocale || "es"
+const translations = { en, es }
+const t = translations[currentLang as Language]
+---
+
+<Layout t={t}>
+  <Hero t={t} />
+  <About t={t} />
+  <Projects t={t} />
+  <!-- <Experiencie t={t} /> -->
+  <Contact t={t} />
+</Layout>

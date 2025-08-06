@@ -5,7 +5,7 @@ export const en: LanguageData = {
   seo: {
     title: "Angel De La Torre",
     description:
-      "Website of Angel De La Torre, a Full Stack Developer & Phone Developer based in Barranquilla, Colombia. Explore my work, skills, and contact me for your next project.",
+      "Website of Angel De La Torre, a Full Stack and Phone Developer based in Barranquilla, Colombia. Explore my work, skills, and contact me for your next project.",
     image: "/img/logo-ad.png",
     siteUrl: import.meta.env.SITE || "https://angel-app.vercel.app"
   },
@@ -19,77 +19,70 @@ export const en: LanguageData = {
     contact: "Contact"
   },
   hero: {
-    yearExp: "2+ years exp.",
+    yearExp: "2+ years of experience",
     available: {
       label: siteInfo.available
         ? "Available for new projects."
-        : "Not available for now."
+        : "Not available at the moment."
     },
     greeting: "Hi, I'm",
-    title: "Full Stack Developer & Phone Developer",
-    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on building products of ${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.quasarDesign.title}.`,
-    btn1: "See My Work",
+    title: "Full Stack and Phone Developer",
+    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="#" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.quasarDesign.title}</a>.`,
+    btn1: "View my work",
     btn2: "Download CV"
   },
   about: {
     badge: "About Me",
-    title: "Who I Am",
+    title: "Who I am",
     description1:
-      "I'm a Full Stack Developer with a passion for creating beautiful, functional, and user-centered digital experiences. With 10+ years of experience in the field, I am always looking for new and innovative ways to bring my clients' visions to life.",
+      "I'm a Full Stack Developer with a passion for creating beautiful, functional, and user-centered digital experiences. With over 2 years of experience in the field, I'm always looking for innovative ways to bring my clients' visions to life.",
     description2:
-      "I believe that design is about more than just making things look pretty – it's about solving problems and creating intuitive, enjoyable experiences for users.",
-
-    quickStats: {
-      title: "Quick Stats",
-
-      experiencieLabel: "Experience",
-      projectsLabel: "Projects",
-      clientsLabel: "Clients",
-      awardsLabel: "Awards",
-
-      experienceValue: "2+ Years",
-      projectsValue: "10+ Projects",
-      clientsValue: "5+ Clients",
-      awardsValue: "3 Awards"
+      "I believe design is more than just making something look good—it's about solving problems and creating intuitive, enjoyable experiences for users.",
+    skillsAndTechnologies: {
+      badge: "Skills & Technologies",
+      title: "What I do",
+      skills: [
+        {
+          label: "Frontend",
+          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+        },
+        {
+          label: "Backend",
+          skills: [
+            "Node.js",
+            "Express",
+            "Prisma ORM",
+            "PostgreSQL",
+            "Supabase",
+            "MongoDB"
+          ]
+        },
+        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+      ]
     }
-  },
-  skillsAndTechnologies: {
-    badge: "Skills & Technologies",
-    title: "What I Do",
-    skills: [
-      {
-        label: "Frontend",
-        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-      },
-      {
-        label: "Backend",
-        skills: ["Node.js", "Express", "Supabase", "PostgreSQL", "MongoDB"]
-      },
-      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-    ]
   },
   // certifications: {
   //   title: "Certifications",
-  //   viewCredential: "View Credential",
+  //   viewCredential: "View credential",
   //   issuedBy: "Issued by"
   // },
 
   projects: {
     badge: "Projects",
-    title: "What I Can Do",
+    title: "What I can do",
     github: "Code",
     demo: "Demo"
   },
 
   contact: {
     badge: "Contact Me",
-    title: "Get in Touch",
+    title: "Get in touch",
 
     availability: {
       availableLabel: "Availability",
-      availableData: siteInfo.available ? "Available" : "Not Available",
+      availableData: siteInfo.available ? "Available" : "Not available",
 
-      responseTimeLabel: "Response Time",
+      responseTimeLabel: "Response time",
       responseTimeData: "24-48 hours"
     },
 
@@ -97,7 +90,7 @@ export const en: LanguageData = {
       {
         id: "name",
         label: "Name",
-        placeholder: "Your Name",
+        placeholder: "Your name",
         type: "text"
       },
       {
@@ -120,10 +113,10 @@ export const en: LanguageData = {
       }
     ],
     submit: {
-      label: "Send Message",
+      label: "Send message",
       sending: "Sending",
       successMessage: "Message sent successfully!",
-      errorMessage: "Error sending message. Please try again later."
+      errorMessage: "Error sending message."
     }
   },
   footer: {

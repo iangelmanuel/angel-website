@@ -27,7 +27,7 @@ export const es: LanguageData = {
     },
     greeting: "Hola, soy",
     title: "Desarrollador Full Stack y de Teléfonos",
-    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de ${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.quasarDesign.title}.`,
+    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="#" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.quasarDesign.title}</a>.`,
     btn1: "Ver mi trabajo",
     btn2: "Descargar CV"
   },
@@ -35,38 +35,32 @@ export const es: LanguageData = {
     badge: "Sobre mí",
     title: "Quién soy",
     description1:
-      "Soy un Desarrollador Full Stack con pasión por crear experiencias digitales hermosas, funcionales y centradas en el usuario. Con más de 10 años de experiencia en el campo, siempre busco nuevas formas innovadoras de dar vida a las visiones de mis clientes.",
+      "Soy un Desarrollador Full Stack con pasión por crear experiencias digitales hermosas, funcionales y centradas en el usuario. Con más de 2 años de experiencia en el campo, siempre busco nuevas formas innovadoras de dar vida a las visiones de mis clientes.",
     description2:
       "Creo que el diseño es más que solo hacer que algo se vea bien: se trata de resolver problemas y crear experiencias intuitivas y agradables para los usuarios.",
 
-    quickStats: {
-      title: "Estadísticas rápidas",
-
-      experiencieLabel: "Experiencia",
-      projectsLabel: "Proyectos",
-      clientsLabel: "Clientes",
-      awardsLabel: "Premios",
-
-      experienceValue: "2+ años",
-      projectsValue: "10+ proyectos",
-      clientsValue: "5+ clientes",
-      awardsValue: "3 premios"
+    skillsAndTechnologies: {
+      badge: "Habilidades y Tecnologías",
+      title: "Lo que hago",
+      skills: [
+        {
+          label: "Frontend",
+          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+        },
+        {
+          label: "Backend",
+          skills: [
+            "Node.js",
+            "Express",
+            "Prisma ORM",
+            "PostgreSQL",
+            "Supabase",
+            "MongoDB"
+          ]
+        },
+        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+      ]
     }
-  },
-  skillsAndTechnologies: {
-    badge: "Habilidades y Tecnologías",
-    title: "Lo que hago",
-    skills: [
-      {
-        label: "Frontend",
-        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-      },
-      {
-        label: "Backend",
-        skills: ["Node.js", "Express", "Supabase", "PostgreSQL", "MongoDB"]
-      },
-      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-    ]
   },
   // certifications: {
   //   title: "Certificaciones",

@@ -5,7 +5,6 @@ export type LanguageData = {
   nav: Nav
   hero: Hero
   about: About
-  skillsAndTechnologies: SkillsAndTechnologies
   projects: Projects
   contact: Contact
   footer: Footer
@@ -23,19 +22,7 @@ export type About = {
   title: string
   description1: string
   description2: string
-  quickStats: QuickStats
-}
-
-export type QuickStats = {
-  title: string
-  experiencieLabel: string
-  projectsLabel: string
-  clientsLabel: string
-  awardsLabel: string
-  experienceValue: string
-  projectsValue: string
-  clientsValue: string
-  awardsValue: string
+  skillsAndTechnologies: SkillsAndTechnologies
 }
 
 export type Contact = {

@@ -27,12 +27,14 @@ const { t } = Astro.props
 
   <div class="container-width">
     <div class="mb-3">
-      <h2 class="section-initial-title">{t.skillsAndTechnologies.title}</h2>
+      <h2 class="section-initial-title">
+        {t.about.skillsAndTechnologies.title}
+      </h2>
     </div>
 
     <div class="space-y-3">
       {
-        t.skillsAndTechnologies.skills.map(({ label, skills }) => (
+        t.about.skillsAndTechnologies.skills.map(({ label, skills }) => (
           <div class="space-y-1">
             <h3 class="text-sm font-medium tracking-wider uppercase">
               {label}

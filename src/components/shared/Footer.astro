@@ -1,0 +1,63 @@
+---
+import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import type { LanguageData } from "@/types/language"
+import { siteInfo } from "@/const/site-info"
+
+type Props = {
+  t: LanguageData
+}
+
+const { t } = Astro.props
+---
+
+<footer class="mt-20 border-t py-6 sm:py-8">
+  <div class="container-width">
+    <div class="flex flex-col items-center gap-4 sm:gap-6">
+      <div class="text-center">
+        <h3 class="text-sm font-medium sm:text-base">
+          {siteInfo.authorNameAndSurname}
+        </h3>
+        <p class="text-muted-foreground text-xs sm:text-sm">
+          {t.hero.title}
+        </p>
+      </div>
+
+      <div class="flex items-center gap-6">
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+        >
+          <Github className="size-4 sm:h-5 sm:w-5" />
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+        >
+          <Linkedin className="size-4 sm:h-5 sm:w-5" />
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+        >
+          <Twitter className="size-4 sm:h-5 sm:w-5" />
+        </a>
+        <a
+          href="mailto:john@example.com"
+          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+        >
+          <Mail className="size-4 sm:h-5 sm:w-5" />
+        </a>
+      </div>
+
+      <div class="text-muted-foreground text-center text-xs">
+        <p>&copy; {t.footer.rights}</p>
+      </div>
+    </div>
+  </div>
+</footer>

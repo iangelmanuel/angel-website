@@ -1,0 +1,37 @@
+---
+import { Globe } from "lucide-react"
+import { Button } from "./ui/button"
+
+const { lang } = Astro.params
+---
+
+<Button
+  id="toggle-language"
+  data-lang={lang}
+  variant="ghost"
+  aria-label="Toggle Language"
+  className="mr-0 size-8 rounded-full transition-transform duration-300 hover:scale-110 sm:size-10"
+>
+  <Globe
+    className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
+  />
+</Button>
+
+<script>
+  import { navigate } from "astro:transitions/client"
+  import { $ } from "@/lib/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    const $button = $("#toggle-language") as HTMLButtonElement
+
+    $button.addEventListener("click", () => {
+      const currentLang = $button.dataset.lang
+      const newLang = currentLang === "en" ? "/" : "/en"
+      $button.dataset.lang = newLang
+
+      navigate(newLang, {
+        history: "replace"
+      })
+    })
+  })
+</script>

@@ -1,0 +1,73 @@
+---
+import { Calendar, MapPin } from "lucide-react"
+
+const experiences = [
+  {
+    position: "Senior Full Stack Developer",
+    company: "Tech Innovations Inc.",
+    period: "2020 - Present",
+    location: "San Francisco, CA",
+    description:
+      "Leading development of scalable web applications using modern technologies."
+  },
+  {
+    position: "Frontend Developer",
+    company: "Digital Solutions Ltd.",
+    period: "2018 - 2020",
+    location: "New York, NY",
+    description:
+      "Developed responsive web applications and improved user experience."
+  },
+  {
+    position: "Junior Developer",
+    company: "StartUp Co.",
+    period: "2016 - 2018",
+    location: "Austin, TX",
+    description:
+      "Built and maintained web applications while learning modern practices."
+  }
+]
+---
+
+<section
+  id="experience"
+  class="compact-section bg-secondary/50"
+>
+  <div class="container-width">
+    <h2 class="section-title text-center">Work Experience</h2>
+
+    <div class="space-y-4 sm:space-y-6">
+      {
+        experiences.map((exp, index) => (
+          <div class="glass-card p-4 sm:p-6">
+            <div class="flex flex-col gap-2 sm:gap-3 mb-3">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-2">
+                <div>
+                  <h3 class="text-base sm:text-lg font-medium">
+                    {exp.position}
+                  </h3>
+                  <h4 class="text-primary font-medium text-sm sm:text-base">
+                    {exp.company}
+                  </h4>
+                </div>
+                <div class="flex flex-col sm:items-end gap-1 text-xs sm:text-sm text-muted-foreground">
+                  <div class="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    {exp.period}
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <MapPin className="h-3 w-3" />
+                    {exp.location}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted-foreground text-xs sm:text-sm">
+              {exp.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

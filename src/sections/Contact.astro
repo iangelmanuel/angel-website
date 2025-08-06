@@ -1,0 +1,112 @@
+---
+import { ContactForm } from "@/components/ContactForm"
+import {
+  BadgeCheck,
+  BadgeMinus,
+  Mail,
+  MapPin,
+  Phone,
+  Timer
+} from "lucide-react"
+import { siteInfo } from "@/const/site-info"
+import type { LanguageData } from "@/types/language"
+import { Card, CardContent, CardTitle } from "@/components/ui/card"
+
+type Props = {
+  t: LanguageData
+}
+
+const { t } = Astro.props
+---
+
+<section
+  id="contact"
+  class="compact-section"
+>
+  <div class="container-width">
+    <h2 class="section-title text-center">{t.contact.title}</h2>
+
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:space-y-0">
+      <Card className="p-6">
+        <div>
+          <CardTitle className="mb-3 text-base font-medium sm:mb-4 sm:text-lg">
+            {t.contact.title}
+          </CardTitle>
+
+          <CardContent className="space-y-3 p-0 sm:space-y-4">
+            <div class="flex items-center gap-1.5">
+              <Mail className="text-primary size-4 flex-shrink-0" />
+              <a
+                href={`mailto:${siteInfo.email}`}
+                class="hover:text-primary text-xs break-all transition-colors hover:underline sm:text-sm"
+              >
+                {siteInfo.email}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Phone className="text-primary size-4 flex-shrink-0" />
+              <a
+                href={`tel:${siteInfo.phone}`}
+                class="hover:text-primary text-xs transition-colors hover:underline sm:text-sm"
+              >
+                {siteInfo.phone}
+              </a>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <MapPin className="text-primary size-4 flex-shrink-0" />
+              <span class="text-xs sm:text-sm">{siteInfo.location}</span>
+            </div>
+          </CardContent>
+        </div>
+
+        <div>
+          <CardTitle className="mb-3 text-base font-medium sm:mb-4 sm:text-lg">
+            {t.contact.availability.availableLabel}
+          </CardTitle>
+
+          <CardContent className="space-y-3 p-0 sm:space-y-4">
+            <div class="flex justify-between">
+              <div class="flex items-center gap-1.5">
+                {
+                  siteInfo.available ? (
+                    <BadgeCheck className="text-primary size-4 flex-shrink-0" />
+                  ) : (
+                    <BadgeMinus className="text-primary size-4 flex-shrink-0" />
+                  )
+                }
+                <span class="text-xs sm:text-sm"
+                  >{t.contact.availability.availableLabel}</span
+                >
+              </div>
+
+              <span
+                class:list={[
+                  "text-xs font-semibold sm:text-sm",
+                  siteInfo.available ? "text-green-500" : "text-red-500"
+                ]}
+              >
+                {t.contact.availability.availableData}</span
+              >
+            </div>
+            <div class="flex justify-between">
+              <div class="flex items-center gap-1.5">
+                <Timer className="text-primary size-4 flex-shrink-0" />
+                <span class="text-xs sm:text-sm"
+                  >{t.contact.availability.responseTimeLabel}</span
+                >
+              </div>
+
+              <span class="text-primary text-xs sm:text-sm"
+                >{t.contact.availability.responseTimeData}</span
+              >
+            </div>
+          </CardContent>
+        </div>
+      </Card>
+
+      <Card className="p-4 sm:p-6">
+        <ContactForm t={t} />
+      </Card>
+    </div>
+  </div>
+</section>

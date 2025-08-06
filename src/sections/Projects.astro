@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content"
+import type { LanguageData } from "@/types/language"
+import Project from "@/components/Project.astro"
+
+type Props = {
+  t: LanguageData
+}
+
+const { t } = Astro.props
+const currentLang = Astro.currentLocale || "es"
+
+const projectsCollection = await getCollection("projects", (project) => {
+  const [lang] = project.slug.split("/")
+  return lang === currentLang && project.data.featured
+})
+
+const projectsFilteredByDate = projectsCollection.sort((a, b) => {
+  return (
+    new Date(b.data.publishDate).getTime() -
+    new Date(a.data.publishDate).getTime()
+  )
+})
+---
+
+<section
+  id="projects"
+  class="compact-section bg-muted/10 border-t border-b py-10"
+>
+  <div class="container-width">
+    <h2 class="section-title text-center">{t.projects.title}</h2>
+
+    <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+      {
+        projectsFilteredByDate.map(({ data }) => (
+          <Project
+            data={data}
+            t={t}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -284,7 +284,7 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 - 🌐 Website: [iangeldelatorre.com](https://www.iangeldelatorre.com)
 - 💼 LinkedIn: [@iangelmanuel](https://linkedin.com/in/iangelmanuel)
 - 🐙 GitHub: [@iAngelManuel](https://github.com/iAngelManuel)
-- 📧 Email: mailto:iangelmanuel02@gmail.com
+- 📧 Email: [iangelmanuel02@gmail.com](mailto:iangelmanuel02@gmail.com)
 
 ---
 

@@ -1,0 +1,77 @@
+---
+import { ClientRouter } from "astro:transitions"
+import { siteInfo } from "@/const/site-info"
+
+import Seo from "@/components/shared/Seo.astro"
+import TopMenu from "@/components/shared/TopMenu.astro"
+import Footer from "@/components/shared/Footer.astro"
+
+import type { LanguageData } from "@/types/language"
+
+import "@/styles/global.css"
+
+type Props = {
+  image?: string
+  t: LanguageData
+}
+
+const { seo } = siteInfo
+const { image = seo.image, t } = Astro.props
+const { currentLocale } = Astro
+---
+
+<script is:inline>
+  document.addEventListener("astro:after-swap", () => {
+    const getThemePreference = () => {
+      if (
+        typeof localStorage !== "undefined" &&
+        localStorage.getItem("theme")
+      ) {
+        return localStorage.getItem("theme")
+      }
+
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light"
+    }
+
+    const isDark = getThemePreference() === "dark"
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+
+    if (typeof localStorage !== "undefined") {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains("dark")
+        localStorage.setItem("theme", isDark ? "dark" : "light")
+      })
+
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"]
+      })
+    }
+  })
+</script>
+
+<html
+  lang={currentLocale}
+  class="scroll-smooth"
+>
+  <head>
+    <Seo
+      title={t.seo.title}
+      description={t.seo.description}
+      image={image}
+    />
+    <ClientRouter />
+  </head>
+
+  <body class="selection:bg-blue-100 dark:selection:bg-blue-500/30">
+    <TopMenu t={t} />
+
+    <main class="space-y-5 sm:space-y-20">
+      <slot />
+    </main>
+
+    <Footer t={t} />
+  </body>
+</html>

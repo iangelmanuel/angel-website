@@ -1,0 +1,32 @@
+<main class="space-y-5 sm:space-y-20">
+  <slot />
+</main>
+
+<script>
+  import { gsap } from "gsap"
+  import { $$ } from "@/lib/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
+    const containers = $$(".container-width")
+    if (!containers) return
+
+    let items: HTMLElement[] = []
+
+    containers.forEach((container) => {
+      items = items.concat(Array.from(container.children) as HTMLElement[])
+    })
+
+    gsap.set(items, { willChange: "transform, filter" })
+
+    gsap.from(items, {
+      y: (i) => 20 + Math.min(i * 8, 80),
+      opacity: 0,
+      filter: "blur(25px)",
+      duration: 1,
+      ease: "power3.out",
+      stagger: { each: 0.08, from: "start" }
+    })
+  })
+</script>

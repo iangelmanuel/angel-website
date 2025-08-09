@@ -25,7 +25,7 @@ export function ModeToggle() {
       variant="ghost"
       size="icon"
       onClick={() => setThemeState(theme === "dark" ? "theme-light" : "dark")}
-      className="mr-0 h-8 w-8 rounded-full transition-transform duration-300 hover:scale-110 hover:bg-black/5 sm:h-10 sm:w-10 dark:hover:bg-white/5"
+      className="mr-0 size-8 rounded-full transition-transform duration-300 hover:scale-110 hover:bg-black/5 sm:size-10 dark:hover:bg-white/5"
       aria-label="Toggle theme"
     >
       <Sun className="size-4 scale-100 rotate-0 transition-all duration-300 sm:h-5 sm:w-5 dark:scale-0 dark:-rotate-90" />

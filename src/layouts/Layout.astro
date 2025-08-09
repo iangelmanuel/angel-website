@@ -9,6 +9,7 @@ import Footer from "@/components/shared/Footer.astro"
 import type { LanguageData } from "@/types/language"
 
 import "@/styles/global.css"
+import MainContent from "@/components/shared/MainContent.astro"
 
 type Props = {
   image?: string
@@ -22,15 +23,15 @@ const { currentLocale } = Astro
 
 <script is:inline>
   document.addEventListener("astro:after-swap", () => {
-    const getThemePreference = () => {
-      if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("theme")
-      ) {
+    const isLocalStorageAvailable = typeof localStorage !== "undefined"
+
+    function getThemePreference() {
+      if (isLocalStorageAvailable && localStorage.getItem("theme")) {
         return localStorage.getItem("theme")
       }
 
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
+      return isLocalStorageAvailable &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light"
     }
@@ -38,7 +39,7 @@ const { currentLocale } = Astro
     const isDark = getThemePreference() === "dark"
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
 
-    if (typeof localStorage !== "undefined") {
+    if (isLocalStorageAvailable) {
       const observer = new MutationObserver(() => {
         const isDark = document.documentElement.classList.contains("dark")
         localStorage.setItem("theme", isDark ? "dark" : "light")
@@ -68,9 +69,9 @@ const { currentLocale } = Astro
   <body class="selection:bg-blue-100 dark:selection:bg-blue-500/30">
     <TopMenu t={t} />
 
-    <main class="space-y-5 sm:space-y-20">
+    <MainContent>
       <slot />
-    </main>
+    </MainContent>
 
     <Footer t={t} />
   </body>

@@ -41,7 +41,7 @@ export const es: LanguageData = {
 
     skillsAndTechnologies: {
       badge: "Habilidades y Tecnologías",
-      title: "Lo que hago",
+      title: "Habilidades",
       skills: [
         {
           label: "Frontend",

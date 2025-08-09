@@ -33,14 +33,14 @@ export const en: LanguageData = {
   },
   about: {
     badge: "About Me",
-    title: "Who I am",
+    title: "About",
     description1:
       "I'm a Full Stack Developer with a passion for creating beautiful, functional, and user-centered digital experiences. With over 2 years of experience in the field, I'm always looking for innovative ways to bring my clients' visions to life.",
     description2:
       "I believe design is more than just making something look good—it's about solving problems and creating intuitive, enjoyable experiences for users.",
     skillsAndTechnologies: {
       badge: "Skills & Technologies",
-      title: "What I do",
+      title: "Skills",
       skills: [
         {
           label: "Frontend",

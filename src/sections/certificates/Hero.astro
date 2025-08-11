@@ -1,0 +1,54 @@
+---
+import { siteInfo } from "@/const/site-info"
+import type { LanguageData } from "@/types/language"
+
+type Props = {
+  t: LanguageData
+}
+
+const { t } = Astro.props
+const { certificates } = siteInfo
+---
+
+<section
+  class="compact-section m-0 flex items-center justify-center overflow-hidden pt-24 sm:pt-36"
+>
+  <div class="container-width text-center">
+    <div class="mb-4 inline-flex items-center gap-2">
+      <h2 class="text-5xl font-bold">{t.certificatesPage.pageData.title}</h2>
+    </div>
+
+    <p class="text-muted-foreground mx-auto mb-6 max-w-2xl">
+      {t.certificatesPage.pageData.description}
+    </p>
+
+    <div class="flex justify-center gap-8 text-sm">
+      <div class="text-center">
+        <div class="text-2xl font-bold">
+          {certificates.totalCourses}
+        </div>
+        <div class="text-muted-foreground">
+          {t.certificatesPage.pageData.coursesCompleted}
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="text-2xl font-bold">
+          {certificates.totalHours}+
+        </div>
+        <div class="text-muted-foreground">
+          {t.certificatesPage.pageData.hoursCompleted}
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="text-2xl font-bold">
+          {certificates.certifications}
+        </div>
+        <div class="text-muted-foreground">
+          {t.certificatesPage.pageData.certificatesEarned}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -6,6 +6,13 @@ export const siteInfo = {
   phone: "+57 317 579 6600",
   location: "Barranquilla, Colombia",
   available: true,
+
+  certificates: {
+    totalCourses: 10,
+    totalHours: 360,
+    certifications: 10
+  },
+
   work: {
     isWorking: false,
     company: "not available",

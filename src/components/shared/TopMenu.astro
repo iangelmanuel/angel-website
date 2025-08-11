@@ -17,10 +17,13 @@ const { nav } = t
 const navItems = [
   { href: "#about", label: nav.about },
   { href: "#projects", label: nav.projects },
-  { href: "#certifications", label: nav.certifications },
+  // TODO: Fix navigation bugs and navigation with the correct lang
+  // { href: "/certificates", label: nav.certifications },
   // { href: "#blog", label: nav.blog },
   { href: "#contact", label: nav.contact }
 ]
+
+const { pathname } = Astro.url
 ---
 
 <nav
@@ -40,7 +43,7 @@ const navItems = [
         {
           navItems.map((item) => (
             <a
-              href={item.href}
+              href={pathname === "/" ? item.href : `/${item.href}`}
               class="hover:text-primary group text-sm font-medium transition-all duration-500 hover:scale-105"
             >
               {item.label}

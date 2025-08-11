@@ -1,4 +1,5 @@
 import { defineCollection, z } from "astro:content"
+import { siteInfo } from "@/const/site-info"
 
 const projects = defineCollection({
   type: "content",
@@ -18,17 +19,20 @@ const projects = defineCollection({
   })
 })
 
-const certifications = defineCollection({
-  type: "content",
+const certificates = defineCollection({
+  type: "data",
   schema: z.object({
     title: z.string(),
     description: z.string(),
     issuer: z.string(),
-    issueDate: z.date(),
+    issueDate: z.date().optional(),
     credentialId: z.string().optional(),
     credentialUrl: z.string().url().optional(),
-    image: z.string(),
-    skills: z.array(z.string())
+    image: z.string().optional(),
+    skills: z.array(z.string()).optional(),
+    status: z
+      .enum(["completed", "in-progress", "paused", "planned"])
+      .default("completed")
   })
 })
 
@@ -39,7 +43,7 @@ const blog = defineCollection({
     description: z.string(),
     publishDate: z.date(),
     tags: z.array(z.string()),
-    author: z.string().default("Angel De La Torre"),
+    author: z.string().default(siteInfo.authorNameAndSurname),
     image: z.string(),
     draft: z.boolean().default(false)
   })
@@ -47,6 +51,6 @@ const blog = defineCollection({
 
 export const collections = {
   "projects": projects,
-  "certifications": certifications,
+  "certificates": certificates,
   "blog": blog
 }

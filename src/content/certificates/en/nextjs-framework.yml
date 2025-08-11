@@ -1,0 +1,16 @@
+title: "Next.js: The React Framework for Production"
+description: "Complete Next.js course: from installation to deployment, covering advanced features like Server-Side Rendering (SSR), Static Site Generation (SSG), API Routes, Middleware and performance optimization."
+issuer: "Udemy"
+issueDate: 2024-04-06
+credentialId: "UC-3e7529c2-6345-4417-90f3-9faa5bd8beb8"
+credentialUrl: "https://ude.my/UC-3e7529c2-6345-4417-90f3-9faa5bd8beb8"
+image: "/img/certificates/certificate-nextjs.webp"
+skills:
+  - JavaScript ES6+
+  - Async Programming
+  - Advanced DOM
+  - Design Patterns
+  - Modules
+  - Debugging
+  - Best Practices
+status: "completed"

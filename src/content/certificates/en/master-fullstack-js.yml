@@ -1,0 +1,16 @@
+title: "Master in Fullstack Programming with JavaScript, Angular and Node"
+description: "Comprehensive fullstack program: advanced JavaScript, SPA architecture with Angular, scalable APIs with Node/Express and deployment."
+issuer: "Udemy"
+issueDate: 2023-02-22
+credentialId: "UC-0718c831-551b-487a-8c95-0f84ef9e6b5d"
+credentialUrl: "https://ude.my/UC-0718c831-551b-487a-8c95-0f84ef9e6b5d"
+image: "/img/certificates/certificate-master-fullstack.webp"
+skills:
+  - Advanced JavaScript
+  - Angular
+  - Node.js
+  - REST APIs
+  - Fullstack Architecture
+  - Testing
+  - Deployment
+status: "completed"

@@ -1,0 +1,16 @@
+title: "Shadcn/ui: Componentes accesibles y personalizables"
+description: "Curso práctico sobre la librería shadcn/ui: instalación, configuración con Tailwind CSS, accesibilidad (ARIA), theming, diseño consistente y patrones de composición de componentes reutilizables en proyectos React/Next.js."
+issuer: "DevTalles"
+issueDate: 2024-06-12
+credentialId: "xiutrxgpov"
+credentialUrl: "https://cursos.devtalles.com/certificates/xiutrxgpov"
+image: "/img/certificates/certificate-shadcn.webp"
+skills:
+  - React
+  - shadcn/ui
+  - Tailwind CSS
+  - Accesibilidad
+  - Component Design
+  - UI Theming
+  - Reutilización de Código
+status: "completed"

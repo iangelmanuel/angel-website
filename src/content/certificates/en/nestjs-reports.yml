@@ -1,0 +1,16 @@
+title: "Nest.js + Reports: Generate PDFs from Node"
+description: "Implementation of PDF report and dynamic document generation in a Nest.js backend using rendering libraries, queues and architecture best practices."
+issuer: "DevTalles"
+# issueDate: 2024-05-02
+# credentialId: ""
+# credentialUrl: ""
+# image: ""
+# skills:
+#   - Nest.js
+#   - Node.js
+#   - PDF Generation
+#   - Backend Architecture
+#   - Queues
+#   - Performance Optimization
+#   - Security
+status: "planned"

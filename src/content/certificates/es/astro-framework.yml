@@ -1,0 +1,16 @@
+title: "Astro: El framework para sitios orientados al contenido"
+description: "Formación centrada en la construcción de sitios rápidos con Astro: Islands Architecture, optimización de recursos, integración con React/Vue/Svelte, markdown/MDX y despliegue."
+issuer: "Udemy"
+issueDate: 2024-08-11
+credentialId: "c1ryaugzlo"
+credentialUrl: "https://cursos.devtalles.com/certificates/c1ryaugzlo"
+image: "/img/certificates/certificate-astro.webp"
+skills:
+  - Astro
+  - Islands Architecture
+  - Performance Web
+  - Integración React
+  - Integración Markdown
+  - Optimización de Build
+  - Deploy Estático
+status: "completed"

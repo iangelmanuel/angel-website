@@ -1,0 +1,16 @@
+title: "Laravel 9 - Crea aplicaciones y sitios web con PHP 8 y MVC"
+description: "Desarrollo con Laravel 9: rutas, controladores, Eloquent ORM, autenticación, testing, APIs y despliegue sobre PHP 8."
+issuer: "Udemy"
+issueDate: 2023-06-02
+credentialId: "UC-e748a3e2-f8ba-40ef-a2e3-f7ce3d67356d"
+credentialUrl: "https://ude.my/UC-e748a3e2-f8ba-40ef-a2e3-f7ce3d67356d"
+image: "/img/certificates/certificate-laravel.webp"
+skills:
+  - Laravel
+  - PHP 8
+  - MVC
+  - Eloquent ORM
+  - REST APIs
+  - Autenticación
+  - Testing
+status: "completed"

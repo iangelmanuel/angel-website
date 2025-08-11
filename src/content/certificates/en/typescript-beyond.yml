@@ -1,0 +1,16 @@
+title: "TypeScript Beyond Borders: Definitive Guide"
+description: "Mastering TypeScript: advanced typing, generics, utility types, React/Node integration, strict configuration and design patterns."
+issuer: "Udemy"
+issueDate: 2024-01-20
+credentialId: "UC-9e5d3fde-5dbd-4daf-8025-1fa1fdc3ad0e"
+credentialUrl: "https://ude.my/UC-9e5d3fde-5dbd-4daf-8025-1fa1fdc3ad0e"
+image: "/img/certificates/certificate-typescript.webp"
+skills:
+  - TypeScript
+  - Advanced Typing
+  - Generics
+  - React + TS
+  - Node.js + TS
+  - Refactoring
+  - Design Patterns
+status: "completed"

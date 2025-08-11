@@ -1,30 +1,32 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function ModeToggle() {
-  const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">(
-    "theme-light"
-  )
+  const [theme, setTheme] = useState<"light" | "dark">("light")
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark")
-    setThemeState(isDarkMode ? "dark" : "theme-light")
+    const stored = localStorage.getItem("theme") as "light" | "dark" | null
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches
+    const initial = stored ?? (prefersDark ? "dark" : "light")
+    setTheme(initial)
+    document.documentElement.classList.toggle("dark", initial === "dark")
   }, [])
 
   useEffect(() => {
-    const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+    document.documentElement.classList.toggle("dark", theme === "dark")
+    localStorage.setItem("theme", theme)
   }, [theme])
+
+  const toggle = () => setTheme((prev) => (prev === "dark" ? "light" : "dark"))
 
   return (
     <Button
       variant="ghost"
       size="icon"
-      onClick={() => setThemeState(theme === "dark" ? "theme-light" : "dark")}
+      onClick={toggle}
       className="mr-0 size-8 rounded-full transition-transform duration-300 hover:scale-110 hover:bg-black/5 sm:size-10 dark:hover:bg-white/5"
       aria-label="Toggle theme"
     >

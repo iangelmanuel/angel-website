@@ -8,6 +8,7 @@ export type LanguageData = {
   projects: Projects
   contact: Contact
   footer: Footer
+  certificatesPage: CertificatesPage
 }
 
 export type Seo = {
@@ -15,6 +16,7 @@ export type Seo = {
   description: string
   image: string
   siteUrl: string
+  certificatesPage: CertificatesPageSeo
 }
 
 export type About = {
@@ -23,6 +25,7 @@ export type About = {
   description1: string
   description2: string
   skillsAndTechnologies: SkillsAndTechnologies
+  education: Education
 }
 
 export type Contact = {
@@ -93,6 +96,38 @@ export type SkillsAndTechnologies = {
   badge: string
   title: string
   skills: Skill[]
+}
+
+export type Education = {
+  title: string
+  educations: EducationDetail[]
+}
+
+export type EducationDetail = {
+  logo: string
+  academy: string
+  degree: string
+  year: string
+  courses: string[]
+}
+
+export type CertificatesPageSeo = {
+  title: string
+  description: string
+}
+
+export type CertificatesPage = {
+  title: string
+  btnToRedirect: string
+  pageData: CertificatesPageData
+}
+
+export type CertificatesPageData = {
+  title: string
+  description: string
+  coursesCompleted: string
+  hoursCompleted: string
+  certificatesEarned: string
 }
 
 export type Skill = {

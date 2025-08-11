@@ -7,7 +7,12 @@ export const en: LanguageData = {
     description:
       "Website of Angel De La Torre, a Full Stack and Phone Developer based in Barranquilla, Colombia. Explore my work, skills, and contact me for your next project.",
     image: "/img/logo-ad.png",
-    siteUrl: import.meta.env.SITE || "https://angel-app.vercel.app"
+    siteUrl: import.meta.env.SITE || "https://angel-app.vercel.app",
+    certificatesPage: {
+      title: "Certifications - Angel De La Torre",
+      description:
+        "Explore the certifications and courses completed by Angel De La Torre, a Full Stack and Phone Developer. Validate my skills and knowledge through recognized credentials."
+    }
   },
   nav: {
     about: "About",
@@ -58,6 +63,37 @@ export const en: LanguageData = {
           ]
         },
         { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+      ]
+    },
+    education: {
+      title: "Education",
+      educations: [
+        {
+          logo: "/img/academy-logo/devtalles.webp",
+          academy: "Devtalles",
+          degree: "Frontend and Backend Web Development",
+          year: "2024 - Present",
+          courses: [
+            "Shadcn/ui: Accessible and Customizable Components",
+            "Astro: The Framework for Content-Oriented Websites",
+            "OpenAI: Practical Exercises and Assistants with React + Nest.js",
+            "Nest.js + Reports: Generate PDFs from Node",
+            "React Native Expo: Native Applications for iOS and Android"
+          ]
+        },
+        {
+          logo: "/img/academy-logo/udemy.webp",
+          academy: "Udemy",
+          degree: "Full Stack Web Development",
+          year: "2023 - 2024",
+          courses: [
+            "Master in Fullstack Programming with JavaScript, Angular, and Node",
+            "Modern JavaScript – The Definitive Guide. Build 20+ Projects",
+            "React – The Complete Guide: Hooks, Context, Redux, MERN. 15+ Apps",
+            "TypeScript Without Borders – The Definitive Guide",
+            "Laravel 9 – Build Applications and Websites with PHP 8 and MVC"
+          ]
+        }
       ]
     }
   },
@@ -121,5 +157,17 @@ export const en: LanguageData = {
   },
   footer: {
     rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
+  },
+  certificatesPage: {
+    title: "Certifications",
+    btnToRedirect: "View certifications",
+    pageData: {
+      title: "Education and Certifications",
+      description:
+        "My continuous learning through the best educational platforms and the certifications that validate my knowledge.",
+      coursesCompleted: "Courses completed",
+      hoursCompleted: "Hours completed",
+      certificatesEarned: "Certifications"
+    }
   }
 }

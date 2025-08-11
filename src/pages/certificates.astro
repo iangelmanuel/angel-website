@@ -1,9 +1,7 @@
 ---
 import Layout from "@/layouts/Layout.astro"
-import About from "@/sections/home-page/About.astro"
-import Hero from "@/sections/home-page/Hero.astro"
-import Projects from "@/sections/home-page/Projects.astro"
-import Contact from "@/sections/home-page/Contact.astro"
+import Hero from "@/sections/certificates/Hero.astro"
+import CertificatesGrid from "@/sections/certificates/CertificatesGrid.astro"
 
 import { es } from "@/i18n/es"
 import { en } from "@/i18n/en"
@@ -16,11 +14,9 @@ const t = translations[currentLang as Language]
 
 <Layout
   t={t}
-  title={t.seo.title}
-  description={t.seo.description}
+  title={t.seo.certificatesPage.title}
+  description={t.seo.certificatesPage.description}
 >
   <Hero t={t} />
-  <About t={t} />
-  <Projects t={t} />
-  <Contact t={t} />
+  <CertificatesGrid />
 </Layout>

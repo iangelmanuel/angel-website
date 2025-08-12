@@ -160,12 +160,12 @@ export const en: LanguageData = {
     rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
   },
   certificatesPage: {
-    title: "Certifications",
-    btnToRedirect: "View certifications",
+    title: "Certificates",
+    btnToRedirect: "View Certificates",
     pageData: {
-      title: "Education and Certifications",
+      title: "Education and Certificates",
       description:
-        "My continuous learning through the best educational platforms and the certifications that validate my knowledge.",
+        "My continuous learning through the best educational platforms and the certificates that validate my knowledge.",
       coursesCompleted: "Courses completed",
       hoursCompleted: "Hours completed",
       certificatesEarned: "Certifications"

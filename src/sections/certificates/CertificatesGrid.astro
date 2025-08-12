@@ -1,14 +1,13 @@
 ---
 import { getCollection } from "astro:content"
+import CertificateCard from "@/components/CertificateCard.astro"
+import type { LanguageData } from "@/types/language"
 
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { buttonVariants } from "@/components/ui/button"
+type Props = {
+  t: LanguageData
+}
 
-import { dateFormatter } from "@/lib/dateFormatter"
-
-import { Calendar, ExternalLink } from "lucide-react"
-
+const { t } = Astro.props
 const currentLang = Astro.currentLocale || "es"
 
 const certificates = await getCollection("certificates", (cert) => {
@@ -26,90 +25,14 @@ const sortByIssueDate = certificates.sort((a, b) => {
 
 <section class="compact-section pt-10">
   <div
-    class="container-width grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3"
+    class="container-width grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
   >
     {
       sortByIssueDate.map((cert) => (
-        <Card className="group overflow-hidden gap-0 pt-0 h-[450px]">
-          <CardHeader className="relative p-0">
-            <div class="aspect-[4/3] overflow-hidden">
-              <img
-                src={cert.data.image}
-                alt={`Certificación ${cert.data.title}`}
-                class="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <div class="absolute top-3 right-3">
-              <Badge
-                variant="certificateVariant"
-                className="text-xs"
-              >
-                {cert.data.issuer}
-              </Badge>
-            </div>
-          </CardHeader>
-
-          <CardContent className="px-4">
-            <div class="mb-3">
-              <h4 class="mb-1 line-clamp-2 text-sm font-semibold">
-                {cert.data.title}
-              </h4>
-              <div class="text-muted-foreground flex items-center gap-1 text-xs">
-                <Calendar className="size-3" />
-                <span>
-                  {dateFormatter(cert.data.issueDate!, {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric"
-                  })}
-                </span>
-              </div>
-              {cert.data.credentialId && (
-                <p class="text-muted-foreground mt-1 text-xs">
-                  ID: {cert.data.credentialId}
-                </p>
-              )}
-            </div>
-
-            <div class="mb-3">
-              <div class="flex flex-wrap gap-1">
-                {cert.data.skills!.slice(0, 3).map((skill) => (
-                  <Badge
-                    variant="outline"
-                    className="text-xs"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
-                {cert.data.skills!.length > 3 && (
-                  <Badge
-                    variant="secondary"
-                    className="text-xs"
-                  >
-                    +{cert.data.skills!.length - 3}
-                  </Badge>
-                )}
-              </div>
-            </div>
-          </CardContent>
-
-          <CardFooter className="mt-auto px-4">
-            {cert.data.credentialUrl && (
-              <a
-                href={cert.data.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class:list={[
-                  "inline-flex items-center justify-center",
-                  buttonVariants({ variant: "outline", size: "sm" })
-                ]}
-              >
-                <ExternalLink className="w-3 h-3" />
-                Verificar
-              </a>
-            )}
-          </CardFooter>
-        </Card>
+        <CertificateCard
+          t={t}
+          cert={cert}
+        />
       ))
     }
   </div>

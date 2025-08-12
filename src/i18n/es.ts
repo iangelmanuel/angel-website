@@ -11,7 +11,8 @@ export const es: LanguageData = {
     certificatesPage: {
       title: "Certificaciones - Angel De La Torre",
       description:
-        "Explora las certificaciones y cursos completados por Angel De La Torre, un Desarrollador Full Stack y de Teléfonos. Valida mis habilidades y conocimientos a través de credenciales reconocidas."
+        "Explora las certificaciones y cursos completados por Angel De La Torre, un Desarrollador Full Stack y de Teléfonos. Valida mis habilidades y conocimientos a través de credenciales reconocidas.",
+      btnToVerify: "Verificar"
     }
   },
   nav: {

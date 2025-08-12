@@ -11,6 +11,7 @@ export type LanguageData = {
   certificatesPage: CertificatesPage
 }
 
+// SEO Types
 export type Seo = {
   title: string
   description: string
@@ -19,6 +20,39 @@ export type Seo = {
   certificatesPage: CertificatesPageSeo
 }
 
+export type CertificatesPageSeo = {
+  title: string
+  description: string
+  btnToVerify: string
+}
+
+// Navigation Types
+export type Nav = {
+  about: string
+  skills: string
+  projects: string
+  experience: string
+  blog: string
+  certifications: string
+  contact: string
+}
+
+// Hero Types
+export type Hero = {
+  yearExp: string
+  available: HeroAvailable
+  greeting: string
+  title: string
+  description: string
+  btn1: string
+  btn2: string
+}
+
+export type HeroAvailable = {
+  label: string
+}
+
+// About Types
 export type About = {
   badge: string
   title: string
@@ -28,6 +62,39 @@ export type About = {
   education: Education
 }
 
+export type SkillsAndTechnologies = {
+  badge: string
+  title: string
+  skills: Skill[]
+}
+
+export type Skill = {
+  label: string
+  skills: string[]
+}
+
+export type Education = {
+  title: string
+  educations: EducationDetail[]
+}
+
+export type EducationDetail = {
+  logo: string
+  academy: string
+  degree: string
+  year: string
+  courses: string[]
+}
+
+// Projects Types
+export type Projects = {
+  badge: string
+  title: string
+  github: string
+  demo: string
+}
+
+// Contact Types
 export type Contact = {
   badge: string
   title: string
@@ -41,13 +108,6 @@ export type Availability = {
   availableData: string
   responseTimeLabel: string
   responseTimeData: string
-}
-
-export type Projects = {
-  badge: string
-  title: string
-  github: string
-  demo: string
 }
 
 export type Form = {
@@ -64,58 +124,12 @@ export type Submit = {
   errorMessage: string
 }
 
+// Footer Types
 export type Footer = {
   rights: string
 }
 
-export type Hero = {
-  yearExp: string
-  available: HeroAvailable
-  greeting: string
-  title: string
-  description: string
-  btn1: string
-  btn2: string
-}
-
-export type Nav = {
-  about: string
-  skills: string
-  projects: string
-  experience: string
-  blog: string
-  certifications: string
-  contact: string
-}
-
-export type HeroAvailable = {
-  label: string
-}
-
-export type SkillsAndTechnologies = {
-  badge: string
-  title: string
-  skills: Skill[]
-}
-
-export type Education = {
-  title: string
-  educations: EducationDetail[]
-}
-
-export type EducationDetail = {
-  logo: string
-  academy: string
-  degree: string
-  year: string
-  courses: string[]
-}
-
-export type CertificatesPageSeo = {
-  title: string
-  description: string
-}
-
+// Certificates Page Types
 export type CertificatesPage = {
   title: string
   btnToRedirect: string
@@ -128,9 +142,4 @@ export type CertificatesPageData = {
   coursesCompleted: string
   hoursCompleted: string
   certificatesEarned: string
-}
-
-export type Skill = {
-  label: string
-  skills: string[]
 }

@@ -1,6 +1,7 @@
 ---
 import { Badge } from "@/components/ui/badge"
 import type { LanguageData } from "@/types/language"
+import { LinkIcon } from "lucide-react"
 
 type Props = {
   t: LanguageData
@@ -35,9 +36,11 @@ const currentLang = Astro.currentLocale
 
       <a
         href={currentLang === "en" ? "/en/certificates" : "/certificates"}
-        class="text-muted-foreground text-xs hover:underline sm:text-sm"
-        >{t.certificatesPage.btnToRedirect}</a
+        class="text-muted-foreground inline-flex items-center gap-x-1 text-xs hover:underline sm:text-sm"
       >
+        {t.certificatesPage.btnToRedirect}
+        <LinkIcon className="size-3" />
+      </a>
     </div>
 
     <div class="flex flex-col gap-4">

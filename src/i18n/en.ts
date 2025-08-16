@@ -154,11 +154,35 @@ export const en: LanguageData = {
       sending: "Sending",
       successMessage: "Message sent successfully!",
       errorMessage: "Error sending message."
+    },
+
+    contactFormValidation: {
+      name: {
+        required: "Name is required",
+        min: "Name must be at least 2 characters",
+        max: "Name cannot exceed 50 characters"
+      },
+      email: {
+        required: "Email is required",
+        pattern: "Please enter a valid email address"
+      },
+      subject: {
+        required: "Subject is required",
+        min: "Subject must be at least 2 characters",
+        max: "Subject cannot exceed 100 characters"
+      },
+      message: {
+        required: "Message is required",
+        min: "Message must be at least 10 characters",
+        max: "Message cannot exceed 1000 characters"
+      }
     }
   },
+
   footer: {
     rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
   },
+
   certificatesPage: {
     title: "Certificates",
     btnToRedirect: "View Certificates",

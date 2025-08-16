@@ -5,6 +5,7 @@ import { siteInfo } from "@/const/site-info"
 import Seo from "@/components/shared/Seo.astro"
 import TopMenu from "@/components/shared/TopMenu.astro"
 import MainContent from "@/components/shared/MainContent.astro"
+import { Toaster } from "@/components/ui/sonner"
 import Footer from "@/components/shared/Footer.astro"
 
 import type { LanguageData } from "@/types/language"
@@ -62,6 +63,13 @@ const { currentLocale } = Astro
     <MainContent>
       <slot />
     </MainContent>
+
+    <Toaster
+      position="top-right"
+      richColors
+      duration={3000}
+      client:visible
+    />
 
     <Footer t={t} />
   </body>

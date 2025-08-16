@@ -80,6 +80,40 @@ pnpm eslint
 - **Componentes**: PascalCase (`MyComponent`)
 - **Variables**: camelCase (`myVariable`)
 - **Constantes**: UPPER_SNAKE_CASE (`MY_CONSTANT`)
+- **Content Collections**: kebab-case (`certificate-name.yml`)
+- **Rutas**: kebab-case (`/my-page`)
+
+### Content Collections
+
+Este proyecto utiliza Astro Content Collections para gestionar:
+
+- **Certificados**: Archivos YAML en `src/content/certificates/`
+- **Proyectos**: Archivos Markdown en `src/content/projects/`
+
+Al contribuir contenido:
+
+```yaml
+# Ejemplo de certificado (src/content/certificates/es/mi-certificado.yml)
+title: "Mi Certificado"
+description: "Descripción del certificado"
+issuer: "Plataforma"
+issueDate: 2024-01-15
+image: "/img/certificates/mi-certificado.webp"
+skills:
+  - Skill 1
+  - Skill 2
+status: "completed"
+```
+
+### Sistema de Temas
+
+El sistema de temas usa:
+
+- `localStorage('theme')` para persistencia
+- Clase `dark` en `<html>` para styling
+- Variables CSS personalizadas con Tailwind v4
+
+No uses `next-themes` u otras librerías de temas externas.
 
 ## 📝 Estructura de Commits
 

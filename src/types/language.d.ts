@@ -1,3 +1,5 @@
+import type { FieldValidation } from "react-hook-form"
+
 export type Language = "es" | "en"
 
 export type LanguageData = {
@@ -101,6 +103,7 @@ export type Contact = {
   availability: Availability
   form: Form[]
   submit: Submit
+  contactFormValidation: ContactFormValidation
 }
 
 export type Availability = {
@@ -122,6 +125,13 @@ export type Submit = {
   sending: string
   successMessage: string
   errorMessage: string
+}
+
+export type ContactFormValidation = {
+  name: FieldValidation
+  email: FieldValidation & { pattern: { message: string } }
+  subject: FieldValidation
+  message: FieldValidation
 }
 
 // Footer Types

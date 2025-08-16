@@ -2,11 +2,15 @@ import { defineConfig } from "astro/config"
 import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
 
+import vercel from "@astrojs/vercel"
+
 export default defineConfig({
   integrations: [react()],
+
   vite: {
     plugins: [tailwindcss()]
   },
+
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
@@ -14,5 +18,9 @@ export default defineConfig({
       prefixDefaultLocale: false
     }
   },
-  url: "https://www.iangeldelatorre.com"
+
+  site: "https://angel-website-pi.vercel.app/",
+
+  adapter: vercel({ webAnalytics: true }),
+  output: "static"
 })

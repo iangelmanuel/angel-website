@@ -21,13 +21,16 @@
 ## 🚀 Características Principales
 
 - ✨ **Diseño Moderno**: Interfaz minimalista inspirada en Apple con glassmorphism
-- 🌓 **Tema Claro/Oscuro**: Toggle suave entre modos con persistencia local
+- 🌓 **Tema Claro/Oscuro**: Toggle suave entre modos con persistencia local y sincronización
 - 🌍 **Multiidioma**: Soporte completo para español e inglés (i18n)
 - 📱 **Totalmente Responsive**: Optimizado para dispositivos móviles, tablets y desktop
 - ⚡ **Rendimiento Óptimo**: Construido con Astro para máxima velocidad
 - 🎨 **Animaciones Fluidas**: Transiciones suaves con GSAP y Tailwind CSS
 - ♿ **Accesibilidad**: Cumple con estándares WCAG para mejor inclusividad
 - 🔍 **SEO Optimizado**: Meta tags, structured data y sitemap incluidos
+- 🎓 **Content Collections**: Gestión de proyectos y certificados con Astro Content Collections
+- 🎨 **shadcn/ui**: Componentes accesibles y personalizables integrados
+- 📧 **Formulario de Contacto**: Sistema de envío de emails integrado con Resend API
 
 ## 🛠️ Stack Tecnológico
 
@@ -40,6 +43,7 @@
 ### Styling & UI
 
 - **[Tailwind CSS 4.1.11](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[shadcn/ui](https://ui.shadcn.com/)** - Componentes accesibles y personalizables
 - **[Radix UI](https://www.radix-ui.com/)** - Componentes primitivos accesibles
 - **[Lucide React](https://lucide.dev/)** - Iconografía moderna y consistente
 - **[Class Variance Authority](https://cva.style/)** - Gestión de variantes CSS
@@ -54,6 +58,7 @@
 - **[Prettier](https://prettier.io/)** - Formateo automático de código
 - **[ESLint](https://eslint.org/)** - Linting y análisis estático
 - **[pnpm](https://pnpm.io/)** - Gestor de paquetes eficiente
+- **[Resend](https://resend.com/)** - Servicio de envío de emails para formularios de contacto
 
 ## 📁 Estructura del Proyecto
 
@@ -61,34 +66,78 @@
 angel-website/
 ├── 📂 public/                    # Archivos estáticos
 │   ├── 📂 img/                  # Imágenes del portfolio
+│   │   ├── 📂 certificates/     # Imágenes de certificados
+│   │   ├── 📂 projects/         # Screenshots de proyectos
+│   │   ├── 📂 academy-logo/     # Logos de academias/plataformas
 │   │   ├── hero.jpeg            # Imagen principal
 │   │   ├── about.jpg            # Foto personal
-│   │   └── *.png                # Screenshots de proyectos
+│   │   └── profile-photo.webp   # Foto de perfil optimizada
 │   └── favicon.svg              # Icono del sitio
 ├── 📂 src/
 │   ├── 📂 components/           # Componentes reutilizables
 │   │   ├── 📂 shared/          # Componentes compartidos
 │   │   │   ├── TopMenu.astro   # Navegación principal
-│   │   │   └── AsideMobileMenu.astro # Menú móvil lateral
-│   │   └── 📂 ui/              # Componentes de UI base
-│   │       ├── button.tsx      # Componente botón
-│   │       └── card.tsx        # Componente tarjeta
+│   │   │   ├── AsideMobileMenu.astro # Menú móvil lateral
+│   │   │   ├── Footer.astro    # Pie de página
+│   │   │   └── MainContent.astro # Contenedor principal
+│   │   ├── 📂 ui/              # Componentes de UI base (shadcn/ui)
+│   │   │   ├── button.tsx      # Componente botón
+│   │   │   ├── card.tsx        # Componente tarjeta
+│   │   │   ├── input.tsx       # Campo de entrada
+│   │   │   ├── label.tsx       # Etiqueta
+│   │   │   ├── textarea.tsx    # Área de texto
+│   │   │   └── badge.tsx       # Componente insignia
+│   │   ├── ModeToggle.tsx      # Toggle tema claro/oscuro
+│   │   ├── ContactForm.tsx     # Formulario de contacto
+│   │   ├── Project.astro       # Componente de proyecto
+│   │   └── ToggleLanguage.astro # Selector de idioma
+│   ├── 📂 content/             # Contenido gestionado por Astro Content Collections
+│   │   ├── 📂 certificates/    # Certificaciones y cursos
+│   │   │   ├── 📂 es/          # Certificados en español
+│   │   │   └── 📂 en/          # Certificados en inglés
+│   │   ├── 📂 projects/        # Proyectos del portfolio
+│   │   │   ├── 📂 es/          # Proyectos en español
+│   │   │   └── 📂 en/          # Proyectos en inglés
+│   │   ├── 📂 blog/            # Artículos del blog (futuro)
+│   │   └── config.ts           # Configuración de Content Collections
 │   ├── 📂 sections/            # Secciones de la página
-│   │   ├── Hero.astro          # Sección principal
-│   │   ├── About.astro         # Acerca de mí
-│   │   ├── Projects.astro      # Portfolio de proyectos
-│   │   └── Contact.astro       # Formulario de contacto
+│   │   ├── 📂 home-page/       # Secciones de la página principal
+│   │   │   ├── Hero.astro      # Sección principal
+│   │   │   ├── About.astro     # Acerca de mí
+│   │   │   ├── Projects.astro  # Portfolio de proyectos
+│   │   │   ├── Experience.astro # Experiencia profesional
+│   │   │   └── Contact.astro   # Formulario de contacto
+│   │   └── 📂 certificates/    # Secciones de certificados
+│   │       ├── Hero.astro      # Hero de certificados
+│   │       └── CertificatesGrid.astro # Grid de certificados
 │   ├── 📂 i18n/               # Internacionalización
 │   │   ├── en.ts              # Traducciones en inglés
 │   │   └── es.ts              # Traducciones en español
 │   ├── 📂 styles/             # Estilos globales
-│   │   └── global.css         # CSS personalizado y variables
+│   │   └── global.css         # CSS personalizado y variables Tailwind v4
 │   ├── 📂 types/              # Definiciones TypeScript
+│   │   ├── language.d.ts      # Tipos para idiomas
+│   │   └── navigation.d.ts    # Tipos para navegación
+│   ├── 📂 utils/              # Utilidades y helpers
+│   │   └── dateFormatter.ts   # Formateo de fechas
+│   ├── 📂 lib/                # Librerías y configuraciones
+│   │   ├── utils.ts           # Utilidades generales
+│   │   └── dom-selector.ts    # Selector de DOM
+│   ├── 📂 const/              # Constantes de la aplicación
+│   │   └── site-info.ts       # Información del sitio
 │   ├── 📂 layouts/            # Layouts de página
+│   │   └── Layout.astro       # Layout principal
 │   └── 📂 pages/              # Rutas de la aplicación
-│       └── index.astro        # Página principal
+│       ├── index.astro        # Página principal
+│       ├── certificates.astro # Página de certificados
+│       └── 📂 [lang]/         # Rutas multiidioma
+│           ├── index.astro    # Página principal por idioma
+│           └── certificates.astro # Certificados por idioma
 ├── astro.config.mjs           # Configuración de Astro
+├── components.json            # Configuración de shadcn/ui
+├── tsconfig.json              # Configuración de TypeScript
 ├── package.json               # Dependencias y scripts
+├── pnpm-workspace.yaml        # Configuración del workspace
 └── README.md                  # Documentación del proyecto
 ```
 
@@ -102,6 +151,8 @@ angel-website/
 - **Microinteracciones**: Animaciones sutiles que mejoran la experiencia
 
 ### 🎭 Sistema de Temas
+
+El sitio implementa un sistema de temas robusto con persistencia entre navegaciones:
 
 ```css
 /* Modo Claro */
@@ -118,6 +169,14 @@ angel-website/
   --primary: oklch(0.922 0 0);
 }
 ```
+
+**Características del sistema de temas:**
+
+- ⚡ **Aplicación temprana**: El tema se aplica antes del renderizado para evitar FOUC
+- 💾 **Persistencia local**: Guarda la preferencia en `localStorage('theme')`
+- 🔄 **Sincronización**: Mantiene el tema consistente durante la navegación con Astro transitions
+- 🌓 **Detección del sistema**: Respeta la preferencia del sistema operativo como fallback
+- 🎨 **Tailwind CSS v4**: Totalmente compatible con la nueva versión de Tailwind
 
 ### 📱 Responsive Design
 
@@ -141,7 +200,24 @@ angel-website/
    cd angel-website
    ```
 
-2. **Instalar dependencias**
+2. **Configurar variables de entorno**
+
+   ```bash
+   # Copia el archivo de template de variables de entorno
+   cp .env.template .env
+
+   # Edita el archivo .env con tus configuraciones
+   # Necesarias para el formulario de contacto por email
+   ```
+
+   Variables requeridas:
+
+   ```bash
+   # API Key de Resend para envío de emails
+   RESEND_API_KEY="your_resend_api_key_here"
+   ```
+
+3. **Instalar dependencias**
 
    ```bash
    pnpm install
@@ -149,7 +225,7 @@ angel-website/
    npm install
    ```
 
-3. **Iniciar servidor de desarrollo**
+4. **Iniciar servidor de desarrollo**
 
    ```bash
    pnpm dev
@@ -157,7 +233,7 @@ angel-website/
    npm run dev
    ```
 
-4. **Abrir en el navegador**
+5. **Abrir en el navegador**
    ```
    http://localhost:4321
    ```
@@ -220,8 +296,19 @@ Modifica las variables CSS en `src/styles/global.css`:
 
 1. **Información Personal**: Edita `src/i18n/es.ts` y `src/i18n/en.ts`
 2. **Imágenes**: Reemplaza archivos en `public/img/`
-3. **Proyectos**: Modifica `src/sections/Projects.astro`
-4. **Redes Sociales**: Actualiza enlaces en componentes
+3. **Proyectos**: Añade/edita archivos en `src/content/projects/`
+4. **Certificados**: Añade/edita archivos en `src/content/certificates/`
+5. **Información del sitio**: Modifica `src/const/site-info.ts`
+
+### Gestión de Contenido
+
+El proyecto utiliza **Astro Content Collections** para gestionar:
+
+- **Proyectos**: Archivos markdown en `src/content/projects/`
+- **Certificados**: Archivos YAML en `src/content/certificates/`
+- **Blog**: Preparado para artículos futuros en `src/content/blog/`
+
+Cada colección soporta contenido en español (`es/`) e inglés (`en/`) para una experiencia multiidioma completa.
 
 ## 📈 Rendimiento y Optimización
 

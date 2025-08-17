@@ -183,6 +183,13 @@ export const en: LanguageData = {
     rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
   },
 
+  actionsResponses: {
+    contactForm: {
+      success: "Message sent successfully!",
+      error: "There was an error sending your message. Please try again later."
+    }
+  },
+
   certificatesPage: {
     title: "Certificates",
     btnToRedirect: "View Certificates",

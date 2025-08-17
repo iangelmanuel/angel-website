@@ -9,6 +9,8 @@ We take security seriously and will provide security updates for the following v
 | 1.0.x   | :white_check_mark: |
 | < 1.0   | :x:                |
 
+**Current Version**: 1.0.2 - Includes enhanced theme system and email functionality
+
 ## Reporting a Vulnerability
 
 If you discover a security vulnerability in this project, please report it responsibly:
@@ -90,15 +92,26 @@ This project follows security best practices including:
 - **No Server-Side Code**: Static site generation
 - **No Database**: No SQL injection risks
 - **No User Authentication**: No credential management
-- **Contact Form**: Validated and sanitized
+- **Contact Form**: Validated and sanitized with Resend API
 - **Static Assets**: Served with security headers
+- **Environment Variables**: Secure API key management
+- **Theme System**: Client-side only, no server exposure
 
 ### 🚨 Monitoring
 
 - **GitHub Security Advisories**
-- **Dependabot Alerts**
-- **npm audit**
-- **Regular Security Reviews**
+- **Dependabot Alerts**: Automated dependency vulnerability scanning
+- **Email Security**: Resend API handles secure email delivery
+- **Content Collections**: Type-safe content with Astro validation
+- **npm audit**: Regular dependency security audits
+- **Regular Security Reviews**: Monthly security assessments
+
+### 🔑 Environment Security
+
+- **API Keys**: Secure storage in environment variables
+- **No Secrets in Code**: All sensitive data externalized
+- **Development vs Production**: Separate API keys for different environments
+- **Key Rotation**: Regular API key rotation recommended
 
 ## Disclosure Policy
 
@@ -122,7 +135,7 @@ _No reports yet - be the first to help us improve!_
 
 - **Primary Contact**: Angel De La Torre
 - **Email**: [iangelmanuel02@gmail.com](mailto:iangelmanuel02@gmail.com)
-- **GitHub**: [@iAngelManuel](https://github.com/iAngelManuel)
+- **GitHub**: [@iangelmanuel](https://github.com/iangelmanuel)
 
 ### 📱 Emergency Contact
 
@@ -142,4 +155,4 @@ For critical vulnerabilities that pose immediate risk:
 
 Thank you for helping keep this project and its users safe! 🙏
 
-_Last updated: August 6, 2025_
+_Last updated: August 17, 2025_

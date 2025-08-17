@@ -3,20 +3,23 @@ import { siteInfo } from "@/const/site-info"
 
 const projects = defineCollection({
   type: "content",
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    publishDate: z.date(),
-    technologies: z.array(z.string()),
-    githubUrl: z.object({
-      url: z.string().url(),
-      isPrivate: z.boolean().default(false)
-    }),
-    liveUrl: z.string().url(),
-    image: z.string(),
-    featured: z.boolean().default(false),
-    status: z.enum(["completed", "in-progress", "planned"]).default("completed")
-  })
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.date(),
+      technologies: z.array(z.string()),
+      githubUrl: z.object({
+        url: z.string().url(),
+        isPrivate: z.boolean().default(false)
+      }),
+      liveUrl: z.string().url(),
+      image: image(),
+      featured: z.boolean().default(false),
+      status: z
+        .enum(["completed", "in-progress", "planned"])
+        .default("completed")
+    })
 })
 
 const certificates = defineCollection({

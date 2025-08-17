@@ -10,7 +10,7 @@ githubUrl:
   }
 
 liveUrl: "https://www.artesanadeluz.com"
-image: "./img/projects/artesana-de-luz-project.webp"
+image: "../../assets/projects/artesana-de-luz-project.webp"
 featured: true
 status: "completed"
 ---

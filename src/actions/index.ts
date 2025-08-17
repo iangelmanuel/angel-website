@@ -4,6 +4,8 @@ import { z } from "astro:schema"
 import { Resend } from "resend"
 
 import { siteInfo } from "@/const/site-info"
+import { es } from "@/i18n/es"
+import { en } from "@/i18n/en"
 
 const sendContactEmail = defineAction({
   input: z.object({
@@ -191,8 +193,8 @@ const sendContactEmail = defineAction({
         return {
           ok: false,
           message: {
-            es: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.",
-            en: "There was an error sending your message. Please try again later."
+            es: es.actionsResponses.contactForm.error,
+            en: en.actionsResponses.contactForm.error
           }
         }
       }
@@ -200,16 +202,16 @@ const sendContactEmail = defineAction({
       return {
         ok: true,
         message: {
-          es: "¡Mensaje enviado con éxito!",
-          en: "Message sent successfully!"
+          es: es.actionsResponses.contactForm.success,
+          en: en.actionsResponses.contactForm.success
         }
       }
     } catch (err) {
       return {
         ok: false,
         message: {
-          es: "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde.",
-          en: "There was an error sending your message. Please try again later."
+          es: es.actionsResponses.contactForm.error,
+          en: en.actionsResponses.contactForm.error
         }
       }
     }

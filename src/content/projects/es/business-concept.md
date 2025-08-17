@@ -15,7 +15,7 @@ technologies:
 githubUrl:
   { url: "https://github.com/iangelmanuel/business-concept", isPrivate: false }
 liveUrl: "https://business-concept.vercel.app"
-image: "./img/projects/business-concept-project.webp"
+image: "../../assets/projects/business-concept-project.webp"
 featured: true
 status: "completed"
 ---

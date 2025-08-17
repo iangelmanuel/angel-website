@@ -7,7 +7,7 @@ githubUrl:
   { url: "https://github.com/iangelmanuel/gsgroupny-app", isPrivate: true }
 
 liveUrl: "https://gsgroupny-app.vercel.app"
-image: "./img/projects/gs-construction-group-project.webp"
+image: "../../assets/projects/gs-construction-group-project.webp"
 featured: true
 status: "completed"
 ---

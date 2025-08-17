@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Portfolio Banner](./public/img/hero.jpeg)
+![Portfolio Banner](./public/img/hero.webp)
 
 **Portafolio personal moderno y elegante construido con tecnologías de vanguardia**
 
@@ -12,7 +12,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![GSAP](https://img.shields.io/badge/GSAP-3.13.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-[🌐 Ver Demo](https://www.iangeldelatorre.com) • [📧 Contacto](mailto:contact@iangeldelatorre.com) • [💼 LinkedIn](https://linkedin.com/in/iangelmanuel)
+[🌐 Ver Demo](https://angel-website-pi.vercel.app) • [📧 Contacto](mailto:iangelmanuel02@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/iangelmanueldm)
 
 </div>
 
@@ -67,10 +67,8 @@ angel-website/
 ├── 📂 public/                    # Archivos estáticos
 │   ├── 📂 img/                  # Imágenes del portfolio
 │   │   ├── 📂 certificates/     # Imágenes de certificados
-│   │   ├── 📂 projects/         # Screenshots de proyectos
 │   │   ├── 📂 academy-logo/     # Logos de academias/plataformas
-│   │   ├── hero.jpeg            # Imagen principal
-│   │   ├── about.jpg            # Foto personal
+│   │   ├── hero.webp            # Imagen principal
 │   │   └── profile-photo.webp   # Foto de perfil optimizada
 │   └── favicon.svg              # Icono del sitio
 ├── 📂 src/
@@ -92,6 +90,8 @@ angel-website/
 │   │   ├── Project.astro       # Componente de proyecto
 │   │   └── ToggleLanguage.astro # Selector de idioma
 │   ├── 📂 content/             # Contenido gestionado por Astro Content Collections
+│   │   ├── 📂 assets/          # Recursos estáticos gestionados por Content
+│   │   │   └── 📂 projects/    # Screenshots de proyectos
 │   │   ├── 📂 certificates/    # Certificaciones y cursos
 │   │   │   ├── 📂 es/          # Certificados en español
 │   │   │   └── 📂 en/          # Certificados en inglés
@@ -105,7 +105,7 @@ angel-website/
 │   │   │   ├── Hero.astro      # Sección principal
 │   │   │   ├── About.astro     # Acerca de mí
 │   │   │   ├── Projects.astro  # Portfolio de proyectos
-│   │   │   ├── Experience.astro # Experiencia profesional
+│   │   │   ├── Experiencie.astro # Experiencia profesional
 │   │   │   └── Contact.astro   # Formulario de contacto
 │   │   └── 📂 certificates/    # Secciones de certificados
 │   │       ├── Hero.astro      # Hero de certificados
@@ -118,10 +118,9 @@ angel-website/
 │   ├── 📂 types/              # Definiciones TypeScript
 │   │   ├── language.d.ts      # Tipos para idiomas
 │   │   └── navigation.d.ts    # Tipos para navegación
-│   ├── 📂 utils/              # Utilidades y helpers
-│   │   └── dateFormatter.ts   # Formateo de fechas
 │   ├── 📂 lib/                # Librerías y configuraciones
 │   │   ├── utils.ts           # Utilidades generales
+│   │   ├── date-formatter.ts  # Formateo de fechas
 │   │   └── dom-selector.ts    # Selector de DOM
 │   ├── 📂 const/              # Constantes de la aplicación
 │   │   └── site-info.ts       # Información del sitio
@@ -143,7 +142,7 @@ angel-website/
 
 ## 🎨 Características de Diseño
 
-### 🍎 Inspiración Apple
+### 🌈 Estilo Visual
 
 - **Glassmorphism**: Efectos de cristal con `backdrop-blur` y transparencias
 - **Espaciado Limpio**: Uso generoso de whitespace para claridad visual
@@ -368,9 +367,9 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 **Angel De La Torre**
 
-- 🌐 Website: [iangeldelatorre.com](https://www.iangeldelatorre.com)
-- 💼 LinkedIn: [@iangelmanuel](https://linkedin.com/in/iangelmanuel)
-- 🐙 GitHub: [@iAngelManuel](https://github.com/iAngelManuel)
+- 🌐 Website: [angel-website-pi.vercel.app](https://angel-website-pi.vercel.app)
+- 💼 LinkedIn: [@iangelmanuel](https://www.linkedin.com/in/iangelmanueldm)
+- 🐙 GitHub: [@iangelmanuel](https://github.com/iangelmanuel)
 - 📧 Email: [iangelmanuel02@gmail.com](mailto:iangelmanuel02@gmail.com)
 
 ---

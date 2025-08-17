@@ -184,6 +184,14 @@ export const es: LanguageData = {
     rights: `${siteInfo.authorNameAndSurname}. Todos los derechos reservados.`
   },
 
+  actionsResponses: {
+    contactForm: {
+      success: "¡Mensaje enviado con éxito!",
+      error:
+        "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
+    }
+  },
+
   certificatesPage: {
     title: "Certificaciones",
     btnToRedirect: "Ver certificaciones",

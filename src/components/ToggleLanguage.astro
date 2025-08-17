@@ -1,37 +1,30 @@
 ---
-import { Globe } from "lucide-react"
+import { getRelativeLocaleUrl } from "astro:i18n"
+
 import { Button } from "./ui/button"
 
-const { lang } = Astro.params
+import { Globe } from "lucide-react"
+
+const { pathname } = Astro.url
+const currentLang = Astro.currentLocale || "es"
+
+const linkToRedirect =
+  pathname === "/certificates/" || pathname === "/en/certificates/"
+    ? getRelativeLocaleUrl(currentLang === "en" ? "es" : "en", "/certificates")
+    : getRelativeLocaleUrl(currentLang === "en" ? "es" : "en", "/")
 ---
 
 <Button
-  id="toggle-language"
-  data-lang={lang}
+  type="button"
   variant="ghost"
-  aria-label="Toggle Language"
   className="mr-0 size-8 rounded-full transition-transform duration-300 hover:scale-110 sm:size-10"
 >
-  <Globe
-    className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
-  />
+  <a
+    href={linkToRedirect}
+    aria-label="Toggle Language"
+  >
+    <Globe
+      className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
+    />
+  </a>
 </Button>
-
-<script>
-  import { navigate } from "astro:transitions/client"
-  import { $ } from "@/lib/dom-selector"
-
-  document.addEventListener("astro:page-load", () => {
-    const $button = $("#toggle-language") as HTMLButtonElement
-
-    $button.addEventListener("click", () => {
-      const currentLang = $button.dataset.lang
-      const newLang = currentLang === "en" ? "/" : "/en"
-      $button.dataset.lang = newLang
-
-      navigate(newLang, {
-        history: "replace"
-      })
-    })
-  })
-</script>

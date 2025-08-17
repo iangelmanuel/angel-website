@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n"
+
 import AsideMobileMenu from "./AsideMobileMenu.astro"
 import ToggleLanguage from "../ToggleLanguage.astro"
 import { ModeToggle } from "@/components/ModeToggle"
@@ -17,13 +19,10 @@ const { nav } = t
 const navItems = [
   { href: "#about", label: nav.about },
   { href: "#projects", label: nav.projects },
-  // TODO: Fix navigation bugs and navigation with the correct lang
-  // { href: "/certificates", label: nav.certifications },
-  // { href: "#blog", label: nav.blog },
   { href: "#contact", label: nav.contact }
 ]
 
-const { pathname } = Astro.url
+const currentLang = Astro.currentLocale || "es"
 ---
 
 <nav
@@ -33,7 +32,7 @@ const { pathname } = Astro.url
   <section class="mx-auto max-w-6xl">
     <div class="flex h-16 items-center justify-between sm:h-20">
       <a
-        href="/"
+        href={getRelativeLocaleUrl(currentLang, "/")}
         class="px-5 text-lg font-medium tracking-tight transition-transform duration-300 hover:scale-105 sm:text-2xl lg:px-0"
       >
         {siteInfo.authorNameAndSurname}
@@ -41,12 +40,12 @@ const { pathname } = Astro.url
 
       <div class="hidden items-center space-x-8 lg:flex lg:space-x-12">
         {
-          navItems.map((item) => (
+          navItems.map(({ href, label }) => (
             <a
-              href={pathname === "/" ? item.href : `/${item.href}`}
+              href={currentLang === "es" ? `/${href}` : `/en/${href}`}
               class="hover:text-primary group text-sm font-medium transition-all duration-500 hover:scale-105"
             >
-              {item.label}
+              {label}
               <span class="bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full" />
             </a>
           ))

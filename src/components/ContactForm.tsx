@@ -41,9 +41,7 @@ export function ContactForm({ t, currentLang }: Props) {
 
       const { ok, message } = data
 
-      const translatedMessage =
-        message[currentLang as keyof typeof message] ||
-        t.contact.submit.successMessage
+      const translatedMessage = message[currentLang as keyof typeof message]
 
       if (ok) {
         toast.success(translatedMessage)

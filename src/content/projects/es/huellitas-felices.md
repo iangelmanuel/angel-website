@@ -7,7 +7,7 @@ githubUrl:
   { url: "https://github.com/iangelmanuel/huellitas-felices", isPrivate: false }
 
 liveUrl: "https://huellitas-felices.vercel.app"
-image: "./img/projects/huellitas-felices-project.webp"
+image: "../../assets/projects/huellitas-felices-project.webp"
 featured: true
 status: "completed"
 ---

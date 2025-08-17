@@ -5,27 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.2] - 2025-08-17
 
 ### Added
 
-- Astro Content Collections for projects and certificates management
-- Comprehensive certificate system with multilingual support (ES/EN)
-- shadcn/ui components integration for better UI consistency
-- Enhanced theme system with persistence and navigation sync
-- Content organization with dedicated collections for scalability
+- Add env variables documentation in `SECURITY.md` and `README.md`
+- Add new translations for `actionsResponses` in i18n files with type safety
 
 ### Changed
 
-- Improved theme toggle system for better persistence across navigation
-- Enhanced project structure with organized content collections
-- Updated to Tailwind CSS v4 with custom variants and improved theming
+- Date formatting utility for Spanish (Colombia) in `src/lib/date-formatter.ts`
+- Updated `README.md` to reflect new date formatting utility
+- Added actionsResponses to i18n files for better multilingual support in server actions
+- Moved project screenshots from `public/img/projects` to `src/content/assets/projects` and updated README structure accordingly
+- Change project's image paths to use `src/content/assets/projects` with `<Image />` astro component to better perform image optimization
 
 ### Fixed
 
-- Theme persistence issues during Astro transitions navigation
-- FOUC (Flash of Unstyled Content) on initial page load
-- Theme synchronization across different pages and navigation states
+- Fixed date formatting in project and certificate pages
+- Fixed `README.md` links redirection issues
+- Fixed minor typos in documentation
+- Added missing image in `README.md`
+- Fixed navigation issues with translations
 
 ## [1.0.1] - 2025-08-16
 

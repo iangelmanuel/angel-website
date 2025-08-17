@@ -11,6 +11,7 @@ export type LanguageData = {
   contact: Contact
   footer: Footer
   certificatesPage: CertificatesPage
+  actionsResponses: ActionsResponses
 }
 
 // SEO Types
@@ -137,6 +138,16 @@ export type ContactFormValidation = {
 // Footer Types
 export type Footer = {
   rights: string
+}
+
+// Actions Responses Types
+export type ActionsResponses = {
+  contactForm: ContactForm
+}
+
+export type ContactForm = {
+  success: string
+  error: string
 }
 
 // Certificates Page Types

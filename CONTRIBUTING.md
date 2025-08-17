@@ -44,13 +44,17 @@
 git clone https://github.com/tu-usuario/angel-website.git
 cd angel-website
 
-# 2. Instala las dependencias
+# 2. Configura las variables de entorno
+cp .env.template .env
+# Edita .env con tu RESEND_API_KEY
+
+# 3. Instala las dependencias
 pnpm install
 
-# 3. Inicia el servidor de desarrollo
+# 4. Inicia el servidor de desarrollo
 pnpm dev
 
-# 4. ¡Comienza a contribuir! 🚀
+# 5. ¡Comienza a contribuir! 🚀
 ```
 
 ## 🎨 Estándares de Código
@@ -114,6 +118,29 @@ El sistema de temas usa:
 - Variables CSS personalizadas con Tailwind v4
 
 No uses `next-themes` u otras librerías de temas externas.
+
+### Variables de Entorno
+
+El proyecto requiere configuración de variables de entorno:
+
+```bash
+# .env (copia de .env.template)
+RESEND_API_KEY="your_resend_api_key_here"
+```
+
+Para desarrollo local:
+
+1. Copia `.env.template` a `.env`
+2. Obtén una API key de [Resend](https://resend.com/)
+3. Configura la variable en tu archivo `.env`
+
+### Formulario de Contacto
+
+El formulario utiliza Resend API para envío de emails:
+
+- Configuración en variables de entorno
+- Validación client-side con componentes shadcn/ui
+- Manejo de estados de envío (loading, success, error)
 
 ## 📝 Estructura de Commits
 

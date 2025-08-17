@@ -16,7 +16,7 @@ githubUrl:
   { url: "https://github.com/iangelmanuel/rise-stock", isPrivate: false }
 
 liveUrl: "https://rise-stock.vercel.app"
-image: "./img/projects/rise-stock-project.webp"
+image: "../../assets/projects/rise-stock-project.webp"
 featured: true
 status: "completed"
 ---

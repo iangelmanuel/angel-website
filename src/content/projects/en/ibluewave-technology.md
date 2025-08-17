@@ -16,7 +16,7 @@ githubUrl:
   { url: "https://github.com/iangelmanuel/ibluewave", isPrivate: false }
 
 liveUrl: "https://ibluewavetechnology.com/"
-image: "./img/projects/ibluewave-technology-project.webp"
+image: "../../assets/projects/ibluewave-technology-project.webp"
 featured: true
 status: "completed"
 ---

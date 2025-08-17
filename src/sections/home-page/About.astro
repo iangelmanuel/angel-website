@@ -1,14 +1,18 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n"
+
 import { Badge } from "@/components/ui/badge"
-import type { LanguageData } from "@/types/language"
+
 import { LinkIcon } from "lucide-react"
+
+import type { LanguageData } from "@/types/language"
 
 type Props = {
   t: LanguageData
 }
 
 const { t } = Astro.props
-const currentLang = Astro.currentLocale
+const currentLang = Astro.currentLocale || "es"
 ---
 
 <section
@@ -35,7 +39,7 @@ const currentLang = Astro.currentLocale
       </h2>
 
       <a
-        href={currentLang === "en" ? "/en/certificates" : "/certificates"}
+        href={getRelativeLocaleUrl(currentLang, "/certificates")}
         class="text-muted-foreground inline-flex items-center gap-x-1 text-xs hover:underline sm:text-sm"
       >
         {t.certificatesPage.btnToRedirect}

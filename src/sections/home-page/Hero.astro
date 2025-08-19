@@ -17,6 +17,7 @@ type Props = {
 }
 
 const { t } = Astro.props
+const currentLang = Astro.currentLocale || "es"
 ---
 
 <section
@@ -93,7 +94,9 @@ const { t } = Astro.props
         </a>
 
         <Button
+          id="download-cv"
           variant="outline"
+          data-lang={currentLang}
           className="w-full sm:w-auto"
         >
           <Download className="w-full sm:w-auto" />
@@ -140,3 +143,27 @@ const { t } = Astro.props
     </div>
   </div>
 </section>
+
+<script>
+  import { $ } from "@/lib/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    const $downloadBtn = $("#download-cv") as HTMLButtonElement
+    const lang = $downloadBtn.dataset.lang || "es"
+
+    const spanishCv = "cv-angel-dm.pdf"
+    const englishCv = "cv-angel-dm-en.pdf"
+
+    $downloadBtn.addEventListener("click", () => {
+      const fileName = lang === "es" ? spanishCv : englishCv
+      const fileUrl = `/docs/${fileName}`
+
+      const link = document.createElement("a")
+      link.href = fileUrl
+      link.download = fileName
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+  })
+</script>

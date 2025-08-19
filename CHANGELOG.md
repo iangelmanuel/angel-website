@@ -5,6 +5,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-08-18
+
+### Added
+
+- Adding new library `astro-icons` for better icon management
+- New `astro-icons` component for consistent icon usage across the site
+- Created `src/icons/logo-1.svg` and `src/icons/logo-2.svg` for logo icons
+- Added `README.md` to include new icons directory structure
+- Uploaded two cv files where one is `cv-angel-dm.pdf` and the other is `cv-angel-dm-en.pdf` for the language selection
+- Added functionality to handle CV downloads in both languages
+
+### Changed
+
+- Updated favicon to use `src/icons/logo-1.svg`
+- Updated `TopMenu.astro` to use the new `astro-icons` component for logo icons
+- Improved icon loading performance by using `astro-icons` component
+- Updated `TopMenu.astro` to use the new `astro-icons` component for navigation icons
+- Changed font family to use `Nunito-VariableFont.woff2` in global styles
+
+### Fixed
+
+- Fix `Seo.astro` to preload the correct font file
+- Fixed `TopMenu.astro` to ensure the logo icon is displayed correctly
+
 ## [1.0.2] - 2025-08-17
 
 ### Added

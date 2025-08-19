@@ -70,6 +70,8 @@ angel-website/
 │   │   ├── 📂 academy-logo/     # Logos de academias/plataformas
 │   │   ├── hero.webp            # Imagen principal
 │   │   └── profile-photo.webp   # Foto de perfil optimizada
+│   ├── 📂 fonts/                # Fuentes personalizada
+│   │   ├── Nunito-VariableFont.woff2 # Fuente variable de Nunito
 │   └── favicon.svg              # Icono del sitio
 ├── 📂 src/
 │   ├── 📂 components/           # Componentes reutilizables
@@ -113,6 +115,9 @@ angel-website/
 │   ├── 📂 i18n/               # Internacionalización
 │   │   ├── en.ts              # Traducciones en inglés
 │   │   └── es.ts              # Traducciones en español
+│   ├── 📂 icons/              # Iconos SVG
+│   │   ├── logo-1.svg         # Logo 1
+│   │   └── logo-2.svg         # Logo 2
 │   ├── 📂 styles/             # Estilos globales
 │   │   └── global.css         # CSS personalizado y variables Tailwind v4
 │   ├── 📂 types/              # Definiciones TypeScript

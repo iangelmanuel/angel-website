@@ -1,11 +1,10 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n"
+import { Icon } from "astro-icon/components"
 
 import AsideMobileMenu from "./AsideMobileMenu.astro"
 import ToggleLanguage from "../ToggleLanguage.astro"
 import { ModeToggle } from "@/components/ModeToggle"
-
-import { siteInfo } from "@/const/site-info"
 
 import type { LanguageData } from "@/types/language"
 
@@ -27,18 +26,23 @@ const currentLang = Astro.currentLocale || "es"
 
 <nav
   id="top-menu"
-  class="fixed top-0 right-0 left-0 z-50 bg-transparent opacity-100 transition-all duration-300"
+  class="fixed top-0 right-0 left-0 z-50 opacity-100 transition-all duration-300"
 >
-  <section class="mx-auto max-w-6xl">
-    <div class="flex h-16 items-center justify-between sm:h-20">
+  <section class="mx-auto max-w-3xl">
+    <div class="relative flex h-16 items-center justify-between sm:h-20">
       <a
         href={getRelativeLocaleUrl(currentLang, "/")}
-        class="px-5 text-lg font-medium tracking-tight transition-transform duration-300 hover:scale-105 sm:text-2xl lg:px-0"
+        class="bg-accent-foreground mx-5 rounded-full text-lg font-medium tracking-tight transition-transform duration-300 hover:scale-105 sm:text-2xl lg:mx-0"
       >
-        {siteInfo.authorNameAndSurname}
+        <Icon
+          name="logo-1"
+          class="inline size-12 text-white sm:size-14 dark:text-black"
+        />
       </a>
 
-      <div class="hidden items-center space-x-8 lg:flex lg:space-x-12">
+      <div
+        class="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center space-x-8 lg:flex lg:space-x-12"
+      >
         {
           navItems.map(({ href, label }) => (
             <a
@@ -67,7 +71,7 @@ const currentLang = Astro.currentLocale || "es"
   @reference "@/styles/global.css";
 
   .top-menu-nav {
-    @apply bg-background/80 dark:border-muted-foreground/10 border-b backdrop-blur-2xl;
+    @apply bg-background/80 dark:border-muted-foreground/10 border-b backdrop-blur-3xl;
   }
 </style>
 

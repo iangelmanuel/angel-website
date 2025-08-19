@@ -4,8 +4,10 @@ import tailwindcss from "@tailwindcss/vite"
 
 import vercel from "@astrojs/vercel"
 
+import icon from "astro-icon";
+
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), icon()],
 
   vite: {
     plugins: [tailwindcss()]

@@ -65,6 +65,9 @@
 ```
 angel-website/
 ├── 📂 public/                    # Archivos estáticos
+│   ├── 📂 docs/                 # Documentos descargables
+│   │   ├── cv-angel-dm.pdf      # Currículum en español
+│   │   └── cv-angel-dm-en.pdf   # Currículum en inglés
 │   ├── 📂 img/                  # Imágenes del portfolio
 │   │   ├── 📂 certificates/     # Imágenes de certificados
 │   │   ├── 📂 academy-logo/     # Logos de academias/plataformas
@@ -303,6 +306,7 @@ Modifica las variables CSS en `src/styles/global.css`:
 3. **Proyectos**: Añade/edita archivos en `src/content/projects/`
 4. **Certificados**: Añade/edita archivos en `src/content/certificates/`
 5. **Información del sitio**: Modifica `src/const/site-info.ts`
+6. **CV/Currículum**: Reemplaza archivos PDF en `public/docs/` (formato: `cv-nombre.pdf.pdf` para ES y `cv-nombre.pdf-en.pdf` para EN)
 
 ### Gestión de Contenido
 

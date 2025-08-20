@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Updated Hero section component to correctly reference CV files in `public/docs/` directory
+- Enhanced contact form with automatic reset after successful submission
+
+### Fixed
+
+- Fixed CV download paths to match actual file names in `public/docs/`
+- Corrected file URLs to use absolute paths with leading slash
+- Fixed download filenames to have proper `.pdf` extension
+
 ## [1.0.3] - 2025-08-18
 
 ### Added

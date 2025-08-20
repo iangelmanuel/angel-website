@@ -25,7 +25,8 @@ export function ContactForm({ t, currentLang }: Props) {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<ContactFormData>()
 
   const formValidation = formConfig.contactForm(t)
@@ -45,6 +46,7 @@ export function ContactForm({ t, currentLang }: Props) {
 
       if (ok) {
         toast.success(translatedMessage)
+        reset()
       } else {
         toast.error(translatedMessage)
       }

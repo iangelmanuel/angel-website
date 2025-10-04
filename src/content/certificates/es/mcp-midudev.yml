@@ -1,0 +1,14 @@
+title: "Curso Intensivo de Model Context Protocol (MCP)"
+description: "Curso intensivo sobre el Protocolo de Contexto de Modelos (MCP) que cubre los fundamentos, implementación y mejores prácticas para integrar MCP en aplicaciones modernas."
+issuer: "Midudev"
+issueDate: 2025-09-14
+credentialId: "N/A"
+credentialUrl: "https://certificados.midudev.com/62f19b76-3f14-4c51-8d6e-d4bebd9c20af.pdf"
+image: "/img/certificates/certificate-mcp-midudev.webp"
+skills:
+  - Fundamentos de MCP
+  - Implementación de MCP
+  - Integración con aplicaciones modernas
+  - Mejores prácticas de desarrollo
+  - Seguridad en MCP
+status: "completed"

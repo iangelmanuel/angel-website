@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added new project screenshots in `public/img/projects/`
+- Added new certificate content in `src/content/certificates/`
+
+### Changed
+
+- Updated `const/site-info.ts` to include new project and certificate entries
+
+## [Unreleased]
+
 ### Changed
 
 - Updated Hero section component to correctly reference CV files in `public/docs/` directory

@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Updated dependencies to their latest versions for improved performance and security
+
+## [Unreleased] 2025-10-24
+
+### Changed
+
 - Refactored Server Actions function to improve code readability and maintainability
 - Changed HTML structure of the contact form for better accessibility in `src/const/contact-email-html.ts`
 

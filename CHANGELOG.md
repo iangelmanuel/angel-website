@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased] 2025-10-24
+
+### Added
+
+- Added new project screenshots in `public/img/projects/`
+- Added new certificate content in `src/content/certificates/`
+- Added new entries in `const/site-info.ts` for the new projects and certificates
+- Added new language support for existing content in `src/i18n/en/` and `src/i18n/es/`
+- Added new logo of Midudev Academy in `src/img/academy-logo/midudev.svg`
+
 ## [Unreleased]
 
 ### Added

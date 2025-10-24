@@ -83,16 +83,27 @@ export const en: LanguageData = {
           ]
         },
         {
+          logo: "/img/academy-logo/midudev.webp",
+          academy: "Midudev Academy",
+          degree: "MCP and JavaScript Development",
+          year: "2025 - 2025",
+          courses: [
+            "Intensive Course on Model Context Protocol (MCP)",
+            "Learn the Latest in JavaScript (ES2023 & ES2024)"
+          ]
+        },
+        {
           logo: "/img/academy-logo/udemy.webp",
           academy: "Udemy",
           degree: "Full Stack Web Development",
-          year: "2023 - 2024",
+          year: "2023 - 2025",
           courses: [
             "Master in Fullstack Programming with JavaScript, Angular, and Node",
             "Modern JavaScript – The Definitive Guide. Build 20+ Projects",
             "React – The Complete Guide: Hooks, Context, Redux, MERN. 15+ Apps",
             "TypeScript Without Borders – The Definitive Guide",
-            "Laravel 9 – Build Applications and Websites with PHP 8 and MVC"
+            "Laravel 9 – Build Applications and Websites with PHP 8 and MVC",
+            "Vue.js 3 - The Complete Guide - Composition, Pinia, MEVN. 10+ Apps"
           ]
         }
       ]

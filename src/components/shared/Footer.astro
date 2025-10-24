@@ -24,7 +24,7 @@ const { t } = Astro.props
 
       <div class="flex items-center gap-6">
         <a
-          href="https://github.com"
+          href={siteInfo.social.github}
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
@@ -32,7 +32,7 @@ const { t } = Astro.props
           <Github className="size-4 sm:h-5 sm:w-5" />
         </a>
         <a
-          href="https://linkedin.com"
+          href={siteInfo.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
@@ -40,7 +40,7 @@ const { t } = Astro.props
           <Linkedin className="size-4 sm:h-5 sm:w-5" />
         </a>
         <a
-          href="https://twitter.com"
+          href={siteInfo.social.x}
           target="_blank"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
@@ -48,7 +48,7 @@ const { t } = Astro.props
           <Twitter className="size-4 sm:h-5 sm:w-5" />
         </a>
         <a
-          href="mailto:john@example.com"
+          href={`mailto:${siteInfo.email}`}
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
           <Mail className="size-4 sm:h-5 sm:w-5" />

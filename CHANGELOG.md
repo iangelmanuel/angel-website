@@ -5,58 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] 2025-10-24
+## [Unreleased] - 2025-12-31
 
 ### Changed
 
-- Updated dependencies to their latest versions for improved performance and security
-
-## [Unreleased] 2025-10-24
-
-### Changed
-
-- Refactored Server Actions function to improve code readability and maintainability
-- Changed HTML structure of the contact form for better accessibility in `src/const/contact-email-html.ts`
-
-## [Unreleased] 2025-10-24
-
-### Fix
-
-- Fixed footer social network links to redirect to correct URLs
-
-## [Unreleased] 2025-10-24
-
-### Added
-
-- Added new project screenshots in `public/img/projects/`
-- Added new certificate content in `src/content/certificates/`
-- Added new entries in `const/site-info.ts` for the new projects and certificates
-- Added new language support for existing content in `src/i18n/en/` and `src/i18n/es/`
-- Added new logo of Midudev Academy in `src/img/academy-logo/midudev.svg`
-
-## [Unreleased]
-
-### Added
-
-- Added new project screenshots in `public/img/projects/`
-- Added new certificate content in `src/content/certificates/`
-
-### Changed
-
-- Updated `const/site-info.ts` to include new project and certificate entries
-
-## [Unreleased]
-
-### Changed
-
-- Updated Hero section component to correctly reference CV files in `public/docs/` directory
-- Enhanced contact form with automatic reset after successful submission
+- Changed path references in `TopMenu.astro` to correctly import global styles.
 
 ### Fixed
 
-- Fixed CV download paths to match actual file names in `public/docs/`
-- Corrected file URLs to use absolute paths with leading slash
-- Fixed download filenames to have proper `.pdf` extension
+- Fixed the vulnerability in the version of `marked` package by updating to the latest secure version.
 
 ## [1.0.3] - 2025-08-18
 

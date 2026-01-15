@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2025-12-31
 
+### Updated
+
+- Updated dependencies to their latest versions for improved performance and security.
+
+## [Unreleased] - 2025-12-31
+
 ### Changed
 
 - Changed path references in `TopMenu.astro` to correctly import global styles.

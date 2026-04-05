@@ -8,9 +8,9 @@ export const siteInfo = {
   available: true,
 
   certificates: {
-    totalCourses: 11,
+    totalCourses: 12,
     totalHours: 300,
-    certifications: 11
+    certifications: 12
   },
 
   work: {

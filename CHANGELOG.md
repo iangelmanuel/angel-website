@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased] - 2025-12-31
 
+### Added
+
+- Added a new project entry with content for both ES/EN locales.
+- Added a new certification entry with content for both ES/EN locales.
+- Added i18n translations for the new project and certification in both languages.
+- Added images for the new project and certification assets.
+
 ### Updated
 
 - Updated dependencies to their latest versions for improved performance and security.

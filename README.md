@@ -6,11 +6,11 @@
 
 **Portafolio personal moderno y elegante construido con tecnologías de vanguardia**
 
-[![Astro](https://img.shields.io/badge/Astro-5.12.6-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
-[![React](https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.11-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![GSAP](https://img.shields.io/badge/GSAP-3.13.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![Astro](https://img.shields.io/badge/Astro-7.2.1-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![GSAP](https://img.shields.io/badge/GSAP-3.15.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
 [🌐 Ver Demo](https://angel-website-pi.vercel.app) • [📧 Contacto](mailto:iangelmanuel02@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/iangelmanueldm)
 
@@ -36,13 +36,13 @@
 
 ### Frontend Framework
 
-- **[Astro 5.12.6](https://astro.build/)** - Framework web moderno y rápido
-- **[React 19.1.1](https://reactjs.org/)** - Biblioteca para componentes interactivos
-- **[TypeScript 5.8.3](https://www.typescriptlang.org/)** - Tipado estático para JavaScript
+- **[Astro 7.2.1](https://astro.build/)** - Framework web moderno y rápido
+- **[React 19.2.8](https://reactjs.org/)** - Biblioteca para componentes interactivos
+- **[TypeScript 6.0.3](https://www.typescriptlang.org/)** - Tipado estático para JavaScript
 
 ### Styling & UI
 
-- **[Tailwind CSS 4.1.11](https://tailwindcss.com/)** - Framework CSS utility-first
+- **[Tailwind CSS 4.3.3](https://tailwindcss.com/)** - Framework CSS utility-first
 - **[shadcn/ui](https://ui.shadcn.com/)** - Componentes accesibles y personalizables
 - **[Radix UI](https://www.radix-ui.com/)** - Componentes primitivos accesibles
 - **[Lucide React](https://lucide.dev/)** - Iconografía moderna y consistente
@@ -50,7 +50,7 @@
 
 ### Animations & Interactions
 
-- **[GSAP 3.13.0](https://greensock.com/gsap/)** - Biblioteca de animaciones profesional
+- **[GSAP 3.15.0](https://greensock.com/gsap/)** - Biblioteca de animaciones profesional
 - **[tw-animate-css](https://github.com/bentzibentz/tailwindcss-animate)** - Animaciones predefinidas
 
 ### Development Tools
@@ -195,7 +195,7 @@ El sitio implementa un sistema de temas robusto con persistencia entre navegacio
 
 ### Prerrequisitos
 
-- **Node.js** (versión 18 o superior)
+- **Node.js** (versión 22.12.0 o superior)
 - **pnpm** (recomendado) o npm
 
 ### Configuración Inicial
@@ -251,6 +251,7 @@ El sitio implementa un sistema de temas robusto con persistencia entre navegacio
 | --------------------- | -------------------------------------- |
 | `pnpm dev`            | Inicia servidor de desarrollo          |
 | `pnpm build`          | Construye la versión de producción     |
+| `pnpm check`          | Verifica tipos y archivos Astro        |
 | `pnpm preview`        | Previsualiza el build de producción    |
 | `pnpm prettier`       | Formatea el código con Prettier        |
 | `pnpm prettier:check` | Verifica formateo sin cambios          |

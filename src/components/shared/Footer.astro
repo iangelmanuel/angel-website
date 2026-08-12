@@ -1,5 +1,6 @@
 ---
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Icon } from "astro-icon/components"
+import { Mail } from "lucide-react"
 import type { LanguageData } from "@/types/language"
 import { siteInfo } from "@/const/site-info"
 
@@ -29,7 +30,10 @@ const { t } = Astro.props
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Github className="size-4 sm:h-5 sm:w-5" />
+          <Icon
+            name="github"
+            class="size-4 sm:h-5 sm:w-5"
+          />
         </a>
         <a
           href={siteInfo.social.linkedin}
@@ -37,7 +41,10 @@ const { t } = Astro.props
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Linkedin className="size-4 sm:h-5 sm:w-5" />
+          <Icon
+            name="linkedin"
+            class="size-4 sm:h-5 sm:w-5"
+          />
         </a>
         <a
           href={siteInfo.social.x}
@@ -45,7 +52,10 @@ const { t } = Astro.props
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Twitter className="size-4 sm:h-5 sm:w-5" />
+          <Icon
+            name="x"
+            class="size-4 sm:h-5 sm:w-5"
+          />
         </a>
         <a
           href={`mailto:${siteInfo.email}`}

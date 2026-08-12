@@ -5,24 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2025-12-31
+## [Unreleased] - 2026-08-11
 
 ### Added
 
-- Added a new project entry with content for both ES/EN locales.
-- Added a new certification entry with content for both ES/EN locales.
-- Added i18n translations for the new project and certification in both languages.
-- Added images for the new project and certification assets.
+- Added official GitHub, LinkedIn, and X SVG logos through `astro-icon`.
+- Added `astro check` and a modern ESLint configuration for project validation.
 
 ### Updated
 
-- Updated dependencies to their latest versions for improved performance and security.
-
-## [Unreleased] - 2025-12-31
+- Updated dependencies to Astro 7.2.1, React 19.2.8, Tailwind CSS 4.3.3, TypeScript 6.0.3, and the latest compatible versions of the remaining packages.
+- Migrated Content Collections to `src/content.config.ts` with Astro loaders.
+- Updated README and runtime requirements for Node.js 22.12.0 or newer.
 
 ### Changed
 
-- Changed path references in `TopMenu.astro` to correctly import global styles.
+- Replaced deprecated Lucide social placeholders with local brand SVGs.
+- Removed the project availability status from the Hero, contact section, translations, types, and site configuration.
+- Updated path references in `TopMenu.astro` to correctly import global styles.
 
 ### Fixed
 
@@ -142,9 +142,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.0.1
-- **Node.js**: >= 18.0.0
-- **pnpm**: >= 8.0.0 (recommended)
+- **Current version**: 1.0.3
+- **Node.js**: >= 22.12.0
+- **pnpm**: >= 7.1.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
-- **Astro**: >= 5.12.6
-- **Tailwind CSS**: v4.1.11
+- **Astro**: 7.2.1
+- **Tailwind CSS**: v4.3.3

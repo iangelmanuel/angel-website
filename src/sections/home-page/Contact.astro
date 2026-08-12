@@ -1,13 +1,6 @@
 ---
 import { ContactForm } from "@/components/ContactForm"
-import {
-  BadgeCheck,
-  BadgeMinus,
-  Mail,
-  MapPin,
-  Phone,
-  Timer
-} from "lucide-react"
+import { Mail, MapPin, Phone, Timer } from "lucide-react"
 import { siteInfo } from "@/const/site-info"
 import type { LanguageData } from "@/types/language"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
@@ -36,7 +29,7 @@ const { t, currentLang } = Astro.props
 
           <CardContent className="space-y-3 p-0 sm:space-y-4">
             <div class="flex items-center gap-1.5">
-              <Mail className="text-primary size-4 flex-shrink-0" />
+              <Mail className="text-primary size-4 shrink-0" />
               <a
                 href={`mailto:${siteInfo.email}`}
                 class="hover:text-primary text-xs break-all transition-colors hover:underline sm:text-sm"
@@ -45,7 +38,7 @@ const { t, currentLang } = Astro.props
               </a>
             </div>
             <div class="flex items-center gap-1.5">
-              <Phone className="text-primary size-4 flex-shrink-0" />
+              <Phone className="text-primary size-4 shrink-0" />
               <a
                 href={`tel:${siteInfo.phone}`}
                 class="hover:text-primary text-xs transition-colors hover:underline sm:text-sm"
@@ -54,7 +47,7 @@ const { t, currentLang } = Astro.props
               </a>
             </div>
             <div class="flex items-center gap-1.5">
-              <MapPin className="text-primary size-4 flex-shrink-0" />
+              <MapPin className="text-primary size-4 shrink-0" />
               <span class="text-xs sm:text-sm">{siteInfo.location}</span>
             </div>
           </CardContent>
@@ -62,43 +55,20 @@ const { t, currentLang } = Astro.props
 
         <div>
           <CardTitle className="mb-3 text-base font-medium sm:mb-4 sm:text-lg">
-            {t.contact.availability.availableLabel}
+            {t.contact.responseTime.label}
           </CardTitle>
 
           <CardContent className="space-y-3 p-0 sm:space-y-4">
             <div class="flex justify-between">
               <div class="flex items-center gap-1.5">
-                {
-                  siteInfo.available ? (
-                    <BadgeCheck className="text-primary size-4 flex-shrink-0" />
-                  ) : (
-                    <BadgeMinus className="text-primary size-4 flex-shrink-0" />
-                  )
-                }
+                <Timer className="text-primary size-4 shrink-0" />
                 <span class="text-xs sm:text-sm"
-                  >{t.contact.availability.availableLabel}</span
-                >
-              </div>
-
-              <span
-                class:list={[
-                  "text-xs font-semibold sm:text-sm",
-                  siteInfo.available ? "text-green-500" : "text-red-500"
-                ]}
-              >
-                {t.contact.availability.availableData}</span
-              >
-            </div>
-            <div class="flex justify-between">
-              <div class="flex items-center gap-1.5">
-                <Timer className="text-primary size-4 flex-shrink-0" />
-                <span class="text-xs sm:text-sm"
-                  >{t.contact.availability.responseTimeLabel}</span
+                  >{t.contact.responseTime.label}</span
                 >
               </div>
 
               <span class="text-primary text-xs sm:text-sm"
-                >{t.contact.availability.responseTimeData}</span
+                >{t.contact.responseTime.responseTimeData}</span
               >
             </div>
           </CardContent>
@@ -109,7 +79,7 @@ const { t, currentLang } = Astro.props
         <ContactForm
           t={t}
           currentLang={currentLang}
-          client:only
+          client:only="react"
         />
       </Card>
     </div>

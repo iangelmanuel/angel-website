@@ -1,8 +1,12 @@
-import { defineCollection, z } from "astro:content"
-// import { siteInfo } from "@/const/site-info"
+import { glob } from "astro/loaders"
+import { defineCollection } from "astro:content"
+import { z } from "astro/zod"
 
 const projects = defineCollection({
-  type: "content",
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/projects"
+  }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -10,10 +14,10 @@ const projects = defineCollection({
       publishDate: z.date(),
       technologies: z.array(z.string()),
       githubUrl: z.object({
-        url: z.string().url(),
+        url: z.url(),
         isPrivate: z.boolean().default(false)
       }),
-      liveUrl: z.string().url(),
+      liveUrl: z.url(),
       image: image(),
       featured: z.boolean().default(false),
       status: z
@@ -23,14 +27,17 @@ const projects = defineCollection({
 })
 
 const certificates = defineCollection({
-  type: "data",
+  loader: glob({
+    pattern: "**/*.yml",
+    base: "./src/content/certificates"
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     issuer: z.string(),
     issueDate: z.date().optional(),
     credentialId: z.string().optional(),
-    credentialUrl: z.string().url().optional(),
+    credentialUrl: z.url().optional(),
     image: z.string().optional(),
     skills: z.array(z.string()).optional(),
     status: z
@@ -39,22 +46,7 @@ const certificates = defineCollection({
   })
 })
 
-// TODO: Enable blog collection in the future
-// const blog = defineCollection({
-//   type: "content",
-//   schema: z.object({
-//     title: z.string(),
-//     description: z.string(),
-//     publishDate: z.date(),
-//     tags: z.array(z.string()),
-//     author: z.string().default(siteInfo.authorNameAndSurname),
-//     image: z.string(),
-//     draft: z.boolean().default(false)
-//   })
-// })
-
 export const collections = {
-  "projects": projects,
-  "certificates": certificates
-  // "blog": blog
+  projects,
+  certificates
 }

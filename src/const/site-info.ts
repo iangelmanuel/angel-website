@@ -3,9 +3,9 @@ export const siteInfo = {
   authorNameAndSurname: "Angel De La Torre",
   authorFullName: "Angel Manuel De La Torre Montaño",
   email: "iangelmanuel02@gmail.com",
-  phone: "+57 317 579 6600",
+  phone: "+57 317 611 ",
   location: "Barranquilla, Colombia",
-  available: true,
+  yearsOfExperience: 4,
 
   certificates: {
     totalCourses: 12,
@@ -17,20 +17,21 @@ export const siteInfo = {
     isWorking: false,
     company: "not available",
     position: "not available",
-    since: "not available"
+    since: "not available",
+    url: "not available"
   },
 
-  quasarDesign: {
-    title: "Quasar Design",
+  verlunStudio: {
+    title: "Verlun Studio",
     description: "A Company created by Angel De La Torre",
-    url: "not available",
-    image: "/img/quasar-design.png"
+    url: "https://www.verlun.com",
+    image: "/img/verlun-studio.png"
   },
 
   social: {
     x: "https://x.com/iangelmanuel",
     github: "https://github.com/iangelmanuel",
-    linkedin: "https://www.linkedin.com/in/iangelmanueldm",
+    linkedin: "https://www.linkedin.com/in/iangelmanuel",
     instagram: "https://www.instagram.com/iangelmanuel",
     youtube: "https://www.youtube.com/@iangelmanuel",
     whatsapp: "https://wa.me/3175796600"

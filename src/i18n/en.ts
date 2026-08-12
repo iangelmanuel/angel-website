@@ -25,15 +25,10 @@ export const en: LanguageData = {
     contact: "Contact"
   },
   hero: {
-    yearExp: "2+ years of experience",
-    available: {
-      label: siteInfo.available
-        ? "Available for new projects."
-        : "Not available at the moment."
-    },
-    greeting: "Hi, I'm",
+    yearExp: `${siteInfo.yearsOfExperience}+ years of experience`,
+    greeting: "Hi, I'm ",
     title: "Full Stack and Phone Developer",
-    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="#" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.quasarDesign.title}</a>.`,
+    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
     btn1: "View my work",
     btn2: "Download CV"
   },
@@ -126,11 +121,8 @@ export const en: LanguageData = {
     badge: "Contact Me",
     title: "Get in touch",
 
-    availability: {
-      availableLabel: "Availability",
-      availableData: siteInfo.available ? "Available" : "Not available",
-
-      responseTimeLabel: "Response time",
+    responseTime: {
+      label: "Response time",
       responseTimeData: "24-48 hours"
     },
 

@@ -14,7 +14,7 @@ import { buttonVariants } from "./ui/button"
 
 import { dateFormatter } from "@/lib/date-formatter"
 
-import { Calendar, Github, ExternalLink } from "lucide-react"
+import { Calendar, Code2, ExternalLink } from "lucide-react"
 
 import type { CollectionEntry } from "astro:content"
 import type { LanguageData } from "@/types/language"
@@ -27,7 +27,7 @@ type Props = {
 const { data, t } = Astro.props
 ---
 
-<Card className="group p-4 sm:h-[500px] sm:p-6">
+<Card className="group p-4 sm:h-125 sm:p-6">
   <CardHeader className="aspect-video overflow-hidden rounded border">
     <Image
       src={data.image}
@@ -85,7 +85,7 @@ const { data, t } = Astro.props
             className: "flex-1 rounded-full bg-transparent text-xs sm:flex-none"
           })}
         >
-          <Github className="h-3 w-3 mr-1" />
+          <Code2 className="h-3 w-3 mr-1" />
           {t.projects.github}
         </a>
       )

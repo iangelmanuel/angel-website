@@ -43,16 +43,11 @@ export type Nav = {
 // Hero Types
 export type Hero = {
   yearExp: string
-  available: HeroAvailable
   greeting: string
   title: string
   description: string
   btn1: string
   btn2: string
-}
-
-export type HeroAvailable = {
-  label: string
 }
 
 // About Types
@@ -101,16 +96,14 @@ export type Projects = {
 export type Contact = {
   badge: string
   title: string
-  availability: Availability
+  responseTime: ResponseTime
   form: Form[]
   submit: Submit
   contactFormValidation: ContactFormValidation
 }
 
-export type Availability = {
-  availableLabel: string
-  availableData: string
-  responseTimeLabel: string
+export type ResponseTime = {
+  label: string
   responseTimeData: string
 }
 

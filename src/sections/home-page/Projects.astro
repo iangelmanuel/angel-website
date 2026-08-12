@@ -11,7 +11,7 @@ const { t } = Astro.props
 const currentLang = Astro.currentLocale || "es"
 
 const projectsCollection = await getCollection("projects", (project) => {
-  const [lang] = project.slug.split("/")
+  const [lang] = project.id.split("/")
   return lang === currentLang && project.data.featured
 })
 

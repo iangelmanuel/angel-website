@@ -1,13 +1,7 @@
 ---
 import { Button, buttonVariants } from "@/components/ui/button"
-import {
-  ArrowDown,
-  Download,
-  Github,
-  Linkedin,
-  Mail,
-  Twitter
-} from "lucide-react"
+import { ArrowDown, Download, Mail } from "lucide-react"
+import { Icon } from "astro-icon/components"
 import { siteInfo } from "@/const/site-info"
 import type { LanguageData } from "@/types/language"
 import { Badge } from "@/components/ui/badge"
@@ -45,24 +39,6 @@ const currentLang = Astro.currentLocale || "es"
     </div>
 
     <div class="order-1 max-w-2xl space-y-4 sm:order-2">
-      <Badge
-        className="bg-secondary text-foreground m-0 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs sm:px-4 sm:py-2 sm:text-sm"
-      >
-        <span class="relative flex h-2 w-2 sm:h-3 sm:w-3">
-          <span
-            class:list={[
-              "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
-              siteInfo.available ? "bg-green-500" : "bg-red-500"
-            ]}></span>
-          <span
-            class:list={[
-              "relative inline-flex h-2 w-2 rounded-full sm:h-3 sm:w-3",
-              siteInfo.available ? "bg-green-500" : "bg-red-500"
-            ]}></span>
-        </span>
-        {t.hero.available.label}
-      </Badge>
-
       <h1
         class="text-2xl font-light tracking-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
       >
@@ -111,7 +87,10 @@ const currentLang = Astro.currentLocale || "es"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Github className="h-5 w-5 sm:h-6 sm:w-6" />
+          <Icon
+            name="github"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
           <span class="sr-only">GitHub</span>
         </a>
         <a
@@ -120,7 +99,10 @@ const currentLang = Astro.currentLocale || "es"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Linkedin className="h-5 w-5 sm:h-6 sm:w-6" />
+          <Icon
+            name="linkedin"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
           <span class="sr-only">LinkedIn</span>
         </a>
         <a
@@ -129,7 +111,10 @@ const currentLang = Astro.currentLocale || "es"
           rel="noopener noreferrer"
           class="text-muted-foreground hover:text-foreground p-2 transition-colors"
         >
-          <Twitter className="h-5 w-5 sm:h-6 sm:w-6" />
+          <Icon
+            name="x"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
           <span class="sr-only">Twitter</span>
         </a>
         <a

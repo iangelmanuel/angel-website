@@ -1,5 +1,5 @@
 import { defineAction } from "astro:actions"
-import { z } from "astro:schema"
+import { z } from "astro/zod"
 import { Resend } from "resend"
 
 import { siteInfo } from "@/const/site-info"
@@ -11,7 +11,7 @@ import { en } from "@/i18n/en"
 export const sendContactEmail = defineAction({
   input: z.object({
     name: z.string().min(2).max(100),
-    email: z.string().email(),
+    email: z.email(),
     subject: z.string().min(2).max(100),
     message: z.string().min(10).max(1000)
   }),
@@ -49,7 +49,7 @@ export const sendContactEmail = defineAction({
           en: en.actionsResponses.contactForm.success
         }
       }
-    } catch (err) {
+    } catch {
       return {
         ok: false,
         message: {

@@ -3,7 +3,7 @@ export const siteInfo = {
   authorNameAndSurname: "Angel De La Torre",
   authorFullName: "Angel Manuel De La Torre Montaño",
   email: "iangelmanuel02@gmail.com",
-  phone: "+57 317 611 ",
+  phone: "+57 317 611 5270",
   location: "Barranquilla, Colombia",
   yearsOfExperience: 4,
 

@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2026-08-11
+## [Unreleased] - 2026-08-12
 
 ### Added
 
@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Fixed the vulnerability in the version of `marked` package by updating to the latest secure version.
+- Corrected the contact phone number in `src/const/site-info.ts` to `+57 317 611 5270`.
 
 ## [1.0.3] - 2025-08-18
 
@@ -142,7 +143,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.0.3
+- **Current version**: 1.0.4
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 7.1.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

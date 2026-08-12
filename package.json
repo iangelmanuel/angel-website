@@ -1,7 +1,7 @@
 {
   "name": "angel-website",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Portafolio personal de Angel DM",
   "author": "Angel DM",
   "engines": {

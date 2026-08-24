@@ -31,7 +31,6 @@ const currentLang = Astro.currentLocale || "es"
         />
       </div>
       <Badge
-        variant="secondary"
         className="absolute -right-2 -bottom-2 rounded-full border sm:-right-1 sm:bottom-5"
       >
         <span class="sm:text-normal text-sm font-medium">{t.hero.yearExp}</span>
@@ -85,7 +84,7 @@ const currentLang = Astro.currentLocale || "es"
           href={siteInfo.social.github}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+          class="hover:text-muted-foreground text-foreground p-2 transition-colors"
         >
           <Icon
             name="github"
@@ -97,7 +96,7 @@ const currentLang = Astro.currentLocale || "es"
           href={siteInfo.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+          class="hover:text-muted-foreground text-foreground p-2 transition-colors"
         >
           <Icon
             name="linkedin"
@@ -109,7 +108,7 @@ const currentLang = Astro.currentLocale || "es"
           href={siteInfo.social.x}
           target="_blank"
           rel="noopener noreferrer"
-          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+          class="hover:text-muted-foreground text-foreground p-2 transition-colors"
         >
           <Icon
             name="x"
@@ -119,7 +118,7 @@ const currentLang = Astro.currentLocale || "es"
         </a>
         <a
           href={`mailto:${siteInfo.email}`}
-          class="text-muted-foreground hover:text-foreground p-2 transition-colors"
+          class="hover:text-muted-foreground text-foreground p-2 transition-colors"
         >
           <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
           <span class="sr-only">Email</span>

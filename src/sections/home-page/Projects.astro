@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import type { LanguageData } from "@/types/language"
 import Project from "@/components/Project.astro"
+import { Badge } from "@/components/ui/badge"
 
 type Props = {
   t: LanguageData
@@ -25,9 +26,13 @@ const projectsFilteredByDate = projectsCollection.sort((a, b) => {
 
 <section
   id="projects"
-  class="compact-section bg-muted/10 border-t border-b py-10"
+  class="compact-section border-t border-b bg-zinc-50 py-10 dark:bg-zinc-900/20"
 >
-  <div class="container-width">
+  <div class="container-width text-center">
+    <Badge className="mb-3">
+      {t.projects.badge}
+    </Badge>
+
     <h2 class="section-title text-center">{t.projects.title}</h2>
 
     <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">

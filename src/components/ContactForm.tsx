@@ -114,12 +114,14 @@ export function ContactForm({ t, currentLang }: Props) {
           ))}
         </div>
 
-        <Button
-          disabled={isPending}
-          className="w-full"
-        >
-          {t.contact.submit.label}
-        </Button>
+        <div className="pt-2 text-center">
+          <Button
+            disabled={isPending}
+            className="rounded-full px-10 sm:px-12"
+          >
+            {t.contact.submit.label}
+          </Button>
+        </div>
       </form>
     </CardContent>
   )

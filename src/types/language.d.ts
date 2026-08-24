@@ -18,8 +18,6 @@ export type LanguageData = {
 export type Seo = {
   title: string
   description: string
-  image: string
-  siteUrl: string
   certificatesPage: CertificatesPageSeo
 }
 
@@ -32,11 +30,7 @@ export type CertificatesPageSeo = {
 // Navigation Types
 export type Nav = {
   about: string
-  skills: string
   projects: string
-  experience: string
-  blog: string
-  certifications: string
   contact: string
 }
 
@@ -73,6 +67,8 @@ export type Skill = {
 
 export type Education = {
   title: string
+  heading: string
+  coursesLabel: string
   educations: EducationDetail[]
 }
 
@@ -88,7 +84,6 @@ export type EducationDetail = {
 export type Projects = {
   badge: string
   title: string
-  github: string
   demo: string
 }
 
@@ -96,15 +91,10 @@ export type Projects = {
 export type Contact = {
   badge: string
   title: string
-  responseTime: ResponseTime
+  lede: string
   form: Form[]
   submit: Submit
   contactFormValidation: ContactFormValidation
-}
-
-export type ResponseTime = {
-  label: string
-  responseTimeData: string
 }
 
 export type Form = {

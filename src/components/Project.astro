@@ -14,10 +14,11 @@ import { buttonVariants } from "./ui/button"
 
 import { dateFormatter } from "@/lib/date-formatter"
 
-import { Calendar, Code2, ExternalLink } from "lucide-react"
+import { Calendar, ExternalLink } from "lucide-react"
 
 import type { CollectionEntry } from "astro:content"
 import type { LanguageData } from "@/types/language"
+import { Icon } from "astro-icon/components"
 
 type Props = {
   t: LanguageData
@@ -45,13 +46,35 @@ const { data, t } = Astro.props
         >{data.title}</CardTitle
       >
 
-      <Badge variant="outline">
-        {data.githubUrl.isPrivate ? "Private" : "Public"}
+      <Badge
+        variant="outline"
+        className={data.githubUrl.isPrivate
+          ? "rounded-full"
+          : "hover:bg-muted rounded-full transition-colors duration-300"}
+      >
+        {
+          data.githubUrl.isPrivate ? (
+            <span>Private</span>
+          ) : (
+            <a
+              href={data.githubUrl.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-1"
+            >
+              <Icon
+                name="github"
+                size="1em"
+              />
+              <span>Public</span>
+            </a>
+          )
+        }
       </Badge>
     </div>
 
-    <span class="text-foreground/40 flex items-center text-xs">
-      <Calendar className="mr-1 inline size-4" />
+    <span class="text-muted-foreground flex items-center gap-1.5 text-xs">
+      <Calendar className="size-3.5" />
       {
         dateFormatter(data.publishDate, {
           day: "2-digit",
@@ -62,35 +85,17 @@ const { data, t } = Astro.props
     </span>
 
     <CardDescription
-      className="text-muted-foreground mt-1.5 mb-3 line-clamp-2 text-xs sm:mb-4 sm:text-sm"
+      className="text-muted-foreground mt-1.5 mb-3 line-clamp-2 text-start text-xs sm:mb-4 sm:text-sm"
     >
       {data.description}
     </CardDescription>
 
-    <div class="mb-3 flex flex-wrap gap-1 sm:mb-4 sm:gap-2">
+    <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
       {data.technologies.map((tag) => <Badge variant="secondary">{tag}</Badge>)}
     </div>
   </CardContent>
 
   <CardFooter className="flex items-center gap-2 p-0 sm:mt-auto sm:gap-3">
-    {
-      !data.githubUrl.isPrivate && (
-        <a
-          href={data.githubUrl.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class={buttonVariants({
-            variant: "outline",
-            size: "sm",
-            className: "flex-1 rounded-full bg-transparent text-xs sm:flex-none"
-          })}
-        >
-          <Code2 className="h-3 w-3 mr-1" />
-          {t.projects.github}
-        </a>
-      )
-    }
-
     <a
       href={data.liveUrl}
       target="_blank"
@@ -98,7 +103,7 @@ const { data, t } = Astro.props
       class={buttonVariants({
         variant: "default",
         size: "sm",
-        className: "text-xs px-3 sm:px-4 py-2 flex-1 sm:flex-none"
+        className: `text-xs px-3 sm:px-4 py-2 w-full`
       })}
     >
       <ExternalLink className="mr-1 h-3 w-3" />

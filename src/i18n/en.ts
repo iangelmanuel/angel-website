@@ -6,8 +6,6 @@ export const en: LanguageData = {
     title: "Angel De La Torre",
     description:
       "Website of Angel De La Torre, a Full Stack and Phone Developer based in Barranquilla, Colombia. Explore my work, skills, and contact me for your next project.",
-    image: "/img/logo-ad.png",
-    siteUrl: import.meta.env.SITE || "https://angel-app.vercel.app",
     certificatesPage: {
       title: "Certifications - Angel De La Torre",
       description:
@@ -17,11 +15,7 @@ export const en: LanguageData = {
   },
   nav: {
     about: "About",
-    skills: "Skills",
     projects: "Projects",
-    experience: "Experience",
-    blog: "Blog",
-    certifications: "Certifications",
     contact: "Contact"
   },
   hero: {
@@ -40,8 +34,8 @@ export const en: LanguageData = {
     description2:
       "I believe design is more than just making something look good—it's about solving problems and creating intuitive, enjoyable experiences for users.",
     skillsAndTechnologies: {
-      badge: "Skills & Technologies",
-      title: "Skills",
+      badge: "Skills",
+      title: "Skills & Technologies",
       skills: [
         {
           label: "Frontend",
@@ -63,6 +57,8 @@ export const en: LanguageData = {
     },
     education: {
       title: "Education",
+      heading: "Academic Background",
+      coursesLabel: "courses",
       educations: [
         {
           logo: "/img/academy-logo/devtalles.webp",
@@ -100,6 +96,19 @@ export const en: LanguageData = {
             "Laravel 9 – Build Applications and Websites with PHP 8 and MVC",
             "Vue.js 3 - The Complete Guide - Composition, Pinia, MEVN. 10+ Apps"
           ]
+        },
+        {
+          logo: "/img/academy-logo/uac.webp",
+          academy: "Universidad Autónoma del Caribe",
+          degree: "International Business and Finance",
+          year: "2021 - 2026",
+          courses: [
+            "Data Analysis and Visualization with Python",
+            "Digital Marketing and Business Strategies",
+            "Financial Analysis and Investment Strategies",
+            "International Trade and Global Business",
+            "Corporate Finance and Risk Management"
+          ]
         }
       ]
     }
@@ -113,18 +122,13 @@ export const en: LanguageData = {
   projects: {
     badge: "Projects",
     title: "What I can do",
-    github: "Code",
     demo: "Demo"
   },
 
   contact: {
     badge: "Contact Me",
     title: "Get in touch",
-
-    responseTime: {
-      label: "Response time",
-      responseTimeData: "24-48 hours"
-    },
+    lede: "Tell me what you need and I'll get back to you directly by email.",
 
     form: [
       {

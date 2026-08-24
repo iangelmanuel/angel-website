@@ -1,9 +1,9 @@
 ---
 import { ContactForm } from "@/components/ContactForm"
-import { Mail, MapPin, Phone, Timer } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
 import { siteInfo } from "@/const/site-info"
 import type { LanguageData } from "@/types/language"
-import { Card, CardContent, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 type Props = {
   t: LanguageData
@@ -17,71 +17,54 @@ const { t, currentLang } = Astro.props
   id="contact"
   class="compact-section"
 >
-  <div class="container-width">
-    <h2 class="section-title text-center">{t.contact.title}</h2>
+  <div class="container-width mx-auto max-w-xl text-center">
+    <Badge className="mb-3">
+      {t.contact.badge}
+    </Badge>
 
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:space-y-0">
-      <Card className="p-6">
-        <div>
-          <CardTitle className="mb-3 text-base font-medium sm:mb-4 sm:text-lg">
-            {t.contact.title}
-          </CardTitle>
+    <h2 class="section-title mb-3">{t.contact.title}</h2>
 
-          <CardContent className="space-y-3 p-0 sm:space-y-4">
-            <div class="flex items-center gap-1.5">
-              <Mail className="text-primary size-4 shrink-0" />
-              <a
-                href={`mailto:${siteInfo.email}`}
-                class="hover:text-primary text-xs break-all transition-colors hover:underline sm:text-sm"
-              >
-                {siteInfo.email}
-              </a>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <Phone className="text-primary size-4 shrink-0" />
-              <a
-                href={`tel:${siteInfo.phone}`}
-                class="hover:text-primary text-xs transition-colors hover:underline sm:text-sm"
-              >
-                {siteInfo.phone}
-              </a>
-            </div>
-            <div class="flex items-center gap-1.5">
-              <MapPin className="text-primary size-4 shrink-0" />
-              <span class="text-xs sm:text-sm">{siteInfo.location}</span>
-            </div>
-          </CardContent>
-        </div>
+    <p
+      class="text-muted-foreground mx-auto mb-10 max-w-sm text-sm sm:text-base"
+    >
+      {t.contact.lede}
+    </p>
 
-        <div>
-          <CardTitle className="mb-3 text-base font-medium sm:mb-4 sm:text-lg">
-            {t.contact.responseTime.label}
-          </CardTitle>
+    <div class="text-left">
+      <ContactForm
+        t={t}
+        currentLang={currentLang}
+        client:only="react"
+      />
+    </div>
 
-          <CardContent className="space-y-3 p-0 sm:space-y-4">
-            <div class="flex justify-between">
-              <div class="flex items-center gap-1.5">
-                <Timer className="text-primary size-4 shrink-0" />
-                <span class="text-xs sm:text-sm"
-                  >{t.contact.responseTime.label}</span
-                >
-              </div>
+    <div
+      class="text-muted-foreground mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 border-t pt-8 text-xs sm:text-sm"
+    >
+      <a
+        href={`mailto:${siteInfo.email}`}
+        class="hover:text-foreground inline-flex items-center gap-1.5 font-medium transition-colors"
+      >
+        <Mail className="size-3.5" />
+        {siteInfo.email}
+      </a>
 
-              <span class="text-primary text-xs sm:text-sm"
-                >{t.contact.responseTime.responseTimeData}</span
-              >
-            </div>
-          </CardContent>
-        </div>
-      </Card>
+      <span class="text-border px-1">·</span>
 
-      <Card className="p-4 sm:p-6">
-        <ContactForm
-          t={t}
-          currentLang={currentLang}
-          client:only="react"
-        />
-      </Card>
+      <a
+        href={`tel:${siteInfo.phone}`}
+        class="hover:text-foreground inline-flex items-center gap-1.5 font-medium transition-colors"
+      >
+        <Phone className="size-3.5" />
+        {siteInfo.phone}
+      </a>
+
+      <span class="text-border px-1">·</span>
+
+      <span class="inline-flex items-center gap-1.5 font-medium">
+        <MapPin className="size-3.5" />
+        {siteInfo.location}
+      </span>
     </div>
   </div>
 </section>

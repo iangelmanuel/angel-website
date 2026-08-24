@@ -6,8 +6,6 @@ export const es: LanguageData = {
     title: "Angel De La Torre",
     description:
       "Sitio web de Angel De La Torre, un Desarrollador Full Stack y Desarrollador de Teléfonos con sede en Barranquilla, Colombia. Explora mi trabajo, habilidades y contáctame para tu próximo proyecto.",
-    image: "/img/logo-ad.png",
-    siteUrl: import.meta.env.SITE || "https://angel-app.vercel.app",
     certificatesPage: {
       title: "Certificaciones - Angel De La Torre",
       description:
@@ -17,11 +15,7 @@ export const es: LanguageData = {
   },
   nav: {
     about: "Sobre mí",
-    skills: "Habilidades",
     projects: "Proyectos",
-    experience: "Experiencia",
-    blog: "Blog",
-    certifications: "Certificaciones",
     contact: "Contacto"
   },
   hero: {
@@ -41,8 +35,8 @@ export const es: LanguageData = {
       "Creo que el diseño es más que solo hacer que algo se vea bien: se trata de resolver problemas y crear experiencias intuitivas y agradables para los usuarios.",
 
     skillsAndTechnologies: {
-      badge: "Habilidades y Tecnologías",
-      title: "Habilidades",
+      badge: "Habilidades",
+      title: "Habilidades y Tecnologías",
       skills: [
         {
           label: "Frontend",
@@ -64,6 +58,8 @@ export const es: LanguageData = {
     },
     education: {
       title: "Educación",
+      heading: "Formación académica",
+      coursesLabel: "cursos",
       educations: [
         {
           logo: "/img/academy-logo/devtalles.webp",
@@ -101,6 +97,19 @@ export const es: LanguageData = {
             "Laravel 9 - Crea aplicaciones y sitios web con PHP 8 y MVC",
             "Vue.js 3 - La Guía Completa - Composition, Pinia, MEVN. +10 Apps"
           ]
+        },
+        {
+          logo: "/img/academy-logo/uac.webp",
+          academy: "Universidad Autónoma del Caribe",
+          degree: "Negocios y Finanzas Internacionales",
+          year: "2021 - 2026",
+          courses: [
+            "Análisis y Visualización de Datos con Python",
+            "Marketing Digital y Estrategias de Negocios",
+            "Análisis Financiero y Estrategias de Inversión",
+            "Comercio Internacional y Negocios Globales",
+            "Finanzas Corporativas y Gestión de Riesgos"
+          ]
         }
       ]
     }
@@ -114,18 +123,13 @@ export const es: LanguageData = {
   projects: {
     badge: "Proyectos",
     title: "Lo que puedo hacer",
-    github: "Código",
     demo: "Demo"
   },
 
   contact: {
     badge: "Contáctame",
     title: "Ponte en contacto",
-
-    responseTime: {
-      label: "Tiempo de respuesta",
-      responseTimeData: "24-48 horas"
-    },
+    lede: "Cuéntame qué necesitas y te respondo directo a tu correo.",
 
     form: [
       {

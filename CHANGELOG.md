@@ -5,12 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased] - 2026-08-12
+## [Unreleased]
+
+## [1.1.0] - 2026-08-23
 
 ### Added
 
 - Added official GitHub, LinkedIn, and X SVG logos through `astro-icon`.
 - Added `astro check` and a modern ESLint configuration for project validation.
+- Added "Universidad Autónoma del Caribe" (International Business and Finance) as a new education entry in the About section, in both languages.
+- Added a stats summary (courses completed, hours completed, certifications) to the About > Education subsection, sourced from `siteInfo.certificates`.
+- Added section `Badge` labels to the About, Projects, and Contact sections for consistent visual hierarchy.
+- Added `contact.lede` translation to introduce the Contact section.
+- Added `education.heading` and `education.coursesLabel` translations for the redesigned Education subsection.
 
 ### Updated
 
@@ -23,6 +30,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Replaced deprecated Lucide social placeholders with local brand SVGs.
 - Removed the project availability status from the Hero, contact section, translations, types, and site configuration.
 - Updated path references in `TopMenu.astro` to correctly import global styles.
+- Redesigned the About section: education entries now render as a connected timeline with cards, and skills/technologies are now displayed as label/value rows instead of badge pills.
+- Redesigned the Contact section: replaced the two-card layout (contact info card + form card) with a centered form and an inline contact-info row (email, phone, location) beneath it; removed the "response time" block.
+- Redesigned the Projects section: added a section badge and switched the section background to `bg-zinc-50` / `dark:bg-zinc-900/20`.
+- Updated `Project.astro` so the GitHub Public/Private badge itself links to the repository (with the GitHub icon) instead of a separate "Code" button; the live demo button is now full width.
+- Updated `ContactForm.tsx` submit button to a centered, pill-shaped (`rounded-full`) style.
+- Updated the default `Badge` variant to use a solid black/white background (`bg-black dark:bg-white`) instead of the primary color.
+- Updated `Hero.astro` social icons to be foreground-colored by default with a muted hover state, and removed the `secondary` variant from the years-of-experience badge.
+- Swapped the `skillsAndTechnologies.badge` and `.title` copy in both languages.
+- Reduced `yearsOfExperience` from 4 to 3 in `src/const/site-info.ts`.
+
+### Removed
+
+- Removed unused translation fields and their types: `seo.image`, `seo.siteUrl`, `nav.skills`, `nav.experience`, `nav.blog`, `nav.certifications`, `projects.github`, and `contact.responseTime`.
 
 ### Fixed
 
@@ -143,7 +163,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.0.4
+- **Current version**: 1.1.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 7.1.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

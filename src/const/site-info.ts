@@ -5,7 +5,7 @@ export const siteInfo = {
   email: "iangelmanuel02@gmail.com",
   phone: "+57 317 611 5270",
   location: "Barranquilla, Colombia",
-  yearsOfExperience: 4,
+  yearsOfExperience: 3,
 
   certificates: {
     totalCourses: 12,

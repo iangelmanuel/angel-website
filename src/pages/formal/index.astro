@@ -1,0 +1,26 @@
+---
+import Layout from "@/modules/formal/layouts/Layout.astro"
+import Hero from "@/modules/formal/sections/home-page/Hero.astro"
+import About from "@/modules/formal/sections/home-page/About.astro"
+import Projects from "@/modules/formal/sections/home-page/Projects.astro"
+import Contact from "@/modules/formal/sections/home-page/Contact.astro"
+
+import { getTranslations } from "@/config/i18n"
+
+const currentLang = Astro.currentLocale || "es"
+const t = getTranslations(currentLang)
+---
+
+<Layout
+  t={t}
+  title={t.seo.title}
+  description={t.seo.description}
+>
+  <Hero t={t} />
+  <About t={t} />
+  <Projects t={t} />
+  <Contact
+    t={t}
+    currentLang={currentLang}
+  />
+</Layout>

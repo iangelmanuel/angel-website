@@ -1,15 +1,13 @@
 ---
 import type { GetStaticPaths } from "astro"
 
-import Layout from "@/layouts/Layout.astro"
-import About from "@/sections/home-page/About.astro"
-import Hero from "@/sections/home-page/Hero.astro"
-import Projects from "@/sections/home-page/Projects.astro"
-import Contact from "@/sections/home-page/Contact.astro"
+import Layout from "@/modules/pixel/layouts/Layout.astro"
+import Hero from "@/modules/pixel/sections/home-page/Hero.astro"
+import About from "@/modules/pixel/sections/home-page/About.astro"
+import Projects from "@/modules/pixel/sections/home-page/Projects.astro"
+import Contact from "@/modules/pixel/sections/home-page/Contact.astro"
 
-import { es } from "@/i18n/es"
-import { en } from "@/i18n/en"
-import type { Language } from "@/types/language"
+import { getTranslations } from "@/config/i18n"
 
 export const getStaticPaths = (() => {
   const languages = ["en", "es"]
@@ -20,8 +18,7 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths
 
 const currentLang = Astro.currentLocale || "es"
-const translations = { en, es }
-const t = translations[currentLang as Language]
+const t = getTranslations(currentLang)
 ---
 
 <Layout

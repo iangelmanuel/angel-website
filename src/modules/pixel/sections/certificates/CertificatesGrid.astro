@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content"
+
+import CertificateCard from "../../components/CertificateCard.astro"
+
+const currentLang = Astro.currentLocale || "es"
+
+const certificates = await getCollection("certificates", (cert) => {
+  const [lang] = cert.id.split("/")
+  return lang === currentLang && cert.data.status === "completed"
+})
+
+const sortByIssueDate = certificates.sort((a, b) => {
+  return (
+    new Date(b.data.issueDate!).getTime() -
+    new Date(a.data.issueDate!).getTime()
+  )
+})
+---
+
+<section class="compact-section pt-10">
+  <div class="container-width grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+    {
+      sortByIssueDate.map((cert, index) => (
+        <CertificateCard
+          cert={cert}
+          index={index}
+        />
+      ))
+    }
+  </div>
+</section>

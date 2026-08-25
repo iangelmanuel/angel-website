@@ -1,4 +1,4 @@
-import type { LanguageData } from "@/types/language"
+import type { LanguageData } from "@/config/types/language"
 
 export const formConfig = {
   contactForm: (t: LanguageData) => {

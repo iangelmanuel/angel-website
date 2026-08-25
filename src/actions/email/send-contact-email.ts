@@ -2,11 +2,11 @@ import { defineAction } from "astro:actions"
 import { z } from "astro/zod"
 import { Resend } from "resend"
 
-import { siteInfo } from "@/const/site-info"
-import { contactEmailHTML } from "@/const/contact-email-html"
+import { siteInfo } from "@/config/const/site-info"
+import { contactEmailHTML } from "@/config/const/contact-email-html"
 
-import { es } from "@/i18n/es"
-import { en } from "@/i18n/en"
+import { es } from "@/config/i18n/es"
+import { en } from "@/config/i18n/en"
 
 export const sendContactEmail = defineAction({
   input: z.object({

@@ -4,13 +4,11 @@ export type Language = "es" | "en"
 
 export type LanguageData = {
   seo: Seo
-  nav: Nav
   hero: Hero
   about: About
-  projects: Projects
   contact: Contact
   footer: Footer
-  certificatesPage: CertificatesPage
+  certificates: Certificates
   actionsResponses: ActionsResponses
 }
 
@@ -24,14 +22,6 @@ export type Seo = {
 export type CertificatesPageSeo = {
   title: string
   description: string
-  btnToVerify: string
-}
-
-// Navigation Types
-export type Nav = {
-  about: string
-  projects: string
-  contact: string
 }
 
 // Hero Types
@@ -40,24 +30,14 @@ export type Hero = {
   greeting: string
   title: string
   description: string
-  btn1: string
-  btn2: string
 }
 
 // About Types
 export type About = {
-  badge: string
-  title: string
   description1: string
   description2: string
-  skillsAndTechnologies: SkillsAndTechnologies
-  education: Education
-}
-
-export type SkillsAndTechnologies = {
-  badge: string
-  title: string
   skills: Skill[]
+  education: Education
 }
 
 export type Skill = {
@@ -66,8 +46,6 @@ export type Skill = {
 }
 
 export type Education = {
-  title: string
-  heading: string
   coursesLabel: string
   educations: EducationDetail[]
 }
@@ -80,17 +58,8 @@ export type EducationDetail = {
   courses: string[]
 }
 
-// Projects Types
-export type Projects = {
-  badge: string
-  title: string
-  demo: string
-}
-
 // Contact Types
 export type Contact = {
-  badge: string
-  title: string
   lede: string
   form: Form[]
   submit: Submit
@@ -123,6 +92,14 @@ export type Footer = {
   rights: string
 }
 
+// Certificates Types
+export type Certificates = {
+  description: string
+  coursesCompleted: string
+  hoursCompleted: string
+  certificatesEarned: string
+}
+
 // Actions Responses Types
 export type ActionsResponses = {
   contactForm: ContactForm
@@ -131,19 +108,4 @@ export type ActionsResponses = {
 export type ContactForm = {
   success: string
   error: string
-}
-
-// Certificates Page Types
-export type CertificatesPage = {
-  title: string
-  btnToRedirect: string
-  pageData: CertificatesPageData
-}
-
-export type CertificatesPageData = {
-  title: string
-  description: string
-  coursesCompleted: string
-  hoursCompleted: string
-  certificatesEarned: string
 }

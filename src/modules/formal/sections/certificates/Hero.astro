@@ -1,0 +1,57 @@
+---
+import { getCopy } from "@/modules/formal/i18n"
+import { siteInfo } from "@/config/const/site-info"
+
+import type { LanguageData } from "@/config/types/language"
+
+type Props = {
+  t: LanguageData
+}
+
+const { t } = Astro.props
+const { certificates } = siteInfo
+const copy = getCopy(Astro.currentLocale)
+---
+
+<section
+  class="compact-section m-0 flex items-center justify-center overflow-hidden pt-24 sm:pt-36"
+>
+  <div class="container-width text-center">
+    <div class="mb-4 inline-flex items-center gap-2">
+      <h2 class="page-title">{copy.certificates.title}</h2>
+    </div>
+
+    <p class="body-text mx-auto mb-6 max-w-2xl">
+      {t.certificates.description}
+    </p>
+
+    <div class="flex justify-center gap-8">
+      <div class="text-center">
+        <div class="stat-value">
+          {certificates.totalCourses}
+        </div>
+        <div class="stat-caption">
+          {t.certificates.coursesCompleted}
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="stat-value">
+          {certificates.totalHours}+
+        </div>
+        <div class="stat-caption">
+          {t.certificates.hoursCompleted}
+        </div>
+      </div>
+
+      <div class="text-center">
+        <div class="stat-value">
+          {certificates.certifications}
+        </div>
+        <div class="stat-caption">
+          {t.certificates.certificatesEarned}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

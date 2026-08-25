@@ -1,0 +1,91 @@
+---
+import { Image } from "astro:assets"
+import { Icon } from "astro-icon/components"
+
+import { Calendar, ExternalLink } from "lucide-react"
+
+import { getCopy } from "@/modules/formal/i18n"
+import { dateFormatter } from "@/config/lib/date-formatter"
+
+import type { CollectionEntry } from "astro:content"
+import type { LanguageData } from "@/config/types/language"
+
+type Props = {
+  t: LanguageData
+  data: CollectionEntry<"projects">["data"]
+}
+
+const { data } = Astro.props
+const copy = getCopy(Astro.currentLocale)
+---
+
+<article class="surface-card group p-4 sm:h-125 sm:p-6">
+  <header class="media-frame aspect-video overflow-hidden">
+    <Image
+      src={data.image}
+      alt={`${data.title} Image`}
+      width={800}
+      height={450}
+      loading="lazy"
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-115"
+    />
+  </header>
+
+  <div class="flex flex-col justify-center gap-1 pt-4">
+    <div class="flex items-center gap-2">
+      <h3 class="card-headline">{data.title}</h3>
+
+      {
+        data.githubUrl.isPrivate ? (
+          <span class="chip">Private</span>
+        ) : (
+          <a
+            href={data.githubUrl.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="chip chip-link gap-1"
+          >
+            <Icon
+              name="github"
+              size="1em"
+            />
+            <span>Public</span>
+          </a>
+        )
+      }
+    </div>
+
+    <span class="card-meta flex items-center gap-1.5">
+      <Calendar className="size-3.5" />
+      {
+        dateFormatter(data.publishDate, {
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        })
+      }
+    </span>
+
+    <p class="card-text mt-1.5 mb-3 line-clamp-2 text-start sm:mb-4">
+      {data.description}
+    </p>
+
+    <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
+      {
+        data.technologies.map((tag) => <span class="chip chip-solid">{tag}</span>)
+      }
+    </div>
+  </div>
+
+  <footer class="flex items-center gap-2 sm:mt-auto sm:gap-3">
+    <a
+      href={data.liveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-primary btn-sm w-full"
+    >
+      <ExternalLink className="size-3" />
+      {copy.projects.demo}
+    </a>
+  </footer>
+</article>

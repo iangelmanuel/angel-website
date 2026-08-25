@@ -1,0 +1,84 @@
+---
+import { Mail, MapPin, Phone } from "lucide-react"
+
+import { ContactForm } from "../../components/ContactForm"
+
+import { getCopy } from "@/modules/pixel/i18n"
+import { siteInfo } from "@/config/const/site-info"
+
+import type { LanguageData } from "@/config/types/language"
+
+type Props = {
+  t: LanguageData
+  currentLang: string
+}
+
+const { t, currentLang } = Astro.props
+const copy = getCopy(currentLang)
+---
+
+<section
+  id="contact"
+  class="compact-section"
+>
+  <div
+    class="container-width mx-auto max-w-xl text-center"
+    style="--section-color: var(--pink)"
+  >
+    <span class="section-badge">
+      {copy.contact.badge}
+    </span>
+
+    <h2 class="section-title mb-3">{copy.contact.title}</h2>
+
+    <p class="body-text mx-auto mb-10 max-w-sm">
+      {t.contact.lede}
+    </p>
+
+    <div class="form-shell text-left">
+      <div class="form-shell-bar">
+        <span class="form-shell-dot"></span>
+        <span class="form-shell-dot"></span>
+        <span class="form-shell-dot"></span>
+        <span class="ml-1.5">{copy.contact.windowTitle}</span>
+      </div>
+
+      <div class="form-shell-body">
+        <ContactForm
+          t={t}
+          currentLang={currentLang}
+          client:only="react"
+        />
+      </div>
+    </div>
+
+    <div
+      class="rule-t mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 pt-8"
+    >
+      <a
+        href={`mailto:${siteInfo.email}`}
+        class="contact-link"
+      >
+        <Mail className="size-3.5" />
+        {siteInfo.email}
+      </a>
+
+      <span class="contact-sep">·</span>
+
+      <a
+        href={`tel:${siteInfo.phone}`}
+        class="contact-link"
+      >
+        <Phone className="size-3.5" />
+        {siteInfo.phone}
+      </a>
+
+      <span class="contact-sep">·</span>
+
+      <span class="contact-link contact-link-static">
+        <MapPin className="size-3.5" />
+        {siteInfo.location}
+      </span>
+    </div>
+  </div>
+</section>

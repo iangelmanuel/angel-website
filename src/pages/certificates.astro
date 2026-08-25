@@ -1,15 +1,12 @@
 ---
-import Layout from "@/layouts/Layout.astro"
-import Hero from "@/sections/certificates/Hero.astro"
-import CertificatesGrid from "@/sections/certificates/CertificatesGrid.astro"
+import Layout from "@/modules/pixel/layouts/Layout.astro"
+import Hero from "@/modules/pixel/sections/certificates/Hero.astro"
+import CertificatesGrid from "@/modules/pixel/sections/certificates/CertificatesGrid.astro"
 
-import { es } from "@/i18n/es"
-import { en } from "@/i18n/en"
-import type { Language } from "@/types/language"
+import { getTranslations } from "@/config/i18n"
 
 const currentLang = Astro.currentLocale || "es"
-const translations = { en, es }
-const t = translations[currentLang as Language]
+const t = getTranslations(currentLang)
 ---
 
 <Layout
@@ -18,5 +15,5 @@ const t = translations[currentLang as Language]
   description={t.seo.certificatesPage.description}
 >
   <Hero t={t} />
-  <CertificatesGrid t={t} />
+  <CertificatesGrid />
 </Layout>

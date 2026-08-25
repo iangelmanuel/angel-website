@@ -1,5 +1,5 @@
-import { siteInfo } from "@/const/site-info"
-import type { LanguageData } from "@/types/language"
+import { siteInfo } from "@/config/const/site-info"
+import type { LanguageData } from "@/config/types/language"
 
 export const es: LanguageData = {
   seo: {
@@ -9,56 +9,43 @@ export const es: LanguageData = {
     certificatesPage: {
       title: "Certificaciones - Angel De La Torre",
       description:
-        "Explora las certificaciones y cursos completados por Angel De La Torre, un Desarrollador Full Stack y de Teléfonos. Valida mis habilidades y conocimientos a través de credenciales reconocidas.",
-      btnToVerify: "Verificar"
+        "Explora las certificaciones y cursos completados por Angel De La Torre, un Desarrollador Full Stack y de Teléfonos. Valida mis habilidades y conocimientos a través de credenciales reconocidas."
     }
   },
-  nav: {
-    about: "Sobre mí",
-    projects: "Proyectos",
-    contact: "Contacto"
-  },
+
   hero: {
     yearExp: `${siteInfo.yearsOfExperience}+ años de experiencia`,
     greeting: "Hola, soy ",
     title: "Desarrollador Full Stack y de Teléfonos",
-    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
-    btn1: "Ver mi trabajo",
-    btn2: "Descargar CV"
+    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`
   },
+
   about: {
-    badge: "Sobre mí",
-    title: "Quién soy",
     description1:
       "Soy un Desarrollador Full Stack con pasión por crear experiencias digitales hermosas, funcionales y centradas en el usuario. Con más de 2 años de experiencia en el campo, siempre busco nuevas formas innovadoras de dar vida a las visiones de mis clientes.",
     description2:
       "Creo que el diseño es más que solo hacer que algo se vea bien: se trata de resolver problemas y crear experiencias intuitivas y agradables para los usuarios.",
 
-    skillsAndTechnologies: {
-      badge: "Habilidades",
-      title: "Habilidades y Tecnologías",
-      skills: [
-        {
-          label: "Frontend",
-          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-        },
-        {
-          label: "Backend",
-          skills: [
-            "Node.js",
-            "Express",
-            "Prisma ORM",
-            "PostgreSQL",
-            "Supabase",
-            "MongoDB"
-          ]
-        },
-        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-      ]
-    },
+    skills: [
+      {
+        label: "Frontend",
+        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+      },
+      {
+        label: "Backend",
+        skills: [
+          "Node.js",
+          "Express",
+          "Prisma ORM",
+          "PostgreSQL",
+          "Supabase",
+          "MongoDB"
+        ]
+      },
+      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+    ],
+
     education: {
-      title: "Educación",
-      heading: "Formación académica",
       coursesLabel: "cursos",
       educations: [
         {
@@ -114,21 +101,8 @@ export const es: LanguageData = {
       ]
     }
   },
-  // certifications: {
-  //   title: "Certificaciones",
-  //   viewCredential: "Ver credencial",
-  //   issuedBy: "Emitido por"
-  // },
-
-  projects: {
-    badge: "Proyectos",
-    title: "Lo que puedo hacer",
-    demo: "Demo"
-  },
 
   contact: {
-    badge: "Contáctame",
-    title: "Ponte en contacto",
     lede: "Cuéntame qué necesitas y te respondo directo a tu correo.",
 
     form: [
@@ -157,6 +131,7 @@ export const es: LanguageData = {
         type: "textarea"
       }
     ],
+
     submit: {
       label: "Enviar mensaje",
       sending: "Enviando",
@@ -191,24 +166,19 @@ export const es: LanguageData = {
     rights: `${siteInfo.authorNameAndSurname}. Todos los derechos reservados.`
   },
 
+  certificates: {
+    description:
+      "Mi formación continua a través de las mejores plataformas educativas y las certificaciones que validan mis conocimientos.",
+    coursesCompleted: "Cursos completados",
+    hoursCompleted: "Horas completadas",
+    certificatesEarned: "Certificaciones"
+  },
+
   actionsResponses: {
     contactForm: {
       success: "¡Mensaje enviado con éxito!",
       error:
         "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
-    }
-  },
-
-  certificatesPage: {
-    title: "Certificaciones",
-    btnToRedirect: "Ver certificaciones",
-    pageData: {
-      title: "Educación y Certificaciones",
-      description:
-        "Mi formación continua a través de las mejores plataformas educativas y las certificaciones que validan mis conocimientos.",
-      coursesCompleted: "Cursos completados",
-      hoursCompleted: "Horas completadas",
-      certificatesEarned: "Certificaciones"
     }
   }
 }

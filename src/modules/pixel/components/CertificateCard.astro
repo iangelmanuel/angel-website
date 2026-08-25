@@ -1,0 +1,101 @@
+---
+import { Calendar, ExternalLink } from "lucide-react"
+
+import { getCopy } from "@/modules/pixel/i18n"
+import { getCardAccent } from "@/modules/pixel/lib/card-accent"
+import { dateFormatter } from "@/config/lib/date-formatter"
+
+import type { CollectionEntry } from "astro:content"
+
+type Props = {
+  cert: CollectionEntry<"certificates">
+  index: number
+}
+
+const { cert, index } = Astro.props
+const copy = getCopy(Astro.currentLocale)
+
+const slug = cert.id.split("/").pop()
+const accent = getCardAccent(index)
+---
+
+<article
+  class="win-card group"
+  style={`--proj-color: var(--${accent})`}
+>
+  <div class="win-card-bar">
+    <div class="win-card-dots">
+      <span class="win-card-dot"></span>
+      <span class="win-card-dot"></span>
+      <span class="win-card-dot"></span>
+    </div>
+    <span class="win-card-path">~/{slug}</span>
+  </div>
+
+  <div class="win-card-body">
+    <header class="media-frame relative aspect-[4/3] overflow-hidden">
+      <img
+        src={cert.data.image}
+        alt={`Certificación ${cert.data.title}`}
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      <div class="absolute top-2 right-2">
+        <span class="chip chip-issuer">{cert.data.issuer}</span>
+      </div>
+    </header>
+
+    <div class="mt-4">
+      <h4 class="win-card-title mb-1 line-clamp-2">
+        <span class="win-card-prompt">&gt;</span>{cert.data.title}
+      </h4>
+      <div class="card-meta flex items-center gap-1">
+        <Calendar className="size-3" />
+        <span>
+          {
+            dateFormatter(cert.data.issueDate!, {
+              year: "numeric",
+              month: "short",
+              day: "numeric"
+            })
+          }
+        </span>
+      </div>
+      {
+        cert.data.credentialId && (
+          <p class="card-meta mt-1">ID: {cert.data.credentialId}</p>
+        )
+      }
+    </div>
+
+    <div class="mt-3 mb-3">
+      <div class="flex flex-wrap gap-1">
+        {
+          cert.data.skills!.slice(0, 3).map((skill) => (
+            <span class="chip">{skill}</span>
+          ))
+        }
+        {
+          cert.data.skills!.length > 3 && (
+            <span class="chip chip-solid">+{cert.data.skills!.length - 3}</span>
+          )
+        }
+      </div>
+    </div>
+
+    <footer class="mt-auto">
+      {
+        cert.data.credentialUrl && (
+          <a
+            href={cert.data.credentialUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary btn-sm w-full lg:w-auto"
+          >
+            <ExternalLink className="size-3" />
+            {copy.certificates.btnToVerify}
+          </a>
+        )
+      }
+    </footer>
+  </div>
+</article>

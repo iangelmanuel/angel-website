@@ -1,0 +1,378 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-nunito: "Nunito-VariableFont", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@font-face {
+  font-family: "Nunito-VariableFont";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Nunito-VariableFont.woff2") format("woff2");
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-nunito selection:bg-blue-100 dark:selection:bg-blue-500/30;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .container-width {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .compact-section {
+    @apply p-5 lg:p-0;
+  }
+
+  .rule-t {
+    @apply border-t;
+  }
+
+  .rule-b {
+    @apply border-b;
+  }
+
+  .timeline-rail {
+    @apply bg-border w-px;
+  }
+
+  .skill-label {
+    @apply text-muted-foreground text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+  }
+
+  .skill-value {
+    @apply text-sm font-medium sm:text-base;
+  }
+
+  .field-error {
+    @apply text-xs text-red-500;
+  }
+
+  .contact-sep {
+    @apply text-border px-1;
+  }
+
+  /* Layout */
+  .projects-band {
+    @apply border-t border-b bg-zinc-50 dark:bg-zinc-900/20;
+  }
+
+  /* Top bar */
+  .top-bar-scrolled {
+    @apply bg-background/80 dark:border-muted-foreground/10 border-b backdrop-blur-3xl;
+  }
+
+  .brand {
+    @apply bg-accent-foreground rounded-full text-lg font-medium tracking-tight sm:text-2xl;
+  }
+
+  .logo-frame {
+    @apply text-white dark:text-black;
+  }
+
+  .nav-link {
+    @apply hover:text-primary text-sm font-medium transition-all duration-500 hover:scale-105;
+  }
+
+  .nav-underline {
+    @apply bg-primary absolute -bottom-1 left-0 h-0.5 w-0 transition-all duration-300 group-hover:w-full;
+  }
+
+  .icon-btn {
+    @apply hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 inline-flex cursor-pointer items-center justify-center rounded-full transition-colors;
+  }
+
+  .menu-panel {
+    @apply bg-background border-l;
+  }
+
+  .menu-item {
+    @apply hover:text-primary text-4xl font-bold transition-colors duration-300;
+  }
+
+  /* Headings */
+  .section-badge {
+    @apply text-primary-foreground mb-3 inline-flex w-fit items-center justify-center rounded-md border border-transparent bg-black px-2 py-0.5 text-xs font-medium whitespace-nowrap dark:bg-white;
+  }
+
+  .section-initial-title {
+    @apply mb-3 text-xl font-medium tracking-tight sm:text-2xl md:text-3xl;
+  }
+
+  .section-title {
+    @apply mb-6 text-xl font-medium tracking-tight sm:mb-8 sm:text-2xl md:text-3xl;
+  }
+
+  .page-title {
+    @apply text-5xl font-bold;
+  }
+
+  .hero-name {
+    @apply text-2xl font-light tracking-tight sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  .hero-name-accent {
+    @apply text-foreground;
+  }
+
+  .hero-role {
+    @apply text-muted-foreground font-light sm:text-lg md:text-xl lg:text-2xl;
+  }
+
+  .body-text {
+    @apply text-muted-foreground text-sm leading-relaxed font-light sm:text-base [&_a]:font-semibold [&_a]:hover:underline;
+  }
+
+  .muted-text {
+    @apply text-muted-foreground;
+  }
+
+  .faint-text {
+    @apply text-muted-foreground;
+  }
+
+  /* Hero */
+  .avatar-frame {
+    @apply rounded-full border-4 border-white shadow-2xl dark:border-black;
+  }
+
+  .avatar-badge {
+    @apply text-primary-foreground inline-flex w-fit items-center justify-center rounded-full border bg-black px-2 py-0.5 text-sm font-medium whitespace-nowrap dark:bg-white;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap shadow-xs transition-all disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-background hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 inline-flex h-9 cursor-pointer items-center justify-center gap-2 rounded-md border px-4 py-2 text-sm font-medium whitespace-nowrap shadow-xs transition-all;
+  }
+
+  .btn-sm {
+    @apply h-8 gap-1.5 px-3 text-xs;
+  }
+
+  .btn-pill {
+    @apply rounded-full;
+  }
+
+  .social-link {
+    @apply text-muted-foreground hover:text-foreground transition-colors;
+  }
+
+  .text-link {
+    @apply text-muted-foreground text-xs hover:underline sm:text-sm;
+  }
+
+  .contact-link {
+    @apply text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs font-medium transition-colors sm:text-sm;
+  }
+
+  .contact-link-static {
+    @apply hover:text-muted-foreground;
+  }
+
+  /* Cards */
+  .surface-card {
+    @apply bg-card text-card-foreground flex flex-col rounded-xl border shadow-sm;
+  }
+
+  .media-frame {
+    @apply rounded border;
+  }
+
+  .media-frame-flush {
+    @apply rounded-none border-0;
+  }
+
+  .academy-logo {
+    @apply rounded-full border;
+  }
+
+  .card-headline {
+    @apply text-lg leading-none font-semibold sm:text-xl;
+  }
+
+  .card-title {
+    @apply text-sm font-semibold;
+  }
+
+  .card-meta {
+    @apply text-muted-foreground text-xs;
+  }
+
+  .card-text {
+    @apply text-muted-foreground text-xs sm:text-sm;
+  }
+
+  .chip {
+    @apply text-foreground hover:bg-accent inline-flex w-fit items-center justify-center gap-1 rounded-full border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-colors;
+  }
+
+  .chip-link {
+    @apply hover:text-accent-foreground;
+  }
+
+  .chip-solid {
+    @apply bg-secondary text-secondary-foreground rounded-md border-transparent;
+  }
+
+  .chip-issuer {
+    @apply rounded-md border-transparent bg-[#171717] text-white hover:bg-[#171717]/90;
+  }
+
+  /* Stats & timeline */
+  .stat-grid {
+    @apply divide-border divide-x rounded-lg border shadow-sm;
+  }
+
+  .stat-value {
+    @apply text-xl font-bold sm:text-2xl;
+  }
+
+  .stat-label {
+    @apply text-muted-foreground mt-1 text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+  }
+
+  .stat-caption {
+    @apply text-muted-foreground text-xs sm:text-base;
+  }
+
+  .timeline-dot {
+    @apply border-foreground bg-background size-2.5 rounded-full border-2;
+  }
+
+  /* Form */
+  .field {
+    @apply border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 dark:bg-input/30 flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 md:text-sm;
+  }
+
+  .field-textarea {
+    @apply min-h-16 resize-y py-2;
+  }
+
+  .field-label {
+    @apply mb-1 block text-xs font-medium sm:text-sm;
+  }
+
+  /* Footer */
+  .footer-shell {
+    @apply border-t;
+  }
+
+  .footer-name {
+    @apply text-sm font-medium sm:text-base;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-black/20 dark:bg-white/20;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-black/40 dark:bg-white/40;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-wave {
+  animation: wave 1.5s infinite;
+}

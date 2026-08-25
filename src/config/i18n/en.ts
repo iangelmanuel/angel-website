@@ -1,5 +1,5 @@
-import { siteInfo } from "@/const/site-info"
-import type { LanguageData } from "@/types/language"
+import { siteInfo } from "@/config/const/site-info"
+import type { LanguageData } from "@/config/types/language"
 
 export const en: LanguageData = {
   seo: {
@@ -9,55 +9,43 @@ export const en: LanguageData = {
     certificatesPage: {
       title: "Certifications - Angel De La Torre",
       description:
-        "Explore the certifications and courses completed by Angel De La Torre, a Full Stack and Phone Developer. Validate my skills and knowledge through recognized credentials.",
-      btnToVerify: "Verify"
+        "Explore the certifications and courses completed by Angel De La Torre, a Full Stack and Phone Developer. Validate my skills and knowledge through recognized credentials."
     }
   },
-  nav: {
-    about: "About",
-    projects: "Projects",
-    contact: "Contact"
-  },
+
   hero: {
     yearExp: `${siteInfo.yearsOfExperience}+ years of experience`,
     greeting: "Hi, I'm ",
     title: "Full Stack and Phone Developer",
-    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="hover:underline font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
-    btn1: "View my work",
-    btn2: "Download CV"
+    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`
   },
+
   about: {
-    badge: "About Me",
-    title: "About",
     description1:
       "I'm a Full Stack Developer with a passion for creating beautiful, functional, and user-centered digital experiences. With over 2 years of experience in the field, I'm always looking for innovative ways to bring my clients' visions to life.",
     description2:
       "I believe design is more than just making something look good—it's about solving problems and creating intuitive, enjoyable experiences for users.",
-    skillsAndTechnologies: {
-      badge: "Skills",
-      title: "Skills & Technologies",
-      skills: [
-        {
-          label: "Frontend",
-          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-        },
-        {
-          label: "Backend",
-          skills: [
-            "Node.js",
-            "Express",
-            "Prisma ORM",
-            "PostgreSQL",
-            "Supabase",
-            "MongoDB"
-          ]
-        },
-        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-      ]
-    },
+
+    skills: [
+      {
+        label: "Frontend",
+        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+      },
+      {
+        label: "Backend",
+        skills: [
+          "Node.js",
+          "Express",
+          "Prisma ORM",
+          "PostgreSQL",
+          "Supabase",
+          "MongoDB"
+        ]
+      },
+      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+    ],
+
     education: {
-      title: "Education",
-      heading: "Academic Background",
       coursesLabel: "courses",
       educations: [
         {
@@ -113,21 +101,8 @@ export const en: LanguageData = {
       ]
     }
   },
-  // certifications: {
-  //   title: "Certifications",
-  //   viewCredential: "View credential",
-  //   issuedBy: "Issued by"
-  // },
-
-  projects: {
-    badge: "Projects",
-    title: "What I can do",
-    demo: "Demo"
-  },
 
   contact: {
-    badge: "Contact Me",
-    title: "Get in touch",
     lede: "Tell me what you need and I'll get back to you directly by email.",
 
     form: [
@@ -156,6 +131,7 @@ export const en: LanguageData = {
         type: "textarea"
       }
     ],
+
     submit: {
       label: "Send message",
       sending: "Sending",
@@ -190,23 +166,18 @@ export const en: LanguageData = {
     rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
   },
 
+  certificates: {
+    description:
+      "My continuous learning through the best educational platforms and the certificates that validate my knowledge.",
+    coursesCompleted: "Courses completed",
+    hoursCompleted: "Hours completed",
+    certificatesEarned: "Certifications"
+  },
+
   actionsResponses: {
     contactForm: {
       success: "Message sent successfully!",
       error: "There was an error sending your message. Please try again later."
-    }
-  },
-
-  certificatesPage: {
-    title: "Certificates",
-    btnToRedirect: "View Certificates",
-    pageData: {
-      title: "Education and Certificates",
-      description:
-        "My continuous learning through the best educational platforms and the certificates that validate my knowledge.",
-      coursesCompleted: "Courses completed",
-      hoursCompleted: "Hours completed",
-      certificatesEarned: "Certifications"
     }
   }
 }

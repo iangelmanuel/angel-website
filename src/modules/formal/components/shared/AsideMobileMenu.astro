@@ -1,0 +1,92 @@
+---
+import { Menu, X } from "lucide-react"
+
+import type { NavItem } from "@/config/types/navigation"
+
+interface Props {
+  navItems: NavItem[]
+}
+
+const { navItems } = Astro.props
+---
+
+<button
+  id="mobile-menu-button"
+  type="button"
+  aria-label="Open Mobile Menu"
+  class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10 lg:hidden"
+>
+  <Menu
+    className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
+  />
+</button>
+
+<aside
+  id="mobile-menu"
+  class="menu-panel fixed top-0 right-0 z-50 min-h-screen w-80 translate-x-full p-5 transition-transform duration-300 lg:hidden"
+>
+  <header class="flex items-center justify-end">
+    <button
+      id="close-mobile-menu-button"
+      type="button"
+      aria-label="Close Mobile Menu"
+      class="icon-btn size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
+    >
+      <X
+        className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
+      />
+    </button>
+  </header>
+
+  <main class="mt-4 flex flex-col space-y-4">
+    {
+      navItems.map((item) => (
+        <a
+          id="mobile-menu-item"
+          href={item.href}
+          class="menu-item"
+        >
+          {item.label}
+        </a>
+      ))
+    }
+  </main>
+</aside>
+
+<script>
+  import { $ } from "@/config/lib/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    const $button = $("#mobile-menu-button") as HTMLButtonElement
+    const $menu = $("#mobile-menu") as HTMLElement
+    const $closeButton = $("#close-mobile-menu-button") as HTMLButtonElement
+    const $menuItems = document.querySelectorAll("#mobile-menu-item")
+
+    const closeMenu = () => {
+      $menu.classList.add("translate-x-full")
+      $menu.classList.remove("translate-x-0")
+    }
+
+    $button.addEventListener("click", () => {
+      $menu.classList.toggle("translate-x-full")
+      $menu.classList.toggle("translate-x-0")
+    })
+
+    $closeButton.addEventListener("click", closeMenu)
+
+    $menuItems.forEach((item) => item.addEventListener("click", closeMenu))
+
+    document.addEventListener("click", (event) => {
+      if (
+        !$menu.contains(event.target as Node) &&
+        !$button.contains(event.target as Node)
+      ) {
+        closeMenu()
+      }
+    })
+
+    document.addEventListener("scroll", () => {
+      if ($menu.classList.contains("translate-x-0")) closeMenu()
+    })
+  })
+</script>

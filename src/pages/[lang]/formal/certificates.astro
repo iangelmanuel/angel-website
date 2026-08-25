@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from "astro"
+
+import Layout from "@/modules/formal/layouts/Layout.astro"
+import Hero from "@/modules/formal/sections/certificates/Hero.astro"
+import CertificatesGrid from "@/modules/formal/sections/certificates/CertificatesGrid.astro"
+
+import { getTranslations } from "@/config/i18n"
+
+export const getStaticPaths = (() => {
+  const languages = ["en", "es"]
+
+  return languages.map((lang) => ({
+    params: { lang }
+  }))
+}) satisfies GetStaticPaths
+
+const currentLang = Astro.currentLocale || "es"
+const t = getTranslations(currentLang)
+---
+
+<Layout
+  t={t}
+  title={t.seo.certificatesPage.title}
+  description={t.seo.certificatesPage.description}
+>
+  <Hero t={t} />
+  <CertificatesGrid />
+</Layout>

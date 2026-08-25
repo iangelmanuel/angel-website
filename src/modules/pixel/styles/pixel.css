@@ -1,0 +1,518 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-pixel: "Geist Pixel", "Silkscreen", "JetBrains Mono", monospace;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border-soft: var(--border-soft);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-cyan: var(--cyan);
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-orange: var(--orange);
+  --color-pink: var(--pink);
+  --color-violet: var(--violet);
+}
+
+:root {
+  --radius: 0rem;
+  --background: oklch(0.99 0.003 90);
+  --foreground: oklch(0.18 0.01 285);
+  --surface: oklch(1 0.002 90);
+  --surface-strong: oklch(0.96 0.006 90);
+  --muted-foreground: oklch(0.42 0.015 285);
+  --dim: oklch(0.62 0.012 285);
+  --border: oklch(0.85 0.012 285);
+  --border-soft: oklch(0.9 0.008 285);
+  --accent: oklch(0.55 0.19 258);
+  --cyan: oklch(0.52 0.12 210);
+  --green: oklch(0.48 0.15 150);
+  --amber: oklch(0.55 0.13 80);
+  --orange: oklch(0.58 0.15 55);
+  --pink: oklch(0.6 0.2 350);
+  --violet: oklch(0.55 0.18 305);
+  --mac-red: oklch(0.63 0.22 25);
+  --mac-yellow: oklch(0.85 0.18 96);
+  --mac-green: oklch(0.72 0.19 148);
+  --window-highlight: oklch(1 0 0);
+  --shadow: oklch(0.4 0.02 285 / 12%);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+}
+
+.dark {
+  --background: oklch(0.055 0.004 285);
+  --foreground: oklch(0.93 0.003 285);
+  --surface: oklch(0.1 0.006 285);
+  --surface-strong: oklch(0.135 0.008 285);
+  --muted-foreground: oklch(0.62 0.012 285);
+  --dim: oklch(0.5 0.012 285);
+  --border: oklch(0.24 0.012 285);
+  --border-soft: oklch(0.185 0.01 285);
+  --accent: oklch(0.72 0.16 258);
+  --cyan: oklch(0.75 0.12 210);
+  --green: oklch(0.72 0.16 150);
+  --amber: oklch(0.78 0.14 80);
+  --orange: oklch(0.79 0.15 55);
+  --pink: oklch(0.78 0.17 350);
+  --violet: oklch(0.75 0.16 305);
+  --mac-red: oklch(0.63 0.22 25);
+  --mac-yellow: oklch(0.85 0.18 96);
+  --mac-green: oklch(0.72 0.19 148);
+  --window-highlight: oklch(0.36 0.012 285);
+  --shadow: oklch(0 0 0 / 45%);
+}
+
+@font-face {
+  font-family: "Geist Pixel";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/geist-pixel.woff2") format("woff2");
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground selection:bg-accent/25 font-mono overflow-x-hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .container-width {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .compact-section {
+    @apply p-5 lg:p-0;
+  }
+
+  .rule-t {
+    @apply border-border border-t;
+  }
+
+  .rule-b {
+    @apply border-border border-b;
+  }
+
+  .timeline-rail {
+    @apply bg-border w-px;
+  }
+
+  .skill-label {
+    @apply text-dim text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+  }
+
+  .skill-value {
+    @apply text-sm font-medium sm:text-base;
+  }
+
+  .field-error {
+    @apply text-xs text-red-500;
+  }
+
+  .contact-sep {
+    @apply text-border px-1;
+  }
+
+  /* Layout */
+  .projects-band {
+    @apply border-border bg-surface-strong/40 border-t border-b;
+  }
+
+  /* Top bar */
+  .top-bar-scrolled {
+    @apply bg-background/85 border-border border-b backdrop-blur-md;
+  }
+
+  .brand {
+    @apply font-pixel text-sm sm:text-base;
+  }
+
+  .nav-link {
+    @apply text-muted-foreground hover:text-accent text-[13px] transition-colors;
+  }
+
+  .nav-link::before {
+    content: "$ ";
+    @apply text-green;
+  }
+
+  .nav-underline {
+    @apply bg-accent absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full;
+  }
+
+  .icon-btn {
+    @apply border-border text-dim hover:text-foreground hover:border-accent inline-flex cursor-pointer items-center justify-center border transition-colors;
+  }
+
+  .lang-code {
+    @apply text-[11px] font-bold uppercase sm:text-xs;
+  }
+
+  .menu-panel {
+    @apply bg-background border-border border-l;
+  }
+
+  .menu-item {
+    @apply font-pixel hover:text-accent text-2xl transition-colors duration-300 sm:text-3xl;
+  }
+
+  .menu-item::before {
+    content: "$ ";
+    @apply text-green;
+  }
+
+  /* Headings */
+  .section-badge {
+    @apply border-accent text-accent mb-3 inline-flex w-fit items-center border px-2 py-0.5 text-[10.5px] font-bold tracking-[0.08em] uppercase;
+  }
+
+  .section-initial-title {
+    @apply font-pixel mb-3 text-lg tracking-tight sm:text-xl md:text-2xl;
+  }
+
+  .section-title {
+    @apply font-pixel mb-6 text-lg tracking-tight sm:mb-8 sm:text-xl md:text-2xl;
+  }
+
+  .page-title {
+    @apply font-pixel text-2xl sm:text-3xl md:text-4xl;
+  }
+
+  .section-initial-title::before,
+  .section-title::before,
+  .page-title::before {
+    content: "$ ";
+    @apply text-green;
+  }
+
+  .hero-name {
+    @apply font-pixel text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+  }
+
+  .hero-name-accent {
+    @apply text-accent;
+  }
+
+  .hero-role {
+    @apply text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl;
+  }
+
+  .body-text {
+    @apply text-muted-foreground [&_a]:text-accent [&_a]:hover:text-foreground [&_a]:transition-colors text-sm leading-relaxed sm:text-base [&_a]:border-b [&_a]:border-current;
+  }
+
+  .muted-text {
+    @apply text-muted-foreground;
+  }
+
+  .faint-text {
+    @apply text-dim;
+  }
+
+  /* Hero */
+  .avatar-frame {
+    @apply border-accent border-4;
+    box-shadow: 4px 4px 0 0 var(--accent);
+  }
+
+  .avatar-badge {
+    @apply border-accent bg-background text-accent inline-flex w-fit items-center border px-2 py-0.5 text-sm font-medium;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-accent text-background border-accent inline-flex cursor-pointer items-center justify-center gap-2 border px-4 py-2.5 text-[13px] font-bold whitespace-nowrap transition-opacity hover:opacity-85 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply border-border text-muted-foreground hover:border-muted-foreground hover:text-foreground inline-flex cursor-pointer items-center justify-center gap-2 border bg-transparent px-4 py-2.5 text-[13px] font-bold whitespace-nowrap transition-colors;
+  }
+
+  .btn-sm {
+    @apply gap-1.5 px-3 py-2 text-xs;
+  }
+
+  .social-link {
+    @apply text-dim hover:text-accent transition-colors;
+  }
+
+  .text-link {
+    @apply text-dim hover:text-accent text-xs transition-colors sm:text-sm;
+  }
+
+  .contact-link {
+    @apply text-dim hover:text-accent inline-flex items-center gap-1.5 text-xs font-medium transition-colors sm:text-sm;
+  }
+
+  .contact-link-static {
+    @apply hover:text-dim;
+  }
+
+  /* Cards */
+  .surface-card {
+    @apply border-border bg-surface flex flex-col border transition-colors duration-300;
+  }
+
+  .surface-card:hover {
+    border-color: var(--section-color, var(--accent));
+  }
+
+  .media-frame {
+    @apply border-border border;
+  }
+
+  .media-frame-flush {
+    @apply border-b;
+  }
+
+  .academy-logo {
+    @apply border-border border;
+  }
+
+  .card-headline {
+    @apply font-pixel text-base sm:text-lg;
+  }
+
+  .card-title {
+    @apply text-sm font-bold;
+  }
+
+  .card-meta {
+    @apply text-dim text-xs;
+  }
+
+  .card-text {
+    @apply text-muted-foreground text-xs sm:text-sm;
+  }
+
+  .chip {
+    @apply border-border-soft text-dim inline-flex max-w-full items-center border px-2 py-0.5 text-[10.5px];
+  }
+
+  .chip-link {
+    @apply hover:border-accent hover:text-accent transition-colors;
+  }
+
+  .chip-solid {
+    @apply bg-surface-strong text-foreground;
+  }
+
+  .chip-issuer {
+    @apply bg-background;
+    border-color: var(--proj-color, var(--section-color, var(--accent)));
+    color: var(--proj-color, var(--section-color, var(--accent)));
+  }
+
+  /* Project window */
+  .win-card {
+    @apply border-border bg-surface relative flex flex-col border;
+    border-top-color: var(--window-highlight);
+    box-shadow: 2px 2px 0 0 var(--border);
+    transition:
+      box-shadow 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .win-card:hover,
+  .win-card:focus-within {
+    border-color: var(--proj-color, var(--accent));
+    box-shadow: 2px 2px 0 0 var(--proj-color, var(--accent));
+  }
+
+  .win-card::before,
+  .win-card::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--proj-color, var(--accent));
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .win-card::before {
+    top: -2px;
+    left: -2px;
+  }
+
+  .win-card::after {
+    right: -2px;
+    bottom: -2px;
+  }
+
+  .win-card:hover::before,
+  .win-card:hover::after,
+  .win-card:focus-within::before,
+  .win-card:focus-within::after {
+    opacity: 1;
+  }
+
+  .win-card-bar {
+    @apply border-border bg-surface-strong text-dim flex items-center justify-between gap-2 border-b px-3.5 py-2.5 text-[11px];
+  }
+
+  .win-card-path {
+    @apply min-w-0 flex-1 truncate text-right;
+  }
+
+  .win-card-dots {
+    @apply flex shrink-0 items-center gap-1.5;
+  }
+
+  .win-card-dot {
+    @apply bg-border inline-block size-2 transition-colors duration-150;
+  }
+
+  .win-card:hover .win-card-dot,
+  .win-card:focus-within .win-card-dot {
+    background: var(--proj-color, var(--accent));
+  }
+
+  .win-card-body {
+    @apply flex flex-1 flex-col gap-1 p-4 sm:p-5;
+  }
+
+  .win-card-title {
+    @apply font-pixel text-start text-base sm:text-lg;
+  }
+
+  .win-card-prompt {
+    color: var(--proj-color, var(--accent));
+    @apply mr-1.5 font-bold;
+  }
+
+  /* Stats & timeline */
+  .stat-grid {
+    @apply divide-border border-border divide-x border;
+  }
+
+  .stat-value {
+    @apply font-pixel text-lg sm:text-xl;
+  }
+
+  .stat-label {
+    @apply text-dim mt-1 text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+  }
+
+  .stat-caption {
+    @apply text-dim text-xs sm:text-base;
+  }
+
+  .timeline-dot {
+    @apply bg-background size-2.5 border-2;
+    border-color: var(--section-color, var(--accent));
+  }
+
+  /* Form */
+  .form-shell {
+    @apply border-border bg-surface overflow-hidden border;
+    border-top-color: var(--window-highlight);
+    box-shadow: 0 20px 40px -20px var(--shadow);
+  }
+
+  .form-shell-bar {
+    @apply border-border text-dim flex items-center gap-2 border-b px-3.5 py-2.5 text-[11.5px];
+  }
+
+  .form-shell-dot {
+    @apply inline-block size-2;
+  }
+
+  .form-shell-dot:nth-child(1) {
+    background: var(--mac-red);
+  }
+
+  .form-shell-dot:nth-child(2) {
+    background: var(--mac-yellow);
+  }
+
+  .form-shell-dot:nth-child(3) {
+    background: var(--mac-green);
+  }
+
+  .form-shell-body {
+    @apply p-4 sm:p-6;
+  }
+
+  .field {
+    @apply border-border bg-background text-foreground placeholder:text-dim focus:border-accent w-full border px-3 py-2.5 text-sm transition-colors outline-none;
+  }
+
+  .field-textarea {
+    @apply min-h-20 resize-none;
+  }
+
+  .field-label {
+    @apply text-dim mb-1.5 block text-xs sm:text-sm;
+  }
+
+  .field-label::before {
+    content: "$ ";
+    @apply text-accent;
+  }
+
+  /* Footer */
+  .footer-shell {
+    @apply border-border border-t;
+  }
+
+  .footer-name {
+    @apply font-pixel text-sm sm:text-base;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dim);
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-wave {
+  animation: wave 1.5s infinite;
+}

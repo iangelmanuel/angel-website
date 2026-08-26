@@ -5,14 +5,6 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
-  Un solo vocabulario de clases para los dos diseños.
-  El HTML es el mismo; `data-design` en <html> decide cómo se ve.
-  - Cambiar el look TERMINAL -> terminal.css
-  - Cambiar el look FORMAL   -> formal.css
-  - Agregar un color/token   -> aquí abajo
-*/
-
 @theme inline {
   --font-pixel: "Geist Pixel", "Silkscreen", "JetBrains Mono", monospace;
   --font-mono:
@@ -179,7 +171,7 @@
   }
 
   [data-design="TERMINAL"] body {
-    @apply selection:bg-accent/25 font-mono overflow-x-hidden;
+    @apply selection:bg-accent/25 overflow-x-hidden font-mono;
   }
 
   [data-design="TERMINAL"] a {

@@ -11,33 +11,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- New terminal/pixel-art design system, now served as the site's primary experience at `/` and `/certificates`: Geist Pixel headings, JetBrains Mono body copy, hard-edged (0-radius) surfaces, oklch color tokens, and terminal-style command headings (e.g. `$ ls ./stack`).
+- New TERMINAL design (pixel-art / terminal aesthetic), now the site's primary experience at `/` and `/certificates`: Geist Pixel headings, JetBrains Mono body copy, hard-edged (0-radius) surfaces, oklch color tokens, and command-style section headings (`$ ls ./stack`, `cat ./sobre-mi.md`).
 - `public/fonts/geist-pixel.woff2` (Geist Pixel, OFL license, from `vercel/geist-font`).
-- macOS-style windowed chrome for the pixel design: a title bar with traffic-light dots on the contact form, and matching mini terminal windows (path + `>`-prompt title) for project and certificate cards.
-- Per-card rotating accent colors (cyan, violet, green, pink, orange) for project and certificate cards via a new `getCardAccent()` helper, replacing a single flat accent per section.
-- Pixel-art card treatment: permanent offset "3D" border shadow, corner accent squares revealed on hover, and a lighter top-edge highlight border on windowed cards, tuned for both light and dark mode.
-- Two independent design modules, `src/modules/pixel/` and `src/modules/formal/`, each with its own layout, stylesheet, design-specific `i18n` (nav labels, section titles/badges, hero CTA copy), components, and sections.
-- `src/config/` now holds everything genuinely shared between both designs: `i18n` (bio, education list, skills, contact form fields/validation, SEO, certificate stats), `const/routes.ts`, `lib/language-path.ts`, `hooks/use-contact-form.ts`, `components/Seo.astro`, `components/ThemeScript.astro`, and `components/ui/sonner.tsx`.
-- New `/formal` and `/formal/certificates` routes (plus their `[lang]` variants) serving the original shadcn/Nunito design, now reachable as a formal-presentation alternative to the pixel homepage.
+- Dual-design architecture driven entirely by the URL: `src/config/lib/design.ts` resolves `DESIGN` to `"TERMINAL"` or `"FORMAL"` from the path, and `<html data-design>` switches the active skin. One HTML tree, two looks.
+- `src/modules/portfolio/`: a single module holding all components, sections, and the shared layout — no per-design duplication of markup.
+- Split stylesheets with one shared class vocabulary: `styles/portfolio.css` (design tokens for both + base + structural classes), `styles/terminal.css` and `styles/formal.css` (one skin each). Changing a design means editing exactly one file.
+- Design-aware translations in `src/config/i18n`: text that differs between designs is written inline as `{ TERMINAL: "...", FORMAL: "..." }` and read as `t.about.title[DESIGN]`, keeping i18n the single source of truth for all copy.
+- New `/formal` and `/formal/certificates` routes (plus `en`/`es` prefixed variants) serving the original shadcn/Nunito design as a formal-presentation alternative.
+- macOS-style windowed chrome for the TERMINAL design: a title bar with traffic-light dots on the contact form, and matching mini terminal windows (path + `>`-prompt title) on project and certificate cards.
+- Per-card rotating accent colors (cyan, violet, green, pink, orange) for project and certificate cards via `getCardAccent()`.
+- Pixel-art card treatment: offset hard-edged border shadow, corner accent squares revealed on hover, and a lighter top-edge highlight border on windowed cards, tuned for light and dark mode.
 
 ### Changed
 
-- Replaced the formal/shadcn design as the homepage with the new terminal/pixel design; the original design is preserved and now lives at `/formal`.
-- Renamed and split `src/modules/secondary` into the standalone `src/modules/formal` module.
-- Primary accent color for the pixel design changed from orange to blue; section badges keep a single fixed accent color, while `$` terminal-prompt glyphs and secondary decorative accents (timeline dots, card hover borders, certificate issuer chips) now vary by section or card for visual variety without competing with the primary color.
-- `.chip` no longer forces `whitespace-nowrap`; long certificate skill names now wrap inside the pill instead of overflowing the card.
-- Certificate cards (pixel) no longer use a fixed height; they size to content, matching project cards.
-- Removed the redundant `hover:underline` class from the shared hero description link markup in `config/i18n`; the pixel design keeps its permanent underline with a hover color change instead, while the formal design's own CSS-driven hover underline is unaffected.
+- Replaced the formal/shadcn design as the homepage with the new TERMINAL design; the original design is preserved and now lives at `/formal`.
+- Collapsed all page files into `src/pages/[...route]/index.astro` and `src/pages/[...route]/certificates.astro`; two files now generate all 12 routes (language prefix × design), replacing the previous eight.
+- Reorganized shared code under `src/config/`: `i18n`, `const/routes.ts` (keyed by `TERMINAL`/`FORMAL`), `lib/design.ts`, `lib/route-params.ts`, `lib/language-path.ts`, `hooks/use-contact-form.ts`, and the shared `Seo`/`ThemeScript`/`sonner` components.
+- Sections now read their own translations instead of receiving a `t` prop, removing prop drilling across pages and components.
+- Primary accent for the TERMINAL design changed from orange to blue; `$` prompt glyphs render green, section badges stay on the fixed primary accent, and per-card colors supply the remaining variety.
+- `.chip` no longer forces `whitespace-nowrap`; long certificate skill names wrap inside the pill instead of overflowing the card.
+- Certificate cards no longer use a fixed height; they size to content, matching project cards.
+- Removed the redundant `hover:underline` class from the hero description link in `config/i18n`; the TERMINAL design keeps a permanent underline with a hover color change, and the FORMAL design keeps its own CSS-driven hover underline.
 
 ### Removed
 
-- Removed the pulsing status-dot indicator next to the logo in the pixel navbar.
-- Removed unused `terminal.*` translation keys and the standalone `design` detection/copy layer, folded into each module's own `i18n`.
+- Removed the pulsing status-dot indicator next to the logo in the navbar.
+- Removed the shadcn `ui/` component wrappers (`badge`, `button`, `card`, `input`, `label`, `textarea`) in favor of the shared semantic class vocabulary; `sonner` is the only remaining shadcn component.
+- Removed the `terminal.*` translation namespace, folded into the design-aware keys described above.
 
 ### Fixed
 
 - Fixed certificate cards overflowing their window frame when a long skill name or a fixed card height pushed content past the visible border.
-- Fixed the "amber" accent looking muddy as a rotating card color and as the contact-form traffic-light dot; replaced with a dedicated, theme-fixed macOS yellow for the dots and dropped amber from the card accent rotation.
+- Fixed long project titles (e.g. "Fundación Huellitas Felices") colliding with the Public/Private badge; the title now wraps and the badge no longer shrinks.
+- Fixed the "amber" accent looking muddy as a rotating card color and as the contact-form traffic-light dot; added dedicated, theme-fixed macOS red/yellow/green for the dots and dropped amber from the card accent rotation.
 
 ## [1.1.0] - 2026-08-23
 
@@ -197,7 +203,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Current version**: 1.2.0
 - **Node.js**: >= 22.12.0
-- **pnpm**: >= 7.1.0
+- **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
 - **Astro**: 7.2.1
 - **Tailwind CSS**: v4.3.3

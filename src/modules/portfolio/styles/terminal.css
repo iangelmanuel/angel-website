@@ -1,0 +1,366 @@
+/* ── Diseño TERMINAL (pixel-art) · ruta: / ── */
+
+@layer components {
+  [data-design="TERMINAL"] {
+    .skill-label {
+      @apply text-dim text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+    }
+
+    .skill-value {
+      @apply text-sm font-medium sm:text-base;
+    }
+
+    .projects-band {
+      @apply border-border bg-surface-strong/40 border-t border-b;
+    }
+
+    .top-bar-scrolled {
+      @apply bg-background/85 border-border border-b backdrop-blur-md;
+    }
+
+    .brand {
+      @apply font-pixel text-sm sm:text-base;
+    }
+
+    .nav-link {
+      @apply text-muted-foreground hover:text-accent text-[13px] transition-colors;
+    }
+
+    .nav-link::before {
+      content: "$ ";
+      @apply text-green;
+    }
+
+    .nav-underline {
+      @apply bg-accent absolute -bottom-1 left-0 h-px w-0 transition-all duration-300 group-hover:w-full;
+    }
+
+    .icon-btn {
+      @apply border-border text-dim hover:text-foreground hover:border-accent inline-flex cursor-pointer items-center justify-center border transition-colors;
+    }
+
+    .lang-code {
+      @apply text-[11px] font-bold uppercase sm:text-xs;
+    }
+
+    .menu-panel {
+      @apply bg-background border-border border-l;
+    }
+
+    .menu-item {
+      @apply font-pixel hover:text-accent text-2xl transition-colors duration-300 sm:text-3xl;
+    }
+
+    .menu-item::before {
+      content: "$ ";
+      @apply text-green;
+    }
+
+    .section-badge {
+      @apply border-accent text-accent mb-3 inline-flex w-fit items-center border px-2 py-0.5 text-[10.5px] font-bold tracking-[0.08em] uppercase;
+    }
+
+    .section-initial-title {
+      @apply font-pixel mb-3 text-lg tracking-tight sm:text-xl md:text-2xl;
+    }
+
+    .section-title {
+      @apply font-pixel mb-6 text-lg tracking-tight sm:mb-8 sm:text-xl md:text-2xl;
+    }
+
+    .page-title {
+      @apply font-pixel text-2xl sm:text-3xl md:text-4xl;
+    }
+
+    .section-initial-title::before,
+    .section-title::before,
+    .page-title::before {
+      content: "$ ";
+      @apply text-green;
+    }
+
+    .hero-name {
+      @apply font-pixel text-xl leading-tight tracking-tight sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+    }
+
+    .hero-name-accent {
+      @apply text-accent;
+    }
+
+    .hero-role {
+      @apply text-muted-foreground text-sm sm:text-base md:text-lg lg:text-xl;
+    }
+
+    .body-text {
+      @apply text-muted-foreground [&_a]:text-accent [&_a]:hover:text-foreground text-sm leading-relaxed sm:text-base [&_a]:border-b [&_a]:border-current [&_a]:transition-colors;
+    }
+
+    .muted-text {
+      @apply text-muted-foreground;
+    }
+
+    .faint-text {
+      @apply text-dim;
+    }
+
+    .avatar-frame {
+      @apply border-accent border-4;
+      box-shadow: 4px 4px 0 0 var(--accent);
+    }
+
+    .avatar-badge {
+      @apply border-accent bg-background text-accent inline-flex w-fit items-center border px-2 py-0.5 text-sm font-medium;
+    }
+
+    .btn-primary {
+      @apply bg-accent text-background border-accent inline-flex cursor-pointer items-center justify-center gap-2 border px-4 py-2.5 text-[13px] font-bold whitespace-nowrap transition-opacity hover:opacity-85 disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-secondary {
+      @apply border-border text-muted-foreground hover:border-muted-foreground hover:text-foreground inline-flex cursor-pointer items-center justify-center gap-2 border bg-transparent px-4 py-2.5 text-[13px] font-bold whitespace-nowrap transition-colors;
+    }
+
+    .btn-sm {
+      @apply gap-1.5 px-3 py-2 text-xs;
+    }
+
+    .social-link {
+      @apply text-dim hover:text-accent transition-colors;
+    }
+
+    .text-link {
+      @apply text-dim hover:text-accent text-xs transition-colors sm:text-sm;
+    }
+
+    .contact-link {
+      @apply text-dim hover:text-accent inline-flex items-center gap-1.5 text-xs font-medium transition-colors sm:text-sm;
+    }
+
+    .contact-link-static {
+      @apply hover:text-dim;
+    }
+
+    .surface-card {
+      @apply border-border bg-surface flex flex-col border transition-colors duration-300;
+    }
+
+    .surface-card:hover {
+      border-color: var(--accent);
+    }
+
+    .media-frame {
+      @apply border-border border;
+    }
+
+    .media-frame-flush {
+      @apply border-b;
+    }
+
+    .academy-logo {
+      @apply border-border border;
+    }
+
+    .card-headline {
+      @apply font-pixel text-base sm:text-lg;
+    }
+
+    .card-title {
+      @apply text-sm font-bold;
+    }
+
+    .card-meta {
+      @apply text-dim text-xs;
+    }
+
+    .card-text {
+      @apply text-muted-foreground text-xs sm:text-sm;
+    }
+
+    .chip {
+      @apply border-border-soft text-dim inline-flex max-w-full items-center border px-2 py-0.5 text-[10.5px];
+    }
+
+    .chip-link {
+      @apply hover:border-accent hover:text-accent transition-colors;
+    }
+
+    .chip-solid {
+      @apply bg-surface-strong text-foreground;
+    }
+
+    .chip-issuer {
+      @apply bg-background;
+      border-color: var(--card-color, var(--accent));
+      color: var(--card-color, var(--accent));
+    }
+
+    .win-card {
+      @apply border-border bg-surface relative flex flex-col border;
+      border-top-color: var(--window-highlight);
+      box-shadow: 2px 2px 0 0 var(--border);
+      transition:
+        box-shadow 0.15s ease,
+        border-color 0.15s ease;
+    }
+
+    .win-card:hover,
+    .win-card:focus-within {
+      border-color: var(--card-color, var(--accent));
+      box-shadow: 2px 2px 0 0 var(--card-color, var(--accent));
+    }
+
+    .win-card::before,
+    .win-card::after {
+      content: "";
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--card-color, var(--accent));
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+
+    .win-card::before {
+      top: -2px;
+      left: -2px;
+    }
+
+    .win-card::after {
+      right: -2px;
+      bottom: -2px;
+    }
+
+    .win-card:hover::before,
+    .win-card:hover::after,
+    .win-card:focus-within::before,
+    .win-card:focus-within::after {
+      opacity: 1;
+    }
+
+    .win-card-bar {
+      @apply border-border bg-surface-strong text-dim flex items-center justify-between gap-2 border-b px-3.5 py-2.5 text-[11px];
+    }
+
+    .win-card-path {
+      @apply min-w-0 flex-1 truncate text-right;
+    }
+
+    .win-card-dots {
+      @apply flex shrink-0 items-center gap-1.5;
+    }
+
+    .win-card-dot {
+      @apply bg-border inline-block size-2 transition-colors duration-150;
+    }
+
+    .win-card:hover .win-card-dot,
+    .win-card:focus-within .win-card-dot {
+      background: var(--card-color, var(--accent));
+    }
+
+    .win-card-body {
+      @apply flex flex-1 flex-col gap-1 p-4 sm:p-5;
+    }
+
+    .win-card-title {
+      @apply font-pixel text-start text-base sm:text-lg;
+    }
+
+    .win-card-prompt {
+      color: var(--card-color, var(--accent));
+      @apply mr-1.5 font-bold;
+    }
+
+    .stat-grid {
+      @apply divide-border border-border divide-x border;
+    }
+
+    .stat-value {
+      @apply font-pixel text-lg sm:text-xl;
+    }
+
+    .stat-label {
+      @apply text-dim mt-1 text-[11px] font-semibold tracking-wide uppercase sm:text-xs;
+    }
+
+    .stat-caption {
+      @apply text-dim text-xs sm:text-base;
+    }
+
+    .timeline-dot {
+      @apply bg-background size-2.5 border-2;
+      border-color: var(--accent);
+    }
+
+    .form-shell {
+      @apply border-border bg-surface overflow-hidden border;
+      border-top-color: var(--window-highlight);
+      box-shadow: 0 20px 40px -20px var(--shadow);
+    }
+
+    .form-shell-bar {
+      @apply border-border text-dim flex items-center gap-2 border-b px-3.5 py-2.5 text-[11.5px];
+    }
+
+    .form-shell-dot {
+      @apply inline-block size-2;
+    }
+
+    .form-shell-dot:nth-child(1) {
+      background: var(--mac-red);
+    }
+
+    .form-shell-dot:nth-child(2) {
+      background: var(--mac-yellow);
+    }
+
+    .form-shell-dot:nth-child(3) {
+      background: var(--mac-green);
+    }
+
+    .form-shell-body {
+      @apply p-4 sm:p-6;
+    }
+
+    .field {
+      @apply border-border bg-background text-foreground placeholder:text-dim focus:border-accent w-full border px-3 py-2.5 text-sm transition-colors outline-none;
+    }
+
+    .field-textarea {
+      @apply min-h-20 resize-none;
+    }
+
+    .field-label {
+      @apply text-dim mb-1.5 block text-xs sm:text-sm;
+    }
+
+    .field-label::before {
+      content: "$ ";
+      @apply text-accent;
+    }
+
+    .footer-shell {
+      @apply border-border border-t;
+    }
+
+    .footer-name {
+      @apply font-pixel text-sm sm:text-base;
+    }
+  }
+}
+
+[data-design="TERMINAL"] ::-webkit-scrollbar {
+  width: 9px;
+}
+
+[data-design="TERMINAL"] ::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+[data-design="TERMINAL"] ::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+[data-design="TERMINAL"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--dim);
+}

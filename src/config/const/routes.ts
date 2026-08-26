@@ -1,9 +1,9 @@
 export const routes = {
-  pixel: {
+  TERMINAL: {
     home: "/",
     certificates: "/certificates"
   },
-  formal: {
+  FORMAL: {
     home: "/formal",
     certificates: "/formal/certificates"
   }

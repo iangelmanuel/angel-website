@@ -13,41 +13,61 @@ export const en: LanguageData = {
     }
   },
 
+  nav: {
+    about: { TERMINAL: "about-me", FORMAL: "About" },
+    projects: { TERMINAL: "projects", FORMAL: "Projects" },
+    contact: { TERMINAL: "contact", FORMAL: "Contact" }
+  },
+
   hero: {
     yearExp: `${siteInfo.yearsOfExperience}+ years of experience`,
     greeting: "Hi, I'm ",
     title: "Full Stack and Phone Developer",
-    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`
+    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
+    primaryBtn: { TERMINAL: "./view-projects", FORMAL: "View my work" },
+    secondaryBtn: { TERMINAL: "download-cv", FORMAL: "Download CV" }
   },
 
   about: {
+    badge: "About Me",
+    title: { TERMINAL: "cat ./about-me.md", FORMAL: "About" },
     description1:
       "I'm a Full Stack Developer with a passion for creating beautiful, functional, and user-centered digital experiences. With over 2 years of experience in the field, I'm always looking for innovative ways to bring my clients' visions to life.",
     description2:
       "I believe design is more than just making something look good—it's about solving problems and creating intuitive, enjoyable experiences for users.",
 
-    skills: [
-      {
-        label: "Frontend",
-        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-      },
-      {
-        label: "Backend",
-        skills: [
-          "Node.js",
-          "Express",
-          "Prisma ORM",
-          "PostgreSQL",
-          "Supabase",
-          "MongoDB"
-        ]
-      },
-      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-    ],
+    skills: {
+      badge: "Skills",
+      title: { TERMINAL: "ls ./stack", FORMAL: "Skills & Technologies" },
+      list: [
+        {
+          label: "Frontend",
+          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+        },
+        {
+          label: "Backend",
+          skills: [
+            "Node.js",
+            "Express",
+            "Prisma ORM",
+            "PostgreSQL",
+            "Supabase",
+            "MongoDB"
+          ]
+        },
+        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+      ]
+    },
 
     education: {
+      badge: "Education",
+      title: { TERMINAL: "ls ./education", FORMAL: "Academic Background" },
+      btnToCertificates: {
+        TERMINAL: "view certificates",
+        FORMAL: "View Certificates"
+      },
       coursesLabel: "courses",
-      educations: [
+      list: [
         {
           logo: "/img/academy-logo/devtalles.webp",
           academy: "Devtalles",
@@ -102,16 +122,20 @@ export const en: LanguageData = {
     }
   },
 
+  projects: {
+    badge: "Projects",
+    title: { TERMINAL: "ls ./projects --recent", FORMAL: "What I can do" },
+    demo: { TERMINAL: "open", FORMAL: "Demo" }
+  },
+
   contact: {
+    badge: "Contact Me",
+    title: { TERMINAL: "./contact.sh --send", FORMAL: "Get in touch" },
+    windowTitle: "contact.sh",
     lede: "Tell me what you need and I'll get back to you directly by email.",
 
     form: [
-      {
-        id: "name",
-        label: "Name",
-        placeholder: "Your name",
-        type: "text"
-      },
+      { id: "name", label: "Name", placeholder: "Your name", type: "text" },
       {
         id: "email",
         label: "Email",
@@ -162,16 +186,21 @@ export const en: LanguageData = {
     }
   },
 
-  footer: {
-    rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
-  },
-
   certificates: {
+    title: {
+      TERMINAL: "ls ./certificates",
+      FORMAL: "Education and Certificates"
+    },
+    btnToVerify: { TERMINAL: "verify", FORMAL: "Verify" },
     description:
       "My continuous learning through the best educational platforms and the certificates that validate my knowledge.",
     coursesCompleted: "Courses completed",
     hoursCompleted: "Hours completed",
     certificatesEarned: "Certifications"
+  },
+
+  footer: {
+    rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
   },
 
   actionsResponses: {

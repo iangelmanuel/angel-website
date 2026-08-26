@@ -1,0 +1,28 @@
+---
+import { Globe } from "lucide-react"
+
+import { getDesign } from "@/config/lib/design"
+import { getAlternateLocaleUrl } from "@/config/lib/language-path"
+
+import type { Language } from "@/config/types/language"
+
+const DESIGN = getDesign(Astro.url)
+const { pathname } = Astro.url
+const currentLang = (Astro.currentLocale || "es") as Language
+
+const linkToRedirect = getAlternateLocaleUrl(pathname, currentLang)
+---
+
+<a
+  href={linkToRedirect}
+  aria-label="Toggle Language"
+  class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
+>
+  {
+    DESIGN === "TERMINAL" ? (
+      <span class="lang-code">{currentLang === "es" ? "en" : "es"}</span>
+    ) : (
+      <Globe className="size-4 transition-all duration-300 sm:size-5" />
+    )
+  }
+</a>

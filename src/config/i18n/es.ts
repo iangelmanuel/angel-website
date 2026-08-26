@@ -13,41 +13,61 @@ export const es: LanguageData = {
     }
   },
 
+  nav: {
+    about: { TERMINAL: "sobre-mi", FORMAL: "Sobre mí" },
+    projects: { TERMINAL: "proyectos", FORMAL: "Proyectos" },
+    contact: { TERMINAL: "contacto", FORMAL: "Contacto" }
+  },
+
   hero: {
     yearExp: `${siteInfo.yearsOfExperience}+ años de experiencia`,
     greeting: "Hola, soy ",
     title: "Desarrollador Full Stack y de Teléfonos",
-    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`
+    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
+    primaryBtn: { TERMINAL: "./ver-proyectos", FORMAL: "Ver mi trabajo" },
+    secondaryBtn: { TERMINAL: "descargar-cv", FORMAL: "Descargar CV" }
   },
 
   about: {
+    badge: "Sobre mí",
+    title: { TERMINAL: "cat ./sobre-mi.md", FORMAL: "Quién soy" },
     description1:
       "Soy un Desarrollador Full Stack con pasión por crear experiencias digitales hermosas, funcionales y centradas en el usuario. Con más de 2 años de experiencia en el campo, siempre busco nuevas formas innovadoras de dar vida a las visiones de mis clientes.",
     description2:
       "Creo que el diseño es más que solo hacer que algo se vea bien: se trata de resolver problemas y crear experiencias intuitivas y agradables para los usuarios.",
 
-    skills: [
-      {
-        label: "Frontend",
-        skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
-      },
-      {
-        label: "Backend",
-        skills: [
-          "Node.js",
-          "Express",
-          "Prisma ORM",
-          "PostgreSQL",
-          "Supabase",
-          "MongoDB"
-        ]
-      },
-      { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
-    ],
+    skills: {
+      badge: "Habilidades",
+      title: { TERMINAL: "ls ./stack", FORMAL: "Habilidades y Tecnologías" },
+      list: [
+        {
+          label: "Frontend",
+          skills: ["Astro", "React", "Next.js", "Tailwind CSS"]
+        },
+        {
+          label: "Backend",
+          skills: [
+            "Node.js",
+            "Express",
+            "Prisma ORM",
+            "PostgreSQL",
+            "Supabase",
+            "MongoDB"
+          ]
+        },
+        { label: "DevOps", skills: ["Git", "Vercel", "Cloudflare"] }
+      ]
+    },
 
     education: {
+      badge: "Educación",
+      title: { TERMINAL: "ls ./educacion", FORMAL: "Formación académica" },
+      btnToCertificates: {
+        TERMINAL: "ver certificaciones",
+        FORMAL: "Ver certificaciones"
+      },
       coursesLabel: "cursos",
-      educations: [
+      list: [
         {
           logo: "/img/academy-logo/devtalles.webp",
           academy: "Devtalles",
@@ -102,16 +122,23 @@ export const es: LanguageData = {
     }
   },
 
+  projects: {
+    badge: "Proyectos",
+    title: {
+      TERMINAL: "ls ./proyectos --recent",
+      FORMAL: "Lo que puedo hacer"
+    },
+    demo: { TERMINAL: "abrir", FORMAL: "Demo" }
+  },
+
   contact: {
+    badge: "Contáctame",
+    title: { TERMINAL: "./contact.sh --send", FORMAL: "Ponte en contacto" },
+    windowTitle: "contact.sh",
     lede: "Cuéntame qué necesitas y te respondo directo a tu correo.",
 
     form: [
-      {
-        id: "name",
-        label: "Nombre",
-        placeholder: "Tu nombre",
-        type: "text"
-      },
+      { id: "name", label: "Nombre", placeholder: "Tu nombre", type: "text" },
       {
         id: "email",
         label: "Correo electrónico",
@@ -162,16 +189,21 @@ export const es: LanguageData = {
     }
   },
 
-  footer: {
-    rights: `${siteInfo.authorNameAndSurname}. Todos los derechos reservados.`
-  },
-
   certificates: {
+    title: {
+      TERMINAL: "ls ./certificaciones",
+      FORMAL: "Educación y Certificaciones"
+    },
+    btnToVerify: { TERMINAL: "verificar", FORMAL: "Verificar" },
     description:
       "Mi formación continua a través de las mejores plataformas educativas y las certificaciones que validan mis conocimientos.",
     coursesCompleted: "Cursos completados",
     hoursCompleted: "Horas completadas",
     certificatesEarned: "Certificaciones"
+  },
+
+  footer: {
+    rights: `${siteInfo.authorNameAndSurname}. Todos los derechos reservados.`
   },
 
   actionsResponses: {

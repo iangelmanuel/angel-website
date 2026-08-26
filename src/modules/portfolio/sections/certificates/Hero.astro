@@ -1,0 +1,38 @@
+---
+import { getTranslations } from "@/config/i18n"
+import { getDesign } from "@/config/lib/design"
+import { siteInfo } from "@/config/const/site-info"
+
+const DESIGN = getDesign(Astro.url)
+const { certificates } = getTranslations(Astro.currentLocale)
+const stats = siteInfo.certificates
+---
+
+<section
+  class="compact-section m-0 flex items-center justify-center overflow-hidden pt-24 sm:pt-36"
+>
+  <div class="container-width text-center">
+    <div class="mb-4 inline-flex items-center gap-2">
+      <h2 class="page-title">{certificates.title[DESIGN]}</h2>
+    </div>
+
+    <p class="body-text mx-auto mb-6 max-w-2xl">{certificates.description}</p>
+
+    <div class="flex justify-center gap-8">
+      <div class="text-center">
+        <div class="stat-value">{stats.totalCourses}</div>
+        <div class="stat-caption">{certificates.coursesCompleted}</div>
+      </div>
+
+      <div class="text-center">
+        <div class="stat-value">{stats.totalHours}+</div>
+        <div class="stat-caption">{certificates.hoursCompleted}</div>
+      </div>
+
+      <div class="text-center">
+        <div class="stat-value">{stats.certifications}</div>
+        <div class="stat-caption">{certificates.certificatesEarned}</div>
+      </div>
+    </div>
+  </div>
+</section>

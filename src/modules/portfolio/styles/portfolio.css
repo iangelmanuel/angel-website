@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./terminal.css";
+@import "./formal.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Un solo vocabulario de clases para los dos diseños.
+  El HTML es el mismo; `data-design` en <html> decide cómo se ve.
+  - Cambiar el look TERMINAL -> terminal.css
+  - Cambiar el look FORMAL   -> formal.css
+  - Agregar un color/token   -> aquí abajo
+*/
+
+@theme inline {
+  --font-pixel: "Geist Pixel", "Silkscreen", "JetBrains Mono", monospace;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, monospace;
+  --font-nunito: "Nunito-VariableFont", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* TERMINAL */
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-border-soft: var(--border-soft);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-cyan: var(--cyan);
+  --color-green: var(--green);
+  --color-amber: var(--amber);
+  --color-orange: var(--orange);
+  --color-pink: var(--pink);
+  --color-violet: var(--violet);
+
+  /* FORMAL */
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* ── Tokens TERMINAL ── */
+[data-design="TERMINAL"] {
+  --radius: 0rem;
+  --background: oklch(0.99 0.003 90);
+  --foreground: oklch(0.18 0.01 285);
+  --surface: oklch(1 0.002 90);
+  --surface-strong: oklch(0.96 0.006 90);
+  --muted-foreground: oklch(0.42 0.015 285);
+  --dim: oklch(0.62 0.012 285);
+  --border: oklch(0.85 0.012 285);
+  --border-soft: oklch(0.9 0.008 285);
+  --accent: oklch(0.55 0.19 258);
+  --cyan: oklch(0.52 0.12 210);
+  --green: oklch(0.48 0.15 150);
+  --amber: oklch(0.55 0.13 80);
+  --orange: oklch(0.58 0.15 55);
+  --pink: oklch(0.6 0.2 350);
+  --violet: oklch(0.55 0.18 305);
+  --mac-red: oklch(0.63 0.22 25);
+  --mac-yellow: oklch(0.85 0.18 96);
+  --mac-green: oklch(0.72 0.19 148);
+  --window-highlight: oklch(1 0 0);
+  --shadow: oklch(0.4 0.02 285 / 12%);
+  --popover: var(--surface);
+  --popover-foreground: var(--foreground);
+}
+
+[data-design="TERMINAL"].dark {
+  --background: oklch(0.055 0.004 285);
+  --foreground: oklch(0.93 0.003 285);
+  --surface: oklch(0.1 0.006 285);
+  --surface-strong: oklch(0.135 0.008 285);
+  --muted-foreground: oklch(0.62 0.012 285);
+  --dim: oklch(0.5 0.012 285);
+  --border: oklch(0.24 0.012 285);
+  --border-soft: oklch(0.185 0.01 285);
+  --accent: oklch(0.72 0.16 258);
+  --cyan: oklch(0.75 0.12 210);
+  --green: oklch(0.72 0.16 150);
+  --amber: oklch(0.78 0.14 80);
+  --orange: oklch(0.79 0.15 55);
+  --pink: oklch(0.78 0.17 350);
+  --violet: oklch(0.75 0.16 305);
+  --window-highlight: oklch(0.36 0.012 285);
+  --shadow: oklch(0 0 0 / 45%);
+}
+
+/* ── Tokens FORMAL ── */
+[data-design="FORMAL"] {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+}
+
+[data-design="FORMAL"].dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+}
+
+@font-face {
+  font-family: "Geist Pixel";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/geist-pixel.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Nunito-VariableFont";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/Nunito-VariableFont.woff2") format("woff2");
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  [data-design="TERMINAL"] body {
+    @apply selection:bg-accent/25 font-mono overflow-x-hidden;
+  }
+
+  [data-design="TERMINAL"] a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  [data-design="FORMAL"] body {
+    @apply font-nunito outline-ring/50 selection:bg-blue-100 dark:selection:bg-blue-500/30;
+  }
+}
+
+/* ── Estructura compartida (sin color, igual en los dos diseños) ── */
+@layer components {
+  .container-width {
+    @apply mx-auto max-w-3xl;
+  }
+
+  .compact-section {
+    @apply p-5 lg:p-0;
+  }
+
+  .rule-t {
+    @apply border-border border-t;
+  }
+
+  .rule-b {
+    @apply border-border border-b;
+  }
+
+  .timeline-rail {
+    @apply bg-border w-px;
+  }
+
+  .field-error {
+    @apply text-xs text-red-500;
+  }
+
+  .contact-sep {
+    @apply text-border px-1;
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 1.5s infinite;
+}

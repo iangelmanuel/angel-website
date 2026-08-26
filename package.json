@@ -1,23 +1,49 @@
 {
   "name": "angel-website",
-  "type": "module",
   "version": "1.2.0",
-  "description": "Portafolio personal de Angel DM",
-  "author": "Angel DM",
+  "private": true,
+  "description": "Portafolio personal de Angel De La Torre. Sitio bilingüe (ES/EN) construido con Astro, React y Tailwind CSS, con dos diseños intercambiables según la ruta: terminal/pixel-art en / y una presentación formal en /formal.",
+  "keywords": [
+    "portfolio",
+    "personal-website",
+    "astro",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "i18n",
+    "pixel-art",
+    "terminal-ui",
+    "dark-mode"
+  ],
+  "homepage": "https://angel-website-pi.vercel.app",
+  "bugs": {
+    "url": "https://github.com/iangelmanuel/angel-website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iangelmanuel/angel-website.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Angel De La Torre",
+    "email": "iangelmanuel02@gmail.com",
+    "url": "https://github.com/iangelmanuel"
+  },
+  "type": "module",
   "engines": {
     "node": ">=22.12.0",
     "pnpm": ">=9.0.0"
   },
   "scripts": {
     "astro": "astro",
-    "check": "astro check",
-    "build": "astro build",
     "dev": "astro dev",
-    "preview": "astro preview",
     "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "eslint": "eslint .",
     "prettier": "prettier --write .",
-    "prettier:check": "prettier . --check",
-    "eslint": "eslint ."
+    "prettier:check": "prettier . --check"
   },
   "dependencies": {
     "@astrojs/react": "6.0.2",

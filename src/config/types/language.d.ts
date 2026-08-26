@@ -1,14 +1,18 @@
 import type { FieldValidation } from "react-hook-form"
 
+import type { ByDesign } from "@/config/types/design"
+
 export type Language = "es" | "en"
 
 export type LanguageData = {
   seo: Seo
+  nav: Nav
   hero: Hero
   about: About
+  projects: Projects
   contact: Contact
-  footer: Footer
   certificates: Certificates
+  footer: Footer
   actionsResponses: ActionsResponses
 }
 
@@ -24,20 +28,37 @@ export type CertificatesPageSeo = {
   description: string
 }
 
+// Navigation Types
+export type Nav = {
+  about: ByDesign
+  projects: ByDesign
+  contact: ByDesign
+}
+
 // Hero Types
 export type Hero = {
   yearExp: string
   greeting: string
   title: string
   description: string
+  primaryBtn: ByDesign
+  secondaryBtn: ByDesign
 }
 
 // About Types
 export type About = {
+  badge: string
+  title: ByDesign
   description1: string
   description2: string
-  skills: Skill[]
+  skills: SkillsSection
   education: Education
+}
+
+export type SkillsSection = {
+  badge: string
+  title: ByDesign
+  list: Skill[]
 }
 
 export type Skill = {
@@ -46,8 +67,11 @@ export type Skill = {
 }
 
 export type Education = {
+  badge: string
+  title: ByDesign
+  btnToCertificates: ByDesign
   coursesLabel: string
-  educations: EducationDetail[]
+  list: EducationDetail[]
 }
 
 export type EducationDetail = {
@@ -58,8 +82,18 @@ export type EducationDetail = {
   courses: string[]
 }
 
+// Projects Types
+export type Projects = {
+  badge: string
+  title: ByDesign
+  demo: ByDesign
+}
+
 // Contact Types
 export type Contact = {
+  badge: string
+  title: ByDesign
+  windowTitle: string
   lede: string
   form: Form[]
   submit: Submit
@@ -87,17 +121,19 @@ export type ContactFormValidation = {
   message: FieldValidation
 }
 
-// Footer Types
-export type Footer = {
-  rights: string
-}
-
 // Certificates Types
 export type Certificates = {
+  title: ByDesign
+  btnToVerify: ByDesign
   description: string
   coursesCompleted: string
   hoursCompleted: string
   certificatesEarned: string
+}
+
+// Footer Types
+export type Footer = {
+  rights: string
 }
 
 // Actions Responses Types

@@ -1,0 +1,26 @@
+---
+import type { GetStaticPaths } from "astro"
+
+import Layout from "@/modules/portfolio/layouts/Layout.astro"
+import Hero from "@/modules/portfolio/sections/home-page/Hero.astro"
+import About from "@/modules/portfolio/sections/home-page/About.astro"
+import Projects from "@/modules/portfolio/sections/home-page/Projects.astro"
+import Contact from "@/modules/portfolio/sections/home-page/Contact.astro"
+
+import { getRouteParams } from "@/config/lib/route-params"
+import { getTranslations } from "@/config/i18n"
+
+export const getStaticPaths = (() => getRouteParams()) satisfies GetStaticPaths
+
+const { seo } = getTranslations(Astro.currentLocale)
+---
+
+<Layout
+  title={seo.title}
+  description={seo.description}
+>
+  <Hero />
+  <About />
+  <Projects />
+  <Contact />
+</Layout>

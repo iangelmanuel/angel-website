@@ -1,0 +1,29 @@
+---
+import { Briefcase, SquareTerminal } from "lucide-react"
+
+import { getDesign, getAlternateDesignUrl } from "@/config/lib/design"
+
+import type { Language } from "@/config/types/language"
+
+const currentLang = (Astro.currentLocale || "es") as Language
+const DESIGN = getDesign(Astro.url)
+
+const href = getAlternateDesignUrl(Astro.url, currentLang)
+const label =
+  DESIGN === "TERMINAL" ? "Ver presentación formal" : "Ver portafolio terminal"
+---
+
+<a
+  href={href}
+  aria-label={label}
+  title={label}
+  class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
+>
+  {
+    DESIGN === "TERMINAL" ? (
+      <Briefcase className="size-4 sm:size-5" />
+    ) : (
+      <SquareTerminal className="size-4 sm:size-5" />
+    )
+  }
+</a>

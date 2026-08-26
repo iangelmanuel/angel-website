@@ -3,6 +3,7 @@ import { getRelativeLocaleUrl } from "astro:i18n"
 import { Icon } from "astro-icon/components"
 
 import AsideMobileMenu from "./AsideMobileMenu.astro"
+import DesignToggle from "../DesignToggle.astro"
 import ToggleLanguage from "../ToggleLanguage.astro"
 import { ModeToggle } from "../ModeToggle"
 
@@ -58,6 +59,7 @@ const navItems = [
       <div
         class="flex items-center justify-center gap-2 px-5 sm:space-x-3 lg:px-0"
       >
+        <DesignToggle />
         <ToggleLanguage />
         <ModeToggle client:load />
         <AsideMobileMenu navItems={navItems} />

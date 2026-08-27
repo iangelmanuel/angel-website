@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.2] - 2026-08-27
+
+### Fixed
+
+- Fixed production builds failing on Vercel: `pnpm-workspace.yaml` had lost `sharp: true` from `allowBuilds`, so pnpm blocked `sharp`'s native-binary install script on a clean install. Astro's `<Image>` component (used by `Project.astro`) needs that binary to optimize images at build time. Worked locally only because a pre-existing `node_modules/sharp` build was already present; a clean clone — like Vercel's — had nothing to fall back on.
+- Fixed `.gitignore` excluding the entire `.github/` directory (grouped, incorrectly, under a "dependencies" comment alongside `.vscode/`), which meant `.github/workflows/ci.yml` was never committed and CI never ran on push or PR.
+
 ## [1.3.1] - 2026-08-27
 
 ### Changed
@@ -257,7 +264,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.3.1
+- **Current version**: 1.3.2
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

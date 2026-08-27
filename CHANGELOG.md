@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.1] - 2026-08-27
+
+### Changed
+
+- Narrowed `ContactForm`'s props to just what it renders: `contact: ContactCopy` (the already-resolved `ui.contact` slice) and `lang: Lang`, instead of the full translation object. `ContactCopy` is derived with `Resolved<typeof ui.contact>`.
+- Updated dependencies to their latest compatible versions: `astro` 7.2.9, `@astrojs/react` 6.0.4, `@astrojs/vercel` 11.0.8, `astro-icon` 1.2.0, `lucide-react` 1.34.0, `react-hook-form` 7.86.0, `resend` 6.24.0, `sharp` 0.35.4, `eslint` 10.9.1, `typescript-eslint` 8.68.0.
+
+### Fixed
+
+- Pinned `typescript` back to `6.0.3` after a bump to `7.0.2` silently broke `astro check`: TypeScript's new native compiler doesn't expose the programmatic API `@astrojs/language-server` depends on yet ([tracking issue](https://github.com/withastro/roadmap/discussions/1321)). The build itself (Vite/esbuild) was unaffected — only typechecking failed outright. `6.0.3` is still the latest `6.x` release.
+
 ## [1.3.0] - 2026-08-27
 
 ### Added
@@ -246,7 +257,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.3.0
+- **Current version**: 1.3.1
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

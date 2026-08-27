@@ -3,10 +3,9 @@ import { getRelativeLocaleUrl } from "astro:i18n"
 
 import { LinkIcon } from "lucide-react"
 
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
-import { siteInfo } from "@/config/const/site-info"
-import { routes } from "@/config/const/routes"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
+import { routes } from "@/const/routes"
 
 const DESIGN = getDesign(Astro.url)
 const currentLang = Astro.currentLocale || "es"
@@ -51,15 +50,15 @@ const { about, certificates } = getTranslations(currentLang)
 
     <div class="stat-grid mb-6 grid grid-cols-3 text-center">
       <div class="p-4">
-        <div class="stat-value">{siteInfo.certificates.totalCourses}</div>
+        <div class="stat-value">12</div>
         <div class="stat-label">{certificates.coursesCompleted}</div>
       </div>
       <div class="p-4">
-        <div class="stat-value">{siteInfo.certificates.totalHours}+</div>
+        <div class="stat-value">300+</div>
         <div class="stat-label">{certificates.hoursCompleted}</div>
       </div>
       <div class="p-4">
-        <div class="stat-value">{siteInfo.certificates.certifications}</div>
+        <div class="stat-value">12</div>
         <div class="stat-label">{certificates.certificatesEarned}</div>
       </div>
     </div>

@@ -4,10 +4,10 @@ import { Icon } from "astro-icon/components"
 
 import { Calendar, ExternalLink } from "lucide-react"
 
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
 import { getCardAccent } from "../lib/card-accent"
-import { dateFormatter } from "@/config/lib/date-formatter"
+import { dateFormatter } from "@/libs/date-formatter"
 
 import type { CollectionEntry } from "astro:content"
 
@@ -97,7 +97,11 @@ const accent = getCardAccent(index)
     </p>
 
     <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
-      {data.technologies.map((tag) => <span class="chip chip-solid">{tag}</span>)}
+      {
+        data.technologies.map((tag) => (
+          <span class="chip chip-solid">{tag}</span>
+        ))
+      }
     </div>
 
     <footer class="mt-auto flex items-center gap-2 sm:gap-3">

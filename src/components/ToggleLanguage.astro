@@ -1,10 +1,10 @@
 ---
 import { Globe } from "lucide-react"
 
-import { getDesign } from "@/config/lib/design"
-import { getAlternateLocaleUrl } from "@/config/lib/language-path"
+import { getDesign } from "@/libs/design"
+import { getAlternateLocaleUrl } from "@/libs/language-path"
 
-import type { Language } from "@/config/types/language"
+import type { Language } from "@/types/language"
 
 const DESIGN = getDesign(Astro.url)
 const { pathname } = Astro.url

@@ -3,9 +3,9 @@ import { Mail, MapPin, Phone } from "lucide-react"
 
 import { ContactForm } from "../../components/ContactForm"
 
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
-import { siteInfo } from "@/config/const/site-info"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
+import { SITE } from "@/config/site"
 
 const DESIGN = getDesign(Astro.url)
 const currentLang = Astro.currentLocale || "es"
@@ -49,28 +49,28 @@ const { contact } = t
       class="rule-t mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 pt-8"
     >
       <a
-        href={`mailto:${siteInfo.email}`}
+        href={`mailto:${SITE.contact.email}`}
         class="contact-link"
       >
         <Mail className="size-3.5" />
-        {siteInfo.email}
+        {SITE.contact.email}
       </a>
 
       <span class="contact-sep">·</span>
 
       <a
-        href={`tel:${siteInfo.phone}`}
+        href={`tel:${SITE.contact.whatsapp()}`}
         class="contact-link"
       >
         <Phone className="size-3.5" />
-        {siteInfo.phone}
+        {SITE.contact.phoneDisplay()}
       </a>
 
       <span class="contact-sep">·</span>
 
       <span class="contact-link contact-link-static">
         <MapPin className="size-3.5" />
-        {siteInfo.location}
+        {SITE.location.display}
       </span>
     </div>
   </div>

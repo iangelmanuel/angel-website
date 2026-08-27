@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @import "./terminal.css";
 @import "./formal.css";
 
@@ -12,7 +11,6 @@
     Consolas, monospace;
   --font-nunito: "Nunito-VariableFont", sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
@@ -28,25 +26,16 @@
   --color-border-soft: var(--border-soft);
   --color-dim: var(--dim);
   --color-accent: var(--accent);
-  --color-cyan: var(--cyan);
   --color-green: var(--green);
-  --color-amber: var(--amber);
-  --color-orange: var(--orange);
-  --color-pink: var(--pink);
-  --color-violet: var(--violet);
 
   /* FORMAL */
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
   --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
   --color-input: var(--input);
   --color-ring: var(--ring);
 }
@@ -65,7 +54,6 @@
   --accent: oklch(0.55 0.19 258);
   --cyan: oklch(0.52 0.12 210);
   --green: oklch(0.48 0.15 150);
-  --amber: oklch(0.55 0.13 80);
   --orange: oklch(0.58 0.15 55);
   --pink: oklch(0.6 0.2 350);
   --violet: oklch(0.55 0.18 305);
@@ -90,7 +78,6 @@
   --accent: oklch(0.72 0.16 258);
   --cyan: oklch(0.75 0.12 210);
   --green: oklch(0.72 0.16 150);
-  --amber: oklch(0.78 0.14 80);
   --orange: oklch(0.79 0.15 55);
   --pink: oklch(0.78 0.17 350);
   --violet: oklch(0.75 0.16 305);
@@ -111,11 +98,9 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
@@ -132,11 +117,9 @@
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);
   --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);

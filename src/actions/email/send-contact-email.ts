@@ -2,11 +2,11 @@ import { defineAction } from "astro:actions"
 import { z } from "astro/zod"
 import { Resend } from "resend"
 
-import { siteInfo } from "@/config/const/site-info"
-import { contactEmailHTML } from "@/config/const/contact-email-html"
+import { SITE } from "@/config/site"
+import { contactEmailHTML } from "@/libs/contact-email-html"
 
-import { es } from "@/config/i18n/es"
-import { en } from "@/config/i18n/en"
+import { es } from "@/i18n/es"
+import { en } from "@/i18n/en"
 
 export const sendContactEmail = defineAction({
   input: z.object({
@@ -26,8 +26,8 @@ export const sendContactEmail = defineAction({
       }
 
       const response = await resend.emails.send({
-        from: "Angel DM <iangelmanuel02@resend.dev>",
-        to: siteInfo.email,
+        from: `${SITE.info.name} <${SITE.contact.email}>`,
+        to: SITE.contact.email,
         subject,
         html: contactEmailHTML(name, email, subject, message)
       })

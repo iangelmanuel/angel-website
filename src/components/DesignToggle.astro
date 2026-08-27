@@ -1,9 +1,9 @@
 ---
 import { Briefcase, SquareTerminal } from "lucide-react"
 
-import { getDesign, getAlternateDesignUrl } from "@/config/lib/design"
+import { getDesign, getAlternateDesignUrl } from "@/libs/design"
 
-import type { Language } from "@/config/types/language"
+import type { Language } from "@/types/language"
 
 const currentLang = (Astro.currentLocale || "es") as Language
 const DESIGN = getDesign(Astro.url)

@@ -2,9 +2,9 @@
 import { ArrowDown, Download, Mail } from "lucide-react"
 import { Icon } from "astro-icon/components"
 
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
-import { siteInfo } from "@/config/const/site-info"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
+import { SITE } from "@/config/site"
 
 const DESIGN = getDesign(Astro.url)
 const currentLang = Astro.currentLocale || "es"
@@ -21,7 +21,7 @@ const t = getTranslations(currentLang)
       <div class="avatar-frame mx-auto size-48 overflow-hidden sm:size-80">
         <img
           src="/img/profile-photo.webp"
-          alt="Angel De La Torre profile photo"
+          alt={`${SITE.info.name} profile photo`}
           class="h-full w-full object-cover"
         />
       </div>
@@ -35,7 +35,7 @@ const t = getTranslations(currentLang)
     <div class="order-1 max-w-2xl space-y-4 sm:order-2">
       <h1 class="hero-name">
         {t.hero.greeting}
-        <span class="hero-name-accent">{siteInfo.authorName}</span>
+        <span class="hero-name-accent">Angel</span>
         <span class="animate-wave inline-block">👋</span>
       </h1>
 
@@ -72,7 +72,7 @@ const t = getTranslations(currentLang)
 
       <div class="flex items-center justify-center gap-5 pt-4">
         <a
-          href={siteInfo.social.github}
+          href={SITE.social.github}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -84,7 +84,7 @@ const t = getTranslations(currentLang)
           <span class="sr-only">GitHub</span>
         </a>
         <a
-          href={siteInfo.social.linkedin}
+          href={SITE.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -96,7 +96,7 @@ const t = getTranslations(currentLang)
           <span class="sr-only">LinkedIn</span>
         </a>
         <a
-          href={siteInfo.social.x}
+          href={SITE.social.x}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -108,7 +108,7 @@ const t = getTranslations(currentLang)
           <span class="sr-only">Twitter</span>
         </a>
         <a
-          href={`mailto:${siteInfo.email}`}
+          href={`mailto:${SITE.contact.email}`}
           class="social-link p-2"
         >
           <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -120,7 +120,7 @@ const t = getTranslations(currentLang)
 </section>
 
 <script>
-  import { $ } from "@/config/lib/dom-selector"
+  import { $ } from "@/libs/dom-selector"
 
   document.addEventListener("astro:page-load", () => {
     const $downloadBtn = $("#download-cv") as HTMLButtonElement

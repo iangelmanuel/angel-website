@@ -4,10 +4,10 @@ import { useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 
-import { formConfig } from "@/config/const/form-config"
+import { formConfig } from "@/const/form-config"
 
-import type { ContactFormData } from "@/config/types/contact-form-data"
-import type { LanguageData } from "@/config/types/language"
+import type { ContactFormData } from "@/types/contact-form-data"
+import type { LanguageData } from "@/types/language"
 
 type Params = {
   t: LanguageData

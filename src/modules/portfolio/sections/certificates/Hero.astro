@@ -1,11 +1,11 @@
 ---
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
-import { siteInfo } from "@/config/const/site-info"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
+import { SITE } from "@/config/site"
 
 const DESIGN = getDesign(Astro.url)
 const { certificates } = getTranslations(Astro.currentLocale)
-const stats = siteInfo.certificates
+const stats = SITE.info.certificates
 ---
 
 <section

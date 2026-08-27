@@ -1,11 +1,10 @@
-import { siteInfo } from "@/config/const/site-info"
-import type { LanguageData } from "@/config/types/language"
+import { SITE } from "@/config/site"
+import type { LanguageData } from "@/types/language"
 
 export const en: LanguageData = {
   seo: {
-    title: "Angel De La Torre",
-    description:
-      "Website of Angel De La Torre, a Full Stack and Phone Developer based in Barranquilla, Colombia. Explore my work, skills, and contact me for your next project.",
+    title: SITE.seo.title.en,
+    description: SITE.seo.description.en,
     certificatesPage: {
       title: "Certifications - Angel De La Torre",
       description:
@@ -13,17 +12,11 @@ export const en: LanguageData = {
     }
   },
 
-  nav: {
-    about: { TERMINAL: "about-me", FORMAL: "About" },
-    projects: { TERMINAL: "projects", FORMAL: "Projects" },
-    contact: { TERMINAL: "contact", FORMAL: "Contact" }
-  },
-
   hero: {
-    yearExp: `${siteInfo.yearsOfExperience}+ years of experience`,
+    yearExp: `${new Date().getFullYear() - SITE.info.founded}+ years of experience`,
     greeting: "Hi, I'm ",
     title: "Full Stack and Phone Developer",
-    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
+    description: `I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive. Currently focused on developing products at <a href="https://www.verlun.com" target="_blank" rel="noopener noreferrer" class="font-semibold">Verlun Studio</a>.`,
     primaryBtn: { TERMINAL: "./view-projects", FORMAL: "View my work" },
     secondaryBtn: { TERMINAL: "download-cv", FORMAL: "Download CV" }
   },
@@ -158,8 +151,6 @@ export const en: LanguageData = {
 
     submit: {
       label: "Send message",
-      sending: "Sending",
-      successMessage: "Message sent successfully!",
       errorMessage: "Error sending message."
     },
 
@@ -200,7 +191,7 @@ export const en: LanguageData = {
   },
 
   footer: {
-    rights: `${siteInfo.authorNameAndSurname}. All rights reserved.`
+    rights: `${SITE.info.name}. All rights reserved.`
   },
 
   actionsResponses: {

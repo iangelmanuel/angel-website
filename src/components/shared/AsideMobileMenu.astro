@@ -1,7 +1,7 @@
 ---
 import { Menu, X } from "lucide-react"
 
-import type { NavItem } from "@/config/types/navigation"
+import type { NavItem } from "@/types/navigation"
 
 interface Props {
   navItems: NavItem[]
@@ -54,7 +54,7 @@ const { navItems } = Astro.props
 </aside>
 
 <script>
-  import { $ } from "@/config/lib/dom-selector"
+  import { $ } from "@/libs/dom-selector"
 
   document.addEventListener("astro:page-load", () => {
     const $button = $("#mobile-menu-button") as HTMLButtonElement

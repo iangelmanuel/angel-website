@@ -1,6 +1,6 @@
 import { getRelativeLocaleUrl } from "astro:i18n"
 
-import type { Language } from "@/config/types/language"
+import type { Language } from "@/types/language"
 
 const locales: Language[] = ["es", "en"]
 

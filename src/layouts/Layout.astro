@@ -1,0 +1,95 @@
+---
+import { ClientRouter } from "astro:transitions"
+
+import ThemeScript from "@/components/seo/ThemeScript.astro"
+import { Toaster } from "@/components/ui/sonner"
+
+import BaseHead from "@/components/seo/BaseHead.astro"
+import PreloadFont from "@/components/seo/PreloadFont.astro"
+import JsonLd from "@/components/seo/JsonLd.astro"
+import TopMenu from "@/components/shared/TopMenu.astro"
+import MainContent from "@/components/shared/MainContent.astro"
+import Footer from "@/components/shared/Footer.astro"
+
+import { getDesign } from "@/libs/design"
+import {
+  faqLd,
+  organizationLd,
+  professionalServiceLd,
+  servicesLd,
+  webSiteLd
+} from "@/libs/seo"
+
+import "@/modules/portfolio/styles/portfolio.css"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const { title, description } = Astro.props
+
+const DESIGN = getDesign(Astro.url)
+const currentLocale = (Astro.currentLocale ?? "es") as "es" | "en"
+---
+
+<ThemeScript />
+
+<html
+  lang={currentLocale}
+  data-design={DESIGN}
+  class="scroll-smooth"
+>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      lang={currentLocale}
+    >
+      <PreloadFont
+        slot="preloadfonts"
+        DESIGN={DESIGN}
+      />
+    </BaseHead>
+
+    <JsonLd
+      id="ld-organization"
+      data={organizationLd(currentLocale)}
+    />
+    <JsonLd
+      id="ld-website"
+      data={webSiteLd(currentLocale)}
+    />
+    <JsonLd
+      id="ld-business"
+      data={professionalServiceLd()}
+    />
+    <JsonLd
+      id="ld-services"
+      data={servicesLd(currentLocale)}
+    />
+    <JsonLd
+      id="ld-faq"
+      data={faqLd(currentLocale)}
+    />
+
+    <ClientRouter />
+  </head>
+
+  <body>
+    <TopMenu />
+
+    <MainContent>
+      <slot />
+    </MainContent>
+
+    <Toaster
+      position="top-right"
+      richColors
+      duration={3000}
+      client:visible
+    />
+
+    <Footer />
+  </body>
+</html>

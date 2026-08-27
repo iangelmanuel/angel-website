@@ -151,16 +151,8 @@
       @apply rounded border;
     }
 
-    .media-frame-flush {
-      @apply rounded-none border-0;
-    }
-
     .academy-logo {
       @apply rounded-full border;
-    }
-
-    .card-headline {
-      @apply text-lg leading-none font-semibold sm:text-xl;
     }
 
     .card-title {

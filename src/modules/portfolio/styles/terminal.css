@@ -152,16 +152,8 @@
       @apply border-border border;
     }
 
-    .media-frame-flush {
-      @apply border-b;
-    }
-
     .academy-logo {
       @apply border-border border;
-    }
-
-    .card-headline {
-      @apply font-pixel text-base sm:text-lg;
     }
 
     .card-title {

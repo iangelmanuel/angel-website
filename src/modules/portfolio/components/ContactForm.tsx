@@ -1,7 +1,7 @@
-import { useContactForm } from "@/config/hooks/use-contact-form"
+import { useContactForm } from "@/hooks/use-contact-form"
 
-import type { ContactFormData } from "@/config/types/contact-form-data"
-import type { LanguageData } from "@/config/types/language"
+import type { ContactFormData } from "@/types/contact-form-data"
+import type { LanguageData } from "@/types/language"
 
 type Props = {
   t: LanguageData

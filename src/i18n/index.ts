@@ -1,7 +1,7 @@
 import { en } from "./en"
 import { es } from "./es"
 
-import type { Language, LanguageData } from "@/config/types/language"
+import type { Language, LanguageData } from "@/types/language"
 
 export const translations: Record<Language, LanguageData> = { es, en }
 

@@ -1,11 +1,10 @@
-import { siteInfo } from "@/config/const/site-info"
-import type { LanguageData } from "@/config/types/language"
+import { SITE } from "@/config/site"
+import type { LanguageData } from "@/types/language"
 
 export const es: LanguageData = {
   seo: {
-    title: "Angel De La Torre",
-    description:
-      "Sitio web de Angel De La Torre, un Desarrollador Full Stack y Desarrollador de Teléfonos con sede en Barranquilla, Colombia. Explora mi trabajo, habilidades y contáctame para tu próximo proyecto.",
+    title: SITE.seo.title.es,
+    description: SITE.seo.description.es,
     certificatesPage: {
       title: "Certificaciones - Angel De La Torre",
       description:
@@ -13,17 +12,11 @@ export const es: LanguageData = {
     }
   },
 
-  nav: {
-    about: { TERMINAL: "sobre-mi", FORMAL: "Sobre mí" },
-    projects: { TERMINAL: "proyectos", FORMAL: "Proyectos" },
-    contact: { TERMINAL: "contacto", FORMAL: "Contacto" }
-  },
-
   hero: {
-    yearExp: `${siteInfo.yearsOfExperience}+ años de experiencia`,
+    yearExp: `${new Date().getFullYear() - SITE.info.founded}+ años de experiencia`,
     greeting: "Hola, soy ",
     title: "Desarrollador Full Stack y de Teléfonos",
-    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="${siteInfo.work.isWorking ? siteInfo.work.url : siteInfo.verlunStudio.url}" target="_blank" rel="noopener noreferrer" class="font-semibold">${siteInfo.work.isWorking ? siteInfo.work.company : siteInfo.verlunStudio.title}</a>.`,
+    description: `Construyo experiencias digitales excepcionales que son rápidas, accesibles, visualmente atractivas y responsivas. Actualmente enfocado en desarrollar productos de <a href="https://www.verlun.com" target="_blank" rel="noopener noreferrer" class="font-semibold">Verlun Studio</a>.`,
     primaryBtn: { TERMINAL: "./ver-proyectos", FORMAL: "Ver mi trabajo" },
     secondaryBtn: { TERMINAL: "descargar-cv", FORMAL: "Descargar CV" }
   },
@@ -161,8 +154,6 @@ export const es: LanguageData = {
 
     submit: {
       label: "Enviar mensaje",
-      sending: "Enviando",
-      successMessage: "¡Mensaje enviado con éxito!",
       errorMessage: "Error al enviar el mensaje."
     },
 
@@ -203,7 +194,7 @@ export const es: LanguageData = {
   },
 
   footer: {
-    rights: `${siteInfo.authorNameAndSurname}. Todos los derechos reservados.`
+    rights: `${SITE.info.name}. Todos los derechos reservados.`
   },
 
   actionsResponses: {

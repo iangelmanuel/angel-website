@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2026-08-27
+
+### Fixed
+
+- Fixed content collections silently depending on a stale `.astro` cache: the config file lived at `src/content/index.ts`, a path Astro doesn't read (it only recognizes `src/content.config.ts`). A clean install/build produced zero projects or certificates and dropped the `image()` schema helper entirely. Renamed to `src/content.config.ts`; `astro check` went from 37 errors to 0.
+- Fixed a type mismatch on `NavItem.label`: `TopMenu` already resolved it to a plain string, but the type still declared it as the bilingual `{ es, en }` shape and `AsideMobileMenu` re-translated it a second time. Narrowed the type to `string` and dropped the redundant translation call.
+- Fixed a duplicate `output: "static"` key in `astro.config.mjs` and an invalid `"types": "module"` field in `package.json` (the correct key, `"type"`, was already present).
+
+### Removed
+
+- Removed `src/libs/utils.ts` (`cn()` helper) and its two dependencies, `clsx` and `tailwind-merge` — unused since the shadcn `ui/` wrappers were dropped in 1.2.0.
+- Removed three more leftover shadcn dependencies with no remaining import: `@radix-ui/react-label`, `@radix-ui/react-slot`, `class-variance-authority`.
+- Removed `tw-animate-css` (dev dependency and its `@import`) — no `animate-*` utility from it was ever used.
+- Removed the dead `nav` translation namespace from `src/i18n` (both languages) and its `Nav` type; navigation labels are sourced from `SITE.navigation` instead.
+- Removed unused `contact.submit.sending` and `contact.submit.successMessage` translation keys and their type fields; the app renders whatever message the `sendContactEmail` action returns.
+- Removed unused CSS: the `.card-headline` and `.media-frame-flush` classes (both design skins), and the `--amber`, `--muted`, `--destructive` color tokens together with their now-orphaned `@theme` mappings (`--color-cyan`, `--color-amber`, `--color-orange`, `--color-pink`, `--color-violet`, `--color-popover`, `--color-popover-foreground`, `--color-muted`, `--color-destructive`, `--radius-sm`).
+- Removed five `Layout.astro` pass-through props (`image`, `canonical`, `keywords`, `ogType`, `noindex`) that no page ever set; `BaseHead` already falls back to the same `SITE.seo` defaults, so behavior is unchanged.
+
 ## [1.2.1] - 2026-08-25
 
 ### Changed
@@ -211,7 +229,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.2.1
+- **Current version**: 1.2.2
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

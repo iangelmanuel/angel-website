@@ -2,8 +2,8 @@
 import { Icon } from "astro-icon/components"
 import { Mail } from "lucide-react"
 
-import { getTranslations } from "@/config/i18n"
-import { siteInfo } from "@/config/const/site-info"
+import { getTranslations } from "@/i18n"
+import { SITE } from "@/config/site"
 
 const { hero, footer } = getTranslations(Astro.currentLocale)
 ---
@@ -12,13 +12,13 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
   <div class="container-width">
     <div class="flex flex-col items-center gap-4 sm:gap-6">
       <div class="text-center">
-        <h3 class="footer-name">{siteInfo.authorNameAndSurname}</h3>
+        <h3 class="footer-name">{SITE.info.name}</h3>
         <p class="muted-text text-xs sm:text-sm">{hero.title}</p>
       </div>
 
       <div class="flex items-center gap-6">
         <a
-          href={siteInfo.social.github}
+          href={SITE.social.github}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -29,7 +29,7 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
           />
         </a>
         <a
-          href={siteInfo.social.linkedin}
+          href={SITE.social.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -40,7 +40,7 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
           />
         </a>
         <a
-          href={siteInfo.social.x}
+          href={SITE.social.x}
           target="_blank"
           rel="noopener noreferrer"
           class="social-link p-2"
@@ -51,7 +51,7 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
           />
         </a>
         <a
-          href={`mailto:${siteInfo.email}`}
+          href={`mailto:${SITE.contact.email}`}
           class="social-link p-2"
         >
           <Mail className="size-4 sm:h-5 sm:w-5" />

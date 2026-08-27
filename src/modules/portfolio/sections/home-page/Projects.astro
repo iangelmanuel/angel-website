@@ -3,8 +3,8 @@ import { getCollection } from "astro:content"
 
 import Project from "../../components/Project.astro"
 
-import { getTranslations } from "@/config/i18n"
-import { getDesign } from "@/config/lib/design"
+import { getTranslations } from "@/i18n"
+import { getDesign } from "@/libs/design"
 
 const DESIGN = getDesign(Astro.url)
 const currentLang = Astro.currentLocale || "es"

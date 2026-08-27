@@ -1,12 +1,11 @@
 import type { FieldValidation } from "react-hook-form"
 
-import type { ByDesign } from "@/config/types/design"
+import type { ByDesign } from "@/types/design"
 
 export type Language = "es" | "en"
 
 export type LanguageData = {
   seo: Seo
-  nav: Nav
   hero: Hero
   about: About
   projects: Projects
@@ -26,13 +25,6 @@ export type Seo = {
 export type CertificatesPageSeo = {
   title: string
   description: string
-}
-
-// Navigation Types
-export type Nav = {
-  about: ByDesign
-  projects: ByDesign
-  contact: ByDesign
 }
 
 // Hero Types
@@ -109,8 +101,6 @@ export type Form = {
 
 export type Submit = {
   label: string
-  sending: string
-  successMessage: string
   errorMessage: string
 }
 

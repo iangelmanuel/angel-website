@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed CI failing at the `pnpm/action-setup` step with "Multiple versions of pnpm specified": the workflow pinned `version: 11` while `package.json`'s `packageManager` field pinned `pnpm@11.24.0`. Removed the redundant `version` input from both jobs in `.github/workflows/ci.yml`; the action now resolves the version from `packageManager` alone.
+
 ## [1.3.2] - 2026-08-27
 
 ### Fixed

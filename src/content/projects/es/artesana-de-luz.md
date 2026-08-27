@@ -9,7 +9,7 @@ githubUrl:
     isPrivate: true
   }
 
-liveUrl: "https://www.artesanadeluz.com"
+liveUrl: "https://artesanadeluz.vercel.app"
 image: "../../assets/projects/artesana-de-luz-project.webp"
 featured: true
 status: "completed"

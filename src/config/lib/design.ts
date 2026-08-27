@@ -9,6 +9,7 @@ import type { Language } from "@/config/types/language"
 export const getDesign = (url: URL): Design =>
   url.pathname.includes(routes.FORMAL.home) ? "FORMAL" : "TERMINAL"
 
+// TODO
 export const getAlternateDesignUrl = (url: URL, currentLang: Language) => {
   const design = getDesign(url)
   const target: Design = design === "TERMINAL" ? "FORMAL" : "TERMINAL"

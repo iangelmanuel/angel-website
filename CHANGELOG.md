@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-08-25
+
+### Changed
+
+- Updated live URL for the "Artesana de Luz" project to `https://artesanadeluz.vercel.app` in both ES/EN content files.
+
+### Added
+
+- Added TODO comment in `src/config/lib/design.ts` for pending alternate-design URL logic.
+
 ## [1.2.0] - 2026-08-25
 
 ### Added
@@ -201,7 +211,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.2.0
+- **Current version**: 1.2.1
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

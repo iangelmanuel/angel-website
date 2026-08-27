@@ -1,9 +1,8 @@
 ---
 import { Calendar, ExternalLink } from "lucide-react"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
-import { getCardAccent } from "../lib/card-accent"
+import { ui, useI18n } from "@/i18n"
+import { getCardAccent } from "../libs/card-accent"
 import { dateFormatter } from "@/libs/date-formatter"
 
 import type { CollectionEntry } from "astro:content"
@@ -15,8 +14,8 @@ type Props = {
 
 const { cert, index } = Astro.props
 
-const DESIGN = getDesign(Astro.url)
-const { certificates } = getTranslations(Astro.currentLocale)
+const { t, design } = useI18n(Astro)
+const certificates = t(ui.certificates)
 
 const slug = cert.id.split("/").pop()
 const accent = getCardAccent(index)
@@ -27,7 +26,7 @@ const accent = getCardAccent(index)
   style={`--card-color: var(--${accent})`}
 >
   {
-    DESIGN === "TERMINAL" && (
+    design === "TERMINAL" && (
       <div class="win-card-bar">
         <div class="win-card-dots">
           <span class="win-card-dot" />
@@ -53,7 +52,7 @@ const accent = getCardAccent(index)
 
     <div class="mt-4">
       <h4 class="win-card-title mb-1 line-clamp-2">
-        {DESIGN === "TERMINAL" && <span class="win-card-prompt">&gt;</span>}
+        {design === "TERMINAL" && <span class="win-card-prompt">&gt;</span>}
         {cert.data.title}
       </h4>
 
@@ -100,7 +99,7 @@ const accent = getCardAccent(index)
             class="btn-primary btn-sm w-full lg:w-auto"
           >
             <ExternalLink className="size-3" />
-            {certificates.btnToVerify[DESIGN]}
+            {certificates.btnToVerify}
           </a>
         )
       }

@@ -7,20 +7,17 @@ import DesignToggle from "../DesignToggle.astro"
 import ToggleLanguage from "../ToggleLanguage.astro"
 import { ModeToggle } from "../ModeToggle"
 
-import { SITE, t } from "@/config/site"
-import { getDesign } from "@/libs/design"
+import { SITE } from "@/config/site"
+import { useI18n } from "@/i18n"
 import { routes } from "@/const/routes"
 
-const DESIGN = getDesign(Astro.url)
-const currentLang = (Astro.currentLocale ?? "es") as "es" | "en"
+const { t, lang, design } = useI18n(Astro)
 
-const homeUrl = getRelativeLocaleUrl(currentLang, routes[DESIGN].home)
+const homeUrl = getRelativeLocaleUrl(lang, routes[design].home)
 
-const navItems = SITE.navigation.map((item) => ({
-  href: item.href.startsWith("/")
-    ? `${homeUrl}${item.href.slice(1)}`
-    : item.href,
-  label: t(item.name, currentLang)
+const navItems = t(SITE.navigation).map(({ name, href }) => ({
+  label: name,
+  href: href.startsWith("/") ? `${homeUrl}${href.slice(1)}` : href
 }))
 ---
 

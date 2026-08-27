@@ -3,14 +3,11 @@ import { Mail, MapPin, Phone } from "lucide-react"
 
 import { ContactForm } from "../../components/ContactForm"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
+import { ui, useI18n } from "@/i18n"
 import { SITE } from "@/config/site"
 
-const DESIGN = getDesign(Astro.url)
-const currentLang = Astro.currentLocale || "es"
-const t = getTranslations(currentLang)
-const { contact } = t
+const { t, lang, design } = useI18n(Astro)
+const contact = t(ui.contact)
 ---
 
 <section
@@ -20,13 +17,13 @@ const { contact } = t
   <div class="container-width mx-auto max-w-xl text-center">
     <span class="section-badge">{contact.badge}</span>
 
-    <h2 class="section-title mb-3">{contact.title[DESIGN]}</h2>
+    <h2 class="section-title mb-3">{contact.title}</h2>
 
     <p class="body-text mx-auto mb-10 max-w-sm">{contact.lede}</p>
 
     <div class="form-shell text-left">
       {
-        DESIGN === "TERMINAL" && (
+        design === "TERMINAL" && (
           <div class="form-shell-bar">
             <span class="form-shell-dot" />
             <span class="form-shell-dot" />
@@ -38,8 +35,8 @@ const { contact } = t
 
       <div class="form-shell-body">
         <ContactForm
-          t={t}
-          currentLang={currentLang}
+          contact={contact}
+          lang={lang}
           client:only="react"
         />
       </div>

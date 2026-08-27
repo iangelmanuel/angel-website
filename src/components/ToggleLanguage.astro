@@ -1,16 +1,12 @@
 ---
 import { Globe } from "lucide-react"
 
-import { getDesign } from "@/libs/design"
-import { getAlternateLocaleUrl } from "@/libs/language-path"
+import { useI18n } from "@/i18n"
+import { getAlternateLocaleUrl } from "@/libs/alternate-url"
 
-import type { Language } from "@/types/language"
+const { lang, design } = useI18n(Astro)
 
-const DESIGN = getDesign(Astro.url)
-const { pathname } = Astro.url
-const currentLang = (Astro.currentLocale || "es") as Language
-
-const linkToRedirect = getAlternateLocaleUrl(pathname, currentLang)
+const linkToRedirect = getAlternateLocaleUrl(Astro.url.pathname, lang)
 ---
 
 <a
@@ -19,8 +15,8 @@ const linkToRedirect = getAlternateLocaleUrl(pathname, currentLang)
   class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
 >
   {
-    DESIGN === "TERMINAL" ? (
-      <span class="lang-code">{currentLang === "es" ? "en" : "es"}</span>
+    design === "TERMINAL" ? (
+      <span class="lang-code">{lang === "es" ? "en" : "es"}</span>
     ) : (
       <Globe className="size-4 transition-all duration-300 sm:size-5" />
     )

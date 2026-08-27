@@ -1,50 +1,19 @@
-import type { LanguageData } from "@/types/language"
+import type { ui } from "@/i18n/ui"
+import type { Resolved } from "@/types/i18n"
 
-export const formConfig = {
-  contactForm: (t: LanguageData) => {
-    const { contactFormValidation } = t.contact
+type Validation = Resolved<typeof ui.contact.validation>
 
-    return {
-      name: {
-        required: contactFormValidation.name.required,
-        min: {
-          value: 2,
-          message: contactFormValidation.name.min
-        },
-        max: {
-          value: 50,
-          message: contactFormValidation.name.max
-        }
-      },
-      email: {
-        required: contactFormValidation.email.required,
-        pattern: {
-          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-          message: contactFormValidation.email.pattern
-        }
-      },
-      subject: {
-        required: contactFormValidation.subject.required,
-        min: {
-          value: 2,
-          message: contactFormValidation.subject.min
-        },
-        max: {
-          value: 100,
-          message: contactFormValidation.subject.max
-        }
-      },
-      message: {
-        required: contactFormValidation.message.required,
-        min: {
-          value: 10,
-          message: contactFormValidation.message.min
-        },
-        max: {
-          value: 1000,
-          message: contactFormValidation.message.max
-        }
-      }
-    } as const
-  }
-}
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+export const contactFormRules = (validation: Validation) => ({
+  name: validation.name,
+  email: {
+    required: validation.email.required,
+    pattern: {
+      value: EMAIL_PATTERN,
+      message: validation.email.pattern.message
+    }
+  },
+  subject: validation.subject,
+  message: validation.message
+})

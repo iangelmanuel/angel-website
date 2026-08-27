@@ -11,7 +11,7 @@ import TopMenu from "@/components/shared/TopMenu.astro"
 import MainContent from "@/components/shared/MainContent.astro"
 import Footer from "@/components/shared/Footer.astro"
 
-import { getDesign } from "@/libs/design"
+import { useI18n } from "@/i18n"
 import {
   faqLd,
   organizationLd,
@@ -29,36 +29,34 @@ interface Props {
 
 const { title, description } = Astro.props
 
-const DESIGN = getDesign(Astro.url)
-const currentLocale = (Astro.currentLocale ?? "es") as "es" | "en"
+const { lang, design } = useI18n(Astro)
 ---
 
 <ThemeScript />
 
 <html
-  lang={currentLocale}
-  data-design={DESIGN}
+  lang={lang}
+  data-design={design}
   class="scroll-smooth"
 >
   <head>
     <BaseHead
       title={title}
       description={description}
-      lang={currentLocale}
     >
       <PreloadFont
         slot="preloadfonts"
-        DESIGN={DESIGN}
+        design={design}
       />
     </BaseHead>
 
     <JsonLd
       id="ld-organization"
-      data={organizationLd(currentLocale)}
+      data={organizationLd(lang)}
     />
     <JsonLd
       id="ld-website"
-      data={webSiteLd(currentLocale)}
+      data={webSiteLd(lang)}
     />
     <JsonLd
       id="ld-business"
@@ -66,11 +64,11 @@ const currentLocale = (Astro.currentLocale ?? "es") as "es" | "en"
     />
     <JsonLd
       id="ld-services"
-      data={servicesLd(currentLocale)}
+      data={servicesLd(lang)}
     />
     <JsonLd
       id="ld-faq"
-      data={faqLd(currentLocale)}
+      data={faqLd(lang)}
     />
 
     <ClientRouter />

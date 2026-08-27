@@ -1,17 +1,20 @@
 import { useContactForm } from "@/hooks/use-contact-form"
 
+import type { ui } from "@/i18n/ui"
 import type { ContactFormData } from "@/types/contact-form-data"
-import type { LanguageData } from "@/types/language"
+import type { Lang, Resolved } from "@/types/i18n"
+
+export type ContactCopy = Resolved<typeof ui.contact>
 
 type Props = {
-  t: LanguageData
-  currentLang: string
+  contact: ContactCopy
+  lang: Lang
 }
 
-export function ContactForm({ t, currentLang }: Props) {
-  const { register, errors, isPending, onSubmit, validation } = useContactForm({
-    t,
-    currentLang
+export function ContactForm({ contact, lang }: Props) {
+  const { register, errors, isPending, onSubmit, rules } = useContactForm({
+    contact,
+    lang
   })
 
   return (
@@ -21,57 +24,48 @@ export function ContactForm({ t, currentLang }: Props) {
       className="space-y-4"
     >
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {t.contact.form.map((field) => (
-          <div
-            key={field.id}
-            className={
-              field.type === "textarea"
-                ? "col-span-1 sm:col-span-2"
-                : field.id === "subject"
-                  ? "col-span-1 sm:col-span-2"
-                  : ""
-            }
-          >
-            <label
-              htmlFor={field.id}
-              className="field-label"
+        {contact.form.map((field) => {
+          const id = field.id as keyof ContactFormData
+          const isWide = field.type === "textarea" || field.id === "subject"
+
+          return (
+            <div
+              key={field.id}
+              className={isWide ? "col-span-1 sm:col-span-2" : ""}
             >
-              {field.label}
-            </label>
+              <label
+                htmlFor={field.id}
+                className="field-label"
+              >
+                {field.label}
+              </label>
 
-            {field.type === "textarea" ? (
-              <textarea
-                id={field.id}
-                placeholder={field.placeholder}
-                rows={4}
-                required
-                className="field field-textarea"
-                {...register(
-                  field.id as keyof ContactFormData,
-                  validation[field.id as keyof ContactFormData]
-                )}
-              />
-            ) : (
-              <input
-                id={field.id}
-                type={field.type}
-                placeholder={field.placeholder}
-                required
-                className="field"
-                {...register(
-                  field.id as keyof ContactFormData,
-                  validation[field.id as keyof ContactFormData]
-                )}
-              />
-            )}
+              {field.type === "textarea" ? (
+                <textarea
+                  id={field.id}
+                  placeholder={field.placeholder}
+                  rows={4}
+                  required
+                  className="field field-textarea"
+                  {...register(id, rules[id])}
+                />
+              ) : (
+                <input
+                  id={field.id}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  required
+                  className="field"
+                  {...register(id, rules[id])}
+                />
+              )}
 
-            {errors[field.id as keyof ContactFormData] && (
-              <span className="field-error">
-                {errors[field.id as keyof ContactFormData]?.message}
-              </span>
-            )}
-          </div>
-        ))}
+              {errors[id] && (
+                <span className="field-error">{errors[id]?.message}</span>
+              )}
+            </div>
+          )
+        })}
       </div>
 
       <div className="pt-2 text-center">
@@ -80,7 +74,7 @@ export function ContactForm({ t, currentLang }: Props) {
           disabled={isPending}
           className="btn-primary btn-pill px-10 sm:px-12"
         >
-          {t.contact.submit.label}
+          {contact.submit.label}
         </button>
       </div>
     </form>

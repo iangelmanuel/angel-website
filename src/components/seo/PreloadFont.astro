@@ -1,15 +1,15 @@
 ---
-import type { Design } from "@/types/design"
+import type { Design } from "@/types/i18n"
 
 interface Props {
-  DESIGN: Design
+  design: Design
 }
 
-const { DESIGN } = Astro.props
+const { design } = Astro.props
 ---
 
 {
-  DESIGN === "TERMINAL" ? (
+  design === "TERMINAL" ? (
     <Fragment>
       <link
         rel="preload"

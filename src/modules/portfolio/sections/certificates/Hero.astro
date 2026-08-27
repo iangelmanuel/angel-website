@@ -1,10 +1,9 @@
 ---
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
+import { ui, useI18n } from "@/i18n"
 import { SITE } from "@/config/site"
 
-const DESIGN = getDesign(Astro.url)
-const { certificates } = getTranslations(Astro.currentLocale)
+const { t } = useI18n(Astro)
+const certificates = t(ui.certificates)
 const stats = SITE.info.certificates
 ---
 
@@ -13,7 +12,7 @@ const stats = SITE.info.certificates
 >
   <div class="container-width text-center">
     <div class="mb-4 inline-flex items-center gap-2">
-      <h2 class="page-title">{certificates.title[DESIGN]}</h2>
+      <h2 class="page-title">{certificates.title}</h2>
     </div>
 
     <p class="body-text mx-auto mb-6 max-w-2xl">{certificates.description}</p>

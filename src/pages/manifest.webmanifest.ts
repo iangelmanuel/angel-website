@@ -1,11 +1,12 @@
 import type { APIRoute } from "astro"
-import { SITE, t } from "@/config/site"
+import { SITE } from "@/config/site"
+import { DEFAULT_LANG, translate } from "@/i18n"
 
 export const GET: APIRoute = () => {
   const manifest = {
     name: SITE.info.legalName,
     short_name: SITE.info.name,
-    description: t(SITE.seo.description, "es"),
+    description: translate(SITE.seo.description, DEFAULT_LANG),
     start_url: "/",
     display: "standalone",
     background_color: SITE.seo.themeColor.dark,

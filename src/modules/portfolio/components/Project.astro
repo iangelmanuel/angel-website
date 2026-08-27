@@ -4,9 +4,8 @@ import { Icon } from "astro-icon/components"
 
 import { Calendar, ExternalLink } from "lucide-react"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
-import { getCardAccent } from "../lib/card-accent"
+import { ui, useI18n } from "@/i18n"
+import { getCardAccent } from "../libs/card-accent"
 import { dateFormatter } from "@/libs/date-formatter"
 
 import type { CollectionEntry } from "astro:content"
@@ -19,8 +18,8 @@ type Props = {
 
 const { id, index, data } = Astro.props
 
-const DESIGN = getDesign(Astro.url)
-const { projects } = getTranslations(Astro.currentLocale)
+const { t, design } = useI18n(Astro)
+const projects = t(ui.projects)
 
 const slug = id.split("/").pop()
 const accent = getCardAccent(index)
@@ -31,7 +30,7 @@ const accent = getCardAccent(index)
   style={`--card-color: var(--${accent})`}
 >
   {
-    DESIGN === "TERMINAL" && (
+    design === "TERMINAL" && (
       <div class="win-card-bar">
         <div class="win-card-dots">
           <span class="win-card-dot" />
@@ -57,7 +56,7 @@ const accent = getCardAccent(index)
 
     <div class="mt-4 flex items-start gap-2">
       <h3 class="win-card-title min-w-0 flex-1">
-        {DESIGN === "TERMINAL" && <span class="win-card-prompt">&gt;</span>}
+        {design === "TERMINAL" && <span class="win-card-prompt">&gt;</span>}
         {data.title}
       </h3>
 
@@ -112,7 +111,7 @@ const accent = getCardAccent(index)
         class="btn-primary btn-sm w-full"
       >
         <ExternalLink className="size-3" />
-        {projects.demo[DESIGN]}
+        {projects.demo}
       </a>
     </footer>
   </div>

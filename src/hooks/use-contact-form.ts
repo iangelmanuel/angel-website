@@ -4,17 +4,18 @@ import { useTransition } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 
-import { formConfig } from "@/const/form-config"
+import { contactFormRules } from "@/const/form-config"
 
 import type { ContactFormData } from "@/types/contact-form-data"
-import type { LanguageData } from "@/types/language"
+import type { Lang } from "@/types/i18n"
+import type { ContactCopy } from "@/modules/portfolio/components/ContactForm"
 
 type Params = {
-  t: LanguageData
-  currentLang: string
+  contact: ContactCopy
+  lang: Lang
 }
 
-export function useContactForm({ t, currentLang }: Params) {
+export function useContactForm({ contact, lang }: Params) {
   const [isPending, startTransition] = useTransition()
 
   const {
@@ -24,29 +25,27 @@ export function useContactForm({ t, currentLang }: Params) {
     reset
   } = useForm<ContactFormData>()
 
-  const validation = formConfig.contactForm(t)
+  const rules = contactFormRules(contact.validation)
 
   const onSubmit = handleSubmit((formData) => {
     startTransition(async () => {
       const { data, error } = await actions.sendContactEmail(formData)
 
       if (error) {
-        toast.error(t.contact.submit.errorMessage)
+        toast.error(contact.submit.errorMessage)
         return
       }
 
       const { ok, message } = data
 
-      const translatedMessage = message[currentLang as keyof typeof message]
-
       if (ok) {
-        toast.success(translatedMessage)
+        toast.success(message[lang])
         reset()
       } else {
-        toast.error(translatedMessage)
+        toast.error(message[lang])
       }
     })
   })
 
-  return { register, errors, isPending, onSubmit, validation }
+  return { register, errors, isPending, onSubmit, rules }
 }

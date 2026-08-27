@@ -1,4 +1,7 @@
-import { FAQ_ITEMS, SERVICES, SITE, t, type Lang } from "@/config/site"
+import { FAQ_ITEMS, SERVICES, SITE } from "@/config/site"
+import { createT, DEFAULT_LANG } from "@/i18n"
+
+import type { Lang } from "@/types/i18n"
 
 const SITE_URL = SITE.seo.url
 const LOGO_URL = new URL(SITE.seo.logo, SITE_URL).href
@@ -7,7 +10,9 @@ const OG_URL = new URL(SITE.seo.image, SITE_URL).href
 const areaServed = () =>
   SITE.seo.areaServed.map((a) => ({ "@type": a.type, name: a.name }))
 
-export function organizationLd(lang: Lang = "es") {
+export function organizationLd(lang: Lang = DEFAULT_LANG) {
+  const t = createT(lang)
+
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -17,8 +22,8 @@ export function organizationLd(lang: Lang = "es") {
     url: SITE_URL,
     logo: LOGO_URL,
     image: OG_URL,
-    description: t(SITE.seo.description, lang),
-    slogan: SITE.info.slogan ? t(SITE.info.slogan, lang) : null,
+    description: t(SITE.seo.description),
+    slogan: SITE.info.slogan ? t(SITE.info.slogan) : null,
     foundingDate: String(SITE.info.founded),
     founder: SITE.info.founders.map((f) => ({
       "@type": "Person",
@@ -46,14 +51,16 @@ export function organizationLd(lang: Lang = "es") {
   } as const
 }
 
-export function webSiteLd(lang: Lang = "es") {
+export function webSiteLd(lang: Lang = DEFAULT_LANG) {
+  const t = createT(lang)
+
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${SITE_URL}#website`,
     url: SITE_URL,
     name: SITE.info.name,
-    description: t(SITE.seo.description, lang),
+    description: t(SITE.seo.description),
     inLanguage: SITE.seo.locale,
     publisher: { "@id": `${SITE_URL}#organization` }
   } as const
@@ -80,37 +87,41 @@ export function professionalServiceLd() {
   } as const
 }
 
-export function servicesLd(lang: Lang = "es") {
+export function servicesLd(lang: Lang = DEFAULT_LANG) {
+  const t = createT(lang)
+
   return SERVICES.map((s) => ({
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${SITE_URL}#service-${s.id}`,
-    name: t(s.h3, lang),
-    serviceType: t(s.eyebrow, lang),
-    description: t(s.body, lang),
+    name: t(s.h3),
+    serviceType: t(s.eyebrow),
+    description: t(s.body),
     provider: { "@id": `${SITE_URL}#organization` },
     areaServed: areaServed(),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: t(s.eyebrow, lang),
+      name: t(s.eyebrow),
       itemListElement: s.items.map((item, i) => ({
         "@type": "Offer",
         position: i + 1,
-        itemOffered: { "@type": "Service", name: t(item, lang) }
+        itemOffered: { "@type": "Service", name: t(item) }
       }))
     }
   }))
 }
 
-export function faqLd(lang: Lang = "es") {
+export function faqLd(lang: Lang = DEFAULT_LANG) {
+  const t = createT(lang)
+
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "@id": `${SITE_URL}#faq`,
     mainEntity: FAQ_ITEMS.map((item) => ({
       "@type": "Question",
-      name: t(item.q, lang),
-      acceptedAnswer: { "@type": "Answer", text: t(item.a, lang) }
+      name: t(item.q),
+      acceptedAnswer: { "@type": "Answer", text: t(item.a) }
     }))
   } as const
 }

@@ -3,13 +3,12 @@ import { getRelativeLocaleUrl } from "astro:i18n"
 
 import { LinkIcon } from "lucide-react"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
+import { ui, useI18n } from "@/i18n"
 import { routes } from "@/const/routes"
 
-const DESIGN = getDesign(Astro.url)
-const currentLang = Astro.currentLocale || "es"
-const { about, certificates } = getTranslations(currentLang)
+const { t, lang, design } = useI18n(Astro)
+const about = t(ui.about)
+const certificates = t(ui.certificates)
 ---
 
 <section
@@ -20,7 +19,7 @@ const { about, certificates } = getTranslations(currentLang)
   <div class="container-width">
     <span class="section-badge">{about.badge}</span>
 
-    <h2 class="section-initial-title">{about.title[DESIGN]}</h2>
+    <h2 class="section-initial-title">{about.title}</h2>
 
     <div class="body-text mb-8 space-y-3 sm:space-y-4">
       <p>{about.description1}</p>
@@ -35,14 +34,14 @@ const { about, certificates } = getTranslations(currentLang)
 
       <div class="flex items-center justify-between">
         <h2 class="section-initial-title mb-0">
-          {about.education.title[DESIGN]}
+          {about.education.title}
         </h2>
 
         <a
-          href={getRelativeLocaleUrl(currentLang, routes[DESIGN].certificates)}
+          href={getRelativeLocaleUrl(lang, routes[design].certificates)}
           class="text-link inline-flex shrink-0 items-center gap-x-1 pt-1"
         >
-          {about.education.btnToCertificates[DESIGN]}
+          {about.education.btnToCertificates}
           <LinkIcon className="size-3" />
         </a>
       </div>
@@ -105,7 +104,7 @@ const { about, certificates } = getTranslations(currentLang)
   <div class="container-width pt-14 sm:pt-16">
     <span class="section-badge">{about.skills.badge}</span>
 
-    <h2 class="section-initial-title">{about.skills.title[DESIGN]}</h2>
+    <h2 class="section-initial-title">{about.skills.title}</h2>
 
     <div class="rule-t">
       {

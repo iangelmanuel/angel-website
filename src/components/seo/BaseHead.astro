@@ -1,5 +1,6 @@
 ---
-import { SITE, t, type Lang } from "@/config/site"
+import { SITE } from "@/config/site"
+import { useI18n } from "@/i18n"
 
 interface Props {
   title?: string
@@ -9,7 +10,6 @@ interface Props {
   keywords?: readonly string[]
   ogType?: "website" | "article"
   noindex?: boolean
-  lang?: Lang
 }
 
 const {
@@ -19,14 +19,13 @@ const {
   canonical = new URL(Astro.url.pathname, SITE.seo.url).href,
   keywords = SITE.seo.keywords,
   ogType = SITE.seo.ogType,
-  noindex = SITE.seo.noindex,
-  lang = "es"
+  noindex = SITE.seo.noindex
 } = Astro.props
 
-const pageTitle = title
-  ? `${title} — ${SITE.info.name}`
-  : t(SITE.seo.title, lang)
-const pageDescription = description ?? t(SITE.seo.description, lang)
+const { t } = useI18n(Astro)
+
+const pageTitle = title ? `${title} — ${SITE.info.name}` : t(SITE.seo.title)
+const pageDescription = description ?? t(SITE.seo.description)
 
 const ogImage = new URL(image, SITE.seo.url).href
 const ogLocale = SITE.seo.locale.replace("-", "_")
@@ -116,7 +115,7 @@ const googlebot = noindex
 />
 <meta
   property="og:image:alt"
-  content={t(SITE.seo.imageAlt, lang)}
+  content={t(SITE.seo.imageAlt)}
 />
 
 <meta

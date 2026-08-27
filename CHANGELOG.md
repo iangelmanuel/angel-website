@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-08-27
+
+### Added
+
+- New `SITE` config object (`src/config/site.ts`) as the single source of business/site metadata: contact info, social links, services, FAQ items, business hours, legal pages, and full SEO defaults (keywords, Open Graph image, Twitter card, geo, theme color).
+- JSON-LD structured data on every page: `Organization`, `WebSite`, `ProfessionalService`, `Service`, and `FAQPage` schemas, generated per-locale from `SITE` via `src/libs/seo.ts` and injected through a new `<JsonLd>` component.
+- `src/components/seo/BaseHead.astro`: centralizes `<title>`, meta description, canonical URL, robots directives, Open Graph, and Twitter Card tags, with `title`/`description`/etc. falling back to `SITE.seo` defaults when a page doesn't set them.
+- `PreloadFont` component: preloads the correct font (Geist Pixel or Nunito) for the active design, replacing the inline conditional that lived in `Layout.astro`.
+- Static SEO/PWA routes: `robots.txt`, `sitemap.xml`, and `manifest.webmanifest`, all sourced from `SITE`.
+
+### Changed
+
+- Consolidated the two-dimensional translation system (language × design) into one file and one resolver: `src/i18n/ui.ts` holds every string once, nested as `{ es, en }` and/or `{ TERMINAL, FORMAL }` wherever it varies, and a single recursive `translate()` walks the tree regardless of shape. Replaces the previous `src/i18n/es.ts` + `en.ts` pair and the per-key `ByDesign` type.
+- Replaced the repeated `getDesign(Astro.url)` + `getTranslations(lang)` pair in every section with one `useI18n(Astro)` hook returning `{ t, lang, design }`.
+- Renamed `src/types/language.d.ts` → `src/types/i18n.d.ts` and `src/libs/language-path.ts` → `src/libs/alternate-url.ts` (now also home to `getAlternateDesignUrl`, previously in `libs/design.ts`).
+- Moved `card-accent.ts` into `src/modules/portfolio/libs/`, alongside the components that use it, instead of a top-level `src/libs/`.
+
 ## [1.2.2] - 2026-08-27
 
 ### Fixed
@@ -229,7 +246,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.2.2
+- **Current version**: 1.3.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

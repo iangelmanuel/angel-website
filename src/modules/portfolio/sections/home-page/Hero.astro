@@ -2,13 +2,11 @@
 import { ArrowDown, Download, Mail } from "lucide-react"
 import { Icon } from "astro-icon/components"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
+import { ui, useI18n } from "@/i18n"
 import { SITE } from "@/config/site"
 
-const DESIGN = getDesign(Astro.url)
-const currentLang = Astro.currentLocale || "es"
-const t = getTranslations(currentLang)
+const { t, lang } = useI18n(Astro)
+const hero = t(ui.hero)
 ---
 
 <section
@@ -28,23 +26,23 @@ const t = getTranslations(currentLang)
       <span
         class="avatar-badge absolute -right-2 -bottom-2 sm:-right-1 sm:bottom-5"
       >
-        {t.hero.yearExp}
+        {hero.yearExp}
       </span>
     </div>
 
     <div class="order-1 max-w-2xl space-y-4 sm:order-2">
       <h1 class="hero-name">
-        {t.hero.greeting}
+        {hero.greeting}
         <span class="hero-name-accent">Angel</span>
         <span class="animate-wave inline-block">👋</span>
       </h1>
 
       <h2 class="hero-role">
-        {t.hero.title}
+        {hero.title}
       </h2>
 
       <p
-        set:html={t.hero.description}
+        set:html={hero.description}
         class="body-text mx-auto max-w-xl"
       />
 
@@ -56,17 +54,17 @@ const t = getTranslations(currentLang)
           class="btn-primary w-full sm:w-auto"
         >
           <ArrowDown className="size-4" />
-          {t.hero.primaryBtn[DESIGN]}
+          {hero.primaryBtn}
         </a>
 
         <button
           id="download-cv"
           type="button"
-          data-lang={currentLang}
+          data-lang={lang}
           class="btn-secondary w-full sm:w-auto"
         >
           <Download className="size-4" />
-          {t.hero.secondaryBtn[DESIGN]}
+          {hero.secondaryBtn}
         </button>
       </div>
 

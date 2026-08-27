@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components"
 import { Mail } from "lucide-react"
 
-import { getTranslations } from "@/i18n"
+import { ui, useI18n } from "@/i18n"
 import { SITE } from "@/config/site"
 
-const { hero, footer } = getTranslations(Astro.currentLocale)
+const { t } = useI18n(Astro)
 ---
 
 <footer class="footer-shell mt-20 py-6 sm:py-8">
@@ -13,7 +13,7 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
     <div class="flex flex-col items-center gap-4 sm:gap-6">
       <div class="text-center">
         <h3 class="footer-name">{SITE.info.name}</h3>
-        <p class="muted-text text-xs sm:text-sm">{hero.title}</p>
+        <p class="muted-text text-xs sm:text-sm">{t(ui.hero.title)}</p>
       </div>
 
       <div class="flex items-center gap-6">
@@ -59,7 +59,7 @@ const { hero, footer } = getTranslations(Astro.currentLocale)
       </div>
 
       <div class="faint-text text-center text-xs">
-        <p>&copy; {footer.rights}</p>
+        <p>&copy; {t(ui.footer.rights)}</p>
       </div>
     </div>
   </div>

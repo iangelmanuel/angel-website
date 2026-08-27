@@ -5,8 +5,7 @@ import { Resend } from "resend"
 import { SITE } from "@/config/site"
 import { contactEmailHTML } from "@/libs/contact-email-html"
 
-import { es } from "@/i18n/es"
-import { en } from "@/i18n/en"
+import { ui } from "@/i18n/ui"
 
 export const sendContactEmail = defineAction({
   input: z.object({
@@ -35,27 +34,18 @@ export const sendContactEmail = defineAction({
       if (response.error) {
         return {
           ok: false,
-          message: {
-            es: es.actionsResponses.contactForm.error,
-            en: en.actionsResponses.contactForm.error
-          }
+          message: ui.actions.contactForm.error
         }
       }
 
       return {
         ok: true,
-        message: {
-          es: es.actionsResponses.contactForm.success,
-          en: en.actionsResponses.contactForm.success
-        }
+        message: ui.actions.contactForm.success
       }
     } catch {
       return {
         ok: false,
-        message: {
-          es: es.actionsResponses.contactForm.error,
-          en: en.actionsResponses.contactForm.error
-        }
+        message: ui.actions.contactForm.error
       }
     }
   }

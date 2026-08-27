@@ -1,6 +1,6 @@
 {
   "name": "angel-website",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "private": true,
   "description": "Portafolio personal de Angel De La Torre. Sitio biling\u00fce (ES/EN) construido con Astro, React y Tailwind CSS, con dos dise\u00f1os intercambiables seg\u00fan la ruta: terminal/pixel-art en / y una presentaci\u00f3n formal en /formal.",
   "license": "MIT",

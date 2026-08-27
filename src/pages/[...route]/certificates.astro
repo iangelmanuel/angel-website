@@ -6,16 +6,17 @@ import Hero from "@/modules/portfolio/sections/certificates/Hero.astro"
 import CertificatesGrid from "@/modules/portfolio/sections/certificates/CertificatesGrid.astro"
 
 import { getRouteParams } from "@/libs/route-params"
-import { getTranslations } from "@/i18n"
+import { ui, useI18n } from "@/i18n"
 
 export const getStaticPaths = (() => getRouteParams()) satisfies GetStaticPaths
 
-const { seo } = getTranslations(Astro.currentLocale)
+const { t } = useI18n(Astro)
+const seo = t(ui.seo.certificates)
 ---
 
 <Layout
-  title={seo.certificatesPage.title}
-  description={seo.certificatesPage.description}
+  title={seo.title}
+  description={seo.description}
 >
   <Hero />
   <CertificatesGrid />

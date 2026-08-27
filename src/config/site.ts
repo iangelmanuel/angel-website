@@ -1,4 +1,4 @@
-export type Bilingual = { es: string; en: string }
+import type { Bilingual, Lang } from "@/types/i18n"
 
 export interface Service {
   id: string
@@ -12,8 +12,6 @@ export interface FaqItem {
   q: Bilingual
   a: Bilingual
 }
-
-export type Lang = "es" | "en"
 
 const SITE_URL = (import.meta.env.SITE ?? "http://localhost:4321").replace(
   /\/$/,
@@ -367,8 +365,4 @@ export const FAQ_ITEMS: FaqItem[] = [
 
 export function whatsAppMessage(message: string) {
   return `https://wa.me/${SITE.contact.whatsapp()}?text=${encodeURIComponent(message)}`
-}
-
-export function t(field: { es: string; en: string } | string, lang: Lang) {
-  return typeof field === "string" ? field : field[lang]
 }

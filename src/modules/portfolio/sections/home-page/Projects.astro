@@ -3,16 +3,14 @@ import { getCollection } from "astro:content"
 
 import Project from "../../components/Project.astro"
 
-import { getTranslations } from "@/i18n"
-import { getDesign } from "@/libs/design"
+import { ui, useI18n } from "@/i18n"
 
-const DESIGN = getDesign(Astro.url)
-const currentLang = Astro.currentLocale || "es"
-const { projects } = getTranslations(currentLang)
+const { t, lang } = useI18n(Astro)
+const projects = t(ui.projects)
 
 const projectsCollection = await getCollection("projects", (project) => {
-  const [lang] = project.id.split("/")
-  return lang === currentLang && project.data.featured
+  const [projectLang] = project.id.split("/")
+  return projectLang === lang && project.data.featured
 })
 
 const projectsFilteredByDate = projectsCollection.sort((a, b) => {
@@ -30,7 +28,7 @@ const projectsFilteredByDate = projectsCollection.sort((a, b) => {
   <div class="container-width text-center">
     <span class="section-badge">{projects.badge}</span>
 
-    <h2 class="section-title text-center">{projects.title[DESIGN]}</h2>
+    <h2 class="section-title text-center">{projects.title}</h2>
 
     <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
       {

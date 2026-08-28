@@ -1,18 +1,19 @@
-# 🌟 Angel De La Torre - Portfolio Website
+# 🌟 Angel De La Torre — Portfolio Website
 
 <div align="center">
 
-![Portfolio Banner](./public/img/hero.webp)
+![Diseño TERMINAL](./public/img/angel-website-1.webp)
+![Diseño FORMAL](./public/img/angel-website-2.webp)
 
-**Portafolio personal moderno y elegante construido con tecnologías de vanguardia**
+**Portafolio personal bilingüe con dos diseños intercambiables, construido con Astro, React y Tailwind CSS**
 
-[![Astro](https://img.shields.io/badge/Astro-7.2.1-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![Astro](https://img.shields.io/badge/Astro-7.2.9-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![React](https://img.shields.io/badge/React-19.2.8-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![GSAP](https://img.shields.io/badge/GSAP-3.15.0-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-[🌐 Ver Demo](https://angel-website-pi.vercel.app) • [📧 Contacto](mailto:iangelmanuel02@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/iangelmanueldm)
+[🌐 Ver Demo](https://angel-website-pi.vercel.app) • [📧 Contacto](mailto:iangelmanuel02@gmail.com) • [💼 LinkedIn](https://www.linkedin.com/in/iangelmanuel)
 
 </div>
 
@@ -20,207 +21,171 @@
 
 ## 🚀 Características Principales
 
-- ✨ **Diseño Moderno**: Interfaz minimalista inspirada en Apple con glassmorphism
-- 🌓 **Tema Claro/Oscuro**: Toggle suave entre modos con persistencia local y sincronización
-- 🌍 **Multiidioma**: Soporte completo para español e inglés (i18n)
-- 📱 **Totalmente Responsive**: Optimizado para dispositivos móviles, tablets y desktop
-- ⚡ **Rendimiento Óptimo**: Construido con Astro para máxima velocidad
-- 🎨 **Animaciones Fluidas**: Transiciones suaves con GSAP y Tailwind CSS
-- ♿ **Accesibilidad**: Cumple con estándares WCAG para mejor inclusividad
-- 🔍 **SEO Optimizado**: Meta tags, structured data y sitemap incluidos
-- 🎓 **Content Collections**: Gestión de proyectos y certificados con Astro Content Collections
-- 🎨 **shadcn/ui**: Componentes accesibles y personalizables integrados
-- 📧 **Formulario de Contacto**: Sistema de envío de emails integrado con Resend API
+- 🖥️ **Doble Diseño**: TERMINAL (pixel-art / terminal, diseño principal en `/`) y FORMAL (presentación clásica en `/formal`), intercambiables desde la misma URL
+- 🌓 **Tema Claro/Oscuro**: Persistencia en `localStorage` y sincronización durante la navegación con Astro transitions (`astro:after-swap`)
+- 🌍 **Multiidioma**: Español e inglés vía `i18n` nativo de Astro (`/` = ES por defecto, `/en` = EN), con un único árbol de traducciones (`src/i18n/ui.ts`) resuelto según idioma y diseño
+- 📱 **Totalmente Responsive**: Mobile-first con los breakpoints estándar de Tailwind CSS v4
+- ⚡ **Rendimiento Óptimo**: Salida 100% estática (`output: "static"`) desplegada en el adaptador de Vercel
+- 🎨 **Animaciones Fluidas**: Transiciones con GSAP y microinteracciones en CSS
+- 🔍 **SEO Completo**: `<BaseHead>` centralizado, JSON-LD (`Organization`, `WebSite`, `ProfessionalService`, `Service`, `FAQPage`), `robots.txt`, `sitemap.xml` y `manifest.webmanifest` generados desde una única fuente de datos (`SITE`)
+- 🎓 **Content Collections**: Proyectos y certificados gestionados con Astro Content Collections (Markdown + YAML), en español e inglés
+- 📧 **Formulario de Contacto**: Astro Actions + `react-hook-form` en el cliente, envío de emails vía Resend API
+- 🧩 **Configuración Centralizada**: `src/config/site.ts` (`SITE`) es la única fuente de verdad de datos de negocio, contacto, redes, servicios, FAQ y valores SEO
 
 ## 🛠️ Stack Tecnológico
 
 ### Frontend Framework
 
-- **[Astro 7.2.1](https://astro.build/)** - Framework web moderno y rápido
-- **[React 19.2.8](https://reactjs.org/)** - Biblioteca para componentes interactivos
-- **[TypeScript 6.0.3](https://www.typescriptlang.org/)** - Tipado estático para JavaScript
+- **[Astro 7.2.9](https://astro.build/)** — Framework web, salida estática con adaptador Vercel
+- **[React 19.2.8](https://reactjs.org/)** — Componentes interactivos (islas): formulario de contacto, toggles
+- **[TypeScript 6.0.3](https://www.typescriptlang.org/)** — Tipado estático (fijado en `6.x`; el compilador nativo de `7.x` aún no expone la API que usa `@astrojs/language-server`)
 
 ### Styling & UI
 
-- **[Tailwind CSS 4.3.3](https://tailwindcss.com/)** - Framework CSS utility-first
-- **[shadcn/ui](https://ui.shadcn.com/)** - Componentes accesibles y personalizables
-- **[Radix UI](https://www.radix-ui.com/)** - Componentes primitivos accesibles
-- **[Lucide React](https://lucide.dev/)** - Iconografía moderna y consistente
-- **[Class Variance Authority](https://cva.style/)** - Gestión de variantes CSS
+- **[Tailwind CSS 4.3.3](https://tailwindcss.com/)** — Utility-first, vía `@tailwindcss/vite`
+- **[astro-icon](https://www.npmjs.com/package/astro-icon)** — Iconografía SVG (logos, redes sociales)
+- **[Lucide React](https://lucide.dev/)** — Iconos en componentes React
+- **[Sonner](https://sonner.emilkowal.ski/)** — Notificaciones toast
 
-### Animations & Interactions
+### Animations & Forms
 
-- **[GSAP 3.15.0](https://greensock.com/gsap/)** - Biblioteca de animaciones profesional
-- **[tw-animate-css](https://github.com/bentzibentz/tailwindcss-animate)** - Animaciones predefinidas
+- **[GSAP 3.15.0](https://greensock.com/gsap/)** — Animaciones
+- **[react-hook-form](https://react-hook-form.com/)** — Validación y estado del formulario de contacto
+- **[Resend](https://resend.com/)** — Envío de emails desde una Astro Action
+
+### Images & Media
+
+- **[Sharp](https://sharp.pixelplumbing.com/)** — Optimización de imágenes en build (requiere `sharp: true` en `pnpm-workspace.yaml` → `onlyBuiltDependencies`/`allowBuilds`)
 
 ### Development Tools
 
-- **[Prettier](https://prettier.io/)** - Formateo automático de código
-- **[ESLint](https://eslint.org/)** - Linting y análisis estático
-- **[pnpm](https://pnpm.io/)** - Gestor de paquetes eficiente
-- **[Resend](https://resend.com/)** - Servicio de envío de emails para formularios de contacto
+- **[pnpm](https://pnpm.io/)** — Gestor de paquetes (versión fijada en `packageManager`)
+- **[ESLint](https://eslint.org/)** — `@eslint/js` + `typescript-eslint` + `eslint-plugin-astro`, con `no-explicit-any` y `no-unused-vars` como error
+- **[Prettier](https://prettier.io/)** — Formateo automático, con plugins para Astro y orden de clases Tailwind
 
 ## 📁 Estructura del Proyecto
 
 ```
 angel-website/
-├── 📂 public/                    # Archivos estáticos
-│   ├── 📂 docs/                 # Documentos descargables
-│   │   ├── cv-angel-dm.pdf      # Currículum en español
-│   │   └── cv-angel-dm-en.pdf   # Currículum en inglés
-│   ├── 📂 img/                  # Imágenes del portfolio
-│   │   ├── 📂 certificates/     # Imágenes de certificados
-│   │   ├── 📂 academy-logo/     # Logos de academias/plataformas
-│   │   ├── hero.webp            # Imagen principal
-│   │   └── profile-photo.webp   # Foto de perfil optimizada
-│   ├── 📂 fonts/                # Fuentes personalizada
-│   │   ├── Nunito-VariableFont.woff2 # Fuente variable de Nunito
-│   └── favicon.svg              # Icono del sitio
+├── 📂 .github/workflows/         # CI (lint, typecheck, prettier, build)
+├── 📂 public/                    # Archivos estáticos servidos tal cual
+│   ├── 📂 docs/                  # CVs descargables (ES/EN)
+│   ├── 📂 img/                   # Imágenes: perfil, proyectos, certificados, academias
+│   └── 📂 fonts/                 # Geist Pixel (diseño TERMINAL) y Nunito (diseño FORMAL)
 ├── 📂 src/
-│   ├── 📂 components/           # Componentes reutilizables
-│   │   ├── 📂 shared/          # Componentes compartidos
-│   │   │   ├── TopMenu.astro   # Navegación principal
-│   │   │   ├── AsideMobileMenu.astro # Menú móvil lateral
-│   │   │   ├── Footer.astro    # Pie de página
-│   │   │   └── MainContent.astro # Contenedor principal
-│   │   ├── 📂 ui/              # Componentes de UI base (shadcn/ui)
-│   │   │   ├── button.tsx      # Componente botón
-│   │   │   ├── card.tsx        # Componente tarjeta
-│   │   │   ├── input.tsx       # Campo de entrada
-│   │   │   ├── label.tsx       # Etiqueta
-│   │   │   ├── textarea.tsx    # Área de texto
-│   │   │   └── badge.tsx       # Componente insignia
-│   │   ├── ModeToggle.tsx      # Toggle tema claro/oscuro
-│   │   ├── ContactForm.tsx     # Formulario de contacto
-│   │   ├── Project.astro       # Componente de proyecto
-│   │   └── ToggleLanguage.astro # Selector de idioma
-│   ├── 📂 content/             # Contenido gestionado por Astro Content Collections
-│   │   ├── 📂 assets/          # Recursos estáticos gestionados por Content
-│   │   │   └── 📂 projects/    # Screenshots de proyectos
-│   │   ├── 📂 certificates/    # Certificaciones y cursos
-│   │   │   ├── 📂 es/          # Certificados en español
-│   │   │   └── 📂 en/          # Certificados en inglés
-│   │   ├── 📂 projects/        # Proyectos del portfolio
-│   │   │   ├── 📂 es/          # Proyectos en español
-│   │   │   └── 📂 en/          # Proyectos en inglés
-│   │   ├── 📂 blog/            # Artículos del blog (futuro)
-│   │   └── config.ts           # Configuración de Content Collections
-│   ├── 📂 sections/            # Secciones de la página
-│   │   ├── 📂 home-page/       # Secciones de la página principal
-│   │   │   ├── Hero.astro      # Sección principal
-│   │   │   ├── About.astro     # Acerca de mí
-│   │   │   ├── Projects.astro  # Portfolio de proyectos
-│   │   │   ├── Experiencie.astro # Experiencia profesional
-│   │   │   └── Contact.astro   # Formulario de contacto
-│   │   └── 📂 certificates/    # Secciones de certificados
-│   │       ├── Hero.astro      # Hero de certificados
-│   │       └── CertificatesGrid.astro # Grid de certificados
-│   ├── 📂 i18n/               # Internacionalización
-│   │   ├── en.ts              # Traducciones en inglés
-│   │   └── es.ts              # Traducciones en español
-│   ├── 📂 icons/              # Iconos SVG
-│   │   ├── logo-1.svg         # Logo 1
-│   │   └── logo-2.svg         # Logo 2
-│   ├── 📂 styles/             # Estilos globales
-│   │   └── global.css         # CSS personalizado y variables Tailwind v4
-│   ├── 📂 types/              # Definiciones TypeScript
-│   │   ├── language.d.ts      # Tipos para idiomas
-│   │   └── navigation.d.ts    # Tipos para navegación
-│   ├── 📂 lib/                # Librerías y configuraciones
-│   │   ├── utils.ts           # Utilidades generales
-│   │   ├── date-formatter.ts  # Formateo de fechas
-│   │   └── dom-selector.ts    # Selector de DOM
-│   ├── 📂 const/              # Constantes de la aplicación
-│   │   └── site-info.ts       # Información del sitio
-│   ├── 📂 layouts/            # Layouts de página
-│   │   └── Layout.astro       # Layout principal
-│   └── 📂 pages/              # Rutas de la aplicación
-│       ├── index.astro        # Página principal
-│       ├── certificates.astro # Página de certificados
-│       └── 📂 [lang]/         # Rutas multiidioma
-│           ├── index.astro    # Página principal por idioma
-│           └── certificates.astro # Certificados por idioma
-├── astro.config.mjs           # Configuración de Astro
-├── components.json            # Configuración de shadcn/ui
-├── tsconfig.json              # Configuración de TypeScript
-├── package.json               # Dependencias y scripts
-├── pnpm-workspace.yaml        # Configuración del workspace
-└── README.md                  # Documentación del proyecto
+│   ├── 📂 actions/                # Astro Actions (envío de email de contacto)
+│   ├── 📂 components/
+│   │   ├── 📂 seo/                # BaseHead, JsonLd, PreloadFont, ThemeScript
+│   │   ├── 📂 shared/              # TopMenu, AsideMobileMenu, Footer, MainContent
+│   │   ├── 📂 ui/                  # sonner (único wrapper de UI restante)
+│   │   ├── DesignToggle.astro      # Alterna entre diseño TERMINAL y FORMAL
+│   │   ├── ModeToggle.tsx          # Alterna tema claro/oscuro
+│   │   └── ToggleLanguage.astro    # Alterna idioma ES/EN
+│   ├── 📂 config/
+│   │   └── site.ts                 # SITE: fuente única de datos de negocio, contacto y SEO
+│   ├── 📂 const/                   # routes.ts (rutas por diseño), form-config.ts
+│   ├── 📂 content/                 # Content Collections
+│   │   ├── 📂 assets/projects/     # Screenshots de proyectos
+│   │   ├── 📂 certificates/{es,en}/ # Certificados (YAML)
+│   │   └── 📂 projects/{es,en}/     # Proyectos (Markdown)
+│   ├── content.config.ts           # Definición de colecciones y esquemas
+│   ├── 📂 hooks/                   # use-contact-form.ts
+│   ├── 📂 i18n/
+│   │   ├── ui.ts                   # Todas las traducciones, anidadas por { es, en } y/o { TERMINAL, FORMAL }
+│   │   └── index.ts                # useI18n(Astro) → { t, lang, design }
+│   ├── 📂 icons/                   # SVGs de marca (GitHub, LinkedIn, X, logos)
+│   ├── 📂 layouts/
+│   │   └── Layout.astro            # Layout compartido por ambos diseños
+│   ├── 📂 libs/                    # design.ts, alternate-url.ts, seo.ts, date-formatter.ts, ...
+│   ├── 📂 modules/portfolio/       # Módulo único con todo el UI del portafolio
+│   │   ├── 📂 components/          # Project, CertificateCard, ContactForm
+│   │   ├── 📂 sections/            # home-page/ (Hero, About, Projects, Contact) y certificates/
+│   │   ├── 📂 libs/                # card-accent.ts (colores rotativos por card)
+│   │   └── 📂 styles/              # portfolio.css (tokens/base compartidos), terminal.css, formal.css
+│   ├── 📂 pages/
+│   │   ├── 📂 [...route]/          # index.astro y certificates.astro generan las 12 rutas (idioma × diseño)
+│   │   ├── robots.txt.ts
+│   │   ├── sitemap.xml.ts
+│   │   └── manifest.webmanifest.ts
+│   └── 📂 types/                   # i18n.d.ts, contact-form-data.d.ts, navigation.d.ts
+├── astro.config.mjs
+├── eslint.config.mjs
+├── tsconfig.json
+├── package.json
+├── pnpm-workspace.yaml
+├── CHANGELOG.md
+└── README.md
 ```
 
-## 🎨 Características de Diseño
+## 🎨 Sistema de Diseño
 
-### 🌈 Estilo Visual
+El sitio no tiene un único look: la ruta decide qué diseño se renderiza sobre el mismo árbol HTML.
 
-- **Glassmorphism**: Efectos de cristal con `backdrop-blur` y transparencias
-- **Espaciado Limpio**: Uso generoso de whitespace para claridad visual
-- **Tipografía Elegante**: Sistema tipográfico consistente y legible
-- **Microinteracciones**: Animaciones sutiles que mejoran la experiencia
+| Diseño       | Rutas                             | Estética                                                                 | Tipografía                             |
+| ------------ | --------------------------------- | ------------------------------------------------------------------------ | -------------------------------------- |
+| **TERMINAL** | `/`, `/certificates`              | Pixel-art / terminal, superficies sin bordes redondeados, tokens `oklch` | Geist Pixel (títulos) + JetBrains Mono |
+| **FORMAL**   | `/formal`, `/formal/certificates` | Presentación clásica, tarjetas con bordes redondeados                    | Nunito                                 |
 
-### 🎭 Sistema de Temas
+- `src/libs/design.ts` resuelve el diseño activo (`getDesign(url)`) a partir del path.
+- `<html data-design="...">` conmuta el skin; `styles/terminal.css` y `styles/formal.css` cargan solo lo específico de cada uno sobre la base compartida en `styles/portfolio.css`.
+- `<DesignToggle>` enlaza a la URL equivalente en el otro diseño (`getAlternateDesignUrl`), preservando idioma y sección.
+- Cada tarjeta de proyecto/certificado recibe un color de acento rotativo (`getCardAccent()`).
 
-El sitio implementa un sistema de temas robusto con persistencia entre navegaciones:
+### 🎭 Tema Claro/Oscuro
 
-```css
-/* Modo Claro */
-:root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-}
+- Se aplica antes del render (`<ThemeScript>` inline) para evitar FOUC.
+- Persiste en `localStorage('theme')`, con `prefers-color-scheme` como fallback.
+- Se resincroniza en cada navegación de Astro (`astro:after-swap`), ya que el sitio es multipágina.
 
-/* Modo Oscuro */
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+## 🌐 Internacionalización (i18n)
+
+Traducciones centralizadas en un único árbol, sin duplicar archivos por idioma:
+
+```typescript
+// src/i18n/ui.ts
+export const ui = {
+  hero: {
+    greeting: { es: "Hola, soy ", en: "Hi, I'm " },
+    primaryBtn: {
+      TERMINAL: { es: "./ver-proyectos", en: "./view-projects" },
+      FORMAL: { es: "Ver mi trabajo", en: "View my work" }
+    }
+  }
+  // ...
 }
 ```
 
-**Características del sistema de temas:**
+Un único resolver recursivo (`translate()` en `src/i18n/index.ts`) recorre el árbol y elige la rama `{ es, en }` y/o `{ TERMINAL, FORMAL }` según corresponda, sin importar cuántos niveles de anidación tenga. Cada página/sección obtiene lo que necesita con un solo hook:
 
-- ⚡ **Aplicación temprana**: El tema se aplica antes del renderizado para evitar FOUC
-- 💾 **Persistencia local**: Guarda la preferencia en `localStorage('theme')`
-- 🔄 **Sincronización**: Mantiene el tema consistente durante la navegación con Astro transitions
-- 🌓 **Detección del sistema**: Respeta la preferencia del sistema operativo como fallback
-- 🎨 **Tailwind CSS v4**: Totalmente compatible con la nueva versión de Tailwind
-
-### 📱 Responsive Design
-
-- **Mobile First**: Diseñado primero para dispositivos móviles
-- **Breakpoints**: Tailwind CSS breakpoints estándar (sm, md, lg, xl)
-- **Menú Adaptativo**: Navegación que se adapta al tamaño de pantalla
+```typescript
+const { t, lang, design } = useI18n(Astro)
+```
 
 ## 🚀 Instalación y Desarrollo
 
 ### Prerrequisitos
 
-- **Node.js** (versión 22.12.0 o superior)
-- **pnpm** (recomendado) o npm
+- **Node.js** ≥ 24.19.0
+- **pnpm** ≥ 11.17.0 (el repo fija `pnpm@11.24.0` vía `packageManager`; usa Corepack o instala esa versión exacta)
 
 ### Configuración Inicial
 
 1. **Clonar el repositorio**
 
    ```bash
-   git clone https://github.com/iAngelManuel/angel-website.git
+   git clone https://github.com/iangelmanuel/angel-website.git
    cd angel-website
    ```
 
 2. **Configurar variables de entorno**
 
    ```bash
-   # Copia el archivo de template de variables de entorno
    cp .env.template .env
-
-   # Edita el archivo .env con tus configuraciones
-   # Necesarias para el formulario de contacto por email
    ```
 
-   Variables requeridas:
+   Variable requerida (formulario de contacto):
 
    ```bash
-   # API Key de Resend para envío de emails
    RESEND_API_KEY="your_resend_api_key_here"
    ```
 
@@ -228,129 +193,77 @@ El sitio implementa un sistema de temas robusto con persistencia entre navegacio
 
    ```bash
    pnpm install
-   # o con npm
-   npm install
    ```
 
 4. **Iniciar servidor de desarrollo**
 
    ```bash
    pnpm dev
-   # o con npm
-   npm run dev
    ```
 
 5. **Abrir en el navegador**
+
    ```
    http://localhost:4321
    ```
 
 ### 🔧 Scripts Disponibles
 
-| Comando               | Descripción                            |
-| --------------------- | -------------------------------------- |
-| `pnpm dev`            | Inicia servidor de desarrollo          |
-| `pnpm build`          | Construye la versión de producción     |
-| `pnpm check`          | Verifica tipos y archivos Astro        |
-| `pnpm preview`        | Previsualiza el build de producción    |
-| `pnpm prettier`       | Formatea el código con Prettier        |
-| `pnpm prettier:check` | Verifica formateo sin cambios          |
-| `pnpm eslint`         | Ejecuta ESLint para análisis de código |
+| Comando               | Descripción                                        |
+| --------------------- | -------------------------------------------------- |
+| `pnpm dev`            | Inicia el servidor de desarrollo                   |
+| `pnpm build`          | Construye la versión de producción (estática)      |
+| `pnpm preview`        | Previsualiza el build de producción                |
+| `pnpm check`          | Verifica tipos y archivos `.astro` (`astro check`) |
+| `pnpm sync`           | Sincroniza los tipos generados de Astro            |
+| `pnpm eslint`         | Ejecuta ESLint sobre todo el proyecto              |
+| `pnpm prettier`       | Formatea el código con Prettier                    |
+| `pnpm prettier:check` | Verifica el formateo sin escribir cambios          |
 
-## 🌐 Internacionalización (i18n)
-
-El sitio soporta múltiples idiomas con un sistema i18n personalizado:
-
-### Estructura de Traducciones
-
-```typescript
-// src/i18n/es.ts
-export const es = {
-  nav: {
-    home: "Inicio",
-    about: "Acerca",
-    projects: "Proyectos",
-    contact: "Contacto"
-  },
-  hero: {
-    greeting: "Hola, soy",
-    title: "Desarrollador Full Stack",
-    description: "Creo aplicaciones web modernas..."
-  }
-}
-```
-
-### Cambio de Idioma
-
-- **Toggle Manual**: Selector de idioma en la navegación
-- **Detección Automática**: Basado en configuración del navegador
-- **Persistencia**: Guarda preferencia en localStorage
+CI (`.github/workflows/ci.yml`) ejecuta `check`, `eslint` y `prettier:check` en paralelo, y luego `build`, en cada push/PR a `main`.
 
 ## 🎨 Personalización
 
+### Datos del sitio, contacto y SEO
+
+Todo lo que no es contenido de proyectos/certificados vive en un único archivo: `src/config/site.ts` (objeto `SITE`). Ahí se edita: nombre, descripción, ubicación, contacto, redes sociales, servicios, FAQ, horario de atención, páginas legales, navegación y todos los valores por defecto de SEO (título, keywords, Open Graph, Twitter Card, geo, `themeColor`).
+
 ### Colores del Tema
 
-Modifica las variables CSS en `src/styles/global.css`:
-
-```css
-:root {
-  --primary: oklch(0.205 0 0); /* Color principal */
-  --secondary: oklch(0.97 0 0); /* Color secundario */
-  --accent: oklch(0.97 0 0); /* Color de acento */
-}
-```
+Tokens definidos en `src/modules/portfolio/styles/portfolio.css` (compartidos) y ajustados por diseño en `terminal.css` / `formal.css`, usando `oklch()`.
 
 ### Contenido Personal
 
-1. **Información Personal**: Edita `src/i18n/es.ts` y `src/i18n/en.ts`
-2. **Imágenes**: Reemplaza archivos en `public/img/`
-3. **Proyectos**: Añade/edita archivos en `src/content/projects/`
-4. **Certificados**: Añade/edita archivos en `src/content/certificates/`
-5. **Información del sitio**: Modifica `src/const/site-info.ts`
-6. **CV/Currículum**: Reemplaza archivos PDF en `public/docs/` (formato: `cv-nombre.pdf.pdf` para ES y `cv-nombre.pdf-en.pdf` para EN)
+1. **Textos e idiomas**: edita `src/i18n/ui.ts`
+2. **Imágenes**: reemplaza archivos en `public/img/`
+3. **Proyectos**: añade/edita archivos en `src/content/projects/{es,en}/`
+4. **Certificados**: añade/edita archivos en `src/content/certificates/{es,en}/`
+5. **CV**: reemplaza los PDFs en `public/docs/` (`cv-angel-dm.pdf` para ES, `cv-angel-dm-en.pdf` para EN)
 
 ### Gestión de Contenido
 
-El proyecto utiliza **Astro Content Collections** para gestionar:
+Astro Content Collections (`src/content.config.ts`) gestiona:
 
-- **Proyectos**: Archivos markdown en `src/content/projects/`
-- **Certificados**: Archivos YAML en `src/content/certificates/`
-- **Blog**: Preparado para artículos futuros en `src/content/blog/`
+- **Proyectos**: Markdown en `src/content/projects/{es,en}/`, con imágenes en `src/content/assets/projects/` optimizadas vía `<Image />`
+- **Certificados**: YAML en `src/content/certificates/{es,en}/`
 
-Cada colección soporta contenido en español (`es/`) e inglés (`en/`) para una experiencia multiidioma completa.
+Cada colección soporta español e inglés de forma independiente.
 
-## 📈 Rendimiento y Optimización
+## 🔍 SEO
 
-### Métricas de Rendimiento
-
-- **Lighthouse Score**: 95+ en todas las categorías
-- **Core Web Vitals**: Cumple con todos los estándares
-- **Bundle Size**: Optimizado con tree-shaking automático
-- **Carga Progresiva**: Lazy loading para imágenes y componentes
-
-### Optimizaciones Implementadas
-
-- ✅ **Astro Islands**: Hidratación selectiva de componentes
-- ✅ **Compresión de Imágenes**: Optimización automática
-- ✅ **CSS Crítico**: Inlining de estilos críticos
-- ✅ **Preload de Recursos**: Carga anticipada de recursos importantes
+- `<BaseHead>` centraliza `<title>`, meta description, canonical, robots, Open Graph y Twitter Card, con fallback a `SITE.seo`.
+- `<JsonLd>` inyecta structured data (`Organization`, `WebSite`, `ProfessionalService`, `Service`, `FAQPage`) por idioma, generado desde `SITE` vía `src/libs/seo.ts`.
+- `robots.txt`, `sitemap.xml` y `manifest.webmanifest` se generan como rutas (`src/pages/*.ts`) a partir de `SITE`, sin archivos estáticos que mantener a mano.
 
 ## 🚢 Despliegue
 
-### Plataformas Soportadas
-
-- **[Vercel](https://vercel.com/)** (Recomendado)
-- **[Netlify](https://netlify.com/)**
-- **[GitHub Pages](https://pages.github.com/)**
-- **Servidor propio** con Node.js
-
-### Build de Producción
+Desplegado en **[Vercel](https://vercel.com/)** con `@astrojs/vercel` (salida estática, Web Analytics activado). Compatible con cualquier host de archivos estáticos.
 
 ```bash
 pnpm build
 ```
 
-El sitio se genera en la carpeta `dist/` listo para ser desplegado.
+El sitio se genera en `dist/`, listo para desplegar.
 
 ## 🤝 Contribución
 
@@ -365,9 +278,9 @@ Las contribuciones son bienvenidas. Para cambios importantes:
 ### Guidelines de Contribución
 
 - Sigue las convenciones de código existentes
-- Ejecuta los linters antes de hacer commit
-- Incluye descripción detallada en los PRs
-- Prueba en múltiples dispositivos y navegadores
+- Ejecuta `pnpm eslint`, `pnpm prettier:check` y `pnpm check` antes de hacer commit
+- Documenta los cambios relevantes en `CHANGELOG.md`
+- Prueba en ambos diseños (TERMINAL y FORMAL) y ambos idiomas (ES/EN)
 
 ## 📄 Licencia
 
@@ -378,7 +291,7 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 **Angel De La Torre**
 
 - 🌐 Website: [angel-website-pi.vercel.app](https://angel-website-pi.vercel.app)
-- 💼 LinkedIn: [@iangelmanuel](https://www.linkedin.com/in/iangelmanueldm)
+- 💼 LinkedIn: [@iangelmanuel](https://www.linkedin.com/in/iangelmanuel)
 - 🐙 GitHub: [@iangelmanuel](https://github.com/iangelmanuel)
 - 📧 Email: [iangelmanuel02@gmail.com](mailto:iangelmanuel02@gmail.com)
 
@@ -388,6 +301,6 @@ Este proyecto está bajo la licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 **⭐ Si te gusta este proyecto, no olvides darle una estrella ⭐**
 
-_Hecho con ❤️ y mucho ☕ por Angel De La Torre_
+_Hecho con ❤️ y mucho ☕ por Angel DM_
 
 </div>

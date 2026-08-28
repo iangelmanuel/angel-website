@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Rewrote `README.md` to match the current codebase: dual TERMINAL/FORMAL design system and routing, unified `src/i18n/ui.ts` translation tree, `SITE` config as the single source of business/SEO data, JSON-LD/`robots.txt`/`sitemap.xml`/manifest generation, the real `src/` directory structure (`modules/portfolio`, `config`, `libs`, `hooks`), current dependency versions, and updated scripts/CI table. Replaced the outdated shadcn/ui-era stack description and file tree.
+
+### Removed
+
+- Removed the `hero.webp` banner from the README (file no longer exists in `public/img/`).
+
+### Added
+
+- Added `public/img/angel-website-1.webp` and `public/img/angel-website-2.webp` as the new README banners, showing the current TERMINAL and FORMAL designs.
+
 ## [1.3.3] - 2026-08-27
 
 ### Changed

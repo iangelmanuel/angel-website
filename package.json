@@ -1,8 +1,8 @@
 {
   "name": "angel-website",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "private": true,
-  "description": "Portafolio personal de Angel De La Torre. Sitio biling\u00fce (ES/EN) construido con Astro, React y Tailwind CSS, con dos dise\u00f1os intercambiables seg\u00fan la ruta: terminal/pixel-art en / y una presentaci\u00f3n formal en /formal.",
+  "description": "Portafolio personal de Angel De La Torre. Sitio bilingüe (ES/EN) construido con Astro, React y Tailwind CSS, con dos diseños intercambiables según la ruta: terminal/pixel-art en / y una presentación formal en /formal.",
   "license": "MIT",
   "packageManager": "pnpm@11.24.0",
   "homepage": "https://angel-website-pi.vercel.app",
@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@eslint/js": "10.0.1",
     "eslint": "10.9.1",
     "eslint-plugin-astro": "3.1.0",
     "prettier": "3.9.6",

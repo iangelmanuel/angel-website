@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.3] - 2026-08-27
+
+### Changed
+
+- Tightened ESLint config: added `@eslint/js`'s recommended rule set, switched `astro.configs["flat/recommended"]` to `astro.configs.recommended`, and turned on `@typescript-eslint/no-explicit-any` and `@typescript-eslint/no-unused-vars` (with `^_` argument/variable ignore patterns) as errors instead of warnings/defaults.
+- Added `node_modules/**` to the ESLint `ignores` list alongside `dist/**`, `.astro/**`, and `.vercel/**`.
+
 ### Fixed
 
 - Fixed CI failing at the `pnpm/action-setup` step with "Multiple versions of pnpm specified": the workflow pinned `version: 11` while `package.json`'s `packageManager` field pinned `pnpm@11.24.0`. Removed the redundant `version` input from both jobs in `.github/workflows/ci.yml`; the action now resolves the version from `packageManager` alone.
+- Fixed mojibake in `package.json`'s `description` field (`bilingüe`, `diseños`, `según`, `presentación` had been double-encoded as UTF-8-read-as-Latin-1 escapes) back to proper UTF-8 characters.
 
 ## [1.3.2] - 2026-08-27
 
@@ -268,7 +276,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.3.2
+- **Current version**: 1.3.3
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

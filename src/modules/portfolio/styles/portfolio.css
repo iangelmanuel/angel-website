@@ -134,6 +134,14 @@
 }
 
 @font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Nunito-VariableFont";
   font-style: normal;
   font-weight: 100 900;

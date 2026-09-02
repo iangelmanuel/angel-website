@@ -1,6 +1,5 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n"
-import { Icon } from "astro-icon/components"
 
 import AsideMobileMenu from "./AsideMobileMenu.astro"
 import DesignToggle from "../DesignToggle.astro"
@@ -31,9 +30,10 @@ const navItems = t(SITE.navigation).map(({ name, href }) => ({
         href={homeUrl}
         class="brand mx-5 flex items-center gap-2 transition-transform duration-300 hover:scale-105 lg:mx-0"
       >
-        <Icon
-          name="logo-1"
-          class="logo-frame inline size-12 sm:size-14"
+        <img
+          src={SITE.seo.image}
+          alt={t(SITE.seo.imageAlt)}
+          class="logo-frame inline size-12 rounded-full border-2 border-solid border-gray-300 object-cover transition-all duration-300 dark:border-gray-700"
         />
       </a>
 

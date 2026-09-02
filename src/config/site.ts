@@ -275,14 +275,13 @@ export const SITE = {
     ] as const,
     geo: { region: "ATL", latitude: 10.9685, longitude: -74.7813 },
 
-    image: "/img/logo-ad.png",
+    image: "/img/logo.webp",
     imageAlt: {
       es: "Angel De La Torre — Desarrollador Full Stack",
       en: "Angel De La Torre — Full Stack Developer"
     },
     imageWidth: 1200,
     imageHeight: 630,
-    logo: "/favicon.svg",
 
     ogType: "website" as "website" | "article",
     twitterAuthor: "@iangelmanuel" as string | null,

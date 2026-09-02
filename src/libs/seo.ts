@@ -4,7 +4,6 @@ import { createT, DEFAULT_LANG } from "@/i18n"
 import type { Lang } from "@/types/i18n"
 
 const SITE_URL = SITE.seo.url
-const LOGO_URL = new URL(SITE.seo.logo, SITE_URL).href
 const OG_URL = new URL(SITE.seo.image, SITE_URL).href
 
 const areaServed = () =>
@@ -20,7 +19,7 @@ export function organizationLd(lang: Lang = DEFAULT_LANG) {
     name: SITE.info.name,
     legalName: SITE.info.legalName,
     url: SITE_URL,
-    logo: LOGO_URL,
+    logo: OG_URL,
     image: OG_URL,
     description: t(SITE.seo.description),
     slogan: SITE.info.slogan ? t(SITE.info.slogan) : null,
@@ -72,7 +71,7 @@ export function professionalServiceLd() {
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}#business`,
     name: SITE.info.name,
-    image: LOGO_URL,
+    image: OG_URL,
     url: SITE_URL,
     telephone: SITE.contact.whatsapp(),
     email: SITE.contact.email,

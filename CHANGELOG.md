@@ -7,17 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-09-01
+
+### Added
+
+- Added `public/img/logo.webp`, a new pixel-art brand mark, as `SITE.seo.image` — now the single source of truth for the site's favicon, apple-touch-icon, manifest icon, navbar logo, and Open Graph/JSON-LD image.
+- Self-hosted `public/fonts/JetBrainsMono-Variable.woff2` (latin subset) for the TERMINAL design's body copy, preloaded via `PreloadFont.astro`.
+- Added `public/img/angel-website-1.webp` and `public/img/angel-website-2.webp` as the new README banners, showing the current TERMINAL and FORMAL designs.
+
 ### Changed
 
+- `src/components/seo/BaseHead.astro`, `src/pages/manifest.webmanifest.ts`, and `src/libs/seo.ts` (`organizationLd`, `professionalServiceLd`) now all read the site logo from `SITE.seo.image` instead of a separate/hardcoded path.
+- `src/components/shared/TopMenu.astro`: navbar brand mark switched from the `astro-icon` `logo-1` SVG to an `<img>` sourced from `SITE.seo.image`, matching the new logo.
+- TERMINAL design's JetBrains Mono now loads from the self-hosted woff2 above instead of the Google Fonts stylesheet, dropping the `fonts.googleapis.com`/`fonts.gstatic.com` preconnects and external request.
 - Rewrote `README.md` to match the current codebase: dual TERMINAL/FORMAL design system and routing, unified `src/i18n/ui.ts` translation tree, `SITE` config as the single source of business/SEO data, JSON-LD/`robots.txt`/`sitemap.xml`/manifest generation, the real `src/` directory structure (`modules/portfolio`, `config`, `libs`, `hooks`), current dependency versions, and updated scripts/CI table. Replaced the outdated shadcn/ui-era stack description and file tree.
 
 ### Removed
 
+- Removed `public/favicon.svg`, `public/img/logo-ad.png`, and `public/img/portfolio-project.png`, superseded by `logo.webp`; no remaining references.
+- Removed the dead `SITE.seo.logo` field and its usages — the field had been dropped from `src/config/site.ts` without updating `src/libs/seo.ts`, which still referenced it.
 - Removed the `hero.webp` banner from the README (file no longer exists in `public/img/`).
 
-### Added
+### Fixed
 
-- Added `public/img/angel-website-1.webp` and `public/img/angel-website-2.webp` as the new README banners, showing the current TERMINAL and FORMAL designs.
+- Fixed a broken favicon/app icon: `BaseHead.astro` and `manifest.webmanifest.ts` both referenced `/icon.svg`, a file that never existed in `public/` (a leftover from an incomplete `favicon.svg` → `icon.svg` rename), so the site shipped with no working favicon.
 
 ## [1.3.3] - 2026-08-27
 
@@ -288,7 +301,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.3.3
+- **Current version**: 1.4.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

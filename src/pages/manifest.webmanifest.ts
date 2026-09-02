@@ -14,7 +14,7 @@ export const GET: APIRoute = () => {
     lang: SITE.seo.locale,
     categories: SITE.seo.manifestCategories,
     icons: [
-      { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
+      { src: SITE.seo.image, sizes: "any", type: "image/webp", purpose: "any" }
     ]
   }
 

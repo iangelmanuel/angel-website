@@ -21,7 +21,7 @@ const projects = defineCollection({
       image: image(),
       featured: z.boolean().default(false),
       status: z
-        .enum(["completed", "in-progress", "planned"])
+        .enum(["completed", "in-progress", "planned", "paused", "beta"])
         .default("completed")
     })
 })

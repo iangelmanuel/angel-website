@@ -97,9 +97,14 @@ const accent = getCardAccent(index)
 
     <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
       {
-        data.technologies.map((tag) => (
-          <span class="chip chip-solid">{tag}</span>
-        ))
+        data.technologies
+          .slice(0, 4)
+          .map((tag) => <span class="chip chip-solid">{tag}</span>)
+      }
+      {
+        data.technologies.length > 4 && (
+          <span class="chip chip-solid">+{data.technologies.length - 4}</span>
+        )
       }
     </div>
 

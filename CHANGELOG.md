@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-09-02
+
+### Added
+
+- Added three new project entries (ES/EN content + `.webp` cover images): `angel.library` (personal technical knowledge base, Astro/TypeScript/Tailwind/React), `Solis CRM (Beta)` (multi-tenant WhatsApp CRM, Next.js/Prisma/PostgreSQL/OpenRouter), and `Verlun Studio` (business-services site, Astro/TypeScript/Tailwind/React).
+- Added `"paused"` and `"beta"` to the `projects` collection's `status` enum (`src/content.config.ts`) to support Solis CRM's beta state.
+
+### Changed
+
+- `Project.astro` now caps the technologies chip row at 4 badges, with the remainder collapsed into a trailing `+N` badge — matching the overflow pattern already used on certificate skill chips.
+
+### Removed
+
+- Removed seven completed project entries (ES/EN content + cover images) superseded by the three added above: Artesana de Luz, Business Concept, GS Construction Group, Fundación Huellitas Felices, iBluewave Technology, Lúdico BQ, and Rise Dashboard Manager.
+
 ## [1.4.0] - 2026-09-01
 
 ### Added
@@ -301,7 +316,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.4.0
+- **Current version**: 1.5.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

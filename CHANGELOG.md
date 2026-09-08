@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.2] - 2026-09-08
+
+### Added
+
+- Added `public/img/angel-website.webp`, a single hero screenshot of the TERMINAL design, replacing the previous two-image (TERMINAL + FORMAL) README banner.
+
+### Changed
+
+- Rewrote `README.md` from scratch: single-image cover, one-sentence value proposition, "Qué es"/"Stack"/"Empezar"/"Añadir un proyecto"/"Licencias"/"Autor" sections, and a scripts table — trimmed from ~305 to ~140 lines and dropped all decorative emoji except the closing star.
+- Switched the version badges (Astro, React, Tailwind CSS, TypeScript, GSAP) from `for-the-badge` pills with full semver to flat-style badges showing only the major version, and added a flat MIT license badge linking to `LICENSE`.
+
+### Removed
+
+- Removed `public/img/angel-website-1.webp` and `public/img/angel-website-2.webp`, superseded by the single `angel-website.webp` banner.
+
 ## [1.5.1] - 2026-09-07
 
 ### Changed
@@ -322,7 +337,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.5.1
+- **Current version**: 1.5.2
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

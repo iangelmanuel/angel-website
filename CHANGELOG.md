@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.1] - 2026-09-07
+
+### Changed
+
+- Replaced the `angel.library` project cover image (`src/content/assets/projects/angel-library-project.webp`).
+
 ## [1.5.0] - 2026-09-02
 
 ### Added
@@ -316,7 +322,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.5.0
+- **Current version**: 1.5.1
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

@@ -26,7 +26,7 @@ githubUrl:
   { url: "https://github.com/iangelmanuel/solis-crm-whatsapp", isPrivate: true }
 
 liveUrl: "https://solis-crm-whatsapp.vercel.app"
-image: "../../assets/projects/solis-crm-whatsapp-project.webp"
+image: "../../assets/projects/solis-crm-project.webp"
 featured: true
 status: "beta"
 ---

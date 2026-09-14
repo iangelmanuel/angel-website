@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.5.3] - 2026-09-13
+
+### Changed
+
+- Replaced the `angel.library` project cover image (`src/content/assets/projects/angel-library-project.webp`) again.
+- Replaced the Solis CRM project cover image and renamed it from `solis-crm-whatsapp-project.webp` to `solis-crm-project.webp`; updated the `image` field in both `src/content/projects/es/solis-crm.md` and `src/content/projects/en/solis-crm.md`.
+- Reordered the card accent rotation in `src/modules/portfolio/libs/card-accent.ts` to start with `violet` instead of `cyan` (`violet`, `cyan`, `green`, `pink`, `orange`), so the first project and certificate cards now render violet and the second cyan.
+
+### Removed
+
+- Removed `src/content/assets/projects/solis-crm-whatsapp-project.webp`, superseded by `solis-crm-project.webp`.
+
 ## [1.5.2] - 2026-09-08
 
 ### Added
@@ -337,7 +349,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.5.2
+- **Current version**: 1.5.3
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

@@ -1,0 +1,11 @@
+academy: "Universidad Autónoma del Caribe"
+degree: "Negocios y Finanzas Internacionales"
+year: "2021 - 2026"
+logo: "../../assets/education/uac.webp"
+order: 4
+courses:
+  - "Análisis y Visualización de Datos con Python"
+  - "Marketing Digital y Estrategias de Negocios"
+  - "Análisis Financiero y Estrategias de Inversión"
+  - "Comercio Internacional y Negocios Globales"
+  - "Finanzas Corporativas y Gestión de Riesgos"

@@ -1,0 +1,12 @@
+academy: "Udemy"
+degree: "Desarrollo Web Full Stack"
+year: "2023 - 2025"
+logo: "../../assets/education/udemy.webp"
+order: 3
+courses:
+  - "Master en programación fullstack con JavaScript, Angular y Node"
+  - "JavaScript Moderno guía definitiva. Construye +20 proyectos"
+  - "React - La guía completa: Hooks, Context, Redux, MERN. +15 Apps"
+  - "TypeScript sin fronteras: Guía definitiva"
+  - "Laravel 9 - Crea aplicaciones y sitios web con PHP 8 y MVC"
+  - "Vue.js 3 - La Guía Completa - Composition, Pinia, MEVN. +10 Apps"

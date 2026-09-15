@@ -1,0 +1,11 @@
+academy: "Devtalles"
+degree: "Frontend and Backend Web Development"
+year: "2024 - Present"
+logo: "../../assets/education/devtalles.webp"
+order: 1
+courses:
+  - "Shadcn/ui: Accessible and Customizable Components"
+  - "Astro: The Framework for Content-Oriented Websites"
+  - "OpenAI: Practical Exercises and Assistants with React + Nest.js"
+  - "Nest.js + Reports: Generate PDFs from Node"
+  - "React Native Expo: Native Applications for iOS and Android"

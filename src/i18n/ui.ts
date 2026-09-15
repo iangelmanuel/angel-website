@@ -78,6 +78,16 @@ export const ui = {
       ]
     },
 
+    experience: {
+      badge: { es: "Experiencia", en: "Experience" },
+      title: {
+        TERMINAL: { es: "cat ./experiencia.log", en: "cat ./experience.log" },
+        FORMAL: { es: "Experiencia laboral", en: "Work Experience" }
+      },
+      presentLabel: { es: "Presente", en: "Present" },
+      currentBadge: { es: "Actual", en: "Current" }
+    },
+
     education: {
       badge: { es: "Educación", en: "Education" },
       title: {
@@ -88,105 +98,7 @@ export const ui = {
         TERMINAL: { es: "ver certificaciones", en: "view certificates" },
         FORMAL: { es: "Ver certificaciones", en: "View Certificates" }
       },
-      coursesLabel: { es: "cursos", en: "courses" },
-      list: [
-        {
-          logo: "/img/academy-logo/devtalles.webp",
-          academy: "Devtalles",
-          degree: {
-            es: "Desarrollo Web Frontend y Backend",
-            en: "Frontend and Backend Web Development"
-          },
-          year: { es: "2024 - Presente", en: "2024 - Present" },
-          courses: {
-            es: [
-              "Shadcn/ui: Componentes accesibles y personalizables",
-              "Astro: El framework para sitios web orientados al contenido",
-              "OpenAI: Ejercicios prácticos y asistentes con React + Nest.js",
-              "Nest.js + Reportes: Genera PDFs desde Node",
-              "React Native Expo: Aplicaciones nativas para iOS y Android"
-            ],
-            en: [
-              "Shadcn/ui: Accessible and Customizable Components",
-              "Astro: The Framework for Content-Oriented Websites",
-              "OpenAI: Practical Exercises and Assistants with React + Nest.js",
-              "Nest.js + Reports: Generate PDFs from Node",
-              "React Native Expo: Native Applications for iOS and Android"
-            ]
-          }
-        },
-        {
-          logo: "/img/academy-logo/midudev.webp",
-          academy: "Midudev Academy",
-          degree: {
-            es: "Desarrollo de MCP y JavaScript",
-            en: "MCP and JavaScript Development"
-          },
-          year: "2025 - 2025",
-          courses: {
-            es: [
-              "Curso Intensivo de Model Context Protocol (MCP)",
-              "Aprende lo último de JavaScript (ES2023 & ES2024)"
-            ],
-            en: [
-              "Intensive Course on Model Context Protocol (MCP)",
-              "Learn the Latest in JavaScript (ES2023 & ES2024)"
-            ]
-          }
-        },
-        {
-          logo: "/img/academy-logo/udemy.webp",
-          academy: "Udemy",
-          degree: {
-            es: "Desarrollo Web Full Stack",
-            en: "Full Stack Web Development"
-          },
-          year: "2023 - 2025",
-          courses: {
-            es: [
-              "Master en programación fullstack con JavaScript, Angular y Node",
-              "JavaScript Moderno guía definitiva. Construye +20 proyectos",
-              "React - La guía completa: Hooks, Context, Redux, MERN. +15 Apps",
-              "TypeScript sin fronteras: Guía definitiva",
-              "Laravel 9 - Crea aplicaciones y sitios web con PHP 8 y MVC",
-              "Vue.js 3 - La Guía Completa - Composition, Pinia, MEVN. +10 Apps"
-            ],
-            en: [
-              "Master in Fullstack Programming with JavaScript, Angular, and Node",
-              "Modern JavaScript – The Definitive Guide. Build 20+ Projects",
-              "React – The Complete Guide: Hooks, Context, Redux, MERN. 15+ Apps",
-              "TypeScript Without Borders – The Definitive Guide",
-              "Laravel 9 – Build Applications and Websites with PHP 8 and MVC",
-              "Vue.js 3 - The Complete Guide - Composition, Pinia, MEVN. 10+ Apps"
-            ]
-          }
-        },
-        {
-          logo: "/img/academy-logo/uac.webp",
-          academy: "Universidad Autónoma del Caribe",
-          degree: {
-            es: "Negocios y Finanzas Internacionales",
-            en: "International Business and Finance"
-          },
-          year: "2021 - 2026",
-          courses: {
-            es: [
-              "Análisis y Visualización de Datos con Python",
-              "Marketing Digital y Estrategias de Negocios",
-              "Análisis Financiero y Estrategias de Inversión",
-              "Comercio Internacional y Negocios Globales",
-              "Finanzas Corporativas y Gestión de Riesgos"
-            ],
-            en: [
-              "Data Analysis and Visualization with Python",
-              "Digital Marketing and Business Strategies",
-              "Financial Analysis and Investment Strategies",
-              "International Trade and Global Business",
-              "Corporate Finance and Risk Management"
-            ]
-          }
-        }
-      ]
+      coursesLabel: { es: "cursos", en: "courses" }
     }
   },
 

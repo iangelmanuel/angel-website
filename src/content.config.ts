@@ -2,6 +2,41 @@ import { glob } from "astro/loaders"
 import { defineCollection } from "astro:content"
 import { z } from "astro/zod"
 
+const experience = defineCollection({
+  loader: glob({
+    pattern: "**/*.yml",
+    base: "./src/content/experience"
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      companyUrl: z.url().optional(),
+      position: z.string(),
+      logo: image(),
+      order: z.number(),
+      startDate: z.date(),
+      endDate: z.date().optional(),
+      isCurrent: z.boolean().default(false),
+      location: z.string().optional()
+    })
+})
+
+const education = defineCollection({
+  loader: glob({
+    pattern: "**/*.yml",
+    base: "./src/content/education"
+  }),
+  schema: ({ image }) =>
+    z.object({
+      academy: z.string(),
+      degree: z.string(),
+      year: z.string(),
+      logo: image(),
+      order: z.number(),
+      courses: z.array(z.string())
+    })
+})
+
 const projects = defineCollection({
   loader: glob({
     pattern: "**/*.md",
@@ -47,6 +82,8 @@ const certificates = defineCollection({
 })
 
 export const collections = {
+  experience,
+  education,
   projects,
   certificates
 }

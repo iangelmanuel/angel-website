@@ -1,0 +1,8 @@
+academy: "Midudev Academy"
+degree: "MCP and JavaScript Development"
+year: "2025 - 2025"
+logo: "../../assets/education/midudev.webp"
+order: 2
+courses:
+  - "Intensive Course on Model Context Protocol (MCP)"
+  - "Learn the Latest in JavaScript (ES2023 & ES2024)"

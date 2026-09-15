@@ -1,0 +1,11 @@
+academy: "Universidad Autónoma del Caribe"
+degree: "International Business and Finance"
+year: "2021 - 2026"
+logo: "../../assets/education/uac.webp"
+order: 4
+courses:
+  - "Data Analysis and Visualization with Python"
+  - "Digital Marketing and Business Strategies"
+  - "Financial Analysis and Investment Strategies"
+  - "International Trade and Global Business"
+  - "Corporate Finance and Risk Management"

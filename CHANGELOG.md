@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-09-15
+
+### Added
+
+- New "Experience" subsection in About, rendered above Education: a left-border timeline list (accent-colored bar for the current position) backed by a new `experience` content collection (`src/content/experience/{es,en}/*.yml`) with `title`, `companyUrl` (optional), `position`, `logo`, `order`, `startDate`, `endDate` (optional), `isCurrent`, and `location` (optional). Company name links out to `companyUrl` when present, plain text otherwise.
+- New `education` content collection (`src/content/education/{es,en}/*.yml`), replacing the hardcoded `ui.about.education.list` array: `academy`, `degree`, `year`, `logo`, `order`, and `courses`. Both collections sort by an explicit `order: number` field.
+- New `src/content/assets/experience/` and `src/content/assets/education/` directories holding the collections' `logo` images (via the `image()` schema helper), migrated from `public/img/academy-logo/`.
+- Restored the connected vertical timeline (rail + dot per entry) for the Education list.
+
+### Changed
+
+- Restructured `src/modules/portfolio` into feature-scoped `src/features/{landing,certificates}` directories — each holds only the sections/components/hooks/actions/const/types it uses. Code shared by both features was promoted to top-level `src/`: `card-accent.ts` → `src/libs/`, and `portfolio.css`/`terminal.css`/`formal.css` → new `src/styles/`.
+- `src/actions/index.ts` (Astro's required actions entrypoint) now imports its handler from `@/features/landing/actions/send-contact-email` instead of a local `./email/` subfolder.
+- Education entries in About now render as a compact card (logo, academy, degree, year chip, course count) instead of the previous stats-grid + timeline-dot layout.
+
+### Removed
+
+- Removed the Education stats summary (courses completed / hours completed / certifications) from the About section.
+- Removed `public/img/academy-logo/`, superseded by `src/content/assets/education/`.
+- Removed the old `src/hooks/` directory (only held the now-relocated `use-contact-form.ts`).
+
 ## [1.5.3] - 2026-09-13
 
 ### Changed
@@ -349,7 +370,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.5.3
+- **Current version**: 1.6.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

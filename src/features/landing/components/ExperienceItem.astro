@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets"
+
+import { ui, useI18n } from "@/i18n"
+import { dateFormatter } from "@/libs/date-formatter"
+
+import type { CollectionEntry } from "astro:content"
+
+type Props = {
+  item: CollectionEntry<"experience">
+  isCurrent: boolean
+}
+
+const { item, isCurrent } = Astro.props
+const { data } = item
+
+const { t } = useI18n(Astro)
+const experience = t(ui.about.experience)
+
+const formatDate = (date: Date) =>
+  dateFormatter(date, { month: "short", year: "numeric" })
+
+const period = `${formatDate(data.startDate)} — ${
+  data.endDate ? formatDate(data.endDate) : experience.presentLabel
+}`
+---
+
+<article class:list={["exp-item", { "exp-item-current": isCurrent }]}>
+  <div class="flex items-center gap-3">
+    <Image
+      src={data.logo}
+      alt={`Logo ${data.title}`}
+      width={40}
+      height={40}
+      loading="lazy"
+      class="academy-logo size-10 shrink-0 bg-zinc-900 object-cover"
+    />
+
+    <div class="min-w-0 flex-1">
+      <h3 class="timeline-title">{data.position}</h3>
+
+      <div class="timeline-meta mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+        {
+          data.companyUrl ? (
+            <a
+              href={data.companyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="timeline-subtitle hover:underline"
+            >
+              {data.title}
+            </a>
+          ) : (
+            <span class="timeline-subtitle">{data.title}</span>
+          )
+        }
+        {
+          data.location && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>{data.location}</span>
+            </>
+          )
+        }
+        <span aria-hidden="true">·</span>
+        <span>{period}</span>
+      </div>
+    </div>
+
+    {
+      isCurrent && (
+        <span class="timeline-badge inline-flex shrink-0 items-center">
+          {experience.currentBadge}
+        </span>
+      )
+    }
+  </div>
+</article>

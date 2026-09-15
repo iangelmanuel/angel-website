@@ -1,0 +1,142 @@
+---
+import { ArrowDown, Download, Mail } from "lucide-react"
+import { Icon } from "astro-icon/components"
+
+import { ui, useI18n } from "@/i18n"
+import { SITE } from "@/config/site"
+
+const { t, lang } = useI18n(Astro)
+const hero = t(ui.hero)
+---
+
+<section
+  class="compact-section m-0 flex items-center justify-center overflow-hidden py-20 sm:h-screen sm:py-0 sm:pt-24"
+>
+  <div
+    class="container-width z-10 flex flex-col items-center gap-5 text-center sm:gap-8"
+  >
+    <div class="relative">
+      <div class="avatar-frame mx-auto size-48 overflow-hidden sm:size-80">
+        <img
+          src="/img/profile-photo.webp"
+          alt={`${SITE.info.name} profile photo`}
+          class="h-full w-full object-cover"
+        />
+      </div>
+      <span
+        class="avatar-badge absolute -right-2 -bottom-2 sm:-right-1 sm:bottom-5"
+      >
+        {hero.yearExp}
+      </span>
+    </div>
+
+    <div class="order-1 max-w-2xl space-y-4 sm:order-2">
+      <h1 class="hero-name">
+        {hero.greeting}
+        <span class="hero-name-accent">Angel</span>
+        <span class="animate-wave inline-block">👋</span>
+      </h1>
+
+      <h2 class="hero-role">
+        {hero.title}
+      </h2>
+
+      <p
+        set:html={hero.description}
+        class="body-text mx-auto max-w-xl"
+      />
+
+      <div
+        class="flex flex-col items-center justify-center gap-3 pt-4 sm:flex-row sm:gap-4"
+      >
+        <a
+          href="#projects"
+          class="btn-primary w-full sm:w-auto"
+        >
+          <ArrowDown className="size-4" />
+          {hero.primaryBtn}
+        </a>
+
+        <button
+          id="download-cv"
+          type="button"
+          data-lang={lang}
+          class="btn-secondary w-full sm:w-auto"
+        >
+          <Download className="size-4" />
+          {hero.secondaryBtn}
+        </button>
+      </div>
+
+      <div class="flex items-center justify-center gap-5 pt-4">
+        <a
+          href={SITE.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link p-2"
+        >
+          <Icon
+            name="github"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a
+          href={SITE.social.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link p-2"
+        >
+          <Icon
+            name="linkedin"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a
+          href={SITE.social.x}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="social-link p-2"
+        >
+          <Icon
+            name="x"
+            class="h-5 w-5 sm:h-6 sm:w-6"
+          />
+          <span class="sr-only">Twitter</span>
+        </a>
+        <a
+          href={`mailto:${SITE.contact.email}`}
+          class="social-link p-2"
+        >
+          <Mail className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span class="sr-only">Email</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { $ } from "@/libs/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    const $downloadBtn = $("#download-cv") as HTMLButtonElement
+    const lang = $downloadBtn.dataset.lang || "es"
+
+    const spanishCv = "cv-angel-dm.pdf"
+    const englishCv = "cv-angel-dm-en.pdf"
+
+    $downloadBtn.addEventListener("click", () => {
+      const fileName = lang === "es" ? spanishCv : englishCv
+      const fileUrl = `/docs/${fileName}`
+
+      const link = document.createElement("a")
+      link.href = fileUrl
+      link.download = fileName
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+  })
+</script>

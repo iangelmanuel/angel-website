@@ -39,7 +39,7 @@ const education = defineCollection({
 
 const projects = defineCollection({
   loader: glob({
-    pattern: "**/*.md",
+    pattern: "**/*.yml",
     base: "./src/content/projects"
   }),
   schema: ({ image }) =>

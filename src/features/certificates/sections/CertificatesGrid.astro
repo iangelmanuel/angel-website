@@ -19,16 +19,12 @@ const sortByIssueDate = certificates.sort((a, b) => {
 ---
 
 <section class="compact-section pt-10">
-  <div
-    class="container-width grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
-  >
-    {
-      sortByIssueDate.map((cert, index) => (
-        <CertificateCard
-          cert={cert}
-          index={index}
-        />
-      ))
-    }
+  <div class="container-width grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+    {sortByIssueDate.map((cert, index) => (
+      <CertificateCard
+        cert={cert}
+        index={index}
+      />
+    ))}
   </div>
 </section>

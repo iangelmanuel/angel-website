@@ -1,0 +1,15 @@
+title: "Verlun Studio"
+description: "Verlun Studio is my small business where I offer business enhancement services focused on improving development, software, marketing, automation, communication, processes, branding, social media, and business organization."
+publishDate: 2025-01-01
+technologies:
+  - Astro
+  - TypeScript
+  - Tailwind CSS
+  - React
+githubUrl:
+  url: "https://github.com/iangelmanuel/verlun-website"
+  isPrivate: true
+liveUrl: "https://verlun.com"
+image: "../../assets/projects/verlun-studio-project.webp"
+featured: true
+status: "completed"

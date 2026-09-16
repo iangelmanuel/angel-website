@@ -31,69 +31,56 @@ const href = `${getRelativeLocaleUrl(lang, routes[design].blog)}/${slug}`
   class="win-card group"
   style={`--card-color: var(--${accent})`}
 >
-  {
-    design === "TERMINAL" && (
-      <div class="win-card-bar">
-        <div class="win-card-dots">
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-        </div>
-        <span class="win-card-path">~/blog/{slug}</span>
+  {design === "TERMINAL" && (
+    <div class="win-card-bar">
+      <div class="win-card-dots">
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
       </div>
-    )
-  }
+      <span class="win-card-path">~/blog/{slug}</span>
+    </div>
+  )}
 
   <div class="win-card-body">
-    {
-      data.image && (
-        <header class="media-frame mb-4 aspect-video overflow-hidden">
-          <Image
-            src={data.image}
-            alt={`${data.title} Image`}
-            width={800}
-            height={450}
-            loading="lazy"
-            class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-115"
-          />
-        </header>
-      )
-    }
+    {data.image && (
+      <header class="media-frame mb-4 aspect-video overflow-hidden">
+        <Image
+          src={data.image}
+          alt={`${data.title} Image`}
+          width={800}
+          height={450}
+          loading="lazy"
+          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-115"
+        />
+      </header>
+    )}
 
     <h3 class="win-card-title">
       {design === "TERMINAL" && <span class="win-card-prompt">&gt;</span>}
-      <a
-        href={href}
-        class="hover:underline"
-      >
-        {data.title}
-      </a>
+      {data.title}
     </h3>
 
     <span class="card-meta mt-1.5 flex items-center gap-1.5">
       <Calendar className="size-3.5" />
-      {
-        dateFormatter(data.publishDate, {
-          day: "2-digit",
-          month: "short",
-          year: "numeric"
-        })
-      }
+      {dateFormatter(data.publishDate, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      })}
     </span>
 
     <p class="card-text mt-1.5 mb-3 line-clamp-2 text-start sm:mb-4">
       {data.description}
     </p>
 
-    {
-      data.tags && data.tags.length > 0 && (
-        <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
-          {data.tags.slice(0, 4).map((tag) => (
-            <span class="chip chip-solid">{tag}</span>
-          ))}
-        </div>
-      )
-    }
+    {data.tags && data.tags.length > 0 && (
+      <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
+        {data.tags.slice(0, 4).map((tag) => (
+          <span class="chip chip-solid">{tag}</span>
+        ))}
+      </div>
+    )}
 
     <footer class="mt-auto">
       <a

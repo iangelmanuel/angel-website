@@ -25,9 +25,30 @@ import "@/styles/portfolio.css"
 interface Props {
   title?: string
   description?: string
+  image?: string
+  imageWidth?: number
+  imageHeight?: number
+  imageAlt?: string
+  keywords?: readonly string[]
+  ogType?: "website" | "article"
+  publishedTime?: string
+  modifiedTime?: string
+  tags?: readonly string[]
 }
 
-const { title, description } = Astro.props
+const {
+  title,
+  description,
+  image,
+  imageWidth,
+  imageHeight,
+  imageAlt,
+  keywords,
+  ogType,
+  publishedTime,
+  modifiedTime,
+  tags
+} = Astro.props
 
 const { lang, design } = useI18n(Astro)
 ---
@@ -43,6 +64,15 @@ const { lang, design } = useI18n(Astro)
     <BaseHead
       title={title}
       description={description}
+      image={image}
+      imageWidth={imageWidth}
+      imageHeight={imageHeight}
+      imageAlt={imageAlt}
+      keywords={keywords}
+      ogType={ogType}
+      publishedTime={publishedTime}
+      modifiedTime={modifiedTime}
+      tags={tags}
     >
       <PreloadFont
         slot="preloadfonts"
@@ -70,6 +100,8 @@ const { lang, design } = useI18n(Astro)
       id="ld-faq"
       data={faqLd(lang)}
     />
+
+    <slot name="jsonld" />
 
     <ClientRouter />
   </head>

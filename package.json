@@ -1,6 +1,6 @@
 {
   "name": "angel-website",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
   "description": "Portafolio personal de Angel De La Torre. Sitio bilingüe (ES/EN) construido con Astro, React y Tailwind CSS, con dos diseños intercambiables según la ruta: terminal/pixel-art en / y una presentación formal en /formal.",
   "license": "MIT",
@@ -48,20 +48,20 @@
     "prettier:check": "prettier . --check"
   },
   "dependencies": {
-    "@astrojs/react": "6.0.4",
-    "@astrojs/vercel": "11.0.8",
+    "@astrojs/react": "6.0.5",
+    "@astrojs/vercel": "11.0.10",
     "@tailwindcss/vite": "4.3.3",
-    "@types/react": "19.2.18",
-    "@types/react-dom": "19.2.5",
-    "astro": "7.2.9",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "astro": "7.3.2",
     "astro-icon": "1.2.0",
     "gsap": "3.15.0",
-    "lucide-react": "1.34.0",
+    "lucide-react": "1.46.0",
     "next-themes": "0.4.6",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-hook-form": "7.86.0",
-    "resend": "6.24.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-hook-form": "7.88.0",
+    "resend": "6.28.0",
     "sharp": "0.35.4",
     "sonner": "2.0.8",
     "tailwindcss": "4.3.3"
@@ -69,12 +69,12 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@eslint/js": "10.0.1",
-    "eslint": "10.9.1",
+    "eslint": "10.10.0",
     "eslint-plugin-astro": "3.1.0",
     "prettier": "3.9.6",
-    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-astro": "1.0.0",
     "prettier-plugin-tailwindcss": "0.8.1",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.68.0"
+    "typescript-eslint": "8.70.0"
   }
 }

@@ -16,9 +16,7 @@ const { navItems } = Astro.props
   aria-label="Open Mobile Menu"
   class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10 lg:hidden"
 >
-  <Menu
-    className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
-  />
+  <Menu className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5" />
 </button>
 
 <aside
@@ -32,24 +30,20 @@ const { navItems } = Astro.props
       aria-label="Close Mobile Menu"
       class="icon-btn size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
     >
-      <X
-        className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5"
-      />
+      <X className="size-4 scale-100 rotate-0 transition-all duration-300 sm:size-5" />
     </button>
   </header>
 
   <main class="mt-4 flex flex-col space-y-4">
-    {
-      navItems.map((item) => (
-        <a
-          id="mobile-menu-item"
-          href={item.href}
-          class="menu-item"
-        >
-          {item.label}
-        </a>
-      ))
-    }
+    {navItems.map((item) => (
+      <a
+        id="mobile-menu-item"
+        href={item.href}
+        class="menu-item"
+      >
+        {item.label}
+      </a>
+    ))}
   </main>
 </aside>
 

@@ -35,24 +35,20 @@ const blog = t(ui.blog)
 
     <div class="card-meta mb-6 flex items-center gap-1.5">
       <Calendar className="size-3.5" />
-      {
-        dateFormatter(post.data.publishDate, {
-          day: "2-digit",
-          month: "short",
-          year: "numeric"
-        })
-      }
+      {dateFormatter(post.data.publishDate, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      })}
     </div>
 
-    {
-      post.data.tags && post.data.tags.length > 0 && (
-        <div class="mb-6 flex flex-wrap gap-1.5">
-          {post.data.tags.map((tag) => (
-            <span class="chip chip-solid">{tag}</span>
-          ))}
-        </div>
-      )
-    }
+    {post.data.tags && post.data.tags.length > 0 && (
+      <div class="mb-6 flex flex-wrap gap-1.5">
+        {post.data.tags.map((tag) => (
+          <span class="chip chip-solid">{tag}</span>
+        ))}
+      </div>
+    )}
 
     <div class="prose-content">
       <Content />

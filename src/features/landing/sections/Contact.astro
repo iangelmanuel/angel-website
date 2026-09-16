@@ -22,16 +22,14 @@ const contact = t(ui.contact)
     <p class="body-text mx-auto mb-10 max-w-sm">{contact.lede}</p>
 
     <div class="form-shell text-left">
-      {
-        design === "TERMINAL" && (
-          <div class="form-shell-bar">
-            <span class="form-shell-dot" />
-            <span class="form-shell-dot" />
-            <span class="form-shell-dot" />
-            <span class="ml-1.5">{contact.windowTitle}</span>
-          </div>
-        )
-      }
+      {design === "TERMINAL" && (
+        <div class="form-shell-bar">
+          <span class="form-shell-dot" />
+          <span class="form-shell-dot" />
+          <span class="form-shell-dot" />
+          <span class="ml-1.5">{contact.windowTitle}</span>
+        </div>
+      )}
 
       <div class="form-shell-body">
         <ContactForm
@@ -42,9 +40,7 @@ const contact = t(ui.contact)
       </div>
     </div>
 
-    <div
-      class="rule-t mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 pt-8"
-    >
+    <div class="rule-t mt-12 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 pt-8">
       <a
         href={`mailto:${SITE.contact.email}`}
         class="contact-link"

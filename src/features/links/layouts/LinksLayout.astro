@@ -1,0 +1,108 @@
+---
+import ThemeScript from "@/components/seo/ThemeScript.astro"
+import PreloadFont from "@/components/seo/PreloadFont.astro"
+// Fondos disponibles: CodeGridBackground (pulsos radar) | PlasmaFieldBackground (plasma ASCII)
+import PlasmaFieldBackground from "../components/PlasmaFieldBackground.astro"
+
+import { SITE } from "@/config/site"
+
+import "@/styles/portfolio.css"
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {
+  title = `${SITE.info.name} — Enlaces`,
+  description = `Todos los enlaces de ${SITE.info.name} en un solo lugar: redes sociales, proyectos y contacto.`
+} = Astro.props
+
+const canonical = new URL("/links", SITE.seo.url).href
+const ogImage = new URL(SITE.seo.image, SITE.seo.url).href
+---
+
+<ThemeScript />
+
+<html
+  lang="es"
+  data-design="TERMINAL"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+
+    <PreloadFont design="TERMINAL" />
+
+    <title>{title}</title>
+    <meta
+      name="description"
+      content={description}
+    />
+    <link
+      rel="canonical"
+      href={canonical}
+    />
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+
+    <meta
+      property="og:type"
+      content="website"
+    />
+    <meta
+      property="og:site_name"
+      content={SITE.info.name}
+    />
+    <meta
+      property="og:title"
+      content={title}
+    />
+    <meta
+      property="og:description"
+      content={description}
+    />
+    <meta
+      property="og:url"
+      content={canonical}
+    />
+    <meta
+      property="og:image"
+      content={ogImage}
+    />
+
+    <meta
+      name="twitter:card"
+      content="summary_large_image"
+    />
+    <meta
+      name="twitter:title"
+      content={title}
+    />
+    <meta
+      name="twitter:description"
+      content={description}
+    />
+    <meta
+      name="twitter:image"
+      content={ogImage}
+    />
+
+    <link
+      rel="icon"
+      href={SITE.seo.image}
+      type="image/webp"
+    />
+  </head>
+
+  <body class="overflow-x-hidden">
+    <PlasmaFieldBackground />
+
+    <slot />
+  </body>
+</html>

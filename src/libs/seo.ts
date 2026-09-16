@@ -45,7 +45,7 @@ export function organizationLd(lang: Lang = DEFAULT_LANG) {
         areaServed: [SITE.location.countryCode, SITE.seo.contactRegion]
       }
     ],
-    sameAs: Object.values(SITE.social),
+    sameAs: Object.values(SITE.social).map((s) => s.url),
     knowsAbout: SITE.seo.keywords
   } as const
 }
@@ -108,6 +108,52 @@ export function servicesLd(lang: Lang = DEFAULT_LANG) {
       }))
     }
   }))
+}
+
+type BlogPostingInput = {
+  title: string
+  description: string
+  url: string
+  image: string
+  publishedTime: string
+  modifiedTime?: string
+  tags?: readonly string[]
+  lang?: Lang
+}
+
+export function blogPostingLd({
+  title,
+  description,
+  url,
+  image,
+  publishedTime,
+  modifiedTime,
+  tags = [],
+  lang = DEFAULT_LANG
+}: BlogPostingInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#blogposting`,
+    headline: title,
+    description,
+    url,
+    image,
+    datePublished: publishedTime,
+    dateModified: modifiedTime ?? publishedTime,
+    inLanguage: lang === "es" ? "es-CO" : "en-US",
+    keywords: tags.join(", "),
+    articleSection: SITE.seo.category,
+    author: {
+      "@type": "Person",
+      name: SITE.info.name,
+      url: SITE_URL,
+      sameAs: Object.values(SITE.social).map((s) => s.url)
+    },
+    publisher: { "@id": `${SITE_URL}#organization` },
+    isPartOf: { "@id": `${SITE_URL}#website` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url }
+  } as const
 }
 
 export function faqLd(lang: Lang = DEFAULT_LANG) {

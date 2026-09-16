@@ -31,15 +31,13 @@ const projectsFilteredByDate = projectsCollection.sort((a, b) => {
     <h2 class="section-title text-center">{projects.title}</h2>
 
     <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-      {
-        projectsFilteredByDate.map(({ id, data }, index) => (
-          <Project
-            id={id}
-            data={data}
-            index={index}
-          />
-        ))
-      }
+      {projectsFilteredByDate.map(({ id, data }, index) => (
+        <Project
+          id={id}
+          data={data}
+          index={index}
+        />
+      ))}
     </div>
   </div>
 </section>

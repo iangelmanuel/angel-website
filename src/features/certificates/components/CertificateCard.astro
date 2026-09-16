@@ -25,18 +25,16 @@ const accent = getCardAccent(index)
   class="win-card group"
   style={`--card-color: var(--${accent})`}
 >
-  {
-    design === "TERMINAL" && (
-      <div class="win-card-bar">
-        <div class="win-card-dots">
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-        </div>
-        <span class="win-card-path">~/{slug}</span>
+  {design === "TERMINAL" && (
+    <div class="win-card-bar">
+      <div class="win-card-dots">
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
       </div>
-    )
-  }
+      <span class="win-card-path">~/{slug}</span>
+    </div>
+  )}
 
   <div class="win-card-body">
     <header class="media-frame relative aspect-4/3 overflow-hidden">
@@ -59,50 +57,40 @@ const accent = getCardAccent(index)
       <div class="card-meta flex items-center gap-1">
         <Calendar className="size-3" />
         <span>
-          {
-            dateFormatter(cert.data.issueDate!, {
-              year: "numeric",
-              month: "short",
-              day: "numeric"
-            })
-          }
+          {dateFormatter(cert.data.issueDate!, {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+          })}
         </span>
       </div>
 
-      {
-        cert.data.credentialId && (
-          <p class="card-meta mt-1">ID: {cert.data.credentialId}</p>
-        )
-      }
+      {cert.data.credentialId && (
+        <p class="card-meta mt-1">ID: {cert.data.credentialId}</p>
+      )}
     </div>
 
     <div class="mt-3 mb-3 flex flex-wrap gap-1">
-      {
-        cert.data
-          .skills!.slice(0, 3)
-          .map((skill) => <span class="chip">{skill}</span>)
-      }
-      {
-        cert.data.skills!.length > 3 && (
-          <span class="chip chip-solid">+{cert.data.skills!.length - 3}</span>
-        )
-      }
+      {cert.data.skills!.slice(0, 3).map((skill) => (
+        <span class="chip">{skill}</span>
+      ))}
+      {cert.data.skills!.length > 3 && (
+        <span class="chip chip-solid">+{cert.data.skills!.length - 3}</span>
+      )}
     </div>
 
     <footer class="mt-auto">
-      {
-        cert.data.credentialUrl && (
-          <a
-            href={cert.data.credentialUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-primary btn-sm w-full lg:w-auto"
-          >
-            <ExternalLink className="size-3" />
-            {certificates.btnToVerify}
-          </a>
-        )
-      }
+      {cert.data.credentialUrl && (
+        <a
+          href={cert.data.credentialUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary btn-sm w-full lg:w-auto"
+        >
+          <ExternalLink className="size-3" />
+          {certificates.btnToVerify}
+        </a>
+      )}
     </footer>
   </div>
 </article>

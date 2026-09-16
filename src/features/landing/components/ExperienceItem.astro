@@ -40,39 +40,33 @@ const period = `${formatDate(data.startDate)} — ${
       <h3 class="timeline-title">{data.position}</h3>
 
       <div class="timeline-meta mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-        {
-          data.companyUrl ? (
-            <a
-              href={data.companyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="timeline-subtitle hover:underline"
-            >
-              {data.title}
-            </a>
-          ) : (
-            <span class="timeline-subtitle">{data.title}</span>
-          )
-        }
-        {
-          data.location && (
-            <>
-              <span aria-hidden="true">·</span>
-              <span>{data.location}</span>
-            </>
-          )
-        }
+        {data.companyUrl ? (
+          <a
+            href={data.companyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="timeline-subtitle hover:underline"
+          >
+            {data.title}
+          </a>
+        ) : (
+          <span class="timeline-subtitle">{data.title}</span>
+        )}
+        {data.location && (
+          <>
+            <span aria-hidden="true">·</span>
+            <span>{data.location}</span>
+          </>
+        )}
         <span aria-hidden="true">·</span>
         <span>{period}</span>
       </div>
     </div>
 
-    {
-      isCurrent && (
-        <span class="timeline-badge inline-flex shrink-0 items-center">
-          {experience.currentBadge}
-        </span>
-      )
-    }
+    {isCurrent && (
+      <span class="timeline-badge inline-flex shrink-0 items-center">
+        {experience.currentBadge}
+      </span>
+    )}
   </div>
 </article>

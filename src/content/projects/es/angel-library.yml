@@ -1,0 +1,15 @@
+title: "angel.library"
+description: "Biblioteca personal de conocimiento técnico: snippets, recetas, comandos y referencias rápidas para desarrollo web. Consulta conceptos, recupera código y continúa aprendiendo desde un solo lugar."
+publishDate: 2026-08-16
+technologies:
+  - Astro
+  - TypeScript
+  - Tailwind CSS
+  - React
+githubUrl:
+  url: "https://github.com/iangelmanuel/angel-library"
+  isPrivate: false
+liveUrl: "https://angel-library.vercel.app"
+image: "../../assets/projects/angel-library-project.webp"
+featured: true
+status: "completed"

@@ -18,16 +18,5 @@
   "tabWidth": 2,
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",
-  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-  "importOrder": [
-    "^astro",
-    "^astro/(.*)$",
-    "^@/(.*)$",
-    "^@(.*)/types$",
-    "^[a-z]",
-    "^\\./",
-    "^.+\\.css$"
-  ],
-  "importOrderSeparation": false,
-  "importOrderSortSpecifiers": true
+  "plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"]
 }

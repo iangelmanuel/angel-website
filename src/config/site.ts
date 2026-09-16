@@ -20,7 +20,7 @@ const SITE_URL = (import.meta.env.SITE ?? "http://localhost:4321").replace(
 
 export const SITE = {
   info: {
-    name: "Angel De La Torre",
+    name: "Angel De La Torre Montaño",
     legalName: "Angel Manuel De La Torre Montaño",
     description: {
       es: "Soy un desarrollador web full stack con experiencia en la creación de aplicaciones web y móviles. Me especializo en tecnologías modernas como React, Node.js y bases de datos SQL y NoSQL. Mi objetivo es crear soluciones eficientes y escalables que satisfagan las necesidades de los clientes.",
@@ -93,12 +93,55 @@ export const SITE = {
   },
 
   social: {
-    instagram: "https://www.instagram.com/iangelmanuel",
-    linkedin: "https://www.linkedin.com/in/iangelmanuel",
-    x: "https://x.com/iangelmanuel",
-    github: "https://github.com/iangelmanuel",
-    tiktok: null as string | null,
-    youtube: "https://www.youtube.com/@iangelmanuel"
+    github: {
+      label: "GitHub",
+      handle: "@iangelmanuel",
+      url: "https://github.com/iangelmanuel",
+      icon: "github",
+      color: "var(--foreground)"
+    },
+    linkedin: {
+      label: "LinkedIn",
+      handle: "in/iangelmanuel",
+      url: "https://www.linkedin.com/in/iangelmanuel",
+      icon: "linkedin",
+      color: "#0A66C2"
+    },
+    x: {
+      label: "X",
+      handle: "@iangelmanuel",
+      url: "https://x.com/iangelmanuel",
+      icon: "x",
+      color: "var(--foreground)"
+    },
+    instagram: {
+      label: "Instagram",
+      handle: "@iangelmanuel",
+      url: "https://www.instagram.com/iangelmanuel",
+      icon: "instagram",
+      color: "#E4405F"
+    },
+    youtube: {
+      label: "YouTube",
+      handle: "@iangelmanuel",
+      url: "https://www.youtube.com/@iangelmanuel",
+      icon: "youtube",
+      color: "#FF0033"
+    },
+    discord: {
+      label: "Discord",
+      handle: "angelmanuel",
+      url: "https://discord.gg/angelmanuel",
+      icon: "discord",
+      color: "#5865F2"
+    },
+    email: {
+      label: "Correo",
+      handle: "iangelmanuel02@hotmail.com",
+      url: "mailto:iangelmanuel02@hotmail.com",
+      icon: "mail",
+      color: "var(--accent)"
+    }
   },
 
   services: [

@@ -1,0 +1,319 @@
+---
+---
+
+<canvas
+  id="code-grid"
+  aria-hidden="true"
+></canvas>
+<div
+  class="scanlines"
+  aria-hidden="true"
+></div>
+<div
+  class="vignette"
+  aria-hidden="true"
+></div>
+
+<style>
+  #code-grid {
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  .scanlines {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--foreground) 7%, transparent) 0 1px,
+      transparent 1px 3px
+    );
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 30%,
+      var(--background) 92%
+    );
+  }
+</style>
+
+<script>
+  const canvas = document.getElementById(
+    "code-grid"
+  ) as HTMLCanvasElement | null
+  const ctx = canvas?.getContext("2d", { alpha: true })
+
+  if (canvas && ctx) {
+    const GLYPHS = Array.from("01{}[]()<>/\\|=+-*&^%$#@!?;:._~")
+    const FPS = 30
+    const FRAME_MS = 1000 / FPS
+    const DECAY = 0.93
+    const BAND = 26
+    const MAX_PULSES = 5
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+
+    type Pulse = {
+      x: number
+      y: number
+      radius: number
+      speed: number
+      max: number
+      color: number
+    }
+
+    let palette: string[] = []
+    let cell = 18
+    let cols = 0
+    let rows = 0
+    let bright = new Float32Array(0)
+    let glyph = new Uint8Array(0)
+    let tint = new Uint8Array(0)
+    const pulses: Pulse[] = []
+    let rafId = 0
+    let lastFrame = 0
+    let sinceSpawn = 0
+
+    function readPalette() {
+      const root = getComputedStyle(document.documentElement)
+      const pick = (name: string, fallback: string) =>
+        root.getPropertyValue(name).trim() || fallback
+
+      return [
+        pick("--accent", "#3b82f6"),
+        pick("--green", "#22c55e"),
+        pick("--cyan", "#22d3ee"),
+        pick("--pink", "#ec4899"),
+        pick("--dim", "#7c7c8a")
+      ]
+    }
+
+    function resize() {
+      if (!canvas || !ctx) return
+
+      const width = window.innerWidth
+      const height = window.innerHeight
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5)
+
+      cell = width < 640 ? 16 : 18
+
+      canvas.width = Math.floor(width * dpr)
+      canvas.height = Math.floor(height * dpr)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      ctx.font = `${cell - 4}px "Geist Pixel", "JetBrains Mono", monospace`
+      ctx.textBaseline = "top"
+
+      cols = Math.ceil(width / cell)
+      rows = Math.ceil(height / cell)
+
+      const total = cols * rows
+
+      bright = new Float32Array(total)
+      glyph = new Uint8Array(total)
+      tint = new Uint8Array(total)
+
+      for (let i = 0; i < total; i++) {
+        glyph[i] = (Math.random() * GLYPHS.length) | 0
+      }
+    }
+
+    function spawnPulse(x?: number, y?: number) {
+      if (pulses.length >= MAX_PULSES) pulses.shift()
+
+      const width = window.innerWidth
+      const height = window.innerHeight
+
+      pulses.push({
+        x: x ?? Math.random() * width,
+        y: y ?? Math.random() * height,
+        radius: 0,
+        speed: 7 + Math.random() * 5,
+        max: Math.max(width, height) * (0.6 + Math.random() * 0.5),
+        color: (Math.random() * 4) | 0
+      })
+    }
+
+    function update() {
+      for (let i = 0; i < bright.length; i++) bright[i] *= DECAY
+
+      for (let p = pulses.length - 1; p >= 0; p--) {
+        const pulse = pulses[p]
+
+        pulse.radius += pulse.speed
+
+        if (pulse.radius > pulse.max) {
+          pulses.splice(p, 1)
+          continue
+        }
+
+        const outer = pulse.radius
+        const inner = Math.max(0, pulse.radius - BAND)
+        const outerSq = outer * outer
+        const innerSq = inner * inner
+
+        const minCol = Math.max(0, Math.floor((pulse.x - outer) / cell))
+        const maxCol = Math.min(cols - 1, Math.ceil((pulse.x + outer) / cell))
+        const minRow = Math.max(0, Math.floor((pulse.y - outer) / cell))
+        const maxRow = Math.min(rows - 1, Math.ceil((pulse.y + outer) / cell))
+
+        for (let row = minRow; row <= maxRow; row++) {
+          const dy = row * cell + cell / 2 - pulse.y
+          const dySq = dy * dy
+
+          for (let col = minCol; col <= maxCol; col++) {
+            const dx = col * cell + cell / 2 - pulse.x
+            const distSq = dx * dx + dySq
+
+            if (distSq > outerSq || distSq < innerSq) continue
+
+            const index = row * cols + col
+
+            bright[index] = 1
+            tint[index] = pulse.color
+
+            if (Math.random() > 0.55) {
+              glyph[index] = (Math.random() * GLYPHS.length) | 0
+            }
+          }
+        }
+      }
+
+      for (let n = 0; n < 4; n++) {
+        const index = (Math.random() * bright.length) | 0
+
+        if (bright[index] < 0.12) {
+          bright[index] = 0.3
+          tint[index] = 4
+          glyph[index] = (Math.random() * GLYPHS.length) | 0
+        }
+      }
+    }
+
+    function render() {
+      if (!canvas || !ctx) return
+
+      const width = window.innerWidth
+      const height = window.innerHeight
+
+      ctx.clearRect(0, 0, width, height)
+
+      for (let index = 0; index < bright.length; index++) {
+        const value = bright[index]
+
+        if (value < 0.05) continue
+
+        const col = index % cols
+        const row = (index / cols) | 0
+
+        ctx.globalAlpha = value * 0.75
+        ctx.fillStyle = palette[tint[index]] ?? palette[0]
+        ctx.fillText(GLYPHS[glyph[index]], col * cell, row * cell)
+      }
+
+      ctx.globalAlpha = 1
+
+      if (Math.random() < 0.05) {
+        const bandY = Math.random() * height
+        const bandHeight = 4 + Math.random() * 16
+        const offset = (Math.random() - 0.5) * 60
+
+        ctx.drawImage(
+          canvas,
+          0,
+          bandY,
+          width,
+          bandHeight,
+          offset,
+          bandY,
+          width,
+          bandHeight
+        )
+      }
+    }
+
+    function loop(now: number) {
+      rafId = requestAnimationFrame(loop)
+
+      const elapsed = now - lastFrame
+
+      if (elapsed < FRAME_MS) return
+
+      lastFrame = now
+      sinceSpawn += elapsed
+
+      if (sinceSpawn > 2200) {
+        sinceSpawn = 0
+        spawnPulse()
+      }
+
+      update()
+      render()
+    }
+
+    function start() {
+      if (rafId || reduceMotion) return
+      lastFrame = performance.now()
+      rafId = requestAnimationFrame(loop)
+    }
+
+    function stop() {
+      cancelAnimationFrame(rafId)
+      rafId = 0
+    }
+
+    let resizeTimer = 0
+
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = window.setTimeout(() => {
+        resize()
+        spawnPulse()
+      }, 150)
+    })
+
+    window.addEventListener(
+      "pointerdown",
+      (event) => {
+        if (!reduceMotion) spawnPulse(event.clientX, event.clientY)
+      },
+      { passive: true }
+    )
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stop()
+      else start()
+    })
+
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", () => {
+        palette = readPalette()
+      })
+
+    palette = readPalette()
+    resize()
+
+    if (reduceMotion) {
+      spawnPulse(window.innerWidth / 2, window.innerHeight / 2)
+      for (let i = 0; i < 40; i++) update()
+      render()
+    } else {
+      spawnPulse(window.innerWidth / 2, window.innerHeight * 0.4)
+      start()
+    }
+  }
+</script>

@@ -55,14 +55,12 @@ const educationList = educationCollection.sort(
     <h2 class="section-initial-title">{about.experience.title}</h2>
 
     <div class="space-y-6">
-      {
-        experienceList.map((item) => (
-          <ExperienceItem
-            item={item}
-            isCurrent={item.data.isCurrent}
-          />
-        ))
-      }
+      {experienceList.map((item) => (
+        <ExperienceItem
+          item={item}
+          isCurrent={item.data.isCurrent}
+        />
+      ))}
     </div>
   </div>
 
@@ -72,9 +70,7 @@ const educationList = educationCollection.sort(
       <span class="section-badge">{about.education.badge}</span>
 
       <div class="flex items-center justify-between">
-        <h2 class="section-initial-title mb-0">
-          {about.education.title}
-        </h2>
+        <h2 class="section-initial-title mb-0">{about.education.title}</h2>
 
         <a
           href={getRelativeLocaleUrl(lang, routes[design].certificates)}
@@ -89,15 +85,13 @@ const educationList = educationCollection.sort(
     <div class="relative space-y-6 pl-6">
       <div class="timeline-rail absolute top-1.5 bottom-1.5 left-1.25"></div>
 
-      {
-        educationList.map((item) => (
-          <div class="relative">
-            <span class="timeline-dot absolute top-1/2 -left-6 -translate-y-1/2" />
+      {educationList.map((item) => (
+        <div class="relative">
+          <span class="timeline-dot absolute top-1/2 -left-6 -translate-y-1/2" />
 
-            <EducationItem item={item} />
-          </div>
-        ))
-      }
+          <EducationItem item={item} />
+        </div>
+      ))}
     </div>
   </div>
 
@@ -108,14 +102,12 @@ const educationList = educationCollection.sort(
     <h2 class="section-initial-title">{about.skills.title}</h2>
 
     <div class="rule-t">
-      {
-        about.skills.list.map(({ label, skills }) => (
-          <div class="rule-b flex items-baseline justify-between gap-6 py-4">
-            <span class="skill-label w-24 shrink-0 sm:w-28">{label}</span>
-            <span class="skill-value text-right">{skills.join(" · ")}</span>
-          </div>
-        ))
-      }
+      {about.skills.list.map(({ label, skills }) => (
+        <div class="rule-b flex items-baseline justify-between gap-6 py-4">
+          <span class="skill-label w-24 shrink-0 sm:w-28">{label}</span>
+          <span class="skill-value text-right">{skills.join(" · ")}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>

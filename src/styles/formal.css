@@ -91,7 +91,7 @@
     }
 
     .avatar-badge {
-      @apply text-primary-foreground inline-flex w-fit items-center justify-center rounded-full border bg-black px-2 py-0.5 text-sm font-medium whitespace-nowrap dark:bg-white;
+      @apply text-primary-foreground inline-flex w-fit items-center justify-center rounded-full bg-black px-2 py-0.5 text-sm font-medium whitespace-nowrap dark:bg-white;
     }
 
     .btn-primary {
@@ -256,7 +256,7 @@
     }
 
     .prose-content :where(h2) {
-      @apply text-foreground mt-12 mb-4 border-b pb-2 text-xl font-semibold tracking-tight sm:text-2xl;
+      @apply text-foreground mt-12 mb-4 text-xl font-semibold tracking-tight sm:text-2xl;
     }
 
     .prose-content :where(h3) {

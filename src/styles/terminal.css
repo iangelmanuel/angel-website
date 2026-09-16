@@ -452,7 +452,7 @@
     }
 
     .prose-content :where(a) {
-      @apply text-accent border-b border-current transition-colors hover:text-foreground;
+      @apply text-accent hover:text-foreground border-b border-current transition-colors;
     }
 
     .prose-content :where(strong) {

@@ -1,0 +1,28 @@
+title: "Solis CRM (Beta)"
+description: "Solis CRM WhatsApp es un sistema de gestión de clientes (CRM) multi-tenant que centraliza la bandeja de WhatsApp, automatiza flujos de conversación con IA y sincroniza leads, deals y tickets en un solo lugar. Diseñado para equipos que gestionan ventas y soporte por WhatsApp a escala."
+publishDate: 2026-07-19
+technologies:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind CSS
+  - Prisma
+  - PostgreSQL
+  - Vercel
+  - OpenRouter
+  - Baileys
+  - Zod
+  - NextAuth.js
+  - Stripe
+  - Cloudinary
+  - Framer Motion
+  - Recharts
+  - dnd kit
+  - XYFlow
+githubUrl:
+  url: "https://github.com/iangelmanuel/solis-crm-whatsapp"
+  isPrivate: true
+liveUrl: "https://solis-crm-whatsapp.vercel.app"
+image: "../../assets/projects/solis-crm-project.webp"
+featured: true
+status: "beta"

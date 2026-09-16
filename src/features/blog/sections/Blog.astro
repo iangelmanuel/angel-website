@@ -18,29 +18,25 @@ const recentPosts = blogCollection
   .slice(0, 3)
 ---
 
-{
-  recentPosts.length > 0 && (
-    <section
-      id="blog"
-      class="compact-section py-10"
-    >
-      <div class="container-width text-center">
-        <span class="section-badge">{blog.badge}</span>
+{recentPosts.length > 0 && (
+  <section
+    id="blog"
+    class="compact-section py-10"
+  >
+    <div class="container-width text-center">
+      <span class="section-badge">{blog.badge}</span>
 
-        <h2 class="section-title text-center">{blog.title}</h2>
+      <h2 class="section-title text-center">{blog.title}</h2>
 
-        <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
-          {recentPosts.map(({ id, data }, index) => (
-            <div class:list={{ "md:col-start-2": recentPosts.length === 1 }}>
-              <BlogPostCard
-                id={id}
-                data={data}
-                index={index}
-              />
-            </div>
-          ))}
-        </div>
+      <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+        {recentPosts.map(({ id, data }, index) => (
+          <BlogPostCard
+            id={id}
+            data={data}
+            index={index}
+          />
+        ))}
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)}

@@ -14,11 +14,9 @@ const linkToRedirect = getAlternateLocaleUrl(Astro.url.pathname, lang)
   aria-label="Toggle Language"
   class="icon-btn mr-0 size-8 transition-transform duration-300 hover:scale-110 sm:size-10"
 >
-  {
-    design === "TERMINAL" ? (
-      <span class="lang-code">{lang === "es" ? "en" : "es"}</span>
-    ) : (
-      <Globe className="size-4 transition-all duration-300 sm:size-5" />
-    )
-  }
+  {design === "TERMINAL" ? (
+    <span class="lang-code">{lang === "es" ? "en" : "es"}</span>
+  ) : (
+    <Globe className="size-4 transition-all duration-300 sm:size-5" />
+  )}
 </a>

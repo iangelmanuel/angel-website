@@ -29,18 +29,16 @@ const accent = getCardAccent(index)
   class="win-card group"
   style={`--card-color: var(--${accent})`}
 >
-  {
-    design === "TERMINAL" && (
-      <div class="win-card-bar">
-        <div class="win-card-dots">
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-          <span class="win-card-dot" />
-        </div>
-        <span class="win-card-path">~/{slug}</span>
+  {design === "TERMINAL" && (
+    <div class="win-card-bar">
+      <div class="win-card-dots">
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
+        <span class="win-card-dot" />
       </div>
-    )
-  }
+      <span class="win-card-path">~/{slug}</span>
+    </div>
+  )}
 
   <div class="win-card-body">
     <header class="media-frame aspect-video overflow-hidden">
@@ -60,35 +58,31 @@ const accent = getCardAccent(index)
         {data.title}
       </h3>
 
-      {
-        data.githubUrl.isPrivate ? (
-          <span class="chip shrink-0">Private</span>
-        ) : (
-          <a
-            href={data.githubUrl.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="chip chip-link shrink-0 gap-1"
-          >
-            <Icon
-              name="github"
-              size="1em"
-            />
-            <span>Public</span>
-          </a>
-        )
-      }
+      {data.githubUrl.isPrivate ? (
+        <span class="chip shrink-0">Private</span>
+      ) : (
+        <a
+          href={data.githubUrl.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="chip chip-link shrink-0 gap-1"
+        >
+          <Icon
+            name="github"
+            size="1em"
+          />
+          <span>Public</span>
+        </a>
+      )}
     </div>
 
     <span class="card-meta flex items-center gap-1.5">
       <Calendar className="size-3.5" />
-      {
-        dateFormatter(data.publishDate, {
-          day: "2-digit",
-          month: "short",
-          year: "numeric"
-        })
-      }
+      {dateFormatter(data.publishDate, {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+      })}
     </span>
 
     <p class="card-text mt-1.5 mb-3 line-clamp-2 text-start sm:mb-4">
@@ -96,16 +90,12 @@ const accent = getCardAccent(index)
     </p>
 
     <div class="mb-3 flex flex-wrap gap-1.5 sm:mb-4 sm:gap-2">
-      {
-        data.technologies
-          .slice(0, 4)
-          .map((tag) => <span class="chip chip-solid">{tag}</span>)
-      }
-      {
-        data.technologies.length > 4 && (
-          <span class="chip chip-solid">+{data.technologies.length - 4}</span>
-        )
-      }
+      {data.technologies.slice(0, 4).map((tag) => (
+        <span class="chip chip-solid">{tag}</span>
+      ))}
+      {data.technologies.length > 4 && (
+        <span class="chip chip-solid">+{data.technologies.length - 4}</span>
+      )}
     </div>
 
     <footer class="mt-auto flex items-center gap-2 sm:gap-3">

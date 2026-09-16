@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2026-09-16
+
+### Added
+
+- New standalone `/links` page in its own feature (`src/features/links/`): a link-in-bio for the social accounts, Spanish-only and locked to the TERMINAL design. It deliberately bypasses `Layout.astro` — `LinksLayout.astro` ships its own `<html>`, head and SEO, with no TopMenu, Footer, Toaster, i18n or site-wide JSON-LD.
+- Animated ASCII plasma background for `/links` (`PlasmaFieldBackground.astro`), rendered on a 2D canvas with no external library: three crossing sine waves drive a 13-symbol density ramp (`. : ~ ; ! + ? = * % # & @`), colored from the theme tokens. Clicking (or tapping) fires an expanding shockwave that fades over 1.4s and returns the field to its normal rhythm. Runs at 20fps (14fps under 640px), caps `devicePixelRatio` at 1.5, batches draws into 5 color buckets, pauses when the tab is hidden and renders a single static frame under `prefers-reduced-motion`.
+- Second background kept as an alternative (`CodeGridBackground.astro`): radar-style pulses that light up cells of a code grid. Swapping backgrounds is a one-line import change in `LinksLayout.astro`.
+- Brand colors per social network on the `/links` cards, plus 4 new local icons (`instagram`, `youtube`, `discord`, `mail`) in the same style as the existing ones — Lucide no longer ships brand marks.
+- Blog post SEO: `article:*` Open Graph meta (published time, author, section, one tag per entry), `twitter:image:alt`, the post cover as `og:image` with its real dimensions, and a `BlogPosting` JSON-LD (`blogPostingLd` in `src/libs/seo.ts`) wired to the existing `#organization`/`#website` nodes.
+- `<slot name="jsonld" />` in `Layout.astro`, so a page can inject its own structured data into `<head>`.
+
+### Changed
+
+- `projects` collection migrated from `.md` to `.yml`: the markdown bodies were never rendered anywhere, so the frontmatter is now the whole file. Loader pattern updated in `src/content.config.ts`; the schema is unchanged.
+- `SITE.social` restructured from a map of URLs into a map of objects (`label`, `handle`, `url`, `icon`, `color`), making it the single source for `/links`. Consumers updated: `Footer.astro`, `Hero.astro` and the `sameAs` arrays in `src/libs/seo.ts`.
+- `sitemap.xml` now lists every non-draft blog post in both languages (with the post's publish date as `lastmod`) plus `/en`; previously it only listed `/`.
+- `/links` tuned for mobile: safe-area insets for notched devices, `:active` feedback on the link rows (there is no hover on touch), per-row `backdrop-filter` disabled under 640px, and a lower frame rate on small screens.
+- Prose peak color swapped from pink to the theme's `--orange`, the only warm token, so the densest glyphs actually contrast against the blue/cyan/green levels.
+- FORMAL prose `h2` no longer draws a rule underneath it.
+- FORMAL hero badge (years of experience) dropped its border; it is now a solid pill.
+- The navbar logo always sits on a black background, in every theme and design.
+- Dependencies updated and pinned to exact versions: `astro` 7.3.2, `@astrojs/react` 6.0.5, `@astrojs/vercel` 11.0.10, `react`/`react-dom` 19.3.0, `@types/react`/`@types/react-dom` 19.3.0, `lucide-react` 1.46.0, `react-hook-form` 7.88.0, `resend` 6.28.0, `eslint` 10.10.0, `typescript-eslint` 8.70.0, `prettier-plugin-astro` 1.0.0 (its major bump reformatted the `.astro` files repo-wide). `typescript` stays on `6.0.3` — 7.x still breaks `astro check`, as noted in 1.3.1.
+
+### Fixed
+
+- Fixed the `prettier:check` CI job failing: `.prettierrc` declared `importOrder`, `importOrderSeparation` and `importOrderSortSpecifiers`, options belonging to `@trivago/prettier-plugin-sort-imports`, a plugin that was never installed. Prettier emitted three warnings per file (hundreds of lines of log noise) and the job then failed on 4 genuinely unformatted files. Removed the dead options and formatted the repo.
+- Fixed an ESLint `prefer-const` error in `CodeGridBackground.astro`.
+
+### Removed
+
+- Removed `src/features/links/const/links.ts`; the link data now lives in `SITE.social`.
+- Removed the six `src/content/projects/**/*.md` files, superseded by their `.yml` equivalents.
+
 ## [1.7.0] - 2026-09-15
 
 ### Added
@@ -392,9 +425,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.7.0
-- **Node.js**: >= 22.12.0
-- **pnpm**: >= 9.0.0
+- **Current version**: 1.8.0
+- **Node.js**: >= 24.19.0
+- **pnpm**: >= 11.17.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
-- **Astro**: 7.2.1
+- **Astro**: 7.3.2
 - **Tailwind CSS**: v4.3.3

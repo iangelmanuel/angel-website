@@ -1,0 +1,290 @@
+---
+import { Icon } from "astro-icon/components"
+
+import { ArrowUpRight } from "lucide-react"
+
+import { SITE } from "@/config/site"
+
+const links = Object.values(SITE.social)
+const year = new Date().getFullYear()
+---
+
+<main class="safe-area flex min-h-dvh items-center justify-center">
+  <div class="w-full max-w-md">
+    <header class="win-card relative">
+      <span class="pixel-corner pixel-corner-tl"></span>
+      <span class="pixel-corner pixel-corner-tr"></span>
+      <span class="pixel-corner pixel-corner-bl"></span>
+      <span class="pixel-corner pixel-corner-br"></span>
+
+      <div class="win-card-bar">
+        <div class="win-card-dots">
+          <span class="win-card-dot"></span>
+          <span class="win-card-dot"></span>
+          <span class="win-card-dot"></span>
+        </div>
+        <span class="win-card-path">~/links</span>
+      </div>
+
+      <div class="win-card-body items-center text-center">
+        <img
+          src={SITE.seo.image}
+          alt={SITE.info.name}
+          width="80"
+          height="80"
+          class="avatar border-border size-20 border bg-black object-contain"
+        />
+
+        <h1
+          class="glitch font-pixel mt-4 text-base sm:text-lg"
+          data-text={SITE.info.name}
+        >
+          {SITE.info.name}
+        </h1>
+
+        <p class="card-text mt-2">{SITE.info.work.position}</p>
+
+        <p class="text-dim mt-1 text-xs">
+          <span class="text-green">$</span>
+          {SITE.location.display}
+        </p>
+      </div>
+    </header>
+
+    <nav class="mt-5 space-y-2.5">
+      {links.map(({ label, handle, url, icon, color }) => (
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-row"
+          style={`--brand: ${color}`}
+        >
+          <span class="link-icon">
+            <Icon
+              name={icon}
+              size="1.15em"
+            />
+          </span>
+
+          <span class="min-w-0 flex-1 text-left">
+            <span class="block text-sm font-bold">{label}</span>
+            <span class="text-dim block truncate text-xs">{handle}</span>
+          </span>
+
+          <ArrowUpRight className="arrow size-4 shrink-0" />
+        </a>
+      ))}
+    </nav>
+
+    <footer class="text-dim mt-8 text-center text-[11px]">
+      <a
+        href="/"
+        class="home-link"
+      >
+        ← angeldm.dev
+      </a>
+      <p class="mt-1.5">
+        © {year} {SITE.info.name}
+      </p>
+    </footer>
+  </div>
+</main>
+
+<style>
+  .safe-area {
+    padding-block: calc(2rem + env(safe-area-inset-top))
+      calc(2rem + env(safe-area-inset-bottom));
+    padding-inline: calc(1rem + env(safe-area-inset-left))
+      calc(1rem + env(safe-area-inset-right));
+  }
+
+  @media (min-width: 640px) {
+    .safe-area {
+      padding-block: 3rem;
+      padding-inline: 1.25rem;
+    }
+  }
+
+  .avatar {
+    image-rendering: pixelated;
+  }
+
+  .pixel-corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    z-index: 1;
+  }
+
+  .pixel-corner-tl {
+    top: -3px;
+    left: -3px;
+  }
+  .pixel-corner-tr {
+    top: -3px;
+    right: -3px;
+  }
+  .pixel-corner-bl {
+    bottom: -3px;
+    left: -3px;
+  }
+  .pixel-corner-br {
+    bottom: -3px;
+    right: -3px;
+  }
+
+  .glitch {
+    position: relative;
+    display: inline-block;
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .glitch::before {
+    color: var(--cyan);
+    animation: glitch-x 3.2s steps(2, end) infinite;
+    clip-path: inset(0 0 55% 0);
+  }
+
+  .glitch::after {
+    color: var(--pink);
+    animation: glitch-y 2.7s steps(2, end) infinite;
+    clip-path: inset(55% 0 0 0);
+  }
+
+  @keyframes glitch-x {
+    0%,
+    92%,
+    100% {
+      transform: translate(0);
+      opacity: 0;
+    }
+    93% {
+      transform: translate(-2px, -1px);
+      opacity: 0.9;
+    }
+    96% {
+      transform: translate(2px, 1px);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes glitch-y {
+    0%,
+    90%,
+    100% {
+      transform: translate(0);
+      opacity: 0;
+    }
+    91% {
+      transform: translate(2px, 1px);
+      opacity: 0.9;
+    }
+    95% {
+      transform: translate(-2px, -1px);
+      opacity: 0.7;
+    }
+  }
+
+  .link-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid var(--border);
+    background: color-mix(in oklab, var(--surface) 82%, transparent);
+    padding: 0.875rem;
+    backdrop-filter: blur(4px);
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .link-row:hover,
+  .link-row:focus-visible {
+    border-color: var(--brand);
+    box-shadow: 3px 3px 0 0 var(--brand);
+    transform: translate(-2px, -2px);
+    outline: none;
+  }
+
+  /* Feedback táctil: en móvil no hay hover */
+  .link-row:active {
+    border-color: var(--brand);
+    box-shadow: 1px 1px 0 0 var(--brand);
+    transform: translate(0, 0);
+  }
+
+  /* El desenfoque por fila es caro en móviles de gama baja */
+  @media (max-width: 639px) {
+    .link-row {
+      backdrop-filter: none;
+      background: color-mix(in oklab, var(--surface) 92%, transparent);
+    }
+  }
+
+  .link-icon {
+    display: flex;
+    height: 2.25rem;
+    width: 2.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-soft);
+    color: var(--brand);
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  .link-row:hover .link-icon {
+    border-color: var(--brand);
+    background: color-mix(in oklab, var(--brand) 12%, transparent);
+  }
+
+  .arrow {
+    color: var(--dim);
+    transition:
+      color 0.15s ease,
+      transform 0.15s ease;
+  }
+
+  .link-row:hover .arrow {
+    color: var(--brand);
+    transform: translate(1px, -1px);
+  }
+
+  .home-link {
+    transition: color 0.15s ease;
+  }
+
+  .home-link:hover {
+    color: var(--accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .glitch::before,
+    .glitch::after {
+      animation: none;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      opacity: 0;
+    }
+
+    .link-row,
+    .arrow,
+    .link-icon {
+      transition: none;
+    }
+  }
+</style>

@@ -3,9 +3,13 @@ import type { GetStaticPaths } from "astro"
 import { getCollection } from "astro:content"
 
 import Layout from "@/layouts/Layout.astro"
+import JsonLd from "@/components/seo/JsonLd.astro"
 import PostDetail from "@/features/blog/sections/PostDetail.astro"
 
 import { getRouteParams } from "@/libs/route-params"
+import { blogPostingLd } from "@/libs/seo"
+import { SITE } from "@/config/site"
+import { useI18n } from "@/i18n"
 
 export const getStaticPaths = (async () => {
   const routeParams = getRouteParams()
@@ -25,11 +29,42 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths
 
 const { post } = Astro.props
+const { lang } = useI18n(Astro)
+
+const { title, description, image, publishDate, tags = [] } = post.data
+
+const canonical = new URL(Astro.url.pathname, SITE.seo.url).href
+const ogImage = image?.src ?? SITE.seo.image
+const publishedTime = publishDate.toISOString()
+
+const jsonLd = blogPostingLd({
+  title,
+  description,
+  url: canonical,
+  image: new URL(ogImage, SITE.seo.url).href,
+  publishedTime,
+  tags,
+  lang
+})
 ---
 
 <Layout
-  title={post.data.title}
-  description={post.data.description}
+  title={title}
+  description={description}
+  image={ogImage}
+  imageWidth={image?.width}
+  imageHeight={image?.height}
+  imageAlt={title}
+  keywords={[...tags, ...SITE.seo.keywords]}
+  ogType="article"
+  publishedTime={publishedTime}
+  tags={tags}
 >
+  <JsonLd
+    slot="jsonld"
+    id="ld-blogposting"
+    data={jsonLd}
+  />
+
   <PostDetail post={post} />
 </Layout>

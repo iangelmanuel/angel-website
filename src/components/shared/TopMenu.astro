@@ -33,29 +33,23 @@ const navItems = t(SITE.navigation).map(({ name, href }) => ({
         <img
           src={SITE.seo.image}
           alt={t(SITE.seo.imageAlt)}
-          class="logo-frame inline size-12 rounded-full border-2 border-solid border-gray-300 object-cover transition-all duration-300 dark:border-gray-700"
+          class="logo-frame size-12 rounded-full border bg-black object-cover transition-all duration-300"
         />
       </a>
 
-      <div
-        class="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center space-x-8 lg:flex lg:space-x-12"
-      >
-        {
-          navItems.map(({ href, label }) => (
-            <a
-              href={href}
-              class="nav-link group relative"
-            >
-              {label}
-              <span class="nav-underline" />
-            </a>
-          ))
-        }
+      <div class="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center space-x-8 lg:flex lg:space-x-12">
+        {navItems.map(({ href, label }) => (
+          <a
+            href={href}
+            class="nav-link group relative"
+          >
+            {label}
+            <span class="nav-underline" />
+          </a>
+        ))}
       </div>
 
-      <div
-        class="flex items-center justify-center gap-2 px-5 sm:space-x-3 lg:px-0"
-      >
+      <div class="flex items-center justify-center gap-2 px-5 sm:space-x-3 lg:px-0">
         <DesignToggle />
         <ToggleLanguage />
         <ModeToggle client:load />

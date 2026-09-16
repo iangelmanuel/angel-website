@@ -32,14 +32,14 @@ draft: false # opcional, default false
 ---
 ```
 
-| Campo         | Tipo               | Obligatorio | Notas                                                                 |
-| ------------- | ------------------ | ----------- | ---------------------------------------------------------------------- |
-| `title`       | `string`           | Sí          | También es el `<h1>` de la página de detalle (no lo repitas en el body). |
-| `description` | `string`           | Sí          | Excerpt del card + meta description.                                  |
-| `publishDate` | `date`              | Sí          | Formato `YYYY-MM-DD`. Controla el orden (más reciente primero).       |
+| Campo         | Tipo               | Obligatorio | Notas                                                                                                                                                                                                          |
+| ------------- | ------------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `title`       | `string`           | Sí          | También es el `<h1>` de la página de detalle (no lo repitas en el body).                                                                                                                                       |
+| `description` | `string`           | Sí          | Excerpt del card + meta description.                                                                                                                                                                           |
+| `publishDate` | `date`             | Sí          | Formato `YYYY-MM-DD`. Controla el orden (más reciente primero).                                                                                                                                                |
 | `image`       | imagen (`image()`) | No          | Portada del card en el landing. Si no la pones, el card no muestra header de imagen. **No** se renderiza sola en la página de detalle — si quieres una imagen en el cuerpo del post, insértala en el markdown. |
-| `tags`        | `string[]`         | No          | Se muestran como chips en el card y en el detalle.                    |
-| `draft`       | `boolean`          | No          | `true` = no aparece en el landing ni genera página `/blog/[slug]`.    |
+| `tags`        | `string[]`         | No          | Se muestran como chips en el card y en el detalle.                                                                                                                                                             |
+| `draft`       | `boolean`          | No          | `true` = no aparece en el landing ni genera página `/blog/[slug]`.                                                                                                                                             |
 
 ## Formatos soportados en el cuerpo
 
@@ -47,12 +47,15 @@ El H1 ya lo pone `title` — el body empieza en H2.
 
 ````markdown
 ## Heading 2
+
 ### Heading 3
+
 #### Heading 4
+
 ##### Heading 5
 
-Texto con **negrita**, *cursiva*, <u>subrayado</u>, `código en línea`
-y [enlaces](https://ejemplo.com). Se pueden combinar: ***negrita y cursiva***.
+Texto con **negrita**, _cursiva_, <u>subrayado</u>, `código en línea`
+y [enlaces](https://ejemplo.com). Se pueden combinar: _**negrita y cursiva**_.
 
 - Lista sin ordenar
 - Con un nivel anidado

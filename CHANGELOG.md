@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.7.0] - 2026-09-15
+
+### Added
+
+- New **blog feature** in its own `src/features/blog/` directory: `components/BlogPostCard.astro`, `sections/Blog.astro` (landing preview) and `sections/PostDetail.astro` (full article), imported by the pages rather than living inside the landing feature.
+- New `blog` content collection (`src/content/blog/{es,en}/*.md`) with `title`, `description`, `publishDate`, `image` (optional, cover for the landing card only), `tags` (optional) and `draft` (default `false`). Drafts are excluded from both the landing list and static path generation.
+- Blog section on the landing page, between Projects and Contact: the 3 most recent non-draft posts for the active language, hidden entirely when there are none. A single post is pushed to the right column of the 2-column grid.
+- Post detail route `src/pages/[...route]/blog/[slug].astro`: `getStaticPaths` crosses locale × design × post, so every post is generated for the 4 route variants (`/blog/…`, `/en/blog/…`, `/formal/blog/…`, `/en/formal/blog/…`). Posts share the same slug across languages so the language toggle keeps working on detail pages.
+- `blog` entry in `src/const/routes.ts` (`/blog` and `/formal/blog`), plus slug-preserving support in `getAlternateDesignUrl` — switching TERMINAL ↔ FORMAL from a post now stays on that post instead of falling back to the home page.
+- New `ui.blog` i18n namespace (`badge`, `title`, `readMore`, `backToHome`).
+- Full prose typography system (`.prose-content`) for both designs, covering every markdown format a post can use: `h2`–`h5`, bold, italics, underline, links, ordered/unordered/nested lists, task lists, blockquotes, a `.note` callout (raw HTML block, no extra plugin), tables, inline code, fenced code blocks (Shiki highlighting, built into Astro), images and horizontal rules.
+- Starlight-style heading anchors: a client script (`astro:page-load`) appends a `#` link to every `h2`–`h5` of the rendered markdown, revealed on hover and pinning the section hash on click, with `scroll-margin-top` so the jump clears the navbar.
+- New `docs/` directory with `docs/blog.md`: file and asset conventions, frontmatter reference table, and every supported markdown format for writing a post.
+- First blog post, "De estudiar negocios a convertirme en desarrollador Full Stack" (ES/EN), with its assets in a per-post folder (`src/content/assets/blog/<slug>/`).
+
+### Changed
+
+- FORMAL light mode: `--muted-foreground` darkened from `oklch(0.556 0 0)` to `oklch(0.42 0 0)` — descriptions and body copy were nearly illegible against white. Applies project-wide through the token (`body-text`, `card-text`, `card-meta`, `stat-label`, prose…), leaving dark mode untouched.
+- TERMINAL light mode: `--muted-foreground` lightened from `oklch(0.42 0.015 285)` to `oklch(0.5 0.015 285)`, since at `0.42` descriptions read almost the same color as the near-black titles.
+- Prose polish pass in both designs: larger headings with more vertical rhythm (`h2` now `lg`/`xl` in TERMINAL and `xl`/`2xl` in FORMAL, with a rule underneath and a `>` prefix in TERMINAL), blockquotes that are actually visible (accent left bar + surface background instead of faint dim italics), table headers with real contrast plus zebra rows and hover, dashed `hr` with wider spacing, offset shadow on code blocks, and a `.note` callout styled distinctly from blockquotes.
+- Resized `midudev.webp` from 6048×4944 (1.3 MB) to 1600×1308 (198 KB) — Astro re-encodes images but does not downscale them, so oversized sources ship as-is.
+
 ## [1.6.0] - 2026-09-15
 
 ### Added
@@ -370,7 +392,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.6.0
+- **Current version**: 1.7.0
 - **Node.js**: >= 22.12.0
 - **pnpm**: >= 9.0.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

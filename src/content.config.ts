@@ -81,9 +81,26 @@ const certificates = defineCollection({
   })
 })
 
+const blog = defineCollection({
+  loader: glob({
+    pattern: "**/*.md",
+    base: "./src/content/blog"
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      publishDate: z.date(),
+      image: image().optional(),
+      tags: z.array(z.string()).optional(),
+      draft: z.boolean().default(false)
+    })
+})
+
 export const collections = {
   experience,
   education,
   projects,
-  certificates
+  certificates,
+  blog
 }

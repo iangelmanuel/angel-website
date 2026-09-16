@@ -5,6 +5,7 @@ import Layout from "@/layouts/Layout.astro"
 import Hero from "@/features/landing/sections/Hero.astro"
 import About from "@/features/landing/sections/About.astro"
 import Projects from "@/features/landing/sections/Projects.astro"
+import Blog from "@/features/blog/sections/Blog.astro"
 import Contact from "@/features/landing/sections/Contact.astro"
 
 import { getRouteParams } from "@/libs/route-params"
@@ -16,5 +17,6 @@ export const getStaticPaths = (() => getRouteParams()) satisfies GetStaticPaths
   <Hero />
   <About />
   <Projects />
+  <Blog />
   <Contact />
 </Layout>

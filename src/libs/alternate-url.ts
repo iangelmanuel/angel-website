@@ -28,10 +28,14 @@ export const getAlternateDesignUrl = (url: URL, currentLang: Lang) => {
 
   const path = getPathWithoutLocale(url.pathname)
   const isCertificates = path.endsWith(routes[design].certificates)
+  const blogPrefix = `${routes[design].blog}/`
+  const isBlogPost = path.startsWith(blogPrefix)
 
   const targetPath = isCertificates
     ? routes[target].certificates
-    : routes[target].home
+    : isBlogPost
+      ? `${routes[target].blog}/${path.slice(blogPrefix.length)}`
+      : routes[target].home
 
   return getRelativeLocaleUrl(currentLang, targetPath)
 }

@@ -362,6 +362,147 @@
     .footer-name {
       @apply font-pixel text-sm sm:text-base;
     }
+
+    .prose-content {
+      @apply text-muted-foreground text-sm leading-7 sm:text-[15px];
+    }
+
+    .prose-content :where(h2, h3, h4, h5) {
+      scroll-margin-top: 6rem;
+    }
+
+    .prose-content :where(h2) {
+      @apply font-pixel text-foreground border-border-soft mt-12 mb-4 border-b pb-2 text-lg sm:text-xl;
+    }
+
+    .prose-content :where(h2)::before {
+      content: "> ";
+      @apply text-accent;
+    }
+
+    .prose-content :where(h3) {
+      @apply font-pixel text-foreground mt-9 mb-3 text-base sm:text-lg;
+    }
+
+    .prose-content :where(h4) {
+      @apply font-pixel text-foreground mt-7 mb-2 text-sm sm:text-base;
+    }
+
+    .prose-content :where(h5) {
+      @apply text-dim mt-6 mb-2 text-[11px] font-bold tracking-[0.08em] uppercase sm:text-xs;
+    }
+
+    .prose-content :where(h2, h3, h4, h5) a.heading-anchor {
+      @apply text-accent ml-2 opacity-0 transition-opacity;
+      border-bottom: none !important;
+      text-decoration-line: none !important;
+    }
+
+    .prose-content :where(h2, h3, h4, h5):hover a.heading-anchor,
+    a.heading-anchor:focus {
+      @apply opacity-100;
+    }
+
+    .prose-content :where(p) {
+      @apply mb-5;
+    }
+
+    .prose-content :where(img) {
+      @apply border-border my-6 border;
+    }
+
+    .prose-content :where(em) {
+      @apply text-foreground italic;
+    }
+
+    .prose-content :where(u) {
+      @apply decoration-accent underline decoration-1 underline-offset-4;
+    }
+
+    .prose-content :where(hr) {
+      @apply border-border my-12 border-t border-dashed;
+    }
+
+    .prose-content :where(blockquote) {
+      @apply border-accent bg-surface-strong text-foreground my-6 border-l-2 px-5 py-4 not-italic;
+    }
+
+    .prose-content :where(blockquote) :where(p):last-child {
+      @apply mb-0;
+    }
+
+    .prose-content :where(ul, ol) {
+      @apply mb-5 ml-5 list-disc space-y-1.5;
+    }
+
+    .prose-content :where(ol) {
+      @apply list-decimal;
+    }
+
+    .prose-content :where(li)::marker {
+      @apply text-accent;
+    }
+
+    .prose-content :where(ul):has(input[type="checkbox"]) {
+      @apply ml-0 list-none;
+    }
+
+    .prose-content :where(li) :where(input[type="checkbox"]) {
+      @apply accent-accent mr-2;
+    }
+
+    .prose-content :where(a) {
+      @apply text-accent border-b border-current transition-colors hover:text-foreground;
+    }
+
+    .prose-content :where(strong) {
+      @apply text-foreground font-semibold;
+    }
+
+    .prose-content :where(code) {
+      @apply bg-surface-strong border-border-soft text-foreground border px-1.5 py-0.5 font-mono text-xs;
+    }
+
+    .prose-content :where(pre) {
+      @apply border-border my-6 overflow-x-auto border p-4 text-xs sm:text-sm;
+      box-shadow: 2px 2px 0 0 var(--border);
+    }
+
+    .prose-content :where(pre code) {
+      @apply border-none bg-transparent p-0;
+    }
+
+    .prose-content :where(table) {
+      @apply border-border my-6 w-full border-collapse border text-xs sm:text-sm;
+    }
+
+    .prose-content :where(th, td) {
+      @apply border-border border px-3 py-2.5 text-start;
+    }
+
+    .prose-content :where(th) {
+      @apply bg-accent/15 text-foreground text-[11px] font-bold tracking-[0.06em] uppercase sm:text-xs;
+    }
+
+    .prose-content :where(tbody tr:nth-child(even)) {
+      @apply bg-surface-strong;
+    }
+
+    .prose-content :where(tbody tr) {
+      @apply hover:bg-accent/5 transition-colors;
+    }
+
+    .prose-content .note {
+      @apply border-accent/50 bg-accent/5 text-foreground my-6 border px-5 py-4 text-sm;
+    }
+
+    .prose-content .note :where(strong):first-child {
+      @apply text-accent mr-1 text-xs font-bold tracking-[0.06em] uppercase;
+    }
+
+    .prose-content .note :where(p):last-child {
+      @apply mb-0;
+    }
   }
 }
 

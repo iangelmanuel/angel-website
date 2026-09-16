@@ -1,0 +1,35 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+
+import Layout from "@/layouts/Layout.astro"
+import PostDetail from "@/features/blog/sections/PostDetail.astro"
+
+import { getRouteParams } from "@/libs/route-params"
+
+export const getStaticPaths = (async () => {
+  const routeParams = getRouteParams()
+  const posts = await getCollection("blog", (post) => !post.data.draft)
+
+  return routeParams.flatMap(({ params }) => {
+    const segments = (params.route ?? "").split("/").filter(Boolean)
+    const lang = segments.includes("en") ? "en" : "es"
+
+    return posts
+      .filter((post) => post.id.split("/")[0] === lang)
+      .map((post) => ({
+        params: { ...params, slug: post.id.split("/").pop() },
+        props: { post }
+      }))
+  })
+}) satisfies GetStaticPaths
+
+const { post } = Astro.props
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+>
+  <PostDetail post={post} />
+</Layout>

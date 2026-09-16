@@ -1,10 +1,12 @@
 export const routes = {
   TERMINAL: {
     home: "/",
-    certificates: "/certificates"
+    certificates: "/certificates",
+    blog: "/blog"
   },
   FORMAL: {
     home: "/formal",
-    certificates: "/formal/certificates"
+    certificates: "/formal/certificates",
+    blog: "/formal/blog"
   }
 } as const

@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content"
+
+import BlogPostCard from "../components/BlogPostCard.astro"
+
+import { ui, useI18n } from "@/i18n"
+
+const { t, lang } = useI18n(Astro)
+const blog = t(ui.blog)
+
+const blogCollection = await getCollection("blog", (post) => {
+  const [postLang] = post.id.split("/")
+  return postLang === lang && !post.data.draft
+})
+
+const recentPosts = blogCollection
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3)
+---
+
+{
+  recentPosts.length > 0 && (
+    <section
+      id="blog"
+      class="compact-section py-10"
+    >
+      <div class="container-width text-center">
+        <span class="section-badge">{blog.badge}</span>
+
+        <h2 class="section-title text-center">{blog.title}</h2>
+
+        <div class="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2">
+          {recentPosts.map(({ id, data }, index) => (
+            <div class:list={{ "md:col-start-2": recentPosts.length === 1 }}>
+              <BlogPostCard
+                id={id}
+                data={data}
+                index={index}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

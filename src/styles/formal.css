@@ -246,6 +246,140 @@
     .footer-name {
       @apply text-sm font-medium sm:text-base;
     }
+
+    .prose-content {
+      @apply text-muted-foreground text-[15px] leading-7 sm:text-base;
+    }
+
+    .prose-content :where(h2, h3, h4, h5) {
+      scroll-margin-top: 6rem;
+    }
+
+    .prose-content :where(h2) {
+      @apply text-foreground mt-12 mb-4 border-b pb-2 text-xl font-semibold tracking-tight sm:text-2xl;
+    }
+
+    .prose-content :where(h3) {
+      @apply text-foreground mt-9 mb-3 text-lg font-semibold tracking-tight sm:text-xl;
+    }
+
+    .prose-content :where(h4) {
+      @apply text-foreground mt-7 mb-2 text-base font-semibold sm:text-lg;
+    }
+
+    .prose-content :where(h5) {
+      @apply text-muted-foreground mt-6 mb-2 text-xs font-semibold tracking-wider uppercase;
+    }
+
+    .prose-content :where(h2, h3, h4, h5) a.heading-anchor {
+      @apply text-muted-foreground ml-2 opacity-0 transition-opacity;
+      text-decoration-line: none !important;
+    }
+
+    .prose-content :where(h2, h3, h4, h5):hover a.heading-anchor,
+    a.heading-anchor:focus {
+      @apply opacity-100;
+    }
+
+    .prose-content :where(p) {
+      @apply mb-5;
+    }
+
+    .prose-content :where(img) {
+      @apply my-6 rounded-xl border shadow-sm;
+    }
+
+    .prose-content :where(em) {
+      @apply text-foreground italic;
+    }
+
+    .prose-content :where(u) {
+      @apply decoration-foreground/40 underline decoration-1 underline-offset-4;
+    }
+
+    .prose-content :where(hr) {
+      @apply border-border mx-auto my-12 w-1/3;
+    }
+
+    .prose-content :where(blockquote) {
+      @apply border-foreground/30 bg-secondary text-foreground my-6 rounded-r-lg border-l-4 px-5 py-4 not-italic;
+    }
+
+    .prose-content :where(blockquote) :where(p):last-child {
+      @apply mb-0;
+    }
+
+    .prose-content :where(ul, ol) {
+      @apply mb-5 ml-5 list-disc space-y-1.5;
+    }
+
+    .prose-content :where(ol) {
+      @apply list-decimal;
+    }
+
+    .prose-content :where(li)::marker {
+      @apply text-foreground/40;
+    }
+
+    .prose-content :where(ul):has(input[type="checkbox"]) {
+      @apply ml-0 list-none;
+    }
+
+    .prose-content :where(li) :where(input[type="checkbox"]) {
+      @apply accent-primary mr-2;
+    }
+
+    .prose-content :where(a) {
+      @apply font-semibold hover:underline;
+    }
+
+    .prose-content :where(strong) {
+      @apply text-foreground font-semibold;
+    }
+
+    .prose-content :where(code) {
+      @apply bg-secondary text-secondary-foreground rounded-md border px-1.5 py-0.5 font-mono text-[0.85em];
+    }
+
+    .prose-content :where(pre) {
+      @apply my-6 overflow-x-auto rounded-xl border p-4 text-xs shadow-sm sm:text-sm;
+    }
+
+    .prose-content :where(pre code) {
+      @apply rounded-none border-none bg-transparent p-0;
+    }
+
+    .prose-content :where(table) {
+      @apply my-6 w-full border-separate border-spacing-0 overflow-hidden rounded-xl border text-sm shadow-sm;
+    }
+
+    .prose-content :where(th, td) {
+      @apply border-border border-b px-4 py-3 text-start;
+    }
+
+    .prose-content :where(tbody tr:last-child td) {
+      @apply border-b-0;
+    }
+
+    .prose-content :where(th) {
+      @apply bg-secondary text-foreground text-xs font-semibold tracking-wide uppercase;
+    }
+
+    .prose-content :where(tbody tr) {
+      @apply hover:bg-secondary/50 transition-colors;
+    }
+
+    .prose-content .note {
+      @apply bg-secondary/50 text-foreground my-6 rounded-xl border px-5 py-4 text-sm;
+    }
+
+    .prose-content .note :where(strong):first-child {
+      @apply mr-1 text-xs font-semibold tracking-wide uppercase;
+    }
+
+    .prose-content .note :where(p):last-child {
+      @apply mb-0;
+    }
   }
 }
 

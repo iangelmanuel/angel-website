@@ -114,6 +114,22 @@ export const ui = {
     }
   },
 
+  blog: {
+    badge: { es: "Blog", en: "Blog" },
+    title: {
+      TERMINAL: { es: "cat ./blog/*.md", en: "cat ./blog/*.md" },
+      FORMAL: { es: "Últimas publicaciones", en: "Latest posts" }
+    },
+    readMore: {
+      TERMINAL: { es: "leer-más", en: "read-more" },
+      FORMAL: { es: "Leer más", en: "Read more" }
+    },
+    backToHome: {
+      TERMINAL: { es: "cd ..", en: "cd .." },
+      FORMAL: { es: "Volver al inicio", en: "Back to home" }
+    }
+  },
+
   contact: {
     badge: { es: "Contáctame", en: "Contact Me" },
     title: {

@@ -1,0 +1,83 @@
+---
+import { render } from "astro:content"
+import { getRelativeLocaleUrl } from "astro:i18n"
+
+import { ArrowLeft, Calendar } from "lucide-react"
+
+import { dateFormatter } from "@/libs/date-formatter"
+import { routes } from "@/const/routes"
+import { ui, useI18n } from "@/i18n"
+
+import type { CollectionEntry } from "astro:content"
+
+type Props = {
+  post: CollectionEntry<"blog">
+}
+
+const { post } = Astro.props
+const { Content } = await render(post)
+
+const { t, lang, design } = useI18n(Astro)
+const blog = t(ui.blog)
+---
+
+<section class="compact-section container-width pt-14 sm:pt-16">
+  <a
+    href={getRelativeLocaleUrl(lang, routes[design].home) + "#blog"}
+    class="text-link mb-8 inline-flex items-center gap-x-1"
+  >
+    <ArrowLeft className="size-3" />
+    {blog.backToHome}
+  </a>
+
+  <article>
+    <h1 class="page-title mb-3">{post.data.title}</h1>
+
+    <div class="card-meta mb-6 flex items-center gap-1.5">
+      <Calendar className="size-3.5" />
+      {
+        dateFormatter(post.data.publishDate, {
+          day: "2-digit",
+          month: "short",
+          year: "numeric"
+        })
+      }
+    </div>
+
+    {
+      post.data.tags && post.data.tags.length > 0 && (
+        <div class="mb-6 flex flex-wrap gap-1.5">
+          {post.data.tags.map((tag) => (
+            <span class="chip chip-solid">{tag}</span>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="prose-content">
+      <Content />
+    </div>
+  </article>
+</section>
+
+<script>
+  import { $$ } from "@/libs/dom-selector"
+
+  document.addEventListener("astro:page-load", () => {
+    const headings = $$<HTMLHeadingElement>(
+      ".prose-content h2[id], .prose-content h3[id]"
+    )
+
+    headings.forEach((heading) => {
+      if (heading.querySelector(".heading-anchor")) return
+
+      const anchor = document.createElement("a")
+      anchor.href = `#${heading.id}`
+      anchor.className = "heading-anchor"
+      anchor.setAttribute("aria-label", "Link to this section")
+      anchor.textContent = "#"
+
+      heading.append(anchor)
+    })
+  })
+</script>

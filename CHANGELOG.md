@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.0] - 2026-09-26
+
+### Added
+
+- New project entry **May-O (Experimental)** (ES/EN `.yml` + `may-o-project.webp` cover): an AI assistant chat that brings together multiple AI models, listens and talks back. Built with Next.js, TypeScript, Tailwind CSS, React and OpenRouter; public repo and live demo at `may-o.vercel.app`, marked as `featured`.
+
+### Changed
+
+- Moved the route map from `src/const/routes.ts` to `src/config/routes.ts`, alongside `site.ts`; contents unchanged. Imports updated in `TopMenu.astro`, `BlogPostCard.astro`, `PostDetail.astro`, `About.astro`, `src/libs/alternate-url.ts`, `src/libs/design.ts` and `src/pages/sitemap.xml.ts`.
+- Solis CRM renamed from "Solis CRM (Beta)" to "Solis CRM (Experimental)" in both languages.
+- Card accent rotation in `src/libs/card-accent.ts` now starts with `blue` and drops `pink`: `blue`, `violet`, `cyan`, `green`, `orange`.
+- Discord entry in `SITE.social` now points to the "Friends Developers" server invite (`discord.gg/mYHsVjWqdJ`) instead of the placeholder `angelmanuel` link.
+- README: the website link now points to `https://angeldm.dev`, and the "Hecho por Angel DM" footer links there too.
+
+### Removed
+
+- Removed `src/const/routes.ts`, superseded by `src/config/routes.ts`.
+- Removed the background-options comment from `LinksLayout.astro`.
+
 ## [1.8.0] - 2026-09-16
 
 ### Added
@@ -425,7 +444,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.8.0
+- **Current version**: 1.9.0
 - **Node.js**: >= 24.19.0
 - **pnpm**: >= 11.17.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)

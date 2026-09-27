@@ -1,4 +1,4 @@
-import { routes } from "@/const/routes"
+import { routes } from "@/config/routes"
 
 import type { Design } from "@/types/i18n"
 

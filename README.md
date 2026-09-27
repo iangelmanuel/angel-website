@@ -124,7 +124,7 @@ Repite el mismo archivo en `src/content/projects/en/`, coloca la imagen en
 - GitHub: [@iangelmanuel](https://github.com/iangelmanuel)
 - LinkedIn: [@iangelmanuel](https://www.linkedin.com/in/iangelmanuel)
 - X: [@iangelmanuel](https://x.com/iangelmanuel)
-- Website: [angeldm.dev](https://angel-website-pi.vercel.app)
+- Website: [angeldm.dev](https://angeldm.dev)
 
 ---
 
@@ -132,6 +132,6 @@ Repite el mismo archivo en `src/content/projects/en/`, coloca la imagen en
 
 Si te sirvió algo de este repo, deja una estrella ⭐
 
-Hecho por Angel DM
+Hecho por [Angel DM](https://angeldm.dev)
 
 </div>

@@ -1,6 +1,6 @@
 import { getRelativeLocaleUrl } from "astro:i18n"
 
-import { routes } from "@/const/routes"
+import { routes } from "@/config/routes"
 import { getDesign } from "@/libs/design"
 import { LANGS } from "@/i18n"
 

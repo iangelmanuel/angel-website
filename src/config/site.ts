@@ -130,8 +130,8 @@ export const SITE = {
     },
     discord: {
       label: "Discord",
-      handle: "angelmanuel",
-      url: "https://discord.gg/angelmanuel",
+      handle: "Friends Developers",
+      url: "https://discord.gg/mYHsVjWqdJ",
       icon: "discord",
       color: "#5865F2"
     },

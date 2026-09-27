@@ -1,0 +1,16 @@
+title: "May-O (Experimental)"
+description: "Your AI assistant, just one word away. Ask it questions, ask it to do things, or simply talk to it. May-O brings together the AI models you already know, free to get started, in a chat that also listens and talks to you."
+publishDate: 2026-09-19
+technologies:
+  - Next.js
+  - TypeScript
+  - Tailwind CSS
+  - React
+  - OpenRouter
+githubUrl:
+  url: "https://github.com/iangelmanuel/may-o"
+  isPrivate: false
+liveUrl: "https://may-o.vercel.app"
+image: "../../assets/projects/may-o-project.webp"
+featured: true
+status: "completed"

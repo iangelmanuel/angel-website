@@ -1,4 +1,4 @@
-const CARD_ACCENTS = ["violet", "cyan", "green", "pink", "orange"] as const
+const CARD_ACCENTS = ["blue", "violet", "cyan", "green", "orange"] as const
 
 export const getCardAccent = (index: number) =>
   CARD_ACCENTS[index % CARD_ACCENTS.length]

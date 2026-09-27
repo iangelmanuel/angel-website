@@ -2,7 +2,7 @@ import type { APIRoute } from "astro"
 import { getCollection } from "astro:content"
 
 import { SITE } from "@/config/site"
-import { routes } from "@/const/routes"
+import { routes } from "@/config/routes"
 
 type SitemapUrl = {
   path: string

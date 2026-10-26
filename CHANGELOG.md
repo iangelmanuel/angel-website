@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.9.1] - 2026-10-26
+
+### Changed
+
+- Replaced the Verlun Studio project cover image (`src/content/assets/projects/verlun-studio-project.webp`).
+- Dependencies updated and pinned to exact versions: `astro` 7.4.2, `@astrojs/react` 7.1.1, `@astrojs/vercel` 11.0.16, `react`/`react-dom` 19.3.1, `lucide-react` 1.61.0, `react-hook-form` 7.91.0, `resend` 6.34.1, `sharp` 0.35.5, `@astrojs/check` 0.9.12, `eslint` 10.13.0, `eslint-plugin-astro` 3.2.1, `prettier` 3.9.10, `prettier-plugin-astro` 1.1.2, `typescript-eslint` 8.72.0.
+- `@astrojs/react` 7 is a major bump: it moves to `@vitejs/plugin-react` v6 (JSX and Fast Refresh now run on Oxc) and drops the `babel` integration option. The project never used `babel`, so `astro.config.mjs` needs no changes. Its new minimum Node.js (22.23.4) is already covered by our `>=24.19.0` engine.
+- `typescript` stays on `6.0.3`: `astro check` still refuses TypeScript 7.0 outright. Astro's experimental replacement (`@astrojs/ts-content-mapper`) needs TypeScript 7.1+, which hasn't been released yet.
+
 ## [1.9.0] - 2026-09-26
 
 ### Added
@@ -444,9 +453,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version Support
 
-- **Current version**: 1.9.0
+- **Current version**: 1.9.1
 - **Node.js**: >= 24.19.0
 - **pnpm**: >= 11.17.0
 - **Browsers**: Modern browsers (Chrome 90+, Firefox 88+, Safari 14+, Edge 90+)
-- **Astro**: 7.3.2
+- **Astro**: 7.4.2
 - **Tailwind CSS**: v4.3.3

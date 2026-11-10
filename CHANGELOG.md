@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.10.0] — 2026-11-09
+
+Estandarización del proyecto y actualización a Node.js 26 (LTS).
+
+### Changed
+
+- **Node.js 26.13.0** (LTS) en `engines`, `.nvmrc` y CI; antes Node 24.
+- **pnpm 12.18.0** como `packageManager`.
+- **Dependencias** a su última versión exacta: Astro 7.4.7, `@astrojs/react` 7.1.4,
+  `@astrojs/vercel` 11.0.20, Tailwind CSS 4.3.5, gsap 3.15.1, lucide-react 1.70.0,
+  resend 6.37.0, ESLint 10.14.0 y typescript-eslint 8.72.1.
+
+### Fixed
+
+- `@emnapi/core` y `@emnapi/runtime` fijados a `1.11.3` (estable) mediante `overrides` en `pnpm-workspace.yaml`: la versión beta arrastrada por `@napi-rs/wasm-runtime` falla al terminar el proceso en Node 26.
+
+### Notes
+
+- TypeScript se mantiene en 6.0.3: `typescript-eslint` aún no soporta TS 7.
+
 ## [1.9.1] - 2026-10-26
 
 ### Changed
